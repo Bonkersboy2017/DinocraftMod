@@ -5,10 +5,10 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
-public class SauropodEntityRenderer extends MobEntityRenderer<SauropodEntity, sauropod> {
+public class SauropodEntityRenderer extends MobEntityRenderer<SauropodEntity, SauropodEntityModel> {
 
     public SauropodEntityRenderer(EntityRendererFactory.Context context) {
-        super(context, new sauropod(context.getPart(DinocraftClient.MODEL_SAUROPOD_LAYER)), 0.5f);
+        super(context, new SauropodEntityModel(context.getPart(DinocraftClient.MODEL_SAUROPOD_LAYER)), 0.5f);
     }
 
     @Override

@@ -5,16 +5,18 @@
 	// Paste this class into your mod and generate all required imports
 
  package com.dinocrew.dinocraft.registry.entities;
-import com.dinocrew.dinocraft.registry.entities.MicroraptorEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.ParrotEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.passive.ParrotEntity;
+import net.minecraft.util.math.MathHelper;
 
-import static net.minecraft.util.math.MathHelper.cos;
-
-
-public class microraptor extends EntityModel<MicroraptorEntity> {
+@Environment(EnvType.CLIENT)
+public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 private final ModelPart body;
 	private final ModelPart neck;
 	private final ModelPart head;
@@ -33,7 +35,7 @@ private final ModelPart body;
 	private final ModelPart tail1;
 	private final ModelPart tail2;
 	private final ModelPart tail3;
-	public microraptor(ModelPart root){
+	public MicroRaptorEntityModel(ModelPart root){
 this.body = root.getChild("body");
 this.tail1 = this.body.getChild("tail1");
 this.tail2 = this.tail1.getChild("tail2");
@@ -79,7 +81,7 @@ public static TexturedModelData getTexturedModelData() {
 }
 @Override
 public void render(MatrixStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		
+
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 }
 public void setRotationAngle(ModelPart bone, float x, float y, float z) {
@@ -88,7 +90,6 @@ public void setRotationAngle(ModelPart bone, float x, float y, float z) {
 		bone.roll = z;
 }
 
-	@Override
 	public void setAngles(MicroraptorEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		setRotationAngle(neck, -0.6981F, 0.0F, 0.0F);
 		setRotationAngle(head, 0.7854F, 0.0F, 0.0F);
@@ -99,6 +100,7 @@ public void setRotationAngle(ModelPart bone, float x, float y, float z) {
 		setRotationAngle(left_knee, 0.6981F, 0.0F, 0.0F);
 		setRotationAngle(left_foot, -0.3491F, 0.0F, 0.0F);
 
-		this.right_wing1.roll = cos(animationProgress/5);
-		this.left_wing1.roll = -cos(animationProgress/5);
-	}}
+		this.left_leg.yaw = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
+	}
+
+}

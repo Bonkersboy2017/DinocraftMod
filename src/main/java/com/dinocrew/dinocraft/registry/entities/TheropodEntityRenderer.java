@@ -5,10 +5,10 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
-public class TheropodEntityRenderer extends MobEntityRenderer<TheropodEntity, theropod> {
+public class TheropodEntityRenderer extends MobEntityRenderer<TheropodEntity, TheropodEntityModel> {
 
     public TheropodEntityRenderer(EntityRendererFactory.Context context) {
-        super(context, new theropod(context.getPart(DinocraftClient.MODEL_THEROPOD_LAYER)), 0.5f);
+        super(context, new TheropodEntityModel(context.getPart(DinocraftClient.MODEL_THEROPOD_LAYER)), 0.5f);
     }
 
     @Override

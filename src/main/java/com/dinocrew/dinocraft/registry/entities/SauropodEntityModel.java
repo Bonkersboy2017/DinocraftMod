@@ -12,7 +12,7 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
-public class sauropod  extends EntityModel<SauropodEntity> {
+public class SauropodEntityModel extends EntityModel<SauropodEntity> {
 private final ModelPart torso;
 	private final ModelPart tail;
 	private final ModelPart tailparttwo;
@@ -36,7 +36,7 @@ private final ModelPart torso;
 	private final ModelPart backleftleg;
 	private final ModelPart backleftlegbend;
 	private final ModelPart backleftlegfoot;
-	public sauropod(ModelPart root){
+	public SauropodEntityModel(ModelPart root){
 this.torso = root.getChild("torso");
 this.neck = this.torso.getChild("neck");
 this.necktwo = this.neck.getChild("necktwo");

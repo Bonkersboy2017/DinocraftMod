@@ -28,7 +28,6 @@ public class SkeletonOre extends Block {
             if (i > 0) {
                 this.dropExperience(world, pos, i);
             }
-            //test
         }
     }
 }

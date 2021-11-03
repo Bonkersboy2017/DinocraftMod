@@ -12,7 +12,7 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
-public class theropod extends EntityModel<TheropodEntity> {
+public class TheropodEntityModel extends EntityModel<TheropodEntity> {
 private final ModelPart torso;
 	private final ModelPart tail;
 	private final ModelPart tailtwo;
@@ -44,7 +44,7 @@ private final ModelPart torso;
 	private final ModelPart rightfootlefttoe;
 	private final ModelPart middletoerightfoot;
 	private final ModelPart toespike;
-	public theropod(ModelPart root){
+	public TheropodEntityModel(ModelPart root){
 this.torso = root.getChild("torso");
 this.neck = this.torso.getChild("neck");
 this.tail = this.torso.getChild("tail");

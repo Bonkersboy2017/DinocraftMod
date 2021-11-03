@@ -10,7 +10,7 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class mosasaurus extends EntityModel<MosasaurusEntity> {
+public class MosasaurusEntityModel extends EntityModel<MosasaurusEntity> {
 	private final ModelPart torso;
 	private final ModelPart tail;
 	private final ModelPart tailparttwo;
@@ -42,7 +42,7 @@ public class mosasaurus extends EntityModel<MosasaurusEntity> {
 	private final ModelPart thirteen;
 	private final ModelPart twelve;
 
-	public mosasaurus(ModelPart root) {
+	public MosasaurusEntityModel(ModelPart root) {
 		this.torso = root.getChild("torso");
 		this.neck = this.torso.getChild("neck");
 		this.necktwo = this.neck.getChild("necktwo");

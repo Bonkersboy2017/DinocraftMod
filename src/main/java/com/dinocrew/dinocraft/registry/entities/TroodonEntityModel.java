@@ -12,7 +12,7 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
-public class troodon extends EntityModel<TroodonEntity> {
+public class TroodonEntityModel extends EntityModel<TroodonEntity> {
 private final ModelPart torso;
 	private final ModelPart neck;
 	private final ModelPart tail;
@@ -41,7 +41,7 @@ private final ModelPart torso;
 	private final ModelPart head;
 	private final ModelPart jaw;
 	private final ModelPart bottomjaw;
-	public troodon(ModelPart root){
+	public TroodonEntityModel(ModelPart root){
 this.torso = root.getChild("torso");
 this.tail = this.torso.getChild("tail");
 this.tailtwo = this.tail.getChild("tailtwo");
