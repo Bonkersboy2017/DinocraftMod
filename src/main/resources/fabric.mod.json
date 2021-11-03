@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "dm",
+  "version": "${0.1}",
+
+  "name": "Dinocraft",
+  "description": "Dinocraft is a mod that contains new dinosaur and prehistoric items, blocks and mobs to the game.",
+  "authors": [
+    "Bonkersboy2017"
+  ],
+  "contact": {
+    "homepage": " http://thedinocrew.website2.me/",
+    "sources": ""
+  },
+
+  "license": "cc",
+  "icon": "assets/dm/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.dinocrew.dinocraft.client.DinocraftClient"
+    ],
+    "main": [
+      "com.dinocrew.dinocraft.Dinocraft"
+    ]
+  },
+  "mixins": [
+    ""
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
