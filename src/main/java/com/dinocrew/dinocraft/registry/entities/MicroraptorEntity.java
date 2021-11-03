@@ -13,7 +13,7 @@ public class MicroraptorEntity extends PathAwareEntity {
         //this.moveControl = new FlightMoveControl(this, 10, false);
     }
     protected void initGoals() {
-        this.goalSelector.add(2, new FlyOntoTreeGoal(this, 1.0D));
+        this.goalSelector.add(5, new FlyRandomlyGoal(this));
     }
     public boolean isInAir() {
         World world = this.getEntityWorld();
