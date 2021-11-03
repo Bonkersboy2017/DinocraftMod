@@ -7,7 +7,6 @@ import net.minecraft.util.Identifier;
 
 public class TroodonEntityRenderer extends MobEntityRenderer<TroodonEntity, TroodonEntityModel> {
 
-
     public TroodonEntityRenderer(EntityRendererFactory.Context context) {
         super(context, new TroodonEntityModel(context.getPart(DinocraftClient.MODEL_TROODON_LAYER)), 0.5f);
     }
