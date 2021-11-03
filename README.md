@@ -1,4 +1,4 @@
-# Fabric Example Mod
+# Dinocraft 
 
 ## Setup
 
