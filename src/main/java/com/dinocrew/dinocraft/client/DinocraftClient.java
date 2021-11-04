@@ -22,30 +22,19 @@ public class DinocraftClient implements ClientModInitializer {
     public void onInitializeClient() {
 
 
-        EntityRendererRegistry.INSTANCE.register(Dinocraft.SAUROPOD, (context) -> {
-            return new SauropodEntityRenderer(context);
-        });
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.SAUROPOD, SauropodEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_SAUROPOD_LAYER, SauropodEntityModel::getTexturedModelData);
 
-        EntityRendererRegistry.INSTANCE.register(Dinocraft.THEROPOD, (context) -> {
-            return new TheropodEntityRenderer(context);
-        });
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.THEROPOD, TheropodEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_THEROPOD_LAYER, TheropodEntityModel::getTexturedModelData);
 
-
-        EntityRendererRegistry.INSTANCE.register(Dinocraft.TROODON, (context) -> {
-            return new TroodonEntityRenderer(context);
-        });
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.TROODON, (context) -> new TroodonEntityRenderer(context));
         EntityModelLayerRegistry.registerModelLayer(MODEL_TROODON_LAYER, TroodonEntityModel::getTexturedModelData);
 
-        EntityRendererRegistry.INSTANCE.register(Dinocraft.MICORAPTOR, (context) -> {
-            return new MicoraptorEntityRenderer(context);
-        });
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.MICORAPTOR, MicoraptorEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_MICORAPTOR_LAYER, MicroRaptorEntityModel::getTexturedModelData);
 
-        EntityRendererRegistry.INSTANCE.register(Dinocraft.MOSASAURUS, (context) -> {
-            return new MosasaurusEntityRenderer(context);
-        });
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.MOSASAURUS, MosasaurusEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_MOSASAURUS_LAYER, MosasaurusEntityModel::getTexturedModelData);
 
 

@@ -1,9 +1,6 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.control.FlightMoveControl;
-import net.minecraft.entity.ai.goal.FlyOntoTreeGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.world.World;
 
@@ -12,12 +9,12 @@ public class MicroraptorEntity extends PathAwareEntity {
         super(entityType, world);
         //this.moveControl = new FlightMoveControl(this, 10, false);
     }
+
     protected void initGoals() {
         this.goalSelector.add(5, new FlyRandomlyGoal(this));
     }
-    public boolean isInAir() {
-        World world = this.getEntityWorld();
 
-        return !this.onGround;
+    public boolean isOnGround() {
+        return this.onGround;
     }
 }

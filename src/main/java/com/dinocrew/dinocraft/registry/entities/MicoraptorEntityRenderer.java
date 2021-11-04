@@ -8,7 +8,7 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
-public class MicoraptorEntityRenderer  extends MobEntityRenderer<MicroraptorEntity, MicroRaptorEntityModel> {
+public class MicoraptorEntityRenderer extends MobEntityRenderer<MicroraptorEntity, MicroRaptorEntityModel> {
 
     public MicoraptorEntityRenderer(EntityRendererFactory.Context context) {
         super(context, new MicroRaptorEntityModel(context.getPart(DinocraftClient.MODEL_MICORAPTOR_LAYER)), 0.5f);
