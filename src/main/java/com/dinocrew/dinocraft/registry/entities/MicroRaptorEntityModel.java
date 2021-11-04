@@ -99,14 +99,8 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 		float pi = 3.14159265358979323846264338327950288F;
 		setRotationAngle(neck, -0.6981F, 0.0F, 0.0F);
 		setRotationAngle(head, 0.7854F, 0.0F, 0.0F);
-		setRotationAngle(right_leg, -0.3491F, 0.0F, 0.0F);
-		setRotationAngle(right_knee, 0.6981F, 0.0F, 0.0F);
 		setRotationAngle(right_foot, -0.3491F, 0.0F, 0.0F);
-		setRotationAngle(left_leg, -0.3491F, 0.0F, 0.0F);
-		setRotationAngle(left_knee, 0.6981F, 0.0F, 0.0F);
 		setRotationAngle(left_foot, -0.3491F, 0.0F, 0.0F);
-		this.left_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
-		this.right_leg.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
 
 		if(!entity.isOnGround()) {
 			this.right_wing1.yaw = 0;
@@ -129,6 +123,17 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 			this.left_wing3.pitch = 0;
 			this.right_wing3.roll = MathHelper.cos(animationProgress/5)/3;
 			this.left_wing3.roll = -MathHelper.cos(animationProgress/5)/3;
+
+			this.tail1.yaw = 0;
+			this.tail2.yaw = 0;
+			this.tail3.yaw = 0;
+
+			this.left_leg.pitch = 1;
+			this.right_leg.pitch = 1;
+
+			this.left_knee.pitch = 1;
+			this.right_knee.pitch = 1;
+
 		} else {
 			this.right_wing1.roll = 120 * pi/180;
 			this.right_wing1.yaw = 135 * pi/180;
@@ -150,6 +155,16 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 			this.left_wing3.roll = 0;
 			this.right_wing3.pitch = 0;
 			this.left_wing3.pitch = 0;
+
+			this.tail1.yaw = -MathHelper.cos(animationProgress/5)/5;
+			this.tail2.yaw = -MathHelper.cos(animationProgress/5)/5;
+			this.tail3.yaw = -MathHelper.cos(animationProgress/5)/5;
+
+			this.left_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 - 0.3491F;
+			this.right_leg.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 - 0.3491F;
+
+			this.left_knee.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 + 0.6981F;
+			this.right_knee.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 + 0.6981F;
 		}
 	}
 

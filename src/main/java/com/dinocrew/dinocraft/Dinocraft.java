@@ -49,7 +49,7 @@ public class Dinocraft implements ModInitializer {
     public static final EntityType<MicroraptorEntity> MICORAPTOR = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("dinocraft", "micoraptor"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MicroraptorEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MicroraptorEntity::new).dimensions(EntityDimensions.fixed(1.5f, 2.5f)).build()
     );
 
     public static final EntityType<MosasaurusEntity> MOSASAURUS = Registry.register(
