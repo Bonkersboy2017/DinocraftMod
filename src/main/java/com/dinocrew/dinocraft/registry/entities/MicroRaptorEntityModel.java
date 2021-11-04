@@ -14,6 +14,9 @@ import net.minecraft.client.render.entity.model.ParrotEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.passive.ParrotEntity;
 import net.minecraft.util.math.MathHelper;
+import java.lang.Integer;
+
+import java.util.function.IntToDoubleFunction;
 
 @Environment(EnvType.CLIENT)
 public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
@@ -93,6 +96,7 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 	}
 
 	public void setAngles(MicroraptorEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+		float pi = 3.14159265358979323846264338327950288F;
 		setRotationAngle(neck, -0.6981F, 0.0F, 0.0F);
 		setRotationAngle(head, 0.7854F, 0.0F, 0.0F);
 		setRotationAngle(right_leg, -0.3491F, 0.0F, 0.0F);
@@ -101,14 +105,51 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 		setRotationAngle(left_leg, -0.3491F, 0.0F, 0.0F);
 		setRotationAngle(left_knee, 0.6981F, 0.0F, 0.0F);
 		setRotationAngle(left_foot, -0.3491F, 0.0F, 0.0F);
-		this.left_leg.yaw = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
+		this.left_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
+		this.right_leg.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
 
-		if(entity.isOnGround()) {
-			this.right_wing1.roll = MathHelper.cos(animationProgress/5);
-			this.left_wing1.roll = -1 * MathHelper.cos(animationProgress/5);
+		if(!entity.isOnGround()) {
+			this.right_wing1.yaw = 0;
+			this.left_wing1.yaw = 0;
+			this.right_wing1.pitch = 0;
+			this.left_wing1.pitch = 0;
+			this.right_wing1.roll = MathHelper.cos(animationProgress/5)/3;
+			this.left_wing1.roll = -MathHelper.cos(animationProgress/5)/3;
+
+			this.right_wing2.yaw = 0;
+			this.left_wing2.yaw = 0;
+			this.right_wing2.pitch = 0;
+			this.left_wing2.pitch = 0;
+			this.right_wing2.roll = MathHelper.cos(animationProgress/5)/3;
+			this.left_wing2.roll = -MathHelper.cos(animationProgress/5)/3;
+
+			this.right_wing3.yaw = 0;
+			this.left_wing3.yaw = 0;
+			this.right_wing3.pitch = 0;
+			this.left_wing3.pitch = 0;
+			this.right_wing3.roll = MathHelper.cos(animationProgress/5)/3;
+			this.left_wing3.roll = -MathHelper.cos(animationProgress/5)/3;
 		} else {
-			this.right_wing1.roll = 0;
-			this.left_wing1.roll = 0;
+			this.right_wing1.roll = 120 * pi/180;
+			this.right_wing1.yaw = 135 * pi/180;
+			this.right_wing1.pitch = 10 * pi/180;
+			this.left_wing1.roll = -120 * pi/180;
+			this.left_wing1.yaw = -135 * pi/180;
+			this.left_wing1.pitch = -10 * pi/180;
+
+			this.right_wing2.yaw = 0;
+			this.left_wing2.yaw = 0;
+			this.right_wing2.roll = 0;
+			this.left_wing2.roll = 0;
+			this.right_wing2.pitch = 0;
+			this.left_wing2.pitch = 0;
+
+			this.right_wing3.yaw = 0;
+			this.left_wing3.yaw = 0;
+			this.right_wing3.roll = 0;
+			this.left_wing3.roll = 0;
+			this.right_wing3.pitch = 0;
+			this.left_wing3.pitch = 0;
 		}
 	}
 
