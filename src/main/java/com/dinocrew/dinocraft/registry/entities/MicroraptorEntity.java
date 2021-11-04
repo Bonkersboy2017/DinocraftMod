@@ -11,7 +11,7 @@ public class MicroraptorEntity extends PathAwareEntity {
     }
 
     protected void initGoals() {
-        this.goalSelector.add(5, new FlyRandomlyGoal(this));
+        this.goalSelector.add(10, new FlyRandomlyGoal(this));
     }
 
     public boolean isOnGround() {
