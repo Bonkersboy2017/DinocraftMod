@@ -161,7 +161,7 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 			this.left_wing2.roll = 0;
 			this.right_wing2.pitch = 0;
 			this.left_wing2.pitch = 0;
-
+			
 			this.right_wing3.yaw = 0;
 			this.left_wing3.yaw = 0;
 			this.right_wing3.roll = 0;
