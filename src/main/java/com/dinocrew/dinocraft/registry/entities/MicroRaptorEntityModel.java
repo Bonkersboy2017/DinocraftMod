@@ -128,11 +128,24 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 			this.tail2.yaw = 0;
 			this.tail3.yaw = 0;
 
+			this.tail2.pitch = 0;
+			this.tail3.pitch = 0;
+
+			this.tail1.roll = 0;
+			this.tail2.roll = 0;
+			this.tail3.roll = 0;
+
+			this.tail1.pitch = 0;
+
 			this.left_leg.pitch = 1;
 			this.right_leg.pitch = 1;
 
 			this.left_knee.pitch = 1;
 			this.right_knee.pitch = 1;
+
+			this.head.pitch = 0;
+			this.neck.pitch = 0;
+			this.head.yaw = 0;
 
 		} else {
 			this.right_wing1.roll = 120 * pi/180;
@@ -160,11 +173,23 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 			this.tail2.yaw = -MathHelper.cos(animationProgress/5)/5;
 			this.tail3.yaw = -MathHelper.cos(animationProgress/5)/5;
 
+			this.tail1.roll = MathHelper.cos(animationProgress/5)/5;
+			this.tail2.roll = MathHelper.cos(animationProgress/5)/5;
+			this.tail3.roll = MathHelper.cos(animationProgress/5)/5;
+
+			this.head.pitch = 0.7854F;
+			this.neck.pitch = -0.6981F;
+
+			this.tail1.pitch = -MathHelper.sin(animationProgress/5)/20 - 20 * pi/180;
+			this.tail2.pitch = MathHelper.sin(animationProgress/5)/20 + 10 * pi/180;
+			this.tail3.pitch = -MathHelper.sin(animationProgress/5)/20 - 10 * pi/180;
+
 			this.left_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 - 0.3491F;
 			this.right_leg.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 - 0.3491F;
 
 			this.left_knee.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 + 0.6981F;
 			this.right_knee.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 2 + 0.6981F;
+
 		}
 	}
 
