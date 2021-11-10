@@ -95,14 +95,14 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "bronzium_leggings"), new BaseArmour(BRONZIUM_ARMOUR, EquipmentSlot.LEGS));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "bronzium_boots"), new BaseArmour(BRONZIUM_ARMOUR, EquipmentSlot.FEET));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "bronzium_ingot"), BRONZIUM_INGOT);
-        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "time_flint"), TIME_FLINT);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "shard_of_enlightenment"),SHARD_OF_ENLIGHTENMENT);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "wyvern_crystal"), WYVERN_CRYSTAL);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "sauropod_spawn_egg"), SAUROPOD_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "troodon_spawn_egg"), TROODON_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "theropod_spawn_egg"), THEROPOD_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "micoraptor_spawn_egg"), MICORAPTOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "mosasaurus_spawn_egg"), MOSASAURUS_SPAWN_EGG);
-        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "shard_of_enlightenment"),SHARD_OF_ENLIGHTENMENT);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "time_flint"), TIME_FLINT);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_core"),ENLIGHTENED_CORE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_necklace"),ENLIGHTENED_NECKLACE);
     }}
