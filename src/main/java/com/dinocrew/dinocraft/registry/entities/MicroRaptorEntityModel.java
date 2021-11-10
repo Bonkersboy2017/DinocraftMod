@@ -148,12 +148,8 @@ public class MicroRaptorEntityModel extends EntityModel<MicroraptorEntity> {
 			this.head.yaw = 0;
 
 		} else {
-			this.right_wing1.roll = 120 * pi/180;
-			this.right_wing1.yaw = 135 * pi/180;
-			this.right_wing1.pitch = 10 * pi/180;
-			this.left_wing1.roll = -120 * pi/180;
-			this.left_wing1.yaw = -135 * pi/180;
-			this.left_wing1.pitch = -10 * pi/180;
+			setRotationAngle(right_wing1, -2.2772F, 1.196F, -0.6124F);
+			setRotationAngle(left_wing1, -2.2772F, -1.196F, 0.6124F);
 
 			this.right_wing2.yaw = 0;
 			this.left_wing2.yaw = 0;
