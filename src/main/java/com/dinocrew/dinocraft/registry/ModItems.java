@@ -40,6 +40,8 @@ public class ModItems {
     public static final Item TROODON_SPAWN_EGG = new SpawnEggItem(Dinocraft.TROODON, 139, 0, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item MICORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.MICORAPTOR, 16753920, 132957, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(Dinocraft.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
@@ -102,6 +104,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "theropod_spawn_egg"), THEROPOD_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "micoraptor_spawn_egg"), MICORAPTOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "mosasaurus_spawn_egg"), MOSASAURUS_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "stegoraptor_spawn_egg"), STEGORAPTOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "time_flint"), TIME_FLINT);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_core"),ENLIGHTENED_CORE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_necklace"),ENLIGHTENED_NECKLACE);

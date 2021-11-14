@@ -57,6 +57,11 @@ public class Dinocraft implements ModInitializer {
             new Identifier("dinocraft", "mosasaurus"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MosasaurusEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
+    public static final EntityType<StegoraptorEntity> STEGORAPTOR = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("dinocraft", "stegoraptor"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+    );
 
 
 
@@ -70,6 +75,7 @@ public class Dinocraft implements ModInitializer {
         FabricDefaultAttributeRegistry.register(TROODON, TroodonEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MICORAPTOR, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
         
 
     }

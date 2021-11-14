@@ -17,6 +17,7 @@ public class DinocraftClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_TROODON_LAYER = new EntityModelLayer(new Identifier("dinocraft", "troodonl"), "main");
     public static final EntityModelLayer MODEL_MICORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "micorapter"), "main");
     public static final EntityModelLayer MODEL_MOSASAURUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mosasasaurus"), "main");
+    public static final EntityModelLayer MODEL_STEGORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "stegoraptor"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -36,6 +37,9 @@ public class DinocraftClient implements ClientModInitializer {
 
         EntityRendererRegistry.INSTANCE.register(Dinocraft.MOSASAURUS, MosasaurusEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_MOSASAURUS_LAYER, MosasaurusEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.STEGORAPTOR, StegoraptorEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_STEGORAPTOR_LAYER, StegoraptorEntityModel::getTexturedModelData);
 
 
 }}
