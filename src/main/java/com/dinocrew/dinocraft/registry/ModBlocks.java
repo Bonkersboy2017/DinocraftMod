@@ -45,6 +45,30 @@ public class ModBlocks
                             .breakByTool ( FabricToolTags.PICKAXES, 2 )
                             .requiresTool ()
             );
+    public static final Block DRAGONWOOD_LOG = new Block
+            (
+                    FabricBlockSettings.copyOf ( Blocks.IRON_ORE )
+                            .breakByTool ( FabricToolTags.PICKAXES, 2 )
+                            .requiresTool ()
+            );
+    public static final Block DRAGONWOOD_PLANKS = new Block
+            (
+                    FabricBlockSettings.copyOf ( Blocks.IRON_ORE )
+                            .breakByTool ( FabricToolTags.PICKAXES, 2 )
+                            .requiresTool ()
+            );
+    public static final Block STRIPPED_DRAGONWOOD_LOG = new Block
+            (
+                    FabricBlockSettings.copyOf ( Blocks.IRON_ORE )
+                            .breakByTool ( FabricToolTags.PICKAXES, 2 )
+                            .requiresTool ()
+            );
+    public static final Block DRAGONWOOD_LEAVES= new Block
+            (
+                    FabricBlockSettings.copyOf ( Blocks.IRON_ORE )
+                            .breakByTool ( FabricToolTags.PICKAXES, 2 )
+                            .requiresTool ()
+            );
 
     public static void registerAll()
     {
@@ -53,6 +77,10 @@ public class ModBlocks
         Identifier bronziumOreID = Dinocraft.getID ( "bronzium_ore" );
         Identifier bronziumBlockID = Dinocraft.getID ( "bronzium_block" );
         Identifier bronziumBricksID = Dinocraft.getID ( "bronzium_bricks" );
+        Identifier dragonwoodLogID = Dinocraft.getID ( "dragonwood_log" );
+        Identifier dragonwoodPlanksID = Dinocraft.getID ( "dragonwood_planks" );
+        Identifier strippedDragonwoodLogID = Dinocraft.getID ( "stripped_dragonwood_log" );
+        Identifier dragonwoodLeavesID = Dinocraft.getID ( "dragonwood_leaves" );
 
         // Register the SkeletonOre block
         registerBlock ( SKELETON_ORE,
@@ -92,6 +120,26 @@ public class ModBlocks
         registerBlock ( BRONZIUM_BRICKS,
                 Dinocraft.ITEM_GROUP,
                 bronziumBricksID
+        );
+
+                registerBlock ( DRAGONWOOD_LOG,
+                Dinocraft.ITEM_GROUP,
+                dragonwoodLogID
+        );
+
+        registerBlock ( DRAGONWOOD_PLANKS,
+                Dinocraft.ITEM_GROUP,
+                dragonwoodPlanksID
+        );
+
+        registerBlock ( STRIPPED_DRAGONWOOD_LOG,
+                Dinocraft.ITEM_GROUP,
+                strippedDragonwoodLogID
+        );
+
+        registerBlock ( DRAGONWOOD_LEAVES,
+                Dinocraft.ITEM_GROUP,
+                dragonwoodLeavesID
         );
     }
 

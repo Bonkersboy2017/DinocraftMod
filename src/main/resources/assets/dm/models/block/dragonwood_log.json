@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dm:blocks/dragonwood_log",
+    "north": "dm:blocks/dragonwood_log",
+    "south": "dm:blocks/dragonwood_log",
+    "east": "dm:blocks/dragonwood_log",
+    "west": "dm:blocks/dragonwood_log",
+    "up": "dm:blocks/dragonwood_top",
+    "down": "dm:blocks/dragonwood_top"
+  }
+}

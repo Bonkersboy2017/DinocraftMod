@@ -60,5 +60,9 @@
   "enchantment.dinocraft.bravery": "Bravery",
   "item.dm.tropical_berries": "Tropical Berries",
   "item.dm.enlightened_core": "Enlightened Core",
-  "item.dm.enlightened_necklace": "Enlightened Necklace"
+  "item.dm.enlightened_necklace": "Enlightened Necklace",
+  "block.dm.dragonwood_log": "Dragonwood Log",
+  "block.dm.dragonwood_planks": "Dragonwood Planks",
+  "block.dm.dragonwood_leaves": "Dragonwood Leaves",
+  "block.dm.stripped_dragonwood_log": "Stripped Dragonwood Log"
 }
