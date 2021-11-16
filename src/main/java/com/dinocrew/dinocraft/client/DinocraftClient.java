@@ -1,6 +1,7 @@
 package com.dinocrew.dinocraft.client;
 
 import com.dinocrew.dinocraft.Dinocraft;
+import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.dinocrew.dinocraft.registry.entities.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -43,6 +44,13 @@ public class DinocraftClient implements ClientModInitializer {
 
         EntityRendererRegistry.INSTANCE.register(Dinocraft.STEGORAPTOR, StegoraptorEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_STEGORAPTOR_LAYER, StegoraptorEntityModel::getTexturedModelData);
+
+        ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
+            assert world != null;
+            return BiomeColors.getFoliageColor(world, pos);
+        }), ModBlocks.DRAGONWOOD_LEAVES);
+
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> FoliageColors.getDefaultColor()), ModBlocks.DRAGONWOOD_LEAVES);
 
 
     }
