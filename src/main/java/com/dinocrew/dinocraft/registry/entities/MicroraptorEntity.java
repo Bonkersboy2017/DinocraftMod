@@ -19,7 +19,7 @@ public class MicroraptorEntity extends FlyingEntity {
     }
 
     protected void initGoals() {
-        this.goalSelector.add(10, new FlyRandomlyGoal(this));
+        //this.goalSelector.add(3, new FlyRandomlyGoal(this));
     }
 
     public boolean isOnGround() {

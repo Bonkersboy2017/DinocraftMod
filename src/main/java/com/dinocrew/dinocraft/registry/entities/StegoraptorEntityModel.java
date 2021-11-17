@@ -9,6 +9,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class StegoraptorEntityModel extends EntityModel<StegoraptorEntity> {
 private final ModelPart body;
@@ -117,20 +118,15 @@ return TexturedModelData.of(modelData,128,128);
 
 }
 @Override
-public void setAngles(StegoraptorEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+public void setAngles(StegoraptorEntity entity, float limbAngle, float limbDistance, float animationProgress, float netHeadYaw, float headPitch){
 		//previously the render function, render code was moved to a method below
 	setRotationAngle(body, -0.1745F, 0.0F, 0.0F);
 	setRotationAngle(neck1, -0.5236F, 0.0F, 0.0F);
 	setRotationAngle(neck2, -0.48F, 0.0F, 0.0F);
-	setRotationAngle(head, 1.3963F, 0.0F, 0.0F);	setRotationAngle(nose, 0.5236F, 0.0F, 0.0F);
+	setRotationAngle(head, 1.3963F, 0.0F, 0.0F);
+	setRotationAngle(nose, 0.5236F, 0.0F, 0.0F);
 	setRotationAngle(jaw, 0.2618F, 0.0F, 0.0F);
-	setRotationAngle(right_hip, -0.1745F, 0.0F, 0.0F);
-	setRotationAngle(right_leg, 1.2217F, 0.0F, 0.0F);
-	setRotationAngle(right_knee, -1.3963F, 0.0F, 0.0F);
 	setRotationAngle(right_foot, 0.5236F, 0.0F, 0.0F);
-	setRotationAngle(left_hip, -0.1745F, 0.0F, 0.0F);
-	setRotationAngle(left_leg, 1.2217F, 0.0F, 0.0F);
-	setRotationAngle(left_knee, -1.3963F, 0.0F, 0.0F);
 	setRotationAngle(left_foot, 0.5236F, 0.0F, 0.0F);
 	setRotationAngle(right_arm, 0.1745F, 0.0F, 0.0F);
 	setRotationAngle(right_wrist, -0.7418F, 0.0F, 0.0F);
@@ -139,6 +135,15 @@ public void setAngles(StegoraptorEntity entity, float limbSwing, float limbSwing
 	setRotationAngle(left_wrist, -0.7418F, 0.0F, 0.0F);
 	setRotationAngle(left_hand, 0.8727F, 0.0F, 0.0F);
 	setRotationAngle(tail1, 0.1745F, 0.0F, 0.0F);
+
+	this.left_hip.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 -0.1745F;
+	this.right_hip.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 -0.1745F;
+
+	this.left_leg.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 + 1.2217F;
+	this.right_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 + 1.2217F;
+
+	this.left_knee.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 -1.3963F;
+	this.right_knee.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 -1.3963F;
 
 }
 @Override
