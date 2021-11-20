@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dm:blocks/grassbottom",
+    "north": "dm:blocks/grasside",
+    "south": "dm:blocks/grasside",
+    "east": "dm:blocks/grasside",
+    "west": "dm:blocks/grasside",
+    "up": "dm:blocks/dragongrass",
+    "down": "dm:blocks/grassbottom"
+  }
+}

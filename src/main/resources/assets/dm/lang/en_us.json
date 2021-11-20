@@ -64,5 +64,6 @@
   "block.dm.dragonwood_log": "Dragonwood Log",
   "block.dm.dragonwood_planks": "Dragonwood Planks",
   "block.dm.dragonwood_leaves": "Dragonwood Leaves",
-  "block.dm.stripped_dragonwood_log": "Stripped Dragonwood Log"
+  "block.dm.stripped_dragonwood_log": "Stripped Dragonwood Log",
+  "block.dm.dragongrass": "Dragongrass"
 }
