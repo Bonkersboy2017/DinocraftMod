@@ -68,7 +68,21 @@ public class ModBlocks
                     FabricBlockSettings.copyOf ( Blocks.IRON_ORE )
                             .breakByTool ( FabricToolTags.PICKAXES, 2 )
                             .requiresTool ()
+                            .nonOpaque()
             );
+    public static final DoorBlock DRAGONWOOD_DOOR = (DoorBlock) new Block
+            (
+                    FabricBlockSettings.copyOf ( Blocks.IRON_ORE )
+                            .breakByTool ( FabricToolTags.PICKAXES, 2 )
+                            .requiresTool ()
+            );
+    public static final TrapdoorBlock DRAGONWOOD_TRAPDOOR = (TrapdoorBlock) new Block
+            (
+                    FabricBlockSettings.copyOf ( Blocks.IRON_ORE )
+                            .breakByTool ( FabricToolTags.PICKAXES, 2 )
+                            .requiresTool ()
+            );
+
 
     public static void registerAll()
     {
@@ -81,6 +95,8 @@ public class ModBlocks
         Identifier dragonwoodPlanksID = Dinocraft.getID ( "dragonwood_planks" );
         Identifier strippedDragonwoodLogID = Dinocraft.getID ( "stripped_dragonwood_log" );
         Identifier dragonwoodLeavesID = Dinocraft.getID ( "dragonwood_leaves" );
+        Identifier dragonwoodDoorID = Dinocraft.getID ( "dragonwood_door" );
+        Identifier dragonwoodTrapdoorID = Dinocraft.getID ( "dragonwood_trapdoor" );
 
         // Register the SkeletonOre block
         registerBlock ( SKELETON_ORE,
@@ -140,6 +156,14 @@ public class ModBlocks
         registerBlock ( DRAGONWOOD_LEAVES,
                 Dinocraft.ITEM_GROUP,
                 dragonwoodLeavesID
+        );
+        registerBlock ( DRAGONWOOD_DOOR,
+                Dinocraft.ITEM_GROUP,
+                dragonwoodDoorID
+        );
+        registerBlock ( DRAGONWOOD_TRAPDOOR,
+                Dinocraft.ITEM_GROUP,
+                dragonwoodTrapdoorID
         );
     }
 
