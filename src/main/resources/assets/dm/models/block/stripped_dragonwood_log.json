@@ -1,12 +1,8 @@
 {
-  "parent": "minecraft:block/cube",
+  "credit": "Made by FrozenBlockStudios",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "particle": "dm:blocks/stripped_dragonwood_log",
-    "north": "dm:blocks/stripped_dragonwood_log",
-    "south": "dm:blocks/stripped_dragonwood_log",
-    "east": "dm:blocks/stripped_dragonwood_log",
-    "west": "dm:blocks/stripped_dragonwood_log",
-    "up": "dm:blocks/stripped_dragonwood_top",
-    "down": "dm:blocks/stripped_dragonwood_top"
+    "end": "dm:block/stripped_dragonwood_log_top",
+    "side": "dm:block/stripped_dragonwood_log"
   }
 }

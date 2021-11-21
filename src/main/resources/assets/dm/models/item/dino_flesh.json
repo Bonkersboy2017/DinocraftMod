@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dm:items/dino_flesh"
+    "layer0": "dm:item/dino_flesh"
   }
 }

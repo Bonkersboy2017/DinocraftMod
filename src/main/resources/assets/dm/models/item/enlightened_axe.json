@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "dm:items/enlightened_axe"
+    "layer0": "dm:item/enlightened_axe"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dm:items/enlightened_necklace"
+    "layer0": "dm:item/enlightened_necklace"
   }
 }

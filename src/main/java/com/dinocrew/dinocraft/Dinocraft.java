@@ -18,7 +18,8 @@ public class Dinocraft implements ModInitializer {
 
     public static Identifier getID( String path )
     {
-        return new Identifier ( "dm", path ); }
+        return new Identifier ( MOD_ID, path );
+    }
 
 
 
@@ -63,6 +64,8 @@ public class Dinocraft implements ModInitializer {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
 
+    public static EntityType<DragonwoodBoatEntity> DRAGONWOOD_BOAT;
+
 
 
 
@@ -76,6 +79,7 @@ public class Dinocraft implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MICORAPTOR, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
+        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
         
 
     }

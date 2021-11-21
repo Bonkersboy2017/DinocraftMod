@@ -1,0 +1,7 @@
+{
+  "credit": "Made by FrozenBlockStudios",
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "dm:block/dragonwood_planks"
+  }
+}

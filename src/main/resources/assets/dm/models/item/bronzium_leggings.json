@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dm:items/bronzium_leggings"
+    "layer0": "dm:item/bronzium_leggings"
   }
 }

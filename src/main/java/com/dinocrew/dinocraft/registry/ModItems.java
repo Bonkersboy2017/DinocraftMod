@@ -4,6 +4,7 @@ import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.armour.BaseArmour;
 import com.dinocrew.dinocraft.armour.BronziumArmourMaterial;
 import com.dinocrew.dinocraft.armour.SkeletonArmourMaterial;
+import com.dinocrew.dinocraft.registry.items.DragonwoodBoatItem;
 import com.dinocrew.dinocraft.registry.weapons.*;
 import net.minecraft.block.NetherWartBlock;
 import net.minecraft.entity.EquipmentSlot;
@@ -46,6 +47,8 @@ public class ModItems {
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item ENLIGHTENED_NECKLACE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+
+    public static Item DRAGONWOOD_BOAT = new DragonwoodBoatItem(new Item.Settings().group(ItemGroup.TRANSPORTATION));
 
 
 
@@ -108,6 +111,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "time_flint"), TIME_FLINT);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_core"),ENLIGHTENED_CORE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_necklace"),ENLIGHTENED_NECKLACE);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_boat"), DRAGONWOOD_BOAT);
     }}
 
 

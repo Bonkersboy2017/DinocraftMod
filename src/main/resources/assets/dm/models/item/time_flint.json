@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dm:items/time_flint"
+    "layer0": "dm:item/time_flint"
   }
 }

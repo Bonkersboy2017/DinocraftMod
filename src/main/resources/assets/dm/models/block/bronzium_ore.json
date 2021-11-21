@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "dm:blocks/bronzium_ore"
+    "all": "dm:block/bronzium_ore"
   }
 }

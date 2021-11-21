@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "dm:block/dragonwood_leaves"}
+    "": {
+      "model": "dm:block/dragonwood_leaves"
+    }
   }
 }

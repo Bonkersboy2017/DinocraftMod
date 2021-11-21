@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/door",
-  "textures": {
-    "all": "dm:blocks/dragonwood_door"
-  }
-}

@@ -1,6 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "credit": "Made by FrozenBlockStudios",
+  "credit": "Model by FrozenBlock Studios",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "dm:blocks/dragonwood_planks"
+    "all": "dm:block/dragonwood_planks"
   }
 }

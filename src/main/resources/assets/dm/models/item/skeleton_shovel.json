@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "dm:items/skeleton_shovel"
+    "layer0": "dm:item/skeleton_shovel"
   }
 }

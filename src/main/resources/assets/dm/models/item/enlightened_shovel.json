@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "dm:items/enlightened_shovel"
+    "layer0": "dm:item/enlightened_shovel"
   }
 }

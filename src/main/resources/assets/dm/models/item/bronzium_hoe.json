@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "dm:items/bronzium_hoe"
+    "layer0": "dm:item/bronzium_hoe"
   }
 }

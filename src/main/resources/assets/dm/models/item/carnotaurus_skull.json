@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dm:items/carnotaurus_skull"
+    "layer0": "dm:item/carnotaurus_skull"
   }
 }

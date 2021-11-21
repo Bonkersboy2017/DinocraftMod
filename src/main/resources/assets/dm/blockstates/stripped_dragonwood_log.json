@@ -1,5 +1,16 @@
 {
   "variants": {
-    "": { "model": "dm:block/stripped_dragonwood_log"}
+    "axis=x": {
+      "model": "dm:block/stripped_dragonwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "dm:block/stripped_dragonwood_log"
+    },
+    "axis=z": {
+      "model": "dm:block/stripped_dragonwood_log_horizontal",
+      "x": 90
+    }
   }
 }

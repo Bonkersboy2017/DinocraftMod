@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "particle": "dm:blocks/dinobench_top",
-    "north": "dm:blocks/dinobench",
-    "south": "dm:blocks/dinobench",
-    "east": "dm:blocks/dinobench",
-    "west": "dm:blocks/dinobench",
-    "up": "dm:blocks/dinobench_top",
-    "down": "dm:blocks/dinobench"
+    "particle": "dm:block/dinobench_top",
+    "north": "dm:block/dinobench",
+    "south": "dm:block/dinobench",
+    "east": "dm:block/dinobench",
+    "west": "dm:block/dinobench",
+    "up": "dm:block/dinobench_top",
+    "down": "dm:block/dinobench"
   }
 }

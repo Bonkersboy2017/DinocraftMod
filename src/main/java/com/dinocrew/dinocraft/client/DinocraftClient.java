@@ -24,6 +24,7 @@ public class DinocraftClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_MICORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "micorapter"), "main");
     public static final EntityModelLayer MODEL_MOSASAURUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mosasasaurus"), "main");
     public static final EntityModelLayer MODEL_STEGORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "stegoraptor"), "main");
+    public static final EntityModelLayer MODEL_DRAGONWOOD_BOAT_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mangrove_boat"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -48,6 +49,9 @@ public class DinocraftClient implements ClientModInitializer {
 
         EntityRendererRegistry.INSTANCE.register(Dinocraft.STEGORAPTOR, StegoraptorEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_STEGORAPTOR_LAYER, StegoraptorEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.DRAGONWOOD_BOAT, DragonwoodBoatEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_DRAGONWOOD_BOAT_LAYER, DragonwoodBoatEntityModel::getTexturedModelData);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
             assert world != null;

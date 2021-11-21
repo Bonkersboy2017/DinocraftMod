@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "dm:items/allosaurus_skull"
+    "layer0": "dm:item/allosaurus_skull"
   }
 }

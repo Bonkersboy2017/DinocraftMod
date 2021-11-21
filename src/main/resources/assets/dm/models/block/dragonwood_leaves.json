@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "dm:blocks/dragonwood_leaves"
+    "all": "dm:block/dragonwood_leaves"
   }
 }
