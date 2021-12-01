@@ -17,12 +17,13 @@ public class ModBlocks
 {
     public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ();
 
-    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
+    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool());
     public static final Block DINOBENCH = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ).breakByTool ( FabricToolTags.AXES ));
     public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
     public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
     public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
     public static final Block DRAGONGRASS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
+    public static final Block DINOSAUR_TEMPERED_GLASS= new Block(FabricBlockSettings.copyOf ( Blocks.GLASS ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
 
     public static final Block DRAGONWOOD_LOG = new PillarBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_PLANKS = new Block(DRAGONWOOD_SETTINGS);
@@ -48,6 +49,7 @@ public class ModBlocks
         Identifier bronziumBlockID = Dinocraft.getID ( "bronzium_block" );
         Identifier bronziumBricksID = Dinocraft.getID ( "bronzium_bricks" );
         Identifier dragongrassID = Dinocraft.getID ( "dragongrass" );
+        Identifier dinosaaurTemperedGlassID = Dinocraft.getID ( "dinosaur_tempered_glass" );
 
         // Register the SkeletonOre block
         registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, skeletonOreID);
@@ -74,6 +76,7 @@ public class ModBlocks
         registerBlock (BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, bronziumBlockID);
         registerBlock (BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, bronziumBricksID);
         registerBlock (DRAGONGRASS, Dinocraft.ITEM_GROUP, dragongrassID);
+        registerBlock (DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP,dinosaaurTemperedGlassID );
 
         registerBlock(DRAGONWOOD_PLANKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_planks"));
         registerBlock(DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_log"));
