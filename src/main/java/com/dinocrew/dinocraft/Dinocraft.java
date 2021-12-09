@@ -2,6 +2,7 @@ package com.dinocrew.dinocraft;
 
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.registry.entities.*;
+import com.dinocrew.dinocraft.registry.treegen.DragonwoodTree;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -22,6 +23,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
@@ -88,69 +90,73 @@ public class Dinocraft implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MICORAPTOR, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
-        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
-        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("breakthrough", "dinocraft"), BREAKTHROUGH_SURFACE_BUILDER);
-        Registry.register(BuiltinRegistries.BIOME, BREAKTHROUGH_KEY.getValue(), BREAKTHROUGH);
-        OverworldBiomes.addContinentalBiome(BREAKTHROUGH_KEY, OverworldClimate.TEMPERATE, 2D);
-        OverworldBiomes.addContinentalBiome(BREAKTHROUGH_KEY, OverworldClimate.COOL, 2D);
+        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());}}
+//        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("breakthrough", "dinocraft"), BREAKTHROUGH_SURFACE_BUILDER);
+//        Registry.register(BuiltinRegistries.BIOME, BREAKTHROUGH_KEY.getValue(), BREAKTHROUGH);
+//        OverworldBiomes.addContinentalBiome(BREAKTHROUGH_KEY, OverworldClimate.TEMPERATE, 2D);
+//        OverworldBiomes.addContinentalBiome(BREAKTHROUGH_KEY, OverworldClimate.COOL, 2D);
 
 
 
-    }
-
+//    }
 
         
 
-
-    private  static  final ConfiguredSurfaceBuilder<TernarySurfaceConfig> BREAKTHROUGH_SURFACE_BUILDER = SurfaceBuilder. DEFAULT
-            . withConfig ( new TernarySurfaceConfig (
-                    ModBlocks.DRAGONGRASS . getDefaultState ( ) ,
-                    Blocks. DIRT . getDefaultState ( ) ,
-                    Blocks.STONE . getDefaultState ( ) ) ) ;
-
-    private  static  final Biome BREAKTHROUGH = createBreakthrough ( ) ;
-
-    private  static  Biome createBreakthrough ( )  {
-        // We specify what entities spawn and what features generate in the biome .
-        // Aside from some structures, trees, rocks, plants and
-        // custom entities, these are mostly the same for each biome .
-        // Vanilla configured features for biomes are defined in DefaultBiomeFeatures.
-
-        SpawnSettings. Builder spawnSettings =  new SpawnSettings. Builder ( ) ;
-        DefaultBiomeFeatures. addFarmAnimals ( spawnSettings ) ;
-        DefaultBiomeFeatures. addMonsters ( spawnSettings, 95 , 5 , 100 ) ;
-
-        GenerationSettings. Builder generationSettings =  new GenerationSettings. Builder ( ) ;
-        generationSettings. surfaceBuilder ( BREAKTHROUGH_SURFACE_BUILDER ) ;
-        DefaultBiomeFeatures. addDefaultUndergroundStructures ( generationSettings ) ;
-        DefaultBiomeFeatures. addLandCarvers ( generationSettings ) ;
-        DefaultBiomeFeatures. addDefaultLakes ( generationSettings ) ;
-        DefaultBiomeFeatures. addDungeons( generationSettings ) ;
-        DefaultBiomeFeatures. addMineables ( generationSettings ) ;
-        DefaultBiomeFeatures. addDefaultOres ( generationSettings ) ;
-        DefaultBiomeFeatures. addDefaultDisks ( generationSettings ) ;
-        DefaultBiomeFeatures. addSprings ( generationSettings ) ;
-        DefaultBiomeFeatures. addFrozenTopLayer ( generationSettings ) ;
-
-        return  ( new  Biome . Builder ( ) )
-                . precipitation ( Biome . Precipitation . RAIN )
-                . category ( Biome . Category . NONE )
-                . depth ( 0.125F )
-                . scale ( 0.05F )
-                . temperature ( 0.8F )
-                . downfall ( 0.4F )
-                . effects( ( new BiomeEffects. Builder ( ) )
-                        . waterColor ( 0xA62D74 )
-                        . waterFogColor ( 0xA62D74 )
-                        . fogColor ( 0xFBC1E3 )
-                        . skyColor ( 0xFBC1E3 )
-                        . build ( ) )
-                . spawnSettings ( spawnSettings. build ( ) )
-                . generationSettings ( generationSettings. build( ) )
-                . build ( ) ;
-    }
-    public  static  final RegistryKey< Biome > BREAKTHROUGH_KEY = RegistryKey. of ( Registry.BIOME_KEY, new Identifier ( "dinocraft" , "breakthrough" ) ) ;
-}
-
-
-
+//
+//    private  static  final ConfiguredSurfaceBuilder<TernarySurfaceConfig> BREAKTHROUGH_SURFACE_BUILDER = SurfaceBuilder. DEFAULT
+//            . withConfig ( new TernarySurfaceConfig (
+//                    ModBlocks.DRAGONGRASS . getDefaultState ( ) ,
+//                    Blocks. DIRT . getDefaultState ( ) ,
+//                    Blocks.STONE . getDefaultState ( ) ) ) ;
+//
+//    public static void addBreakthroughFeatures(GenerationSettings.Builder builder) {
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, DragonwoodTree.DRAGONWOOD_TREE);
+//    }
+//    private  static  final Biome BREAKTHROUGH = createBreakthrough ( ) ;
+//
+//    private  static  Biome createBreakthrough ( )  {
+//        // We specify what entities spawn and what features generate in the biome .
+//        // Aside from some structures, trees, rocks, plants and
+//        // custom entities, these are mostly the same for each biome .
+//        // Vanilla configured features for biomes are defined in DefaultBiomeFeatures.
+//
+//        SpawnSettings. Builder spawnSettings =  new SpawnSettings. Builder ( ) ;
+//        DefaultBiomeFeatures. addFarmAnimals ( spawnSettings ) ;
+//        DefaultBiomeFeatures. addMonsters ( spawnSettings, 95 , 5 , 100 ) ;
+//
+//
+//        GenerationSettings. Builder generationSettings =  new GenerationSettings. Builder ( ) ;
+//        generationSettings. surfaceBuilder ( BREAKTHROUGH_SURFACE_BUILDER ) ;
+//        DefaultBiomeFeatures. addDefaultUndergroundStructures ( generationSettings ) ;
+//        DefaultBiomeFeatures. addLandCarvers ( generationSettings ) ;
+//        DefaultBiomeFeatures. addDefaultLakes ( generationSettings ) ;
+//        DefaultBiomeFeatures. addDungeons( generationSettings ) ;
+//        DefaultBiomeFeatures. addMineables ( generationSettings ) ;
+//        DefaultBiomeFeatures. addDefaultOres ( generationSettings ) ;
+//        DefaultBiomeFeatures. addDefaultDisks ( generationSettings ) ;
+//        DefaultBiomeFeatures. addSprings ( generationSettings ) ;
+//        DefaultBiomeFeatures. addFrozenTopLayer ( generationSettings ) ;
+//        Dinocraft.addBreakthroughFeatures(generationSettings);
+//
+//        return  ( new  Biome . Builder ( ) )
+//                . precipitation ( Biome . Precipitation . RAIN )
+//                . category ( Biome . Category . NONE )
+//                . depth ( 0.125F )
+//                . scale ( 0.05F )
+//                . temperature ( 0.8F )
+//                . downfall ( 0.4F )
+//                . effects( ( new BiomeEffects. Builder ( ) )
+//                        . waterColor ( 0xA62D74 )
+//                        . waterFogColor ( 0xA62D74 )
+//                        . fogColor ( 0xFBC1E3 )
+//                        . skyColor ( 0xFBC1E3 )
+//                        . build ( ) )
+//                . spawnSettings ( spawnSettings. build ( ) )
+//                . generationSettings ( generationSettings. build( ) )
+//                . build ( ) ;
+//    }
+//    public  static  final RegistryKey< Biome > BREAKTHROUGH_KEY = RegistryKey. of ( Registry.BIOME_KEY, new Identifier ( "dinocraft" , "breakthrough" ) ) ;
+//}
+//
+//
+//

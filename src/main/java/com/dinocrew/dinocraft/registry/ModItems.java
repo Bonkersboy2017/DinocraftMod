@@ -113,6 +113,11 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_necklace"),ENLIGHTENED_NECKLACE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_boat"), DRAGONWOOD_BOAT);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "spear"), new SwordBase(new ToolMaterialEnlightened()));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_pickaxe"), new PickaxeBase(new ToolMaterialDragonwood()));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_axe"), new AxeBase(new ToolMaterialDragonwood()));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_shovel"), new ShovelBase(new ToolMaterialDragonwood()));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_hoe"), new HoeBase(new ToolMaterialDragonwood()));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_sword"), new SwordBase(new ToolMaterialDragonwood()));
     }}
 
 
