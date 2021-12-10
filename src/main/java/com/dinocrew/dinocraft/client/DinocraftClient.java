@@ -53,12 +53,8 @@ public class DinocraftClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(Dinocraft.DRAGONWOOD_BOAT, DragonwoodBoatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_DRAGONWOOD_BOAT_LAYER, DragonwoodBoatEntityModel::getTexturedModelData);
 
-        ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-            assert world != null;
-            return BiomeColors.getFoliageColor(world, pos);
-        }), ModBlocks.DRAGONWOOD_LEAVES);
-
-        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> FoliageColors.getDefaultColor()), ModBlocks.DRAGONWOOD_LEAVES);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DINOSAUR_TEMPERED_GLASS, RenderLayer.getCutout());
 
 
     }

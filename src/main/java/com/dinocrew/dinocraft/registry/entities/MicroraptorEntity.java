@@ -2,11 +2,7 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.control.MoveControl;
-import net.minecraft.entity.ai.goal.FollowTargetGoal;
-import net.minecraft.entity.mob.FlyingEntity;
-import net.minecraft.entity.mob.GhastEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.mob.FlyingEntity;;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;

@@ -2,12 +2,9 @@ package com.dinocrew.dinocraft;
 
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.registry.entities.*;
-import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
-import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -18,31 +15,15 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.HeightmapDecoratorConfig;
-import net.minecraft.world.gen.decorator.NopeDecoratorConfig;
-import net.minecraft.world.gen.decorator.WaterDepthThresholdDecoratorConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
+import net.minecraft.world.gen.YOffset;
+import net.minecraft.world.gen.decorator.CountPlacementModifier;
+import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
+import net.minecraft.world.gen.decorator.SquarePlacementModifier;
+import net.minecraft.world.gen.feature.*;
 
 public class Dinocraft implements ModInitializer {
 
@@ -105,7 +86,28 @@ public class Dinocraft implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MICORAPTOR, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
-        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());}
+        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
+                new Identifier("tutorial", "overworld_wool_ore"), OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_skeleton_ore"),
+                OVERWORLD_SKELETON_ORE_PLACED_FEATURE);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY,
+                        new Identifier("dinocraft", "overworld_skeleton_ore")));}
+
+    private static ConfiguredFeature<?, ?> OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE = Feature.ORE
+            .configure(new OreFeatureConfig(
+                    OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                    ModBlocks.SKELETON_ORE.getDefaultState(),
+                    9)); // vein size
+
+    public static PlacedFeature OVERWORLD_SKELETON_ORE_PLACED_FEATURE = OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE.withPlacement(
+            CountPlacementModifier.of(20), // number of veins per chunk
+            SquarePlacementModifier.of(), // spreading horizontally
+            HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))); // height
+    
+    }
+
        // RegisterWorldgen.RegisterWorldgen();
 //
 //        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("breakthrough", "dinocraft"), BREAKTHROUGH_SURFACE_BUILDER);
@@ -176,20 +178,20 @@ public class Dinocraft implements ModInitializer {
 //
 //    public static final RegistryKey<Biome> BREAKTHROUGH_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier("dinocraft", "breakthrough"));
 
-    public static final ConfiguredFeature<?, ?> DRAGONWOOD_TREE = Feature.TREE
-            // Configure the feature using the builder
-            .configure(new TreeFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(ModBlocks.DRAGONWOOD_LOG.getDefaultState()), // Trunk block provider
-                    new StraightTrunkPlacer(8, 3, 0), // places a straight trunk
-                    new SimpleBlockStateProvider(ModBlocks.DRAGONWOOD_LEAVES.getDefaultState()), // Foliage block provider
-                    new SimpleBlockStateProvider(ModBlocks.DRAGONWOOD_SAPLING.getDefaultState()), // Sapling provider; used to determine what blocks the tree can generate on
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3), // places leaves as a blob (radius, offset from trunk, height)
-                    new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
-            ).build())
-            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)))
-            .decorate(Decorator.ICEBERG.configure(new NopeDecoratorConfig()))
-            .decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(5))); // About a 33% chance to generate per chunk (1/x)
-    }
+//    public static final ConfiguredFeature<?, ?> DRAGONWOOD_TREE = Feature.TREE
+//            // Configure the feature using the builder
+//            .configure(new TreeFeatureConfig.Builder(
+//                    new SimpleBlockStateProvider(ModBlocks.DRAGONWOOD_LOG.getDefaultState()), // Trunk block provider
+//                    new StraightTrunkPlacer(8, 3, 0), // places a straight trunk
+//                    new SimpleBlockStateProvider(ModBlocks.DRAGONWOOD_LEAVES.getDefaultState()), // Foliage block provider
+//                    new SimpleBlockStateProvider(ModBlocks.DRAGONWOOD_SAPLING.getDefaultState()), // Sapling provider; used to determine what blocks the tree can generate on
+//                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 3), // places leaves as a blob (radius, offset from trunk, height)
+//                    new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
+//            ).build())
+//            .decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)))
+//            .decorate(Decorator.ICEBERG.configure(new NopeDecoratorConfig()))
+//            .decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(5))); // About a 33% chance to generate per chunk (1/x)
+//    }
 
 
 

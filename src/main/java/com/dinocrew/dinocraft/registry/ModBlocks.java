@@ -2,31 +2,27 @@ package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.registry.blocks.*;
-import com.dinocrew.dinocraft.registry.treegen.DragonwoodSaplingBlock;
-import com.dinocrew.dinocraft.registry.treegen.DragonwoodSaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;   
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 
 public class ModBlocks
 {
-    public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ();
+    public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ();
 
-    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool());
-    public static final Block DINOBENCH = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ).breakByTool ( FabricToolTags.AXES ));
-    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
-    public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
-    public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
-    public static final Block DRAGONGRASS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
-    public static final Block DINOSAUR_TEMPERED_GLASS= new GlassBlock(FabricBlockSettings.copyOf ( Blocks.GLASS ).
-            breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
+    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool());
+    public static final Block DINOBENCH = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ));
+    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
+    public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
+    public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
+    public static final Block DRAGONGRASS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
+    public static final Block DINOSAUR_TEMPERED_GLASS= new GlassBlock(FabricBlockSettings.copyOf ( Blocks.GLASS ).requiresTool ());
 
     public static final Block DRAGONWOOD_LOG = new PillarBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_PLANKS = new Block(DRAGONWOOD_SETTINGS);
@@ -40,9 +36,8 @@ public class ModBlocks
     public static final Block DRAGONWOOD_FENCE_GATE = new FenceGateBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_PRESSURE_PLATE = new CustomPressurePlate(PressurePlateBlock.ActivationRule.EVERYTHING, DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_TRAPDOOR = new CustomTrapdoor(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(DRAGONWOOD_SETTINGS);
+    public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque());
     public static final Block DRAGONWOOD_BUTTON = new CustomWoodenButton(DRAGONWOOD_SETTINGS);
-    public static final DragonwoodSaplingBlock DRAGONWOOD_SAPLING = new DragonwoodSaplingBlock(new DragonwoodSaplingGenerator(Dinocraft.DRAGONWOOD_TREE), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
 
 
     public static void registerAll()
@@ -59,19 +54,6 @@ public class ModBlocks
         registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, skeletonOreID);
         registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, bronziumOreID);
 
-        /* Register the skeleton one to spawn from levels 0-16, in groups of 9,
-         * once per chunk
-         */
-        ModFeatures.registerOverworldOreUniform ( SKELETON_ORE, /* Even though SKELETON_ORE
-                 * is private, it can still
-                 * be passed to other classes
-                 */
-                0,
-                16,
-                9,
-                1,
-                skeletonOreID
-        );
         
         
 
