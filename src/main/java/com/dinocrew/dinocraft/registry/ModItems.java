@@ -42,7 +42,7 @@ public class ModItems {
     public static final Item MICORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.MICORAPTOR, 16753920, 132957, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(Dinocraft.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-
+    public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
@@ -118,6 +118,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_shovel"), new ShovelBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_hoe"), new HoeBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_sword"), new SwordBase(new ToolMaterialDragonwood()));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dinosteel_ingot"),DINOSTEEL_INGOT);
     }}
 
 

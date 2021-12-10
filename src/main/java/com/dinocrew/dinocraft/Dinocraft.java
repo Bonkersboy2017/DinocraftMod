@@ -3,6 +3,7 @@ package com.dinocrew.dinocraft;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.registry.entities.*;
 import com.dinocrew.dinocraft.registry.treegen.DragonwoodTree;
+import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
@@ -90,18 +91,18 @@ public class Dinocraft implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MICORAPTOR, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
-        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());}}
+        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
+        //RegisterWorldgen.RegisterWorldgen();
+    }}
 //        Registry.register(BuiltinRegistries.CONFIGURED_SURFACE_BUILDER, new Identifier("breakthrough", "dinocraft"), BREAKTHROUGH_SURFACE_BUILDER);
 //        Registry.register(BuiltinRegistries.BIOME, BREAKTHROUGH_KEY.getValue(), BREAKTHROUGH);
 //        OverworldBiomes.addContinentalBiome(BREAKTHROUGH_KEY, OverworldClimate.TEMPERATE, 2D);
 //        OverworldBiomes.addContinentalBiome(BREAKTHROUGH_KEY, OverworldClimate.COOL, 2D);
-
-
-
+//
+//
+//
 //    }
-
-        
-
+//
 //
 //    private  static  final ConfiguredSurfaceBuilder<TernarySurfaceConfig> BREAKTHROUGH_SURFACE_BUILDER = SurfaceBuilder. DEFAULT
 //            . withConfig ( new TernarySurfaceConfig (
@@ -156,7 +157,7 @@ public class Dinocraft implements ModInitializer {
 //                . build ( ) ;
 //    }
 //    public  static  final RegistryKey< Biome > BREAKTHROUGH_KEY = RegistryKey. of ( Registry.BIOME_KEY, new Identifier ( "dinocraft" , "breakthrough" ) ) ;
-//}
+//        }
 //
 //
 //

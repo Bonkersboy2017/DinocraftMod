@@ -23,7 +23,7 @@ public class ModBlocks
     public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
     public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
     public static final Block DRAGONGRASS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
-    public static final Block DINOSAUR_TEMPERED_GLASS= new Block(FabricBlockSettings.copyOf ( Blocks.GLASS ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
+    public static final Block DINOSAUR_TEMPERED_GLASS= new GlassBlock(FabricBlockSettings.copyOf ( Blocks.GLASS ).breakByTool ( FabricToolTags.PICKAXES, 2 ).requiresTool ());
 
     public static final Block DRAGONWOOD_LOG = new PillarBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_PLANKS = new Block(DRAGONWOOD_SETTINGS);

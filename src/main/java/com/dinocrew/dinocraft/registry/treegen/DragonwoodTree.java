@@ -40,7 +40,7 @@ public class DragonwoodTree {
             .spreadHorizontally()
             .applyChance(1); // About a 33% chance to generate per chunk (1/x)
 
-    public static final ConfiguredFeature<?, ?> MANGROVE_TREE_PLANTABLE = Feature.TREE
+    public static final ConfiguredFeature<?, ?> DRRAGONWOOD_TREE_PLANTABLE = Feature.TREE
             .configure(new TreeFeatureConfig.Builder(
                     new SimpleBlockStateProvider(ModBlocks.DRAGONWOOD_LOG.getDefaultState()), // Trunk block provider
                     new ForkingTrunkPlacer(5, 1, 5), // places a forked trunk
