@@ -18,6 +18,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.CountPlacementModifier;
@@ -86,6 +87,13 @@ public class Dinocraft implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MICORAPTOR, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, SAUROPOD, 8, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, TROODON, 8, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, THEROPOD, 8, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, MICORAPTOR, 8, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, STEGORAPTOR, 8, 1, 1);
+
+
         DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
                 new Identifier("tutorial", "overworld_wool_ore"), OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE);
