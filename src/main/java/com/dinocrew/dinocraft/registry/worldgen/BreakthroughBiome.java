@@ -1,5 +1,6 @@
 package com.dinocrew.dinocraft.registry.worldgen;
 
+import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.dinocrew.dinocraft.registry.treegen.DragonwoodTree;
 import net.minecraft.block.Blocks;
@@ -16,14 +17,14 @@ import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 public class BreakthroughBiome {
 
-    public static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> BREAKTHROUGH_BIOME_BUILDER = SurfaceBuilder.SWAMP
+    public static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> BREAKTHROUGH_BIOME_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
                     ModBlocks.DRAGONGRASS.getDefaultState(),
                     Blocks.DIRT.getDefaultState(),
                     Blocks.STONE.getDefaultState()));
 
     public static void addBreakthroughBiomeFeatures(GenerationSettings.Builder builder) {
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, DragonwoodTree.DRAGONWOOD_TREE);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, Dinocraft.DRAGONWOOD_TREE);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_WATERLILLY);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_WATERLILLY);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_WATERLILLY);
@@ -70,7 +71,6 @@ public class BreakthroughBiome {
                         .grassColor(0x6A7039)
                         .fogColor(0xc0d8ff)
                         .skyColor(0x78a7ff)
-                        .grassColorModifier(BiomeEffects.GrassColorModifier.SWAMP)
                         .build())
                 .spawnSettings(spawnSettings.build())
                 .generationSettings(generationSettings.build())

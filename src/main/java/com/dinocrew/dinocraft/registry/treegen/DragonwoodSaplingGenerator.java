@@ -8,10 +8,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Random;
 
 public class DragonwoodSaplingGenerator extends SaplingGenerator {
+    private final ConfiguredFeature<TreeFeatureConfig, ?> feature;
 
-    @Nullable
-    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bees) {
-        return (ConfiguredFeature<TreeFeatureConfig, ?>) DragonwoodTree.DRRAGONWOOD_TREE_PLANTABLE;
+    public DragonwoodSaplingGenerator(ConfiguredFeature<?, ?> feature) {
+        this.feature = (ConfiguredFeature<TreeFeatureConfig, ?>) feature;
     }
 
+    @Nullable
+    @Override
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bees) {
+        return feature;
+    }
 }
