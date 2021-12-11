@@ -92,6 +92,7 @@ public class Dinocraft implements ModInitializer {
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, THEROPOD, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, MICORAPTOR, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, STEGORAPTOR, 8, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.RIVER), SpawnGroup.MONSTER, MOSASAURUS, 8, 1, 1);
 
 
         DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
