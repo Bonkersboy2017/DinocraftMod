@@ -53,7 +53,6 @@ public class DinocraftClient implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(Dinocraft.DRAGONWOOD_BOAT, DragonwoodBoatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_DRAGONWOOD_BOAT_LAYER, DragonwoodBoatEntityModel::getTexturedModelData);
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DINOSAUR_TEMPERED_GLASS, RenderLayer.getCutout());
 
 
