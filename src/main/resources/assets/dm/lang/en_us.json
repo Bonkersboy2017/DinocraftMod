@@ -65,5 +65,25 @@
   "block.dm.dragonwood_planks": "Dragonwood Planks",
   "block.dm.dragonwood_leaves": "Dragonwood Leaves",
   "block.dm.stripped_dragonwood_log": "Stripped Dragonwood Log",
-  "block.dm.dragongrass": "Dragongrass"
+  "block.dm.dragongrass": "Dragongrass",
+  "item.dm.dragonwood_sword": "Dragonwood Sword",
+  "item.dm.dragonwood_shovel": "Dragonwood Shovel",
+  "item.dm.dragonwood_pickaxe": "Dragonwood Pickaxe",
+  "item.dm.dragonwood_axe": "Dragonwood Axe",
+  "item.dm.dragonwood_hoe": "Dragonwood Hoe",
+  "block.dm.dragonwood_pressure_plate":"Dragonwood Pressure Plate",
+  "block.dm.dragonwood_stairs": "Dragonwood Stairs",
+  "block.dm.dragonwood_slab": "Dragonwood Slab",
+  "block.dm.dragonwood_door":"Dragonwood Door",
+  "block.dm.dragonwood_trapdoor":"Dragonwood Trapdoor",
+  "block.dm.dragonwood_fence": "Dragonwood Fence",
+  "block.dm.dragonwood_fence_gate": "Dragonwood Fence Gate",
+  "block.dm.dragonwood_button": "Dragonwood Button",
+  "item.dm.spear": "Spear of Extinction",
+  "item.dm.dinosteel_ingot": "Dinosteel Ingot",
+  "block.dm.dinosaur_tempered_glass": "Dinosaur Tempered Glass",
+  "item.dm.dragonwood_boat": "Dragonwood Boat",
+  "block.dm.dragonwood_wood": "Dragonwood Wood",
+  "block.dm.stripped_dragonwood_wood": "Stripped Dragonwood Wood"
+  
 }
