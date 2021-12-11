@@ -90,19 +90,26 @@ public class Dinocraft implements ModInitializer {
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, SAUROPOD, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, TROODON, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, THEROPOD, 8, 1, 1);
-        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, MICORAPTOR, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, STEGORAPTOR, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.RIVER), SpawnGroup.MONSTER, MOSASAURUS, 8, 1, 1);
 
 
         DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier("dinocraft", "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                new Identifier("tutorial", "overworld_wool_ore"), OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE);
+                new Identifier("dinocraft", "overworld_skeleton_ore"), OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE);
         Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_skeleton_ore"),
                 OVERWORLD_SKELETON_ORE_PLACED_FEATURE);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
                 RegistryKey.of(Registry.PLACED_FEATURE_KEY,
-                        new Identifier("dinocraft", "overworld_skeleton_ore")));}
+                        new Identifier("dinocraft", "overworld_skeleton_ore")));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
+                new Identifier("dinocraft", "overworld_bronzium_ore"), OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_bronzium_ore"),
+                OVERWORLD_BRONZIUM_ORE_PLACED_FEATURE);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY,
+                        new Identifier("dinocraft", "overworld_bronzium_ore")));
+    }
 
     private static ConfiguredFeature<?, ?> OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE = Feature.ORE
             .configure(new OreFeatureConfig(
@@ -114,8 +121,20 @@ public class Dinocraft implements ModInitializer {
             CountPlacementModifier.of(20), // number of veins per chunk
             SquarePlacementModifier.of(), // spreading horizontally
             HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))); // height
+
+
+    private static ConfiguredFeature<?, ?> OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE = Feature.ORE
+            .configure(new OreFeatureConfig(
+                    OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                    ModBlocks.BRONZIUM_ORE.getDefaultState(),
+                    9)); // vein size
+
+    public static PlacedFeature OVERWORLD_BRONZIUM_ORE_PLACED_FEATURE = OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE.withPlacement(
+            CountPlacementModifier.of(20), // number of veins per chunk
+            SquarePlacementModifier.of(), // spreading horizontally
+            HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))); // height
+}
     
-    }
 
        // RegisterWorldgen.RegisterWorldgen();
 //
