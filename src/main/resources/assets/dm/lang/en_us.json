@@ -1,6 +1,6 @@
 {
-  "item.dm.allosaurus_skull": "Allosaurus Skull",
-  "item.dm.baryonyx_skull": "Baryonyx Skull",
+  "item.dm.allosaurus_skull": "Sauropod Skull",
+  "item.dm.baryonyx_skull": "Trodoon Skull",
   "item.dm.dino_kidney": "Dino Kidney",
   "block.dm.dinobench": "Dinobench",
   "itemGroup.dm.general": "Dinocraft",
@@ -46,7 +46,7 @@
   "block.dm.bronzium_bricks": "Bronzium Bricks",
   "item.dm.bronzium_ingot": "Bronzium Ingot",
   "item.dm.berries": "Berries",
-  "item.dm.carnotaurus_skull": "Carnotaurus Skull",
+  "item.dm.carnotaurus_skull": "Theropod Skull",
   "item.dm.them_chilli": "Them Chilli",
   "item.dm.demme_berries": "Demme Berries",
   "item.dm.time_flint": "Time Flint",
