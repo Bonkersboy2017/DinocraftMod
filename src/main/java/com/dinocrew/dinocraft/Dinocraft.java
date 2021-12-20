@@ -71,7 +71,7 @@ public class Dinocraft implements ModInitializer {
     public static final EntityType<StegoraptorEntity> STEGORAPTOR = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("dinocraft", "stegoraptor"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(2f, 1.5f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build()
     );
 
     public static EntityType<DragonwoodBoatEntity> DRAGONWOOD_BOAT;
