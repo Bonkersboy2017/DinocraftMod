@@ -84,6 +84,13 @@
   "block.dm.dinosaur_tempered_glass": "Dinosaur Tempered Glass",
   "item.dm.dragonwood_boat": "Dragonwood Boat",
   "block.dm.dragonwood_wood": "Dragonwood Wood",
-  "block.dm.stripped_dragonwood_wood": "Stripped Dragonwood Wood"
+  "block.dm.stripped_dragonwood_wood": "Stripped Dragonwood Wood",
+  "item.dm.mosausaurus_spawn_egg.tooltip": "ONLY Spawn in Water!",
+  "block.dm.polished_fs": "Polished Fossilized Stone",
+  "block.dm.polished_wbc": "Polished Waxed Fossilized Stone",
+  "block.dm.fs_bricks": "Fossilized Stone Tiles",
+  "block.dm.wbc_bricks": "Waxed Fossilized Stone Tiles",
+  "block.dm.fossilized_stone": "Fossilized Stone",
+  "block.dm.wbc": "Waxed Fossilized Stone"
   
 }

@@ -6,10 +6,18 @@ import com.dinocrew.dinocraft.armour.BronziumArmourMaterial;
 import com.dinocrew.dinocraft.armour.SkeletonArmourMaterial;
 import com.dinocrew.dinocraft.registry.items.DragonwoodBoatItem;
 import com.dinocrew.dinocraft.registry.weapons.*;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ModItems {
 
@@ -38,7 +46,9 @@ public class ModItems {
     public static final Item THEROPOD_SPAWN_EGG = new SpawnEggItem(Dinocraft.THEROPOD, 167475200, 16777215, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item TROODON_SPAWN_EGG = new SpawnEggItem(Dinocraft.TROODON, 139, 0, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item MICORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.MICORAPTOR, 16753920, 132957, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(Dinocraft.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item MOSASAURUS_SPAWN_EGG = new MosasaurusSpawnEggItem(Dinocraft.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+
+
     public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
@@ -46,7 +56,7 @@ public class ModItems {
     public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item ENLIGHTENED_NECKLACE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
 
-    public static Item DRAGONWOOD_BOAT = new DragonwoodBoatItem(new Item.Settings().group(ItemGroup.TRANSPORTATION));
+    public static Item DRAGONWOOD_BOAT = new DragonwoodBoatItem(new Item.Settings().group(Dinocraft.ITEM_GROUP));
 
 
 
@@ -117,7 +127,11 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_hoe"), new HoeBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_sword"), new SwordBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dinosteel_ingot"),DINOSTEEL_INGOT);
-    }}
+    }
+    }
+
+
+
 
 
 
