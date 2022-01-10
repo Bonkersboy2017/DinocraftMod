@@ -8,6 +8,7 @@ import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -16,9 +17,10 @@ public class ModBlocks
 {
     public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ();
 
-    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool());
+    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (12.0f, 26.0f).requiresTool().breakByTool(FabricToolTags.PICKAXES, 2).sounds(BlockSoundGroup.STONE));
+
     public static final Block DINOBENCH = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ));
-    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
+    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (12.0f, 26.0f).requiresTool().breakByTool(FabricToolTags.PICKAXES, 2).sounds(BlockSoundGroup.STONE));
     public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
     public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
     public static final Block DRAGONGRASS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool ());
