@@ -109,6 +109,11 @@ public class Dinocraft implements ModInitializer {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
                 RegistryKey.of(Registry.PLACED_FEATURE_KEY,
                         new Identifier("dinocraft", "overworld_bronzium_ore")));
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_fossilised_stone"),
+                OVERWORLD_FOSSILISED_STONE_PLACED_FEATURE);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY,
+                        new Identifier("dinocraft", "overworld_fossilised_stone")));
     }
 
     private static ConfiguredFeature<?, ?> OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE = Feature.ORE
@@ -130,6 +135,17 @@ public class Dinocraft implements ModInitializer {
                     9)); // vein size
 
     public static PlacedFeature OVERWORLD_BRONZIUM_ORE_PLACED_FEATURE = OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE.withPlacement(
+            CountPlacementModifier.of(20), // number of veins per chunk
+            SquarePlacementModifier.of(), // spreading horizontally
+            HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))); // height
+
+    private static ConfiguredFeature<?, ?> OVERWORLD_FOSSILISED_STONE_CONFIGURED_FEATURE = Feature.ORE
+            .configure(new OreFeatureConfig(
+                    OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                    ModBlocks.FOSSILIZED_STONE.getDefaultState(),
+                    9)); // vein size
+
+    public static PlacedFeature OVERWORLD_FOSSILISED_STONE_PLACED_FEATURE = OVERWORLD_FOSSILISED_STONE_CONFIGURED_FEATURE.withPlacement(
             CountPlacementModifier.of(20), // number of veins per chunk
             SquarePlacementModifier.of(), // spreading horizontally
             HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))); // height
