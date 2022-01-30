@@ -15,26 +15,27 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-public class DinotanerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory {
-     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
+public class DinotanerBlockEntity// extends BlockEntity implements NamedScreenHandlerFactory
+{}
+//     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
 
-    public DinotanerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state);
-    }
-
-//    public DinotanerBlockEntity(BlockPos pos, BlockState state) {
+//    public DinotanerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+//        super(type, pos, state);
+//    }
 //
-        //    super(Dinocraft,DINOTANER_BLOCK_ENTITY);
-    //}
-
-    @Override
-    public Text getDisplayName() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return null;
-    }
-}
+////    public DinotanerBlockEntity(BlockPos pos, BlockState state) {
+////
+//        //    super(Dinocraft,DINOTANER_BLOCK_ENTITY);
+//    //}
+//
+//    @Override
+//    public Text getDisplayName() {
+//        return null;
+//    }
+//
+//    @Nullable
+//    @Override
+//    public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
+//        return null;
+//    }
+//}
