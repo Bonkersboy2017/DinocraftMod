@@ -6,14 +6,22 @@ import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.entity.mob.PhantomEntity.field_28641;
 
-public class TheropodEntity extends PathAwareEntity {
-    public TheropodEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
+public class TheropodEntity extends TameableEntity {
+    public TheropodEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
 
     }
@@ -23,4 +31,27 @@ public class TheropodEntity extends PathAwareEntity {
         this.goalSelector.add(4, new TemptGoal(this, 0.7D, Ingredient.ofItems(new ItemConvertible[]{ModItems.CYAD_LEAF}), false));
     }
 
+
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.isItemEqual(ModItems.CYAD_SEEDS.getDefaultStack())) {
+            if (!player.getAbilities().creativeMode) {
+                itemStack.decrement(1);
+            }
+            this.setOwner(player);
+            this.navigation.stop();
+            this.setTarget(null);
+            this.setSitting(true);
+            this.world.sendEntityStatus(this, (byte) 7);
+
+            return ActionResult.SUCCESS;
+        }
+        return super.interactMob(player, hand);
+    }
+
+    @Nullable
+    @Override
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+        return null;
+    }
 }
