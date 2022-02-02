@@ -1,11 +1,15 @@
 package com.dinocrew.dinocraft.block;
 
+import com.dinocrew.dinocraft.Dinocraft;
+import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.ActionResult;
@@ -13,58 +17,62 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class DinotanerBlock extends BlockWithEntity {
-    protected DinotanerBlock(Settings settings) {
-        super(settings);
-    }
+import java.awt.*;
 
-    @Nullable
-    @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return null;
-    }
-}
+public class DinotanerBlock //extends BlockWithEntity
+{
+//    public DinotanerBlock(Settings settings) {
+//        super(settings);
+//    }
+
+//    // A side effect of extending BlockWithEntity is it changes the render type to INVISIBLE, so we have to revert this
 //    @Override
-//    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-//        return new DinotanerBlockEntity(pos, state);
+//    public BlockRenderType getRenderType(BlockState state) {
+//        return BlockRenderType.MODEL;
+//    }
+//
+//    // We will create the BlockEntity later.
+//    @Override
+//    public BlockEntity createBlockEntity(BlockView view) {
+//        return new DinotanerBlockEntity();
 //    }
 //
 //    @Override
-//    public BlockRenderType getRenderType(BlockState state) {
-//        //With inheriting from BlockWithEntity this defaults to INVISIBLE, so we need to change that!
-//        return BlockRenderType.MODEL;
+//    public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+//        if (itemStack.hasCustomName()) {
+//            BlockEntity blockEntity = world.getBlockEntity(pos);
+//            if (blockEntity instanceof DinotanerBlockEntity) {
+//                ((DinotanerBlockEntity)blockEntity).setCustomName(itemStack.getName());
+//            }
+//        }
 //    }
 //
 //    @Override
 //    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 //        if (!world.isClient) {
-//            //This will call the createScreenHandlerFactory method from BlockWithEntity, which will return our blockEntity casted to
-//            //a namedScreenHandlerFactory. If your block class does not extend BlockWithEntity, it needs to implement createScreenHandlerFactory.
-//            NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
-//
-//            if (screenHandlerFactory != null) {
-//                //With this call the server will request the client to open the appropriate Screenhandler
-//                player.openHandledScreen(screenHandlerFactory);
+//            BlockEntity blockEntity = world.getBlockEntity(pos);
+//            if (blockEntity instanceof DinotanerBlockEntity) {
+//                ContainerProviderRegistry.INSTANCE.openContainer(Dinocraft.DINOTANER, player, buf -> buf.writeBlockPos(pos));
 //            }
 //        }
 //        return ActionResult.SUCCESS;
 //    }
 //
-//
-//    //This method will drop all items onto the ground when the block is broken
+//    // Scatter the items in the chest when it is removed.
 //    @Override
-//    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+//    public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
 //        if (state.getBlock() != newState.getBlock()) {
 //            BlockEntity blockEntity = world.getBlockEntity(pos);
 //            if (blockEntity instanceof DinotanerBlockEntity) {
 //                ItemScatterer.spawn(world, pos, (DinotanerBlockEntity)blockEntity);
 //                // update comparators
-//                world.updateComparators(pos,this);
+//                world.updateHorizontalAdjacent(pos, this);
 //            }
-//            super.onStateReplaced(state, world, pos, newState, moved);
+//            super.onBlockRemoved(state, world, pos, newState, moved);
 //        }
 //    }
 //
@@ -75,7 +83,11 @@ public class DinotanerBlock extends BlockWithEntity {
 //
 //    @Override
 //    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
-//        return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
+//        return Container.calculateComparatorOutput(world.getBlockEntity(pos));
 //    }
-//}
 //
+//    @Nullable
+//    @Override
+//    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+//        return null;
+    }

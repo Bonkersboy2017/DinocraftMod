@@ -83,7 +83,7 @@ public class MosasaurusEntityModel extends EntityModel<MosasaurusEntity> {
 	}
 	@Override
 	public void render(MatrixStack matrixStack, VertexConsumer	buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		matrixStack.scale(3, 3, 3);
+		matrixStack.scale(2, 2, 2);
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 	public void setRotationAngle(ModelPart bone, float x, float y, float z) {
