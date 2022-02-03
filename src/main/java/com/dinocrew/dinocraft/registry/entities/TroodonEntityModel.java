@@ -3,7 +3,7 @@
 // Made with Blockbench 4.0.5
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-		package com.dinocrew.dinocraft.registry.entities;
+	 package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
@@ -95,10 +95,10 @@ ModelPartData modelPartData7 = modelPartData6.addChild("head", ModelPartBuilder.
 ModelPartData modelPartData8 = modelPartData7.addChild("top", ModelPartBuilder.create().uv(16,54).cuboid(-2.0F, -23.5F, -20.8F, 4.0F, 1.0F, 2.0F).uv(17,47).cuboid(-2.0F, -22.5F, -24.0F, 4.0F, 1.0F, 5.0F), ModelTransform.pivot(0.0F,12.0F,19.0F));
 modelPartData8.addChild("cube_r4", ModelPartBuilder.create().uv(22,58).cuboid(-2.0F, 0.0F, -5.0F, 4.0F, 1.0F, 5.0F), ModelTransform.pivot(0.0F,-24.0F,-19.0F));
 modelPartData7.addChild("bottom", ModelPartBuilder.create().uv(0,47).cuboid(-1.5F, -21.5F, -24.0F, 3.0F, 1.0F, 5.0F), ModelTransform.pivot(0.0F,12.0F,19.0F));
-ModelPartData modelPartData9 = modelPartData.addChild("arm1", ModelPartBuilder.create().uv(54,60).cuboid(-3.0F, -13.0F, 0.0F, 3.0F, 2.0F, 2.0F), ModelTransform.pivot(8.0F,19.0F,-6.0F));
-modelPartData9.addChild("cube_r5", ModelPartBuilder.create().uv(39,52).cuboid(0.0F, 0.0F, 0.0F, 10.0F, 0.0F, 5.0F).uv(42,58).cuboid(0.0F, -0.5F, -1.0F, 10.0F, 1.0F, 1.0F), ModelTransform.pivot(0.0F,-12.0F,0.0F));
-ModelPartData modelPartData10 = modelPartData.addChild("arm2", ModelPartBuilder.create().uv(54,60).cuboid(0.0F, -13.0F, 0.0F, 3.0F, 2.0F, 2.0F), ModelTransform.pivot(-8.0F,19.0F,-6.0F));
-modelPartData10.addChild("cube_r6", ModelPartBuilder.create().uv(39,52).cuboid(-10.0F, 0.0F, 0.0F, 10.0F, 0.0F, 5.0F).uv(42,58).cuboid(-10.0F, -0.5F, -1.0F, 10.0F, 1.0F, 1.0F), ModelTransform.pivot(0.0F,-12.0F,0.0F));
+ModelPartData modelPartData9 = modelPartData.addChild("arm1", ModelPartBuilder.create().uv(54,60).cuboid(-3.0F, -11.0F, 0.0F, 3.0F, 2.0F, 2.0F), ModelTransform.pivot(8.0F,19.0F,-6.0F));
+modelPartData9.addChild("cube_r5", ModelPartBuilder.create().uv(39,52).cuboid(0.0F, 0.0F, 0.0F, 10.0F, 0.0F, 5.0F).uv(42,58).cuboid(0.0F, -0.5F, -1.0F, 10.0F, 1.0F, 1.0F), ModelTransform.pivot(0.0F,-10.0F,0.0F));
+ModelPartData modelPartData10 = modelPartData.addChild("arm2", ModelPartBuilder.create().uv(54,60).cuboid(0.0F, -11.0F, 0.0F, 3.0F, 2.0F, 2.0F), ModelTransform.pivot(-8.0F,19.0F,-6.0F));
+modelPartData10.addChild("cube_r6", ModelPartBuilder.create().uv(39,52).cuboid(-10.0F, 0.0F, 0.0F, 10.0F, 0.0F, 5.0F).uv(42,58).cuboid(-10.0F, -0.5F, -1.0F, 10.0F, 1.0F, 1.0F), ModelTransform.pivot(0.0F,-10.0F,0.0F));
 return TexturedModelData.of(modelData,64,64);
 		
 		
