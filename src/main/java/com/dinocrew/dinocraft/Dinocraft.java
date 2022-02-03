@@ -66,12 +66,17 @@ public class Dinocraft implements ModInitializer {
     public static final EntityType<MosasaurusEntity> MOSASAURUS = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("dinocraft", "mosasaurus"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MosasaurusEntity::new).dimensions(EntityDimensions.fixed(8f, -5f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MosasaurusEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build()
     );
     public static final EntityType<StegoraptorEntity> STEGORAPTOR = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("dinocraft", "stegoraptor"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build()
+    );
+    public static final EntityType<ChinleaEntity> CHINLEA = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("dinocraft", "chinlea"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinleaEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build()
     );
 
     public static EntityType<DragonwoodBoatEntity> DRAGONWOOD_BOAT;
@@ -87,6 +92,7 @@ public class Dinocraft implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MICORAPTOR, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(CHINLEA, ChinleaEntity.createMobAttributes());
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, SAUROPOD, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, TROODON, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, THEROPOD, 8, 1, 1);

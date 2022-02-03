@@ -24,6 +24,7 @@ public class DinocraftClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_MICORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "micorapter"), "main");
     public static final EntityModelLayer MODEL_MOSASAURUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mosasasaurus"), "main");
     public static final EntityModelLayer MODEL_STEGORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "stegoraptor"), "main");
+    public static final EntityModelLayer MODEL_CHINLEA_LAYER = new EntityModelLayer(new Identifier("dinocraft", "chinlea"), "main");
     public static final EntityModelLayer MODEL_DRAGONWOOD_BOAT_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mangrove_boat"), "main");
 
     @Override
@@ -49,6 +50,9 @@ public class DinocraftClient implements ClientModInitializer {
 
         EntityRendererRegistry.INSTANCE.register(Dinocraft.STEGORAPTOR, StegoraptorEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_STEGORAPTOR_LAYER, StegoraptorEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.INSTANCE.register(Dinocraft.CHINLEA, ChinleaEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_CHINLEA_LAYER, ChinleaEntityModel::getTexturedModelData);
 
         EntityRendererRegistry.INSTANCE.register(Dinocraft.DRAGONWOOD_BOAT, DragonwoodBoatEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_DRAGONWOOD_BOAT_LAYER, DragonwoodBoatEntityModel::getTexturedModelData);

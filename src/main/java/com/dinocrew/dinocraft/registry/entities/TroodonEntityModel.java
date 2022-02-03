@@ -105,6 +105,7 @@ return TexturedModelData.of(modelData,64,64);
 }
 @Override
 public void setAngles(TroodonEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+
 this.bone.pitch = -0.5236F;
 this.bone2.pitch = 0.7854F;
 this.bone3.pitch = -0.1309F;
@@ -123,7 +124,7 @@ this.cube_r6.yaw = 0.3054F;
 }
 @Override
 public void render(MatrixStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		
+
 		tail.render(matrixStack, buffer, packedLight, packedOverlay);
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 		leg1.render(matrixStack, buffer, packedLight, packedOverlay);
