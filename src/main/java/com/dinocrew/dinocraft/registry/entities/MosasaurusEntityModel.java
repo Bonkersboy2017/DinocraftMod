@@ -74,8 +74,9 @@ public class MosasaurusEntityModel extends EntityModel<MosasaurusEntity> {
 		this.exit2.pitch = -0.3491F;
 		this.left_front_fin.yaw = -0.3927F - MathHelper.cos(time/5)/5;
 		this.left_front_fin.roll = 0.4363F;
-		this.right_front_fin.yaw = 0.3927F;
+		this.right_front_fin.yaw = 0.3927F + MathHelper.cos(time/5)/5;
 		this.right_front_fin.roll = -0.4363F;
+		this.body.pitch = MathHelper.sin(time/5)/10;
 		this.back_body.pitch = MathHelper.cos(time/8)/8;
 		this.tail1.pitch = MathHelper.sin(time/8)/8;
 		this.tail2.pitch = -MathHelper.cos(time/8)/8;
@@ -84,7 +85,7 @@ public class MosasaurusEntityModel extends EntityModel<MosasaurusEntity> {
 	@Override
 	public void render(MatrixStack matrixStack, VertexConsumer	buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
 		matrixStack.scale(2, 2, 2);
-		matrixStack.translate(0, 2, 0);
+		matrixStack.translate(0, -0.5, 0);
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 	}
 }

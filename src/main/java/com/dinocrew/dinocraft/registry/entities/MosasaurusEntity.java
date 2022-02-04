@@ -1,33 +1,37 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.SwimAroundGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
-import net.minecraft.entity.ai.pathing.Path;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.mob.GuardianEntity;
+import net.minecraft.entity.passive.DolphinEntity;
+import net.minecraft.entity.passive.FishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 
-    public class MosasaurusEntity extends SchoolingFishEntity {
-    public MosasaurusEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+public class MosasaurusEntity extends FishEntity {
+
+    public MosasaurusEntity(EntityType<? extends FishEntity> entityType, World world) {
         super(entityType, world);
     }
 
     protected void initGoals() {
-        this.goalSelector.add(7, new SwimAroundGoal(this, 0.4D, 1));
-
-
+        this.goalSelector.add(0, new BreatheAirGoal(this));
+        this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+        this.goalSelector.add(4, new SwimAroundGoal(this, 1.0D, 10));
+        this.goalSelector.add(4, new LookAroundGoal(this));
+        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+        //this.targetSelector.add(4, new ActiveTargetGoal<>(this, FishEntity.class, 10, true, true, null));
     }
 
-        @Override
-        protected SoundEvent getFlopSound() {
-            return getSwimSound();
-        }
-
-        @Override
-        public ItemStack getBucketItem() {
-            return null;
-        }
+    @Override
+    protected SoundEvent getFlopSound() {
+        return getSwimSound();
     }
+
+    @Override
+    public ItemStack getBucketItem() {
+        return null;
+    }
+}
