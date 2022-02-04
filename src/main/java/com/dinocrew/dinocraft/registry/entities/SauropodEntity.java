@@ -24,6 +24,8 @@ public class SauropodEntity extends TameableEntity {
         super(entityType, world);
     }
     protected void initGoals() {
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.4D));
         this.goalSelector.add(7, new AttackGoal(this));
         this.goalSelector.add(4, new TemptGoal(this, 0.7D, Ingredient.ofItems(new ItemConvertible[]{ModItems.CYAD_LEAF}), false));

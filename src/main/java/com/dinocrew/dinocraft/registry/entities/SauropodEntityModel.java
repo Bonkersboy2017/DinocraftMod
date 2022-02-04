@@ -72,16 +72,37 @@ public class SauropodEntityModel extends EntityModel<SauropodEntity> {
 		return TexturedModelData.of(modelData,128,128);
 	}
 	@Override
-	public void setAngles(SauropodEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+	public void setAngles(SauropodEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch){
+		float tailSpeed = 0.2f;
+		float swingAmount = 0.05f;
+
 		this.body.pitch = -0.2618F;
-		this.neck_begin.pitch = -0.1309F;
-		this.neck_begin_inside.pitch = -0.1745F;
-		this.neck_end_inside.pitch = -0.1745F;
-		this.neck_end.pitch = -0.1309F;
-		this.head.pitch = 1.0472F;
-		this.tail_begin.pitch = 0.2182F;
-		this.tail.pitch = 0.1309F;
-		this.tail_end.pitch = 0.1745F;
+
+		this.tail_begin.pitch = 0.2182F + MathHelper.cos(animationProgress*tailSpeed)*swingAmount;
+		this.tail.pitch = 0.1309F + MathHelper.sin(animationProgress*tailSpeed)*swingAmount;
+		this.tail_end.pitch = 0.1745F + MathHelper.cos(animationProgress*tailSpeed)*swingAmount;
+
+		this.tail_begin.yaw = MathHelper.sin(animationProgress*tailSpeed)*swingAmount;
+		this.tail.yaw = MathHelper.cos(animationProgress*tailSpeed)*swingAmount;
+		this.tail_end.yaw = MathHelper.sin(animationProgress*tailSpeed)*swingAmount;
+
+		this.head.pitch = (headPitch * 0.017453292F)/5 + 1.0472F;
+		this.neck_begin.pitch = (headPitch * 0.017453292F)/5 -0.1309F;
+		this.neck_begin_inside.pitch = (headPitch * 0.017453292F)/5 -0.1745F;
+		this.neck_end_inside.pitch = (headPitch * 0.017453292F)/5 -0.1745F;
+		this.neck_end.pitch = (headPitch * 0.017453292F)/5 -0.1309F;
+
+		this.head.yaw = (headYaw * 0.017453292F)/5;
+		this.neck_begin.yaw = (headYaw * 0.017453292F)/5;
+		this.neck_begin_inside.yaw = (headYaw * 0.017453292F)/5;
+		this.neck_end_inside.yaw = (headYaw * 0.017453292F)/5;
+		this.neck_end.yaw = (headYaw * 0.017453292F)/5;
+
+		this.right_back_leg.pitch = MathHelper.cos(limbAngle * 0.6662F) * 1.4F * limbDistance;
+		this.left_back_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
+		this.right_front_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
+		this.left_front_leg.pitch = MathHelper.cos(limbAngle * 0.6662F) * 1.4F * limbDistance;
+
 	}
 	@Override
 	public void render(MatrixStack matrixStack, VertexConsumer	buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
