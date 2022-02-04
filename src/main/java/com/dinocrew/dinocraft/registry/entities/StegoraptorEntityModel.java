@@ -90,7 +90,7 @@ public class StegoraptorEntityModel extends EntityModel<StegoraptorEntity> {
 	}
 	@Override
 	public void setAngles(StegoraptorEntity entity, float limbAngle, float limbDistance, float animationProgress, float netHeadYaw, float headPitch){
-		float flatAngle = 3*(1 + limbDistance);
+		float flatAngle = 3*(limbDistance) + 1;
 		this.body.pitch = -0.1745F/flatAngle;
 		this.neck1.pitch = -0.5236F/flatAngle;
 		this.neck2.pitch = -0.48F/flatAngle;
@@ -106,6 +106,9 @@ public class StegoraptorEntityModel extends EntityModel<StegoraptorEntity> {
 		this.tail1.pitch = 0.1745F/flatAngle;
 		this.body.roll = MathHelper.cos(limbAngle*2) * limbDistance / 7;
 
+		this.tail1.yaw = MathHelper.cos(animationProgress/5)/10;
+		this.tail2.yaw = MathHelper.sin(animationProgress/5)/10;
+		this.tail3.yaw = MathHelper.cos(animationProgress/5)/10;
 
 		this.right_hip.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 0.3491F;
 		this.right_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 + 1.2217F;
