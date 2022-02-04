@@ -1,0 +1,8 @@
+{
+  "credit": "Made by FrozenBlockStudios",
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "dinocraft:block/dragonwood_log_top",
+    "side": "dinocraft:block/dragonwood_log"
+  }
+}

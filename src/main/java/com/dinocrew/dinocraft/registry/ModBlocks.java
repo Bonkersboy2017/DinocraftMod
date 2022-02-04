@@ -31,7 +31,6 @@ public class ModBlocks
     public static final Block POLISHED_WBC = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
     public static final Block FS_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
     public static final Block WBC_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
-
     public static final Block DRAGONWOOD_LOG = new PillarBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_PLANKS = new Block(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_STAIRS = new CustomStair(Blocks.OAK_STAIRS.getDefaultState(), DRAGONWOOD_SETTINGS);
@@ -51,39 +50,19 @@ public class ModBlocks
 
     public static void registerAll()
     {
-        Identifier skeletonOreID = Dinocraft.getID ( "skeleton_ore" );
-        Identifier dinobenchID = Dinocraft.getID ( "dinobench" );
-        Identifier bronziumOreID = Dinocraft.getID ( "bronzium_ore" );
-        Identifier bronziumBlockID = Dinocraft.getID ( "bronzium_block" );
-        Identifier bronziumBricksID = Dinocraft.getID ( "bronzium_bricks" );
-        Identifier dragongrassID = Dinocraft.getID ( "dragongrass" );
-        Identifier dinosaaurTemperedGlassID = Dinocraft.getID ( "dinosaur_tempered_glass" );
-        Identifier fossilizedStoneID = Dinocraft.getID("fossilized_stone");
-        Identifier waxedFossilizedStoneID = Dinocraft.getID("wbc");
-        Identifier polishedFossilizedStoneID = Dinocraft.getID("polished_fs");
-        Identifier polishedWaxedFossilizedStoneID = Dinocraft.getID("polished_wbc");
-        Identifier fossilizedStoneBricksID = Dinocraft.getID("fs_bricks");
-        Identifier waxedFossilizedStoneBicksID = Dinocraft.getID("wbc_bricks");
-        // Register the SkeletonOre block
-        registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, skeletonOreID);
-        registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, bronziumOreID);
-
-        
-        
-
-        // Fences go in the decorations tab
-        registerBlock (DINOBENCH, Dinocraft.ITEM_GROUP, dinobenchID);
-        registerBlock (BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, bronziumBlockID);
-        registerBlock (BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, bronziumBricksID);
-        registerBlock (DRAGONGRASS, Dinocraft.ITEM_GROUP, dragongrassID);
-        registerBlock (DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP,dinosaaurTemperedGlassID );
-        registerBlock(FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, fossilizedStoneID);
-        registerBlock(WBC, Dinocraft.ITEM_GROUP, waxedFossilizedStoneID);
-        registerBlock(POLISHED_FS, Dinocraft.ITEM_GROUP, polishedFossilizedStoneID);
-        registerBlock(POLISHED_WBC, Dinocraft.ITEM_GROUP, polishedWaxedFossilizedStoneID);
-        registerBlock(FS_BRICKS, Dinocraft.ITEM_GROUP, fossilizedStoneBricksID);
-        registerBlock(WBC_BRICKS, Dinocraft.ITEM_GROUP, waxedFossilizedStoneBicksID);
-
+        registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "skeleton_ore"));
+        registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_ore"));
+        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinobench"));
+        registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_block"));
+        registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_bricks"));
+        registerBlock(DRAGONGRASS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragongrass"));
+        registerBlock(DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinosaur_tempered_glass"));
+        registerBlock(FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "fossilized_stone"));
+        registerBlock(WBC, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "wbc"));
+        registerBlock(POLISHED_FS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "polished_fs"));
+        registerBlock(POLISHED_WBC, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "polished_wbc"));
+        registerBlock(FS_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "fs_bricks"));
+        registerBlock(WBC_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "wbc_bricks"));
         registerBlock(DRAGONWOOD_PLANKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_planks"));
         registerBlock(DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_log"));
         registerBlock(STRIPPED_DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "stripped_dragonwood_wood"));
@@ -98,17 +77,11 @@ public class ModBlocks
         registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_door"));
         registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_trapdoor"));
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_fence_gate"));
-
-
-
     }
 
 
     private static void registerBlock(Block block, ItemGroup group, Identifier ID) {
-        BlockItem item = new BlockItem(block, new Item.Settings().group ( group ));
-
-        Registry.register ( Registry.BLOCK, ID, block );
-
-        Registry.register ( Registry.ITEM, ID, item );
+        Registry.register(Registry.BLOCK, ID, block);
+        Registry.register(Registry.ITEM, ID, new BlockItem(block, new Item.Settings().group(group)));
     }
 }

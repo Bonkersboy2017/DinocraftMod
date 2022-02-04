@@ -13,6 +13,6 @@ public class MosasaurusEntityRenderer extends MobEntityRenderer<MosasaurusEntity
 
     @Override
     public Identifier getTexture(MosasaurusEntity entity) {
-        return new Identifier("dm", "textures/entity/mosasaurus.png");
+        return new Identifier("dinocraft", "textures/entity/mosasaurus.png");
     }
 }

@@ -13,6 +13,6 @@ public class StegoraptorEntityRenderer extends MobEntityRenderer<StegoraptorEnti
 
     @Override
     public Identifier getTexture(StegoraptorEntity entity) {
-        return new Identifier("dm", "textures/entity/stegoraptor.png");
+        return new Identifier("dinocraft", "textures/entity/stegoraptor.png");
     }
 }

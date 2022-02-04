@@ -13,6 +13,6 @@ public class SauropodEntityRenderer extends MobEntityRenderer<SauropodEntity, Sa
 
     @Override
     public Identifier getTexture(SauropodEntity entity) {
-        return new Identifier("dm", "textures/entity/sauropod.png");
+        return new Identifier("dinocraft", "textures/entity/sauropod.png");
     }
 }

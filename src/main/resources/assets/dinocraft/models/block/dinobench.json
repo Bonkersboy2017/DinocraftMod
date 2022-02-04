@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dinocraft:block/dinobench_top",
+    "north": "dinocraft:block/dinobench",
+    "south": "dinocraft:block/dinobench",
+    "east": "dinocraft:block/dinobench",
+    "west": "dinocraft:block/dinobench",
+    "up": "dinocraft:block/dinobench_top",
+    "down": "dinocraft:block/dinobench"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dinocraft:block/dragonwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "dinocraft:block/dragonwood_log"
+    },
+    "axis=z": {
+      "model": "dinocraft:block/dragonwood_log_horizontal",
+      "x": 90
+    }
+  }
+}

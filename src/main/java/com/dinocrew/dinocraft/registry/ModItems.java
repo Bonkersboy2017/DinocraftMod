@@ -6,18 +6,10 @@ import com.dinocrew.dinocraft.armour.BronziumArmourMaterial;
 import com.dinocrew.dinocraft.armour.SkeletonArmourMaterial;
 import com.dinocrew.dinocraft.registry.items.DragonwoodBoatItem;
 import com.dinocrew.dinocraft.registry.weapons.*;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class ModItems {
 
@@ -38,18 +30,17 @@ public class ModItems {
     public static final Item ROTTING_CYADS = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.ROTTING_CYADS));
     public static final Item CYAD_LEAF = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.CYAD_LEAF));
     public static final Item BRONZIUM_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-  //  public static final Item THEM_CHILLI = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-   // public static final Item DEMME_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    //public static final Item THEM_CHILLI = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    //public static final Item DEMME_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item TIME_FLINT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item WYVERN_CRYSTAL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item SAUROPOD_SPAWN_EGG = new SpawnEggItem(Dinocraft.SAUROPOD, 25600, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item THEROPOD_SPAWN_EGG = new SpawnEggItem(Dinocraft.THEROPOD, 167475200, 16777215, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item TROODON_SPAWN_EGG = new SpawnEggItem(Dinocraft.TROODON, 0x5c4033, 16753920, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item MICORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.MICORAPTOR, 16753920, 132957, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item MOSASAURUS_SPAWN_EGG = new MosasaurusSpawnEggItem(Dinocraft.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item CHINLEA_SPAWN_EGG = new SpawnEggItem(Dinocraft.CHINLEA, 144238144, 0xFFFFFF, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-
-    public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(Dinocraft.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item SAUROPOD_SPAWN_EGG = new SpawnEggItem(ModEntities.SAUROPOD, 25600, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item THEROPOD_SPAWN_EGG = new SpawnEggItem(ModEntities.THEROPOD, 167475200, 16777215, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item TROODON_SPAWN_EGG = new SpawnEggItem(ModEntities.TROODON, 0x5c4033, 16753920, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item MICORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.MICRORAPTOR, 16753920, 132957, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(ModEntities.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item CHINLEA_SPAWN_EGG = new SpawnEggItem(ModEntities.CHINLEA, 144238144, 0xFFFFFF, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));
@@ -64,7 +55,7 @@ public class ModItems {
 
 
 
-    public static void registerItems() {
+    public static void registerAll() {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "allosaurus_skull"), ALLOSAURUS_SKULL);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "baryonyx_skull"), BARYONYX_SKULL);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "carnotaurus_skull"), CARNOTAURUS_SKULL);
@@ -74,8 +65,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "cyad_seeds"), CYAD_SEEDS);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "rotting_cyads"), ROTTING_CYADS);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "cyad_leaf"), CYAD_LEAF);
-     //   Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "them_chilli"), THEM_CHILLI);
-      // Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "demme_berries"), DEMME_BERRIES);
+        //Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "them_chilli"), THEM_CHILLI);
+        //Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "demme_berries"), DEMME_BERRIES);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dino_kidney"), DINO_KIDNEY);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dino_skeleton_jaw"), DINO_SKELETON_JAW);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "raw_dino_flesh"), RAW_DINO_FLESH);

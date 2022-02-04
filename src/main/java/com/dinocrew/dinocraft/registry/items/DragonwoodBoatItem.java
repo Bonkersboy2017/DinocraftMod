@@ -1,6 +1,6 @@
 package com.dinocrew.dinocraft.registry.items;
 
-import com.dinocrew.dinocraft.Dinocraft;
+import com.dinocrew.dinocraft.registry.ModEntities;
 import com.dinocrew.dinocraft.registry.entities.DragonwoodBoatEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -33,7 +33,7 @@ public class DragonwoodBoatItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         HitResult hitResult = raycast(world, user, RaycastContext.FluidHandling.ANY);
-        DragonwoodBoatEntity boatEntity = new DragonwoodBoatEntity(Dinocraft.DRAGONWOOD_BOAT, world);
+        DragonwoodBoatEntity boatEntity = new DragonwoodBoatEntity(ModEntities.DRAGONWOOD_BOAT, world);
 
 
         if (hitResult.getType() == HitResult.Type.MISS) {

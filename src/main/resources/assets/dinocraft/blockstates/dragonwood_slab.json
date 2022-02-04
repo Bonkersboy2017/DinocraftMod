@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dinocraft:block/dragonwood_slab"
+    },
+    "type=double": {
+      "model": "dinocraft:block/dragonwood_planks"
+    },
+    "type=top": {
+      "model": "dinocraft:block/dragonwood_slab_top"
+    }
+  }
+}

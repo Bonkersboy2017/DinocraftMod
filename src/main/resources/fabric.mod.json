@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "dm",
+  "id": "dinocraft",
   "version": "${0.1}",
 
   "name": "Dinocraft",
@@ -14,7 +14,7 @@
   },
 
   "license": "cc",
-  "icon": "assets/dm/icon.png",
+  "icon": "assets/dinocraft/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -26,7 +26,7 @@
     ]
   },
   "mixins": [
-    "dm.mixins.json"
+    "dinocraft.mixins.json"
   ],
 
   "depends": {

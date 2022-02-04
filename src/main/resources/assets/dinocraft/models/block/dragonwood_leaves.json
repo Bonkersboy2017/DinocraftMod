@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "dinocraft:block/dragonwood_leaves"
+  }
+}

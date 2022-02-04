@@ -1,8 +1,0 @@
-{
-  "credit": "Made by FrozenBlockStudios",
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "dm:block/stripped_dragonwood_log",
-    "side": "dm:block/stripped_dragonwood_log"
-  }
-}

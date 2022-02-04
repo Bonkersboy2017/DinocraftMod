@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "dinocraft:item/dragonwood_shovel"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "credit": "Made by FrozenBlockStudios",
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "dinocraft:block/dragonwood_planks",
+    "top": "dinocraft:block/dragonwood_planks",
+    "side": "dinocraft:block/dragonwood_planks"
+  }
+}

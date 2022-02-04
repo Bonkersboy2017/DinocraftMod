@@ -1,0 +1,107 @@
+{
+  "credit": "Made by Dejo",
+  "texture_size": [64, 64],
+  "textures": {
+    "0": "dinocraft:item/troodon_skull",
+    "particle": "dinocraft:item/troodon_skull"
+  },
+  "elements": [
+    {
+      "from": [3, 0, 6],
+      "to": [13, 7, 16],
+      "rotation": {"angle": 0, "axis": "y", "origin": [0, -28, 17]},
+      "faces": {
+        "north": {"uv": [2.5, 2.5, 5, 4.25], "texture": "#0"},
+        "east": {"uv": [0, 2.5, 2.5, 4.25], "texture": "#0"},
+        "south": {"uv": [7.5, 2.5, 10, 4.25], "texture": "#0"},
+        "west": {"uv": [5, 2.5, 7.5, 4.25], "texture": "#0"},
+        "up": {"uv": [5, 2.5, 2.5, 0], "texture": "#0"},
+        "down": {"uv": [7.5, 0, 5, 2.5], "texture": "#0"}
+      }
+    },
+    {
+      "from": [4, 2, 0],
+      "to": [12, 6, 6],
+      "rotation": {"angle": 0, "axis": "y", "origin": [0, -28, 17]},
+      "faces": {
+        "north": {"uv": [1.5, 5.75, 3.5, 6.75], "texture": "#0"},
+        "east": {"uv": [0, 5.75, 1.5, 6.75], "texture": "#0"},
+        "south": {"uv": [5, 5.75, 7, 6.75], "texture": "#0"},
+        "west": {"uv": [3.5, 5.75, 5, 6.75], "texture": "#0"},
+        "up": {"uv": [3.5, 5.75, 1.5, 4.25], "texture": "#0"},
+        "down": {"uv": [5.5, 4.25, 3.5, 5.75], "texture": "#0"}
+      }
+    },
+    {
+      "from": [5, 0, 0],
+      "to": [11, 2, 6],
+      "rotation": {"angle": 0, "axis": "y", "origin": [0, -28, 17]},
+      "faces": {
+        "north": {"uv": [7, 6.75, 8.5, 7.25], "texture": "#0"},
+        "east": {"uv": [5.5, 6.75, 7, 7.25], "texture": "#0"},
+        "south": {"uv": [10, 6.75, 11.5, 7.25], "texture": "#0"},
+        "west": {"uv": [8.5, 6.75, 10, 7.25], "texture": "#0"},
+        "up": {"uv": [8.5, 6.75, 7, 5.25], "texture": "#0"},
+        "down": {"uv": [10, 5.25, 8.5, 6.75], "texture": "#0"}
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.5, 1],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.5, 1],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "firstperson_righthand": {
+      "translation": [0.5, 3.5, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "firstperson_lefthand": {
+      "translation": [0.5, 3.5, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "gui": {
+      "rotation": [30, 225, 0],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "head": {
+      "translation": [0, 9, -8],
+      "scale": [1.93, 1.93, 1.93]
+    },
+    "fixed": {
+      "translation": [0, 6.75, -12],
+      "scale": [1.5, 1.5, 1.5]
+    }
+  },
+  "groups": [
+    {
+      "name": "head",
+      "origin": [0, 3.5, 5.33333],
+      "color": 0,
+      "children": [
+        0,
+        {
+          "name": "jaw",
+          "origin": [0, 4, -2],
+          "color": 0,
+          "children": [1]
+        },
+        {
+          "name": "bottomjaw",
+          "origin": [0, 4, -2],
+          "color": 0,
+          "children": [2]
+        }
+      ]
+    }
+  ]
+}

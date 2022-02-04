@@ -1,9 +1,0 @@
-{
-  "credit": "Made by FrozenBlockStudios",
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "dm:block/dragonwood_planks",
-    "top": "dm:block/dragonwood_planks",
-    "side": "dm:block/dragonwood_planks"
-  }
-}

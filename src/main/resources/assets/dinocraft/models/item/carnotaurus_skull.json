@@ -1,0 +1,110 @@
+{
+  "credit": "Made by Dejo",
+  "texture_size": [128, 128],
+  "textures": {
+    "0": "dinocraft:item/theropod_skull",
+    "particle": "dinocraft:item/theropod_skull"
+  },
+  "elements": [
+    {
+      "from": [0, 0, -0.5],
+      "to": [16, 13, 16.5],
+      "rotation": {"angle": 0, "axis": "y", "origin": [-49, -36, 0]},
+      "faces": {
+        "north": {"uv": [2.125, 2.125, 4.125, 3.75], "texture": "#0"},
+        "east": {"uv": [0, 2.125, 2.125, 3.75], "texture": "#0"},
+        "south": {"uv": [6.25, 2.125, 8.25, 3.75], "texture": "#0"},
+        "west": {"uv": [4.125, 2.125, 6.25, 3.75], "texture": "#0"},
+        "up": {"uv": [4.125, 2.125, 2.125, 0], "texture": "#0"},
+        "down": {"uv": [6.125, 0, 4.125, 2.125], "texture": "#0"}
+      }
+    },
+    {
+      "from": [16, 5, 1.5],
+      "to": [24, 11, 14.5],
+      "rotation": {"angle": 0, "axis": "y", "origin": [-49, -36, 0]},
+      "faces": {
+        "north": {"uv": [1.625, 5.375, 2.625, 6.125], "texture": "#0"},
+        "east": {"uv": [0, 5.375, 1.625, 6.125], "texture": "#0"},
+        "south": {"uv": [4.25, 5.375, 5.25, 6.125], "texture": "#0"},
+        "west": {"uv": [2.625, 5.375, 4.25, 6.125], "texture": "#0"},
+        "up": {"uv": [2.625, 5.375, 1.625, 3.75], "texture": "#0"},
+        "down": {"uv": [3.625, 3.75, 2.625, 5.375], "texture": "#0"}
+      }
+    },
+    {
+      "from": [16, 1, 2.5],
+      "to": [23, 5, 13.5],
+      "rotation": {"angle": 0, "axis": "y", "origin": [-49, -36, 0]},
+      "faces": {
+        "north": {"uv": [5.25, 6.125, 6.125, 6.625], "texture": "#0"},
+        "east": {"uv": [3.875, 6.125, 5.25, 6.625], "texture": "#0"},
+        "south": {"uv": [7.5, 6.125, 8.375, 6.625], "texture": "#0"},
+        "west": {"uv": [6.125, 6.125, 7.5, 6.625], "texture": "#0"},
+        "up": {"uv": [6.125, 6.125, 5.25, 4.75], "texture": "#0"},
+        "down": {"uv": [7, 4.75, 6.125, 6.125], "texture": "#0"}
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [75, -125, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 100, 0],
+      "translation": [2, 1.5, 0],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, -82, 0],
+      "translation": [2, 1.5, 0],
+      "scale": [0.3, 0.3, 0.3]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [1, 0, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "head": {
+      "rotation": [0, 90, 0],
+      "translation": [0, 1.5, -1.25]
+    },
+    "fixed": {
+      "rotation": [0, 90, 0],
+      "translation": [0, 0, -7]
+    }
+  },
+  "groups": [
+    {
+      "name": "head",
+      "origin": [-8.66667, 1.5, -0.83333],
+      "color": 0,
+      "children": [
+        0,
+        {
+          "name": "jaw",
+          "origin": [-49, -36, 0],
+          "color": 0,
+          "children": [1]
+        },
+        {
+          "name": "bottomjaw",
+          "origin": [-49, -36, 0],
+          "color": 0,
+          "children": [2]
+        }
+      ]
+    }
+  ]
+}

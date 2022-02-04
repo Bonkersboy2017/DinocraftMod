@@ -13,6 +13,6 @@ public class TheropodEntityRenderer extends MobEntityRenderer<TheropodEntity, Th
 
     @Override
     public Identifier getTexture(TheropodEntity entity) {
-        return new Identifier("dm", "textures/entity/theropod.png");
+        return new Identifier("dinocraft", "textures/entity/theropod.png");
     }
 }
