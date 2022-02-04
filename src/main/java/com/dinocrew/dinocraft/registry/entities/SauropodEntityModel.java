@@ -86,10 +86,6 @@ public class SauropodEntityModel extends EntityModel<SauropodEntity> {
 	@Override
 	public void render(MatrixStack matrixStack, VertexConsumer	buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
 
-		float scaleamount = 2;
-		matrixStack.scale(scaleamount, scaleamount, scaleamount);
-		matrixStack.translate(0, -scaleamount/2, 0);
-
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 		right_front_leg.render(matrixStack, buffer, packedLight, packedOverlay);
 		right_back_leg.render(matrixStack, buffer, packedLight, packedOverlay);
