@@ -28,6 +28,7 @@
   "item.dinocraft.mosasaurus_spawn_egg": "Mosasaurus Spawn Egg",
   "item.dinocraft.stegoraptor_spawn_egg": "Stegoraptor Spawn Egg",
   "item.dinocraft.chinlea_spawn_egg": "Chinlea Spawn Egg",
+  "item.dinocraft.deinonychus_spawn_egg": "Deinonychus Spawn Egg",
   "item.dinocraft.cyad_seeds": "Cyad Seeds",
   "item.dinocraft.rotting_cyads": "Rotting Cyads",
   "item.dinocraft.cyad_leaf": "Cyad Leaf",
@@ -93,5 +94,6 @@
   "block.dinocraft.wbc_bricks": "Waxed Fossilized Stone Tiles",
   "block.dinocraft.fossilized_stone": "Fossilized Stone",
   "block.dinocraft.wbc": "Waxed Fossilized Stone"
+
   
 }

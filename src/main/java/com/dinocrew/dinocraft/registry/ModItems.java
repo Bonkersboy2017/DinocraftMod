@@ -41,7 +41,7 @@ public class ModItems {
     public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(ModEntities.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item CHINLEA_SPAWN_EGG = new SpawnEggItem(ModEntities.CHINLEA, 144238144, 0xFFFFFF, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 167475200, 16753920, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));
