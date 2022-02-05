@@ -18,8 +18,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TroodonEntity extends TameableEntity {
-    public TroodonEntity(EntityType<? extends TameableEntity> entityType, World world) {
+public class DeinonychusEntity extends TameableEntity {
+    public DeinonychusEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
     protected void initGoals() {

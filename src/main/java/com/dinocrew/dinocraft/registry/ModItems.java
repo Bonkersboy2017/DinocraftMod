@@ -41,12 +41,12 @@ public class ModItems {
     public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(ModEntities.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item CHINLEA_SPAWN_EGG = new SpawnEggItem(ModEntities.CHINLEA, 144238144, 0xFFFFFF, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));
     public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item ENLIGHTENED_NECKLACE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-
     public static Item DRAGONWOOD_BOAT = new DragonwoodBoatItem(new Item.Settings().group(Dinocraft.ITEM_GROUP));
 
 
@@ -108,6 +108,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "mosasaurus_spawn_egg"), MOSASAURUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "stegoraptor_spawn_egg"), STEGORAPTOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "chinlea_spawn_egg"), CHINLEA_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "deinonychus_spawn_egg"), DEINONYCHUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "time_flint"), TIME_FLINT);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_core"),ENLIGHTENED_CORE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_necklace"),ENLIGHTENED_NECKLACE);

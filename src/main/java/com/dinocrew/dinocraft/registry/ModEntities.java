@@ -19,6 +19,7 @@ public class ModEntities {
     public static final EntityType<MosasaurusEntity> MOSASAURUS = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "mosasaurus"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MosasaurusEntity::new).dimensions(EntityDimensions.fixed(4f, 2f)).build());
     public static final EntityType<StegoraptorEntity> STEGORAPTOR = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "stegoraptor"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
     public static final EntityType<ChinleaEntity> CHINLEA = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "chinlea"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinleaEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
+    public static final EntityType<DeinonychusEntity> DEINONYCHUS = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "deinonychus"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DeinonychusEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
 
     public static EntityType<DragonwoodBoatEntity> DRAGONWOOD_BOAT;
 
@@ -30,6 +31,7 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(MOSASAURUS, MicroraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(CHINLEA, ChinleaEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(DEINONYCHUS, ChinleaEntity.createMobAttributes());
 
         DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
     }
