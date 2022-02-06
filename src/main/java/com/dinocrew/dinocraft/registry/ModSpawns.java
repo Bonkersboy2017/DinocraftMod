@@ -12,5 +12,7 @@ public class ModSpawns {
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, ModEntities.THEROPOD, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, ModEntities.STEGORAPTOR, 8, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.OCEAN), SpawnGroup.MONSTER, ModEntities.MOSASAURUS, 1, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS), SpawnGroup.MONSTER, ModEntities.DEINONYCHUS, 8, 1, 1);
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.RIVER), SpawnGroup.MONSTER, ModEntities.CHINLEA, 1, 1, 1);
     }
 }
