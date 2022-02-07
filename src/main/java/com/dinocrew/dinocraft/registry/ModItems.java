@@ -21,7 +21,7 @@ public class ModItems {
     public static final Item INFECTED_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.INFECTED_BERRIES));
     public static final Item DINO_SKELETON_JAW = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item RAW_DINO_FLESH = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item DINO_FLESH = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item DINO_FLESH = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.DINO_FLESH));
     public static final Item PILL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item FOSSIL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final ArmorMaterial SKELETON_ARMOUR = new SkeletonArmourMaterial();
@@ -41,13 +41,19 @@ public class ModItems {
     public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(ModEntities.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item CHINLEA_SPAWN_EGG = new SpawnEggItem(ModEntities.CHINLEA, 144238144, 0xFFFFFF, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 167475200, 16753920, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));
     public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item ENLIGHTENED_NECKLACE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item DRAGONWOOD_BOAT = new DragonwoodBoatItem(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static Item EMPTY_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static Item DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static Item MYSTERIOUS_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+
+
+
 
 
 
@@ -120,6 +126,9 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_hoe"), new HoeBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_sword"), new SwordBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dinosteel_ingot"),DINOSTEEL_INGOT);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "empty_dna_bottle"),EMPTY_DNA_BOTTLE);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dna_bottle"),DNA_BOTTLE);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "mysterious_dna_bottle"),MYSTERIOUS_DNA_BOTTLE);
     }
     }
 
