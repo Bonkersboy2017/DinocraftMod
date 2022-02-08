@@ -51,6 +51,7 @@ public class ModItems {
     public static Item EMPTY_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item MYSTERIOUS_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static Item INFLAMED_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
 
 
 
@@ -129,6 +130,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "empty_dna_bottle"),EMPTY_DNA_BOTTLE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dna_bottle"),DNA_BOTTLE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "mysterious_dna_bottle"),MYSTERIOUS_DNA_BOTTLE);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "inflamed_dna_bottle"),INFLAMED_DNA_BOTTLE);
     }
     }
 
