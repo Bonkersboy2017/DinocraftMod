@@ -7,7 +7,7 @@
     ],
     "key": {
         "#": {
-            "item": "minecraft:feather"
+            "item": "dinocraft:dino_feather"
         },
         "d": {
             "item": "dinocraft:dinosteel_ingot"
