@@ -1,0 +1,9 @@
+
+{
+  "replace": false,
+  "values": [
+    "dinocraft:bronzium_ore",
+    "dinocraft:skeleton_ore",
+    "dinocraft:fossilized_stone"
+  ]
+}

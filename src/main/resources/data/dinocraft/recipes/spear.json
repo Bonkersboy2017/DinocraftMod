@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "d#",
+        "d "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:feather"
+        },
+        "d": {
+            "item": "dinocraft:dinosteel_ingot"
+        }
+    },
+    "result": {
+     "item": "dinocraft:spear",
+            "count": 1}
+}
