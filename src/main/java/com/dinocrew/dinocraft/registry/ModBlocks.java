@@ -44,6 +44,9 @@ public class ModBlocks
     public static final Block DRAGONWOOD_TRAPDOOR = new CustomTrapdoor(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque());
     public static final Block DRAGONWOOD_BUTTON = new CustomWoodenButton(DRAGONWOOD_SETTINGS);
+    public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).requiresTool());
+    public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BRICKS).requiresTool());
+    public static final Block AMBER_ORE = new Block(FabricBlockSettings.copyOf(Blocks.COPPER_ORE).requiresTool());
 
 
 
@@ -51,9 +54,12 @@ public class ModBlocks
     {
         registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "skeleton_ore"));
         registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_ore"));
+        registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_ore"));
         registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinobench"));
         registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_block"));
         registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_bricks"));
+        registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_block"));
+        registerBlock(AMBER_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_bricks"));
         registerBlock(DRAGONGRASS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragongrass"));
         registerBlock(DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinosaur_tempered_glass"));
         registerBlock(FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "fossilized_stone"));
