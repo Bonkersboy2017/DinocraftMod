@@ -2,9 +2,11 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.dinocrew.dinocraft.mixins",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ClientPlayerEntityMixin"
+    "ClientPlayerEntityMixin",
+    "VanillaSurfaceRulesBlockInvoker",
+    "VanillaSurfaceRulesInjector"
   ],
   "client": [
   ],
