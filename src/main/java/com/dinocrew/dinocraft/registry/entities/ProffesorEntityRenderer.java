@@ -13,6 +13,6 @@ public class ProffesorEntityRenderer extends MobEntityRenderer<ProffessorEntity,
 
     @Override
     public Identifier getTexture(ProffessorEntity entity) {
-        return new Identifier("dinocraft", "textures/entity/proffessor.png");
+        return new Identifier("dinocraft", "textures/entity/proffesor.png");
     }
 }

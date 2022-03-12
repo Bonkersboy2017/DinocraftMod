@@ -9,6 +9,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class ProffesorEntityModel extends EntityModel<ProffessorEntity> {
 private final ModelPart bone;
@@ -80,7 +81,7 @@ return TexturedModelData.of(modelData,64,64);
 		
 }
 @Override
-public void setAngles(ProffessorEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+public void setAngles(ProffessorEntity  entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch){
 this.LeftLeg.pitch = -0.1745F;
 this.LeftLeg.roll = -0.0349F;
 this.LeftLegLayer_r1.pitch = 2.9687F;
@@ -122,6 +123,9 @@ this.HatLayer_r1.roll = -3.1404F;
 this.Head_r1.pitch = -3.1327F;
 this.Head_r1.yaw = 0.0872F;
 this.Head_r1.roll = -3.1382F;
+
+	this.LeftLeg.pitch = MathHelper.cos(limbAngle * 0.6662F) * 1.4F * limbDistance;
+	this.RightLeg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance;
 		//previously the render function, render code was moved to a method below
 }
 @Override
