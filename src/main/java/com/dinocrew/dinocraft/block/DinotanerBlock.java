@@ -23,19 +23,20 @@ import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 
-public class DinotanerBlock //extends BlockWithEntity
-{
+
+//public class DinotanerBlock extends BlockWithEntity
+//{
 //    public DinotanerBlock(Settings settings) {
 //        super(settings);
 //    }
 
-//    // A side effect of extending BlockWithEntity is it changes the render type to INVISIBLE, so we have to revert this
+//     //A side effect of extending BlockWithEntity is it changes the render type to INVISIBLE, so we have to revert this
 //    @Override
 //    public BlockRenderType getRenderType(BlockState state) {
 //        return BlockRenderType.MODEL;
 //    }
 //
-//    // We will create the BlockEntity later.
+//   //  We will create the BlockEntity later.
 //    @Override
 //    public BlockEntity createBlockEntity(BlockView view) {
 //        return new DinotanerBlockEntity();
@@ -69,7 +70,7 @@ public class DinotanerBlock //extends BlockWithEntity
 //            BlockEntity blockEntity = world.getBlockEntity(pos);
 //            if (blockEntity instanceof DinotanerBlockEntity) {
 //                ItemScatterer.spawn(world, pos, (DinotanerBlockEntity)blockEntity);
-//                // update comparators
+//                 update comparators
 //                world.updateHorizontalAdjacent(pos, this);
 //            }
 //            super.onBlockRemoved(state, world, pos, newState, moved);
@@ -86,8 +87,8 @@ public class DinotanerBlock //extends BlockWithEntity
 //        return Container.calculateComparatorOutput(world.getBlockEntity(pos));
 //    }
 //
-//    @Nullable
-//    @Override
+//    @NullableS
+//    @OverrideS
 //    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
 //        return null;
-    }
+//    }

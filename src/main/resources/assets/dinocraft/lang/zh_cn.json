@@ -98,5 +98,18 @@
   "item.dinocraft.empty_dna_bottle": "空的DNA瓶",
   "item.dinocraft.mysterious_dna_bottle": "神秘的DNA瓶",
   "item.dinocraft.inflamed_dna_bottle": "坏掉的DNA瓶",
-  "item.dinocraft.dino_feather": "恐龙的羽毛"
+  "item.dinocraft.dino_feather": "恐龙的羽毛",
+  "item.dinocraft.dino_egg":"恐龙蛋",
+  "item.dinocraft.indoraptor_egg":"原始人蛋",
+  "item.dinocraft.indoraptor_embryo":"原始人胚胎",
+  "item.dinocraft.dna_strand":"DNA序列",
+  "item.dinocraft.amber_gem":"琥珀宝石 ",
+  "item.dinocraft.amber_pickaxe":"琥珀镐",
+  "item.dinocraft.amber_axe":"琥珀斧头",
+  "item.dinocraft.amber_hoe":"琥珀锄头",
+  "item.dinocraft.amber_sword":"琥珀剑",
+  "item.dinocraft.amber_shovel":"琥珀铲子",
+  "block.dinocraft.amber_block":"琥珀块",
+  "block.dinocraft.amber_bricks":"琥珀砖",
+  "block.dinocraft.amber_ore":"琥珀矿石"
 }

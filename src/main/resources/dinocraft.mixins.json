@@ -6,7 +6,8 @@
   "mixins": [
     "ClientPlayerEntityMixin",
     "VanillaSurfaceRulesBlockInvoker",
-    "VanillaSurfaceRulesInjector"
+    "VanillaSurfaceRulesInjector",
+    "ModBiomeParameters"
   ],
   "client": [
   ],

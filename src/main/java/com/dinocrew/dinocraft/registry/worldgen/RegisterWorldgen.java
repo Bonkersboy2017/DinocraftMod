@@ -3,6 +3,8 @@ package com.dinocrew.dinocraft.registry.worldgen;
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.google.common.collect.ImmutableList;
+import com.sun.source.tree.Tree;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.sound.MusicType;
@@ -29,21 +31,29 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.RandomSpreadFoliagePlacer;
+import net.minecraft.world.gen.placementmodifier.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 public class RegisterWorldgen {
 
     @Nullable
+
+    public static PlacedFeature TREES_DRAGONWOOD;
+    public static ConfiguredFeature<TreeFeatureConfig, ?> DRAGONWOOD;
+
+
     private static final MusicSound DEFAULT_MUSIC = null;
 
     public static final RegistryKey<Biome> BREAKTHROUGH = register("breakthrough");
 
 
-    private static RegistryKey<Biome> register(String name) {
+    public static RegistryKey<Biome> register(String name) {
         return RegistryKey.of(Registry.BIOME_KEY, new Identifier(Dinocraft.MOD_ID, name));
     }
 
@@ -78,9 +88,9 @@ public class RegisterWorldgen {
     }
 
     public static void addBreakthroughFeatures(GenerationSettings.Builder builder) {
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_WATERLILY);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.RED_MUSHROOM_SWAMP);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.MUSHROOM_ISLAND_VEGETATION);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_MELON);
+
     }
 
     private static void addBasicFeatures(net.minecraft.world.biome.GenerationSettings.Builder generationSettings) {
@@ -106,7 +116,30 @@ public class RegisterWorldgen {
         return MathHelper.hsvToRgb(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
     }
 
+
+
     public static void RegisterWorldgen() {
         BuiltinRegistries.add(BuiltinRegistries.BIOME, BREAKTHROUGH, createBreakthrough());
+//
+//        DRAGONWOOD = Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Dinocraft.MOD_ID, "dragonwood"), Feature.TREE.configure(new TreeFeatureConfig.Builder(
+//                        BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG),
+//                        new StraightTrunkPlacer(8, 3, 0), BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES),
+//                        new RandomSpreadFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(3), 100),
+//                        new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
+//                        .build()));
+//
+//        new PlacedFeature(getEntry(BuiltinRegistries.CONFIGURED_FEATURE, TREES_DRAGONWOOD), List.of(
+//                RarityFilterPlacementModifier.of(3),
+//                SquarePlacementModifier.of(),
+//                PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+//                BiomePlacementModifier.of())
+//        );
+
+
     }
+
+
+
+
+
 }

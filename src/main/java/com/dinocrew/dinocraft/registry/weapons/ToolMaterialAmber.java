@@ -33,6 +33,6 @@ public class ToolMaterialAmber implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ModItems.DNA_STRAND);
+        return Ingredient.ofItems(ModItems.DINO_KIDNEY);
     }
 }
