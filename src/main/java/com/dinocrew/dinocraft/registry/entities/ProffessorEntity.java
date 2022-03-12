@@ -18,7 +18,6 @@ public class ProffessorEntity extends HostileEntity {
             this.goalSelector.add(8, new LookAroundGoal(this));
             this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.4D));
             this.goalSelector.add(7, new AttackGoal(this));
-            this.goalSelector.add(2, new ProjectileAttackGoal((RangedAttackMob) this, 1.0D, 60, 10.0F));
 
     }
 
