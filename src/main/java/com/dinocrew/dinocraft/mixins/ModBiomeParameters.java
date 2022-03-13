@@ -25,19 +25,19 @@ import static org.objectweb.asm.Opcodes.GETSTATIC;
 @Mixin(VanillaBiomeParameters.class)
 public abstract class ModBiomeParameters {
 
-
+    @Shadow protected abstract void writeBiomeParameters(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, MultiNoiseUtil.ParameterRange temperature, MultiNoiseUtil.ParameterRange humidity, MultiNoiseUtil.ParameterRange continentalness, MultiNoiseUtil.ParameterRange erosion, MultiNoiseUtil.ParameterRange weirdness, float offset, RegistryKey<Biome> biome);
+    @Shadow private MultiNoiseUtil.ParameterRange defaultParameter;
     @Shadow
     @Final
     private RegistryKey<Biome>[][] uncommonBiomes;
 
-        @Redirect(method = "writeOceanBiomes",
-                at = @At(value = "FIELD", opcode = Opcodes.GETSTATIC, target = "Lnet/minecraft/world/biome/BiomeKeys;MUSHROOM_FIELDS:Lnet/minecraft/util/registry/RegistryKey;"))
 
-        public RegistryKey<Biome> redirectSomeMethod() {
 
-            return RegisterWorldgen.BREAKTHROUGH;
-        }
 
+    @Inject(method="writeOceanBiomes",at=@At("TAIL"))
+    private void mymodid$myBiomeParameters(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, CallbackInfo ci) {
+        writeBiomeParameters(parameters, defaultParameter, MultiNoiseUtil.ParameterRange.of(-1.2F, -1.05F), MultiNoiseUtil.ParameterRange.of(-2, -2), defaultParameter, defaultParameter, 0.0f, RegisterWorldgen.BREAKTHROUGH);
+    }
 
 
 
@@ -46,4 +46,3 @@ public abstract class ModBiomeParameters {
         uncommonBiomes[1][0] = RegisterWorldgen.BREAKTHROUGH;
 
     }}
-
