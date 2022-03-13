@@ -112,7 +112,11 @@
   "item.dinocraft.amber_shovel": "Amber Shovel",
   "block.dinocraft.amber_block":"Amber Block",
   "block.dinocraft.amber_bricks":"Amber Bricks",
-  "block.dinocraft.amber_ore":"Amber Ore"
+  "block.dinocraft.amber_ore":"Amber Ore",
+  "item.dinocraft.amber_helmet": "Amber Helmet",
+  "item.dinocraft.amber_chestplate": "Amber Chestplate",
+  "item.dinocraft.amber_leggings": "Amber Leggings",
+  "item.dinocraft.amber_boots": "Amber Boots"
 
 
 }

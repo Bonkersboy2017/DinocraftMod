@@ -1,6 +1,7 @@
 package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
+import com.dinocrew.dinocraft.armour.AmberArmorMaterial;
 import com.dinocrew.dinocraft.armour.BaseArmour;
 import com.dinocrew.dinocraft.armour.BronziumArmourMaterial;
 import com.dinocrew.dinocraft.armour.SkeletonArmourMaterial;
@@ -26,6 +27,7 @@ public class ModItems {
     public static final Item FOSSIL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final ArmorMaterial SKELETON_ARMOUR = new SkeletonArmourMaterial();
     public static final ArmorMaterial BRONZIUM_ARMOUR = new BronziumArmourMaterial();
+    public static final ArmorMaterial AMBER_ARMOR = new AmberArmorMaterial();
     public static final Item CYAD_SEEDS = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.CYAD_SEEDS));
     public static final Item ROTTING_CYADS = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.ROTTING_CYADS));
     public static final Item CYAD_LEAF = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.CYAD_LEAF));
@@ -145,6 +147,10 @@ public class ModItems {
       //Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "indo_embryo"),INDO_EMBRYO);
        // Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dna_strand"),DNA_STRAND);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_gem"),AMBER_GEM);
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_helmet"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.HEAD));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_chestplate"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.CHEST));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_leggings"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.LEGS));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_boots"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.FEET));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_pickaxe"), new PickaxeBase(new ToolMaterialAmber()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_axe"), new AxeBase(new ToolMaterialAmber()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_shovel"), new ShovelBase(new ToolMaterialAmber()));
