@@ -2,6 +2,7 @@ package com.dinocrew.dinocraft.registry.worldgen;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.registry.ModBlocks;
+import com.dinocrew.dinocraft.registry.ModItems;
 import com.google.common.collect.ImmutableList;
 import com.sun.source.tree.Tree;
 import net.minecraft.block.Block;
@@ -19,7 +20,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -28,11 +28,14 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
+import net.minecraft.world.gen.decorator.BiomePlacementModifier;
+import net.minecraft.world.gen.decorator.BlockFilterPlacementModifier;
+import net.minecraft.world.gen.decorator.SquarePlacementModifier;
+import net.minecraft.world.gen.decorator.SurfaceWaterDepthFilterPlacementModifier;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.RandomSpreadFoliagePlacer;
-import net.minecraft.world.gen.placementmodifier.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
@@ -45,9 +48,8 @@ public class RegisterWorldgen {
 
     @Nullable
 
-
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD;
-    public static final RegistryEntry<PlacedFeature> DRAGONWOOD_CHECKED;
+//    public static PlacedFeature TREES_DRAGONWOOD;
+//    public static ConfiguredFeature<TreeFeatureConfig, ?> DRAGONWOOD;
 
 
     private static final MusicSound DEFAULT_MUSIC = null;
@@ -91,8 +93,7 @@ public class RegisterWorldgen {
     }
 
     public static void addBreakthroughFeatures(GenerationSettings.Builder builder) {
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.MUSHROOM_ISLAND_VEGETATION);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, DRAGONWOOD_CHECKED);
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, RegisterWorldgen.TREES_DRAGONWOOD);
 
 
     }
@@ -121,24 +122,20 @@ public class RegisterWorldgen {
     }
 
 
-    //TREES
-
-    private static TreeFeatureConfig.Builder builder(Block log, Block leaves, int baseHeight, int firstRandomHeight, int secondRandomHeight, int radius) {
-        return new TreeFeatureConfig.Builder(BlockStateProvider.of(log), new StraightTrunkPlacer(baseHeight, firstRandomHeight, secondRandomHeight), BlockStateProvider.of(leaves), new BlobFoliagePlacer(ConstantIntProvider.create(radius), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1));
-    }
-
-    private static TreeFeatureConfig.Builder dragonwood() {
-        return builder(ModBlocks.DRAGONWOOD_LOG, ModBlocks.DRAGONWOOD_LEAVES, 5, 2, 0, 2).ignoreVines();
-    }
-    static {
-        DRAGONWOOD = ConfiguredFeatures.register("dragonwood", Feature.TREE, dragonwood().build());
-        DRAGONWOOD_CHECKED = PlacedFeatures.register("dragonwood_checked", RegisterWorldgen.DRAGONWOOD);
-    }
-
 
 
     public static void RegisterWorldgen() {
         BuiltinRegistries.add(BuiltinRegistries.BIOME, BREAKTHROUGH, createBreakthrough());
+//
+//        DRAGONWOOD = Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Dinocraft.MOD_ID, "dragonwood"), Feature.TREE
+//                .configure(new TreeFeatureConfig.Builder(
+//                        BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG),
+//                        new StraightTrunkPlacer(8, 3, 0), BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES),
+//                        new RandomSpreadFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(3), 100),
+//                        new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
+//                        .build()));
+//
+//        TREES_DRAGONWOOD = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "trees_dragonwood"), DRAGONWOOD.withPlacement(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(6), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of(), BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.ROOTED_DIRT.getDefaultState(), BlockPos.ORIGIN))));
 
 
     }

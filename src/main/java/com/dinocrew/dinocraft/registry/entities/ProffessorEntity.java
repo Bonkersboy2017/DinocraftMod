@@ -13,13 +13,14 @@ public class ProffessorEntity extends HostileEntity {
     }
 
     protected void initGoals() {
+        this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.initCustomGoals();
+    }
 
-            this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
-            this.goalSelector.add(8, new LookAroundGoal(this));
-            this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.4D));
-            this.goalSelector.add(7, new AttackGoal(this));
-            this.goalSelector.add(2, new ProffessorAttackGoal(this, 1.0D, false));
-
+    protected void initCustomGoals() {
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, false)); //This is the goal where the entity attacks the player
+        this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.3D));
     }
 
 

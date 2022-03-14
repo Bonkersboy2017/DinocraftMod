@@ -26,11 +26,11 @@ import static org.objectweb.asm.Opcodes.GETSTATIC;
 public abstract class ModBiomeParameters {
 
     @Shadow protected abstract void writeBiomeParameters(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, MultiNoiseUtil.ParameterRange temperature, MultiNoiseUtil.ParameterRange humidity, MultiNoiseUtil.ParameterRange continentalness, MultiNoiseUtil.ParameterRange erosion, MultiNoiseUtil.ParameterRange weirdness, float offset, RegistryKey<Biome> biome);
-    @Shadow private MultiNoiseUtil.ParameterRange defaultParameter;
+    private final MultiNoiseUtil.ParameterRange defaultParameter = MultiNoiseUtil.ParameterRange.of(-1.0F, 1.0F);
+
     @Shadow
     @Final
-    private RegistryKey<Biome>[][] uncommonBiomes;
-
+    private RegistryKey<Biome>[][] UNCOMMON_BIOMES;
 
 
 
@@ -43,6 +43,6 @@ public abstract class ModBiomeParameters {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void injectBiomes(CallbackInfo ci) {
-        uncommonBiomes[1][0] = RegisterWorldgen.BREAKTHROUGH;
+        UNCOMMON_BIOMES[1][0] = RegisterWorldgen.BREAKTHROUGH;
 
     }}
