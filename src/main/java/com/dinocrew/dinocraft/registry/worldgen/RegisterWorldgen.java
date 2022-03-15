@@ -72,17 +72,16 @@ public class RegisterWorldgen {
         builder2.feature(GenerationStep.Feature.VEGETAL_DECORATION, OceanPlacedFeatures.SEAGRASS_SWAMP);
         return (
                 new net.minecraft.world.biome.Biome.Builder())
-                .precipitation(Biome.Precipitation.RAIN)
+                .precipitation(Biome.Precipitation.NONE)
                 .category(Biome.Category.SWAMP)
                 .temperature(0.8F).downfall(0.9F)
                 .effects((new net.minecraft.world.biome.BiomeEffects.Builder())
-                        .waterColor(0x397d71)
-                        .waterFogColor(0x397d71)
-                        .fogColor(12638463)
+                        .waterColor(0x990099)
+                        .waterFogColor(0x990099)
+                        .fogColor(0x990099)
                         .skyColor(getSkyColor(0.8F))
-                        .foliageColor(6975545)
-                        .grassColor(6975545)
-                        .grassColorModifier(BiomeEffects.GrassColorModifier.SWAMP)
+                        .foliageColor(0x990099)
+                        .grassColor(0x990099)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .spawnSettings(builder.build())
                 .generationSettings(builder2.build()).build();
@@ -91,7 +90,7 @@ public class RegisterWorldgen {
 
     public static void addMangroveSwampFeatures(GenerationSettings.Builder builder) {
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TREES_DRAGONWOOD);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.GRASS_BONEMEAL);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_NORMAL);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_PLAIN);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_WATERLILY);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP);
@@ -134,7 +133,7 @@ public class RegisterWorldgen {
 
 
 
-        TREES_DRAGONWOOD = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "trees_mangrove"), DRAGONWOOD.withPlacement(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(6), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of(), BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN))));
+        TREES_DRAGONWOOD = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "trees_mangrove"), DRAGONWOOD.withPlacement(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(6), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of(), BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN))));
 
 
         BuiltinRegistries.add(BuiltinRegistries.BIOME, BREAKTHROUGH, createMangroveSwamp());
