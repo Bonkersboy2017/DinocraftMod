@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -31,7 +32,9 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.RandomSpreadFoliagePlacer;
+import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import org.jetbrains.annotations.Nullable;
@@ -78,6 +81,7 @@ public class RegisterWorldgen {
                         .fogColor(12638463)
                         .skyColor(getSkyColor(0.8F))
                         .foliageColor(6975545)
+                        .grassColor(6975545)
                         .grassColorModifier(BiomeEffects.GrassColorModifier.SWAMP)
                         .moodSound(BiomeMoodSound.CAVE).build())
                 .spawnSettings(builder.build())
@@ -87,9 +91,12 @@ public class RegisterWorldgen {
 
     public static void addMangroveSwampFeatures(GenerationSettings.Builder builder) {
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, TREES_DRAGONWOOD);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.GRASS_BONEMEAL);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_PLAIN);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_WATERLILY);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.RED_MUSHROOM_SWAMP);
+
     }
 
     private static void addBasicFeatures(net.minecraft.world.biome.GenerationSettings.Builder generationSettings) {
@@ -121,16 +128,17 @@ public class RegisterWorldgen {
                 .configure(new TreeFeatureConfig.Builder(
                         BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG),
                         new StraightTrunkPlacer(8, 3, 0), BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES),
-                        new RandomSpreadFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(3), 100),
+                        new SpruceFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(3), ConstantIntProvider.create(4)),
                         new TwoLayersFeatureSize(1, 0, 2)).ignoreVines()
                         .build()));
 
 
 
-        TREES_DRAGONWOOD = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "trees_mangrove"), DRAGONWOOD.withPlacement(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(6), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of(), BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.AIR.getDefaultState(), BlockPos.ORIGIN))));
+        TREES_DRAGONWOOD = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "trees_mangrove"), DRAGONWOOD.withPlacement(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), SquarePlacementModifier.of(), SurfaceWaterDepthFilterPlacementModifier.of(6), PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.of(), BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN))));
 
 
         BuiltinRegistries.add(BuiltinRegistries.BIOME, BREAKTHROUGH, createMangroveSwamp());
 
     }
 }
+
