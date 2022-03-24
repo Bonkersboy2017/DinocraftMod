@@ -56,11 +56,11 @@ public class ModItems {
     public static Item MYSTERIOUS_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item INFLAMED_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINO_FEATHER = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item DINO_EGG = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item INDO_EGG = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item DINO_EGG = new Item(new Item.Settings().group(ItemGroup.MISC));
+    public static final Item INDO_EGG = new Item(new Item.Settings().group(ItemGroup.MISC));
    // public static final Item INDO_EMBRYO = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item AMBER_GEM = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item DNA_STRAND = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item DNA_STRAND = new Item(new Item.Settings().group(ItemGroup.MISC));
 
 
 
