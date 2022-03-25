@@ -15,7 +15,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModBlocks
 {
-    public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.BIRCH_PLANKS ).requiresTool ();
+    public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.BIRCH_PLANKS );
 
     public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (12.0f, 26.0f).sounds(BlockSoundGroup.STONE));
 
