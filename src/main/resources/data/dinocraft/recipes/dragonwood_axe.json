@@ -7,7 +7,7 @@
     ],
     "key": {
         "#": {
-            "block": "dinocraft:dragonwood_planks"
+            "item": "dinocraft:dragonwood_scrap"
         },
         "/": {
             "item": "minecraft:stick"
