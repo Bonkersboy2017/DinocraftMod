@@ -1,7 +1,6 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,7 +18,6 @@ public class ProffessorEntity extends HostileEntity {
     }
 
     protected void initCustomGoals() {
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, false)); //This is the goal where the entity attacks the player
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.3D));
     }
 

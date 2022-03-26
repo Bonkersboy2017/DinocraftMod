@@ -3,6 +3,7 @@ package com.dinocrew.dinocraft.registry.entities;
 import com.dinocrew.dinocraft.registry.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.AttackGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
@@ -26,7 +27,10 @@ public class TroodonEntity extends TameableEntity {
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.4D));
         this.goalSelector.add(7, new AttackGoal(this));
         this.goalSelector.add(4, new TemptGoal(this, 0.7D, Ingredient.ofItems(ModItems.CYAD_LEAF), false));
+        this.goalSelector.add(2, new TroodonAttackGoal(this, 1.0D, false));
+
     }
+
 
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
