@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ddd",
+        "dGd",
+        "ddd"
+    ],
+    "key": {
+        "d": {
+            "item": "dinocraft:dinosteel_ingot"
+        },
+        "G": {
+            "item": "minecraft:glass"
+        }
+    },
+    "result": {
+        "item": "dinocraft:dinosaur_tempered_glass",
+        "count": 4
+    }
+}
