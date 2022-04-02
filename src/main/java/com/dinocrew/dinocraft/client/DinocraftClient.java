@@ -26,6 +26,7 @@ public class DinocraftClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_DRAGONWOOD_BOAT_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mangrove_boat"), "main");
     public static final EntityModelLayer MODEL_DEINONYCHUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "deinonyhchus"), "main");
     public static final EntityModelLayer MODEL_PROFFESOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "professor"), "main");
+    public static final EntityModelLayer MODEL_SCORPIUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "scorpius"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -50,6 +51,8 @@ public class DinocraftClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MODEL_DEINONYCHUS_LAYER, DeinonychusEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.PROFFESOR, ProffesorEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_PROFFESOR_LAYER, ProffesorEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SCORPIUS, ScorpiusEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_SCORPIUS_LAYER, ScorpiusEntityModel::getTexturedModelData);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_LEAVES, RenderLayer.getCutout());
 
