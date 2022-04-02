@@ -56,11 +56,7 @@ public class ModItems {
     public static Item MYSTERIOUS_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item INFLAMED_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINO_FEATHER = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-   // public static final Item DINO_EGG = new Item(new Item.Settings().group(ItemGroup.MISC));
-    //public static final Item INDO_EGG = new Item(new Item.Settings().group(ItemGroup.MISC));
-   // public static final Item INDO_EMBRYO = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item AMBER_GEM = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-   // public static final Item DNA_STRAND = new Item(new Item.Settings().group(ItemGroup.MISC));
     public static final Item DRAGONWOOD_SCRAP = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
 
 
@@ -144,10 +140,6 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "mysterious_dna_bottle"),MYSTERIOUS_DNA_BOTTLE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "inflamed_dna_bottle"),INFLAMED_DNA_BOTTLE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dino_feather"),DINO_FEATHER);
-      //  Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dino_egg"),DINO_EGG);
-      //  Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "indo_egg"),INDO_EGG);
-      //Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "indo_embryo"),INDO_EMBRYO);
-       // Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dna_strand"),DNA_STRAND);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_gem"),AMBER_GEM);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_helmet"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.HEAD));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "amber_chestplate"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.CHEST));
