@@ -21,6 +21,7 @@ public class Dinocraft implements ModInitializer {
         ModEntities.registerAll();
         ModSpawns.registerAll();
         ModFeatures.registerAll();
+        ModBiomes.registerBiomes();
 //        RegisterWorldgen.RegisterWorldgen();
 
     }
