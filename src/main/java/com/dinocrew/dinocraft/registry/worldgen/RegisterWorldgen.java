@@ -23,8 +23,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.IntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -38,17 +40,22 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.RandomSpreadFoliagePlacer;
 import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
+import net.minecraft.world.gen.placementmodifier.BlockFilterPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+
 public class RegisterWorldgen {
 
     public static Biome createBreakthrpugh() {
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
+
 
 
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.DEINONYCHUS, 10, 1, 1));
@@ -58,11 +65,14 @@ public class RegisterWorldgen {
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TROODON, 10, 1, 1));
         GenerationSettings.Builder featureSettings = new GenerationSettings.Builder();
 
-
+        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, TREES_DRAGONWOOD);
         DefaultBiomeFeatures.addPlainsTallGrass(featureSettings);
         DefaultBiomeFeatures.addDefaultOres(featureSettings);
         DefaultBiomeFeatures.addDefaultDisks(featureSettings);
         DefaultBiomeFeatures.addExtraDefaultFlowers(featureSettings);
+
+
+
 
         BiomeModifications.create(new Identifier(Dinocraft.MOD_ID + "breakthrough"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY), ctx -> {
@@ -88,5 +98,8 @@ public class RegisterWorldgen {
 
     }
 
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = ConfiguredFeatures.register("dragonwood", Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG), new StraightTrunkPlacer(8, 3, 0), BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES), new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 2)), new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
+
+    public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register("trees_dragonwood", RegisterWorldgen.DRAGONWOOD, VegetationPlacedFeatures.modifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), Blocks.OAK_SAPLING));
 }
 

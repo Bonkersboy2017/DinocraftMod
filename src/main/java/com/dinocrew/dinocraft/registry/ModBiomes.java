@@ -8,6 +8,9 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
 public class ModBiomes {
     public static final RegistryKey<Biome> BREAKTHHROUGH_KEY= registerBiomeKeys("breakthrough");
@@ -18,6 +21,10 @@ public class ModBiomes {
 
     public static void registerBiomes() {
         register(BREAKTHHROUGH_KEY, RegisterWorldgen.createBreakthrpugh());
+
+
+
+
     }
 
 
