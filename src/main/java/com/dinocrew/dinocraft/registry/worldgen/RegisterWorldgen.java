@@ -62,23 +62,24 @@ public class RegisterWorldgen {
         DefaultBiomeFeatures.addPlainsTallGrass(featureSettings);
         DefaultBiomeFeatures.addDefaultOres(featureSettings);
         DefaultBiomeFeatures.addDefaultDisks(featureSettings);
+        DefaultBiomeFeatures.addExtraDefaultFlowers(featureSettings);
 
         BiomeModifications.create(new Identifier(Dinocraft.MOD_ID + "breakthrough"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY), ctx -> {
                 });
 
         return (new Biome.Builder())
-                .precipitation(Biome.Precipitation.RAIN)
-                .category(Biome.Category.UNDERGROUND)
+                .precipitation(Biome.Precipitation.NONE)
+                .category(Biome.Category.MUSHROOM)
                 .temperature(0.6F)
                 .downfall(0.9F)
                 .effects((new BiomeEffects.Builder())
-                        .grassColor(0x6F932A)
-                        .foliageColor(0x6F932A)
-                        .waterColor(0xAEC1BE)
-                        .waterFogColor(0xC9DDDA)
-                        .fogColor(0x878787)
-                        .skyColor(0x878787)
+                        .grassColor(0x990099)
+                        .foliageColor(0x990099)
+                        .waterColor(0x990099)
+                        .waterFogColor(0x990099)
+                        .fogColor(0x990099)
+                        .skyColor(0x990099)
                         .music(MusicType.GAME)
                         .build())
                 .spawnSettings(spawnSettings.build())
