@@ -1,10 +1,14 @@
 package com.dinocrew.dinocraft.registry.worldgen;
 
 import com.dinocrew.dinocraft.Dinocraft;
+import com.dinocrew.dinocraft.registry.ModBiomes;
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.dinocrew.dinocraft.registry.ModEntities;
 import com.dinocrew.dinocraft.registry.ModItems;
 import com.google.common.collect.ImmutableList;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.sound.MusicType;
@@ -42,4 +46,46 @@ import org.jetbrains.annotations.Nullable;
 
 public class RegisterWorldgen {
 
+    public static Biome createBreakthrpugh() {
+        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
+
+
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.DEINONYCHUS, 10, 1, 1));
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SAUROPOD, 10, 1, 1));
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.STEGORAPTOR, 10, 1, 1));
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.THEROPOD, 10, 1, 1));
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TROODON, 10, 1, 1));
+        GenerationSettings.Builder featureSettings = new GenerationSettings.Builder();
+
+
+        DefaultBiomeFeatures.addPlainsTallGrass(featureSettings);
+        DefaultBiomeFeatures.addDefaultOres(featureSettings);
+        DefaultBiomeFeatures.addDefaultDisks(featureSettings);
+
+        BiomeModifications.create(new Identifier(Dinocraft.MOD_ID + "breakthrough"))
+                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY), ctx -> {
+                });
+
+        return (new Biome.Builder())
+                .precipitation(Biome.Precipitation.RAIN)
+                .category(Biome.Category.UNDERGROUND)
+                .temperature(0.6F)
+                .downfall(0.9F)
+                .effects((new BiomeEffects.Builder())
+                        .grassColor(0x6F932A)
+                        .foliageColor(0x6F932A)
+                        .waterColor(0xAEC1BE)
+                        .waterFogColor(0xC9DDDA)
+                        .fogColor(0x878787)
+                        .skyColor(0x878787)
+                        .music(MusicType.GAME)
+                        .build())
+                .spawnSettings(spawnSettings.build())
+                .generationSettings(featureSettings.build())
+                .build();
+
+    }
+
 }
+
