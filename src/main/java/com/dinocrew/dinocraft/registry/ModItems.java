@@ -37,7 +37,7 @@ public class ModItems {
     public static final Item TIME_FLINT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item WYVERN_CRYSTAL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item SAUROPOD_SPAWN_EGG = new SpawnEggItem(ModEntities.SAUROPOD, 25600, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item THEROPOD_SPAWN_EGG = new SpawnEggItem(ModEntities.THEROPOD, 167475200, 16777215, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item THEROPOD_SPAWN_EGG = new SpawnEggItem(ModEntities.THEROPOD, 0xff8c00, 16777215, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item TROODON_SPAWN_EGG = new SpawnEggItem(ModEntities.TROODON, 0x5c4033, 16753920, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item MICORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.MICRORAPTOR, 16753920, 132957, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item MOSASAURUS_SPAWN_EGG = new SpawnEggItem(ModEntities.MOSASAURUS, 11393254, 9498256, new Item.Settings().group(Dinocraft.ITEM_GROUP));

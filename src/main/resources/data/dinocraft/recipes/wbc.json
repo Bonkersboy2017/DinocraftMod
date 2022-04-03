@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#H"
+    ],
+    "key": {
+        "#": {
+            "item": "dinocraft:fossilized_stone"
+        },
+        "H": {
+            "item": "minecraft:honeycomb"
+        }
+    },
+    "result": {
+        "item": "dinocraft:wbc",
+        "count": 1
+    }
+}
