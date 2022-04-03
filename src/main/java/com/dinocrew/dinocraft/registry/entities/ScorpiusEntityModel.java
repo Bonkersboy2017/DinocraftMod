@@ -127,8 +127,6 @@ this.right_tail_spine.roll = -0.5672F;
 }
 @Override
 public void render(MatrixStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		matrixStack.scale(2, 2, 2);
-		matrixStack.translate(0, -0.8, 0);
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 }
 public void setRotationAngle(ModelPart bone, float x, float y, float z) {
