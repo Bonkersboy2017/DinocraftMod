@@ -83,7 +83,7 @@ public class DragonwoodBoatEntity extends Entity {
     public DragonwoodBoatEntity(EntityType<?> type, World world) {
         super(type, world);
         this.paddlePhases = new float[2];
-        this.inanimate = true;
+        this.intersectionChecked = true;
     }
 
 
