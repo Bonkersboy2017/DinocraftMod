@@ -16,12 +16,12 @@ public class ModBlocks
 {
     public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.BIRCH_PLANKS );
 
-    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (12.0f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (4f, 26.0f).sounds(BlockSoundGroup.STONE));
 
     public static final Block DINOBENCH = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ));
-    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (12.0f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool());
-    public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ));
+    public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.BRICKS ));
     public static final Block DRAGONGRASS = new Block(FabricBlockSettings.copyOf ( Blocks.GRASS_BLOCK ).requiresTool ());
     public static final Block DINOSAUR_TEMPERED_GLASS= new GlassBlock(FabricBlockSettings.copyOf ( Blocks.GLASS ).requiresTool ());
     public static final Block FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sounds(BlockSoundGroup.STONE));
