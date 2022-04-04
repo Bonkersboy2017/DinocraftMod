@@ -8,8 +8,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class AmberArmorMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11};
-    private static final int[] PROTECTION_AMOUNTS = new int[] {13, 15, 16, 11};
+    private static final int[] BASE_DURABILITY = new int[] {7, 10, 12, 11};
+    private static final int[] PROTECTION_AMOUNTS = new int[] {4, 6, 7, 8};
 
 
     @Override
@@ -24,7 +24,7 @@ public class AmberArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getEnchantability() {
-        return 25;
+        return 15;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class AmberArmorMaterial implements ArmorMaterial {
 
     @Override
     public float getToughness() {
-        return 2;
+        return 1.2f;
     }
 
     @Override
