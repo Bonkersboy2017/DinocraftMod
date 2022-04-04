@@ -73,12 +73,12 @@ public class RegisterWorldgen {
         DefaultBiomeFeatures.addDefaultDisks(featureSettings);
         DefaultBiomeFeatures.addExtraDefaultFlowers(featureSettings);
 //        DefaultBiomeFeatures.addDefaultGrass(featureSettings);
-//        DefaultBiomeFeatures.addLandCarvers(featureSettings);
-//        DefaultBiomeFeatures.addAmethystGeodes(featureSettings);
-//        DefaultBiomeFeatures.addDungeons(featureSettings);
+        DefaultBiomeFeatures.addLandCarvers(featureSettings);
+        DefaultBiomeFeatures.addAmethystGeodes(featureSettings);
+        DefaultBiomeFeatures.addDungeons(featureSettings);
 //        DefaultBiomeFeatures.addMineables(featureSettings);
-//        DefaultBiomeFeatures.addFrozenTopLayer(featureSettings);
-//        DefaultBiomeFeatures.addSprings(featureSettings);
+        DefaultBiomeFeatures.addFrozenTopLayer(featureSettings);
+        DefaultBiomeFeatures.addSprings(featureSettings);
 //
 
 
