@@ -65,21 +65,21 @@ public class RegisterWorldgen {
 
         featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, TREES_DRAGONWOOD);
         featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_NORMAL);
-        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_PLAIN);
+//        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_PLAIN);
         featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP);
         featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.RED_MUSHROOM_SWAMP);
         DefaultBiomeFeatures.addPlainsTallGrass(featureSettings);
         DefaultBiomeFeatures.addDefaultOres(featureSettings);
         DefaultBiomeFeatures.addDefaultDisks(featureSettings);
         DefaultBiomeFeatures.addExtraDefaultFlowers(featureSettings);
-        DefaultBiomeFeatures.addDefaultGrass(featureSettings);
-        DefaultBiomeFeatures.addLandCarvers(featureSettings);
-        DefaultBiomeFeatures.addAmethystGeodes(featureSettings);
-        DefaultBiomeFeatures.addDungeons(featureSettings);
-        DefaultBiomeFeatures.addMineables(featureSettings);
-        DefaultBiomeFeatures.addFrozenTopLayer(featureSettings);
-        DefaultBiomeFeatures.addSprings(featureSettings
-        );
+//        DefaultBiomeFeatures.addDefaultGrass(featureSettings);
+//        DefaultBiomeFeatures.addLandCarvers(featureSettings);
+//        DefaultBiomeFeatures.addAmethystGeodes(featureSettings);
+//        DefaultBiomeFeatures.addDungeons(featureSettings);
+//        DefaultBiomeFeatures.addMineables(featureSettings);
+//        DefaultBiomeFeatures.addFrozenTopLayer(featureSettings);
+//        DefaultBiomeFeatures.addSprings(featureSettings);
+//
 
 
         BiomeModifications.create(new Identifier(Dinocraft.MOD_ID + "breakthrough"))
