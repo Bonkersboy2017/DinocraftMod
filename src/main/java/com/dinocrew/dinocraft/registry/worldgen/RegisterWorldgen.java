@@ -109,5 +109,10 @@ public class RegisterWorldgen {
     public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = ConfiguredFeatures.register("dragonwood", Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG), new StraightTrunkPlacer(8, 3, 0), BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES), new SpruceFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(3), ConstantIntProvider.create(4)), new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
 
     public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register("trees_dragonwood", RegisterWorldgen.DRAGONWOOD, VegetationPlacedFeatures.modifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), Blocks.OAK_SAPLING));
+
+
 }
+
+
+
 
