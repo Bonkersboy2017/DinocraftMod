@@ -40,8 +40,7 @@ import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.RandomSpreadFoliagePlacer;
 import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
-import net.minecraft.world.gen.placementmodifier.BlockFilterPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
@@ -57,7 +56,6 @@ public class RegisterWorldgen {
         DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
 
 
-
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.DEINONYCHUS, 10, 1, 1));
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SAUROPOD, 10, 1, 1));
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.STEGORAPTOR, 10, 1, 1));
@@ -66,12 +64,22 @@ public class RegisterWorldgen {
         GenerationSettings.Builder featureSettings = new GenerationSettings.Builder();
 
         featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, TREES_DRAGONWOOD);
+        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_NORMAL);
+        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_PLAIN);
+        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP);
+        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.RED_MUSHROOM_SWAMP);
         DefaultBiomeFeatures.addPlainsTallGrass(featureSettings);
         DefaultBiomeFeatures.addDefaultOres(featureSettings);
         DefaultBiomeFeatures.addDefaultDisks(featureSettings);
         DefaultBiomeFeatures.addExtraDefaultFlowers(featureSettings);
-
-
+        DefaultBiomeFeatures.addDefaultGrass(featureSettings);
+        DefaultBiomeFeatures.addLandCarvers(featureSettings);
+        DefaultBiomeFeatures.addAmethystGeodes(featureSettings);
+        DefaultBiomeFeatures.addDungeons(featureSettings);
+        DefaultBiomeFeatures.addMineables(featureSettings);
+        DefaultBiomeFeatures.addFrozenTopLayer(featureSettings);
+        DefaultBiomeFeatures.addSprings(featureSettings
+        );
 
 
         BiomeModifications.create(new Identifier(Dinocraft.MOD_ID + "breakthrough"))
@@ -98,7 +106,7 @@ public class RegisterWorldgen {
 
     }
 
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = ConfiguredFeatures.register("dragonwood", Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG), new StraightTrunkPlacer(8, 3, 0), BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES), new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 2)), new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = ConfiguredFeatures.register("dragonwood", Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG), new StraightTrunkPlacer(8, 3, 0), BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES), new SpruceFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(3), ConstantIntProvider.create(4)), new TwoLayersFeatureSize(1, 0, 2)).ignoreVines().build());
 
     public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register("trees_dragonwood", RegisterWorldgen.DRAGONWOOD, VegetationPlacedFeatures.modifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(8, 0.1f, 1), Blocks.OAK_SAPLING));
 }
