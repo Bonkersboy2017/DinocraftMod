@@ -1,0 +1,12 @@
+{
+  "type": "dinocraft:dinobench",
+  "main": {
+    "item": "minecraft:diamond"
+  },
+  "modifier": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "item": "minecraft:dirt"
+  }
+}

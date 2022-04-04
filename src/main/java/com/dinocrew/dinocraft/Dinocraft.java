@@ -3,6 +3,7 @@ package com.dinocrew.dinocraft;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.registry.entities.TroodonEntity;
 //import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
+import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -22,6 +23,7 @@ public class Dinocraft implements ModInitializer {
         ModSpawns.registerAll();
         ModFeatures.registerAll();
         ModBiomes.registerBiomes();
+        ModScreenHandlerTypes.initialize();
 //        RegisterWorldgen.RegisterWorldgen();
 
     }
