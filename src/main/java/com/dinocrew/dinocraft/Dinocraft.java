@@ -1,5 +1,6 @@
 package com.dinocrew.dinocraft;
 
+import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.registry.entities.TroodonEntity;
 //import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
@@ -24,6 +25,7 @@ public class Dinocraft implements ModInitializer {
         ModFeatures.registerAll();
         ModBiomes.registerBiomes();
         ModScreenHandlerTypes.initialize();
+        ModRecipeSerializer.initialize();
 //        RegisterWorldgen.RegisterWorldgen();
 
     }
