@@ -28,7 +28,7 @@ import static org.objectweb.asm.Opcodes.GETSTATIC;
 public abstract class ModBiomeParameters {
 
     @Shadow protected abstract void writeBiomeParameters(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, MultiNoiseUtil.ParameterRange temperature, MultiNoiseUtil.ParameterRange humidity, MultiNoiseUtil.ParameterRange continentalness, MultiNoiseUtil.ParameterRange erosion, MultiNoiseUtil.ParameterRange weirdness, float offset, RegistryKey<Biome> biome);
-    private final MultiNoiseUtil.ParameterRange defaultParameter = MultiNoiseUtil.ParameterRange.of(-1f, 0f);
+    private final MultiNoiseUtil.ParameterRange mushroomFieldsContinentalness = MultiNoiseUtil.ParameterRange.of(-1.2F, -1.05F);
 
     @Shadow
     @Final
@@ -38,7 +38,7 @@ public abstract class ModBiomeParameters {
 
     @Inject(method="writeOceanBiomes",at=@At("TAIL"))
     private void mymodid$myBiomeParameters(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, CallbackInfo ci) {
-        writeBiomeParameters(parameters, defaultParameter, MultiNoiseUtil.ParameterRange.of(-1.2F, -1.05F), MultiNoiseUtil.ParameterRange.of(-2, -2), defaultParameter, defaultParameter, 0.0f, ModBiomes.BREAKTHHROUGH_KEY);
+        writeBiomeParameters(parameters, mushroomFieldsContinentalness, MultiNoiseUtil.ParameterRange.of(-1.2F, -1.05F), MultiNoiseUtil.ParameterRange.of(-2, -2), mushroomFieldsContinentalness, mushroomFieldsContinentalness, 0.0f, ModBiomes.BREAKTHHROUGH_KEY);
     }
 
 
