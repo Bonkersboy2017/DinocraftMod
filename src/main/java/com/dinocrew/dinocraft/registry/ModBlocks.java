@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 
@@ -59,7 +60,8 @@ public class ModBlocks
         registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "skeleton_ore"));
         registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_ore"));
         registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_ore"));
-        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinobench"));
+        // Using other registerBlock method here
+        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinobench"), new Item.Settings().rarity(Rarity.UNCOMMON));
         registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_block"));
         registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_bricks"));
         registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_block"));
@@ -95,5 +97,9 @@ public class ModBlocks
     private static void registerBlock(Block block, ItemGroup group, Identifier ID) {
         Registry.register(Registry.BLOCK, ID, block);
         Registry.register(Registry.ITEM, ID, new BlockItem(block, new Item.Settings().group(group)));
+    }
+    private static void registerBlock(Block block, ItemGroup group, Identifier ID, Item.Settings settings) {
+        Registry.register(Registry.BLOCK, ID, block);
+        Registry.register(Registry.ITEM, ID, new BlockItem(block, settings.group(group)));
     }
 }
