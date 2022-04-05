@@ -61,7 +61,7 @@ public class ModBlocks
         registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_ore"));
         registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_ore"));
         // Using other registerBlock method here
-        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinobench"), new Item.Settings().rarity(Rarity.UNCOMMON));
+        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinobench"), new Item.Settings().rarity(Rarity.RARE));
         registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_block"));
         registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_bricks"));
         registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_block"));
@@ -88,8 +88,8 @@ public class ModBlocks
         registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_door"));
         registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_trapdoor"));
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_fence_gate"));
-        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dino_egg"));
-        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "incubated_dino_egg"));
+        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
+        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "incubated_dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
 
     }
 
