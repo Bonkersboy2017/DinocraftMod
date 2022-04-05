@@ -95,8 +95,7 @@ public class ModBlocks
 
 
     private static void registerBlock(Block block, ItemGroup group, Identifier ID) {
-        Registry.register(Registry.BLOCK, ID, block);
-        Registry.register(Registry.ITEM, ID, new BlockItem(block, new Item.Settings().group(group)));
+        registerBlock(block, group, ID, new Item.Settings());
     }
     private static void registerBlock(Block block, ItemGroup group, Identifier ID, Item.Settings settings) {
         Registry.register(Registry.BLOCK, ID, block);
