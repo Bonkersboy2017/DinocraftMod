@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 //basically copypasted Smithing Table
 
 public class DinoBenchBlock extends CraftingTableBlock {
-    private static final Text SCREEN_TITLE = new TranslatableText("container.dinobench");
+    private static final Text SCREEN_TITLE = new TranslatableText("container.dinocraft.dinobench");
 
     public DinoBenchBlock(Settings settings) {
         super(settings);
