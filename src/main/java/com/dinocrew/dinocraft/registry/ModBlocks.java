@@ -46,9 +46,9 @@ public class ModBlocks
     public static final Block DRAGONWOOD_TRAPDOOR = new CustomTrapdoor(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque());
     public static final Block DRAGONWOOD_BUTTON = new CustomWoodenButton(DRAGONWOOD_SETTINGS);
-    public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).requiresTool());
-    public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BRICKS).requiresTool());
-    public static final Block AMBER_ORE = new Block(FabricBlockSettings.copyOf(Blocks.COPPER_ORE).requiresTool());
+    public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block AMBER_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block DINO_EGG = new Block(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
     public static final Block INCUBATED_DINO_EGG = new Block(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
 
