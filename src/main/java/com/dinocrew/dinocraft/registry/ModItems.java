@@ -10,13 +10,14 @@ import com.dinocrew.dinocraft.registry.weapons.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class ModItems {
 
-    public static final Item ALLOSAURUS_SKULL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item BARYONYX_SKULL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item CARNOTAURUS_SKULL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item ALLOSAURUS_SKULL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.UNCOMMON));
+    public static final Item BARYONYX_SKULL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.UNCOMMON));
+    public static final Item CARNOTAURUS_SKULL = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.UNCOMMON));
     public static final Item DINO_KIDNEY = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.BERRIES));
     public static final Item INFECTED_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.INFECTED_BERRIES));
@@ -46,10 +47,10 @@ public class ModItems {
     public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 167475200, 16753920, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item PROFFESSOR_SPAWN_EGG = new SpawnEggItem(ModEntities.PROFFESOR, 0xFFFFFF, 0x808080, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));
-    public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static Item ENLIGHTENED_NECKLACE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static Item ENLIGHTENED_CORE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
+    public static Item ENLIGHTENED_NECKLACE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static Item DRAGONWOOD_BOAT = new DragonwoodBoatItem(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item EMPTY_DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item DNA_BOTTLE = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
@@ -58,6 +59,7 @@ public class ModItems {
     public static final Item DINO_FEATHER = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item AMBER_GEM = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DRAGONWOOD_SCRAP = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+
 
 
 
