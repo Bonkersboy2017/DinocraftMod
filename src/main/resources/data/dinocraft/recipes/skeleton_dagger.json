@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " d ",
+        "D d",
+        "D  "
+    ],
+    "key": {
+        "d": {
+            "item": "dinocraft:dinosteel_ingot"
+        },
+        "D": {
+            "item": "dinocraft:fossil"
+        }
+    },
+    "result": {
+     "item": "dinocraft:skeleton_dagger",
+            "count": 1
+          }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "# #",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "dinocraft:amber_gem"
+        }
+    },
+    "result": {
+        "item": "dinocraft:amber_chestplate",
+        "count": 1
+    }
+}

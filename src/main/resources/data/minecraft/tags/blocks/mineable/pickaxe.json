@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "dinocraft:bronzium_ore",
+    "dinocraft:skeleton_ore",
+    "dinocraft:fossilized_stone",
+    "dinocraft:amber_ore",
+    "dinocraft:bronzium_bricks",
+    "dinocraft:bronzium_block",
+    "dinocraft:amber_bricks",
+    "dinocraft:amber_block"
+  ]
+}

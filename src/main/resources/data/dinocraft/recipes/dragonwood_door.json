@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": {
+            "item": "dinocraft:dragonwood_scrap"
+        }
+    },
+    "result": {
+        "item": "dinocraft:dragonwood_door",
+        "count": 1
+    }
+}

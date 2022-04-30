@@ -29,6 +29,8 @@
   "item.dinocraft.stegoraptor_spawn_egg": "Stegoraptor Spawn Egg",
   "item.dinocraft.chinlea_spawn_egg": "Chinlea Spawn Egg",
   "item.dinocraft.deinonychus_spawn_egg": "Deinonychus Spawn Egg",
+   "item.dinocraft.proffessor_spawn_egg": "Professor Spawn Egg",
+   "item.dinocraft.scorpius_spawn_egg": "Scorpius Spawn Egg",
   "item.dinocraft.cyad_seeds": "Cyad Seeds",
   "item.dinocraft.rotting_cyads": "Rotting Cyads",
   "item.dinocraft.cyad_leaf": "Cyad Leaf",
@@ -96,7 +98,26 @@
   "block.dinocraft.wbc": "Waxed Fossilized Stone",
   "item.dinocraft.dna_bottle": "DNA Bottle",
   "item.dinocraft.empty_dna_bottle": "Empty DNA Bottle",
-  "item.dinocraft.mysterious_dna_bottle": "Mysterious DNA Bottle"
+  "item.dinocraft.mysterious_dna_bottle": "Mysterious DNA Bottle",
+  "item.dinocraft.inflamed_dna_bottle": "Inflamed DNA Bottle",
+  "item.dinocraft.dino_feather": "Dino Feather",
+  "block.dinocraft.dino_egg": "Dino Egg",
+  "block.dinocraft.incubated_dino_egg": "Incubated Dino Egg",
+  "item.dinocraft.amber_gem": "Amber Gem ",
+  "item.dinocraft.amber_pickaxe": "Amber Pickaxe",
+  "item.dinocraft.amber_axe": "Amber Axe",
+  "item.dinocraft.amber_hoe": "Amber Hoe",
+  "item.dinocraft.amber_sword": "Amber Sword",
+  "item.dinocraft.amber_shovel": "Amber Shovel",
+  "block.dinocraft.amber_block":"Amber Block",
+  "block.dinocraft.amber_bricks":"Amber Bricks",
+  "block.dinocraft.amber_ore":"Amber Ore",
+  "item.dinocraft.amber_helmet": "Amber Helmet",
+  "item.dinocraft.amber_chestplate": "Amber Chestplate",
+  "item.dinocraft.amber_leggings": "Amber Leggings",
+  "item.dinocraft.amber_boots": "Amber Boots",
+  "item.dinocraft.dragonwood_scrap": "Dragonwood Scrap",
+  "container.dinocraft.dinobench": "Dinobench"
 
-  
+
 }

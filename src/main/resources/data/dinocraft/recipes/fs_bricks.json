@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": {
+            "item": "dinocraft:fossilized_stone"
+        }
+    },
+    "result": {
+        "item": "dinocraft:fs_bricks",
+        "count": 3
+    }
+}

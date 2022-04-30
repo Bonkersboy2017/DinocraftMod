@@ -1,0 +1,12 @@
+{
+  "type": "dinocraft:dinobench",
+  "main": {
+    "item": "dinocraft:skeleton_hoe"
+  },
+  "modifier": {
+    "item": "dinocraft:shard_of_enlightenment"
+  },
+  "result": {
+    "item": "dinocraft:enlightened_hoe"
+  }
+}
