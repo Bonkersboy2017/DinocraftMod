@@ -2,6 +2,7 @@ package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.block.DinoBenchBlock;
+import com.dinocrew.dinocraft.block.DinotanerBlock;
 import com.dinocrew.dinocraft.registry.blocks.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -52,6 +53,7 @@ public class ModBlocks
     public static final Block AMBER_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block DINO_EGG = new Block(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
     public static final Block INCUBATED_DINO_EGG = new Block(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
+    public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ));
 
 
 
@@ -90,6 +92,7 @@ public class ModBlocks
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_fence_gate"));
         registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
         registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "incubated_dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
+        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinotaner"), new Item.Settings().rarity(Rarity.RARE));
 
     }
 

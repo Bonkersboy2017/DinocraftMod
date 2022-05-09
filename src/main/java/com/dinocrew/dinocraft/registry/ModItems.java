@@ -46,7 +46,7 @@ public class ModItems {
     public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.STEGORAPTOR, 25600, 139, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 167475200, 16753920, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item PROFFESSOR_SPAWN_EGG = new SpawnEggItem(ModEntities.PROFFESOR, 0xFFFFFF, 0x808080, new Item.Settings().group(Dinocraft.ITEM_GROUP));
-    public static final Item SCORPIUS_SPAWN_EGG = new SpawnEggItem(ModEntities.SCORPIUS, 0x808080, 0xC4A484, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final Item SCORPIUS_SPAWN_EGG = new SpawnEggItem(ModEntities.SCORPIUS, 0x808080, 0xFFFF00, new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static Item SHARD_OF_ENLIGHTENMENT = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static Item TROPICAL_BERRIES = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));

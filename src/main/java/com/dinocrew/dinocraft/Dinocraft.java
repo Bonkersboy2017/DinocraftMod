@@ -2,6 +2,7 @@ package com.dinocrew.dinocraft;
 
 import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
+import com.dinocrew.dinocraft.registry.blocks.modBlockEntityTypes;
 import com.dinocrew.dinocraft.registry.entities.TroodonEntity;
 //import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
@@ -14,10 +15,14 @@ import net.minecraft.util.Identifier;
 public class Dinocraft implements ModInitializer {
     public static final String MOD_ID = "dinocraft";
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "general"), () -> new ItemStack(ModItems.FOSSIL));
-
+    public static Identifier identify(String id){
+        return new Identifier(MOD_ID+":"+id);
+    }
 
     @Override
     public void onInitialize() {
+
+
         ModItems.registerAll();
         ModBlocks.registerAll();
         ModEntities.registerAll();
@@ -26,6 +31,7 @@ public class Dinocraft implements ModInitializer {
         ModBiomes.registerBiomes();
         ModScreenHandlerTypes.initialize();
         ModRecipeSerializer.initialize();
+        modBlockEntityTypes.initialize();
 //        RegisterWorldgen.RegisterWorldgen();
 
     }

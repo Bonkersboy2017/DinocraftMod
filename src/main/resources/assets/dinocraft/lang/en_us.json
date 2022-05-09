@@ -117,7 +117,9 @@
   "item.dinocraft.amber_leggings": "Amber Leggings",
   "item.dinocraft.amber_boots": "Amber Boots",
   "item.dinocraft.dragonwood_scrap": "Dragonwood Scrap",
-  "container.dinocraft.dinobench": "Dinobench"
+  "container.dinocraft.dinobench": "Dinobench",
+  "block.dinocraft.dinotaner": "Dinotaner",
+  "container.dinotaner": "Dinotaner"
 
 
 }
