@@ -1,4 +1,4 @@
-package com.dinocrew.dinocraft.liukrastapi;
+package net.frozenblock.api.mathematics;
 
 import java.awt.geom.Point2D;
 

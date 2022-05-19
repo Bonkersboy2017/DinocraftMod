@@ -5,7 +5,7 @@
 	// Paste this class into your mod and generate all required imports
 	package com.dinocrew.dinocraft.registry.entities;
 
-import com.dinocrew.dinocraft.liukrastapi.AnimationAPI;
+import net.frozenblock.api.mathematics.AnimationAPI;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;

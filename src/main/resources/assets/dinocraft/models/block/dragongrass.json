@@ -1,12 +1,11 @@
 {
-  "parent": "minecraft:block/cube",
-  "textures": {
-    "particle": "dinocraft:block/grassbottom",
-    "north": "dinocraft:block/grasside",
-    "south": "dinocraft:block/grasside",
-    "east": "dinocraft:block/grasside",
-    "west": "dinocraft:block/grasside",
-    "up": "dinocraft:block/dragongrass",
-    "down": "dinocraft:block/grassbottom"
-  }
+	"credit": "Made By LiukRast",
+	"parent": "block/grass_block",
+	"textures": {
+        "particle": "block/dirt",
+        "bottom": "block/dirt",
+        "top": "dinocraft:block/dragongrass_top",
+        "side": "dinocraft:block/dragongrass_side",
+        "overlay": "dinocraft:block/dragongrass_side_overlay"
+    	}
 }
