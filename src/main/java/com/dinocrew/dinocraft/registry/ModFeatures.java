@@ -1,24 +1,29 @@
 package com.dinocrew.dinocraft.registry;
 
+import com.dinocrew.dinocraft.Dinocraft;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.block.OreBlock;
+import net.frozenblock.api.minecraft.worldgen.features.BreakthroughStones;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 import java.util.Arrays;
 
 public class ModFeatures {
+    private static final Feature<DefaultFeatureConfig> BREAKTHROUGH_STONES_FEATURE = new BreakthroughStones(DefaultFeatureConfig.CODEC);
     private static ConfiguredFeature<?, ?> OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE = new ConfiguredFeature
             (Feature.ORE, new OreFeatureConfig(
                     OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
@@ -75,15 +80,16 @@ public class ModFeatures {
 
 
     public static void registerAll() {
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_skeleton_ore"), OVERWORLD_SKELETON_ORE_PLACED_FEATURE);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "overworld_skeleton_ore"), OVERWORLD_SKELETON_ORE_PLACED_FEATURE);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("dinocraft", "overworld_skeleton_ore")));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("dinocraft", "overworld_bronzium_ore"), OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_bronzium_ore"), OVERWORLD_BRONZIUM_ORE_PLACED_FEATURE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Dinocraft.MOD_ID, "overworld_bronzium_ore"), OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "overworld_bronzium_ore"), OVERWORLD_BRONZIUM_ORE_PLACED_FEATURE);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("dinocraft", "overworld_bronzium_ore")));
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_fossilised_stone"), OVERWORLD_FOSSILISED_STONE_PLACED_FEATURE);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "overworld_fossilised_stone"), OVERWORLD_FOSSILISED_STONE_PLACED_FEATURE);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("dinocraft", "overworld_fossilised_stone")));
 
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("dinocraft", "overworld_amber_ore"), OVERWORLD_AMBER_ORE_PLACED_FEATURE);
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "overworld_amber_ore"), OVERWORLD_AMBER_ORE_PLACED_FEATURE);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("dinocraft", "overworld_amber_ore")));
+        Registry.register(Registry.FEATURE, new Identifier(Dinocraft.MOD_ID, "breakthrough_stones"), BREAKTHROUGH_STONES_FEATURE);
     }
 }

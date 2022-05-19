@@ -50,8 +50,8 @@ public class DragonWoodTrunkPlacer extends TrunkPlacer implements AdvancedMath {
         setToDirt(world, replacer, random, blockPos.south().west(), config); // SOUTH-WEST
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-        int min = 4;
-        int max = 10;
+        int min = 6;
+        int max = 13;
 
 
         //Random Height between min & max
