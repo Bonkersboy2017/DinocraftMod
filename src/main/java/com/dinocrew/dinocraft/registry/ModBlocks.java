@@ -6,6 +6,7 @@ import com.dinocrew.dinocraft.block.DinotanerBlock;
 import com.dinocrew.dinocraft.registry.blocks.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -26,7 +27,7 @@ public class ModBlocks
     public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool());
     public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.BRICKS ));
-    public static final Block DRAGONGRASS = new Block(FabricBlockSettings.copyOf ( Blocks.GRASS_BLOCK ).requiresTool ());
+    public static final GrassBlock DRAGONGRASS = new GrassBlock(FabricBlockSettings.copyOf ( Blocks.GRASS_BLOCK ).requiresTool ());
     public static final Block DINOSAUR_TEMPERED_GLASS= new GlassBlock(FabricBlockSettings.copyOf ( Blocks.GLASS ).requiresTool ());
     public static final Block FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sounds(BlockSoundGroup.STONE));
     public static final Block WBC = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).requiresTool());

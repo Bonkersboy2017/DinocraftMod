@@ -1,6 +1,7 @@
 package com.dinocrew.dinocraft.registry.worldgen;
 
 import com.dinocrew.dinocraft.Dinocraft;
+import net.frozenblock.api.minecraft.worldgen.features.BreakthroughStones;
 import net.frozenblock.api.minecraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
 import net.frozenblock.api.minecraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import com.dinocrew.dinocraft.registry.ModBiomes;
@@ -15,6 +16,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -102,8 +104,6 @@ public class RegisterWorldgen {
     ).ignoreVines().build());
 
     public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register("trees_dragonwood", RegisterWorldgen.DRAGONWOOD, VegetationPlacedFeatures.modifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.1f, 1), Blocks.OAK_SAPLING));
-
-
 }
 
 

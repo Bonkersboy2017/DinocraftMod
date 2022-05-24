@@ -7,9 +7,11 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.frozenblock.api.mathematics.AdvancedMath;
 import net.frozenblock.api.mathematics.Conics;
 import net.frozenblock.api.mathematics.Point3D;
+import net.frozenblock.api.minecraft.worldgen.features.BreakthroughStones;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.TestableWorld;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacer;
@@ -22,7 +24,7 @@ import java.util.function.BiConsumer;
 // ALL CODE MADE BY LIUKRAST
 // All rights Reserved
 
-public class DragonWoodTrunkPlacer extends TrunkPlacer implements AdvancedMath {
+public class DragonWoodTrunkPlacer extends TrunkPlacer {
     public DragonWoodTrunkPlacer(int i, int j, int k) {
         super(i, j, k);
     }
@@ -55,11 +57,16 @@ public class DragonWoodTrunkPlacer extends TrunkPlacer implements AdvancedMath {
 
 
         //Random Height between min & max
-        int h = (int)range(min, max, (float)Math.random());
-        int h_nw = (int)range((float)min/3, (float)max/3, (float)Math.random());
-        int h_sw = (int)range((float)min/3, (float)max/3, (float)Math.random());
-        int h_ne = (int)range((float)min/3, (float)max/3, (float)Math.random());
-        int h_se = (int)range((float)min/3, (float)max/3, (float)Math.random());
+        int h = (int)AdvancedMath.range(min, max, (float)Math.random());
+        int h_nw = (int)AdvancedMath.range((float)min/3, (float)max/3, (float)Math.random());
+        int h_sw = (int)AdvancedMath.range((float)min/3, (float)max/3, (float)Math.random());
+        int h_ne = (int)AdvancedMath.range((float)min/3, (float)max/3, (float)Math.random());
+        int h_se = (int)AdvancedMath.range((float)min/3, (float)max/3, (float)Math.random());
+
+        int rndm_w = (int)AdvancedMath.range(5, 10, (float)Math.random());
+        int rndm_e = (int)AdvancedMath.range(5, 10, (float)Math.random());
+        int rndm_n = (int)AdvancedMath.range(5, 10, (float)Math.random());
+        int rndm_s = (int)AdvancedMath.range(5, 10, (float)Math.random());
 
         for(int i = 0; i < h; i++) {
             setLog(world, replacer, random, mutable, config, startPos, 0, i, 0); // CENTER
@@ -76,7 +83,7 @@ public class DragonWoodTrunkPlacer extends TrunkPlacer implements AdvancedMath {
         }
 
         generateEllipsoid(8, 4, 8, 30, world, replacer, random, new BlockPos(startPos.getX(), startPos.getY() + h, startPos.getZ()), config, mutable);
-        generateHalfEllipsoid(10, 4, 10, 10, world, replacer, random, new BlockPos(startPos.getX(), startPos.getY() + h, startPos.getZ()), config, mutable);
+        generateHalfEllipsoid(9, 4, 9, 10, world, replacer, random, new BlockPos(startPos.getX(), startPos.getY() + h, startPos.getZ()), config, mutable);
 
 
         return ImmutableList.of(new FoliagePlacer.TreeNode(startPos.up(h), 0, false));
