@@ -23,7 +23,6 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import java.util.Arrays;
 
 public class ModFeatures {
-    private static final Feature<DefaultFeatureConfig> BREAKTHROUGH_STONES_FEATURE = new BreakthroughStones(DefaultFeatureConfig.CODEC);
     private static ConfiguredFeature<?, ?> OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE = new ConfiguredFeature
             (Feature.ORE, new OreFeatureConfig(
                     OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
@@ -90,6 +89,5 @@ public class ModFeatures {
 
         Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Dinocraft.MOD_ID, "overworld_amber_ore"), OVERWORLD_AMBER_ORE_PLACED_FEATURE);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("dinocraft", "overworld_amber_ore")));
-        Registry.register(Registry.FEATURE, new Identifier(Dinocraft.MOD_ID, "breakthrough_stones"), BREAKTHROUGH_STONES_FEATURE);
     }
 }

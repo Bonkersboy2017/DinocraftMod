@@ -1,6 +1,6 @@
 package net.frozenblock.api.mathematics;
 
-public interface AdvancedMath {
+public class AdvancedMath {
     /**
      * ADVANCED MATH
      * <p>
@@ -14,7 +14,7 @@ public interface AdvancedMath {
      * @since 4.0
      *
      */
-    default float range(float min, float max, float number) {
+    public static float range(float min, float max, float number) {
         return (number * max) + min;
     }
 }
