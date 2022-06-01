@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "dinocraft:block/dinotaner" }
+    "open=false": {
+      "model": "dinocraft:block/dinotaner"
+    },
+    "open=true": {
+      "model": "dinocraft:block/dinotaner_open"
+    }
   }
 }

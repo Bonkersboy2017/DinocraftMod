@@ -7,6 +7,6 @@
     "east": "dinocraft:block/dinobench",
     "west": "dinocraft:block/dinobench",
     "up": "dinocraft:block/dinobench_top",
-    "down": "dinocraft:block/dinobench"
+    "down": "dinocraft:block/dinobench_bottom"
   }
 }

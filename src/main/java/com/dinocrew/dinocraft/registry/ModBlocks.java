@@ -52,8 +52,8 @@ public class ModBlocks
     public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block AMBER_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block DINO_EGG = new Block(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
-    public static final Block INCUBATED_DINO_EGG = new Block(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
+    public static final EggBlock DINO_EGG = new EggBlock(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
+    public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
     public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ));
 
 

@@ -18,10 +18,6 @@ public class ModBiomes {
 
     public static void registerBiomes() {
         register(BREAKTHHROUGH_KEY, RegisterWorldgen.createBreakthrough());
-
-
-
-
     }
 
 

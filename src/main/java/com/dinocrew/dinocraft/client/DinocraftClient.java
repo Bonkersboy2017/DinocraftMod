@@ -71,28 +71,39 @@ public class DinocraftClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONGRASS, RenderLayer.getCutout());
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DINOSAUR_TEMPERED_GLASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DINOSAUR_TEMPERED_GLASS, RenderLayer.getTranslucent());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INCUBATED_DINO_EGG, RenderLayer.getCutout());
 
         ScreenRegistry.register(ModScreenHandlerTypes.DINO_BENCH_SCREEN_HANDLER_TYPE, DinoBenchScreen::new);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-            assert world != null;
-            return BiomeColors.getGrassColor(world, pos);
+            if(world != null) {
+                return BiomeColors.getGrassColor(world, pos);
+            } else {
+                return GrassColors.getColor(1,1);
+            }
         }), ModBlocks.DRAGONGRASS);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-            assert world != null;
-            return BiomeColors.getGrassColor(world, pos);
+            if(world != null) {
+                return BiomeColors.getGrassColor(world, pos);
+            } else {
+                return GrassColors.getColor(1,1);
+            }
         }), RegisterBlocks.CYCADOPHYTA);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-            assert world != null;
-            return BiomeColors.getFoliageColor(world, pos);
+            if(world != null) {
+                return BiomeColors.getFoliageColor(world, pos);
+            } else {
+                return GrassColors.getColor(1,1);
+            }
         }), ModBlocks.DRAGONWOOD_LEAVES);
 
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(1,1)), ModBlocks.DRAGONGRASS);
+
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> FoliageColors.getDefaultColor()), ModBlocks.DRAGONWOOD_LEAVES);
 
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(1,1)), RegisterBlocks.CYCADOPHYTA);
     }

@@ -20,7 +20,7 @@ public class ModEntities {
     public static final EntityType<StegoraptorEntity> STEGORAPTOR = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "stegoraptor"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
     public static final EntityType<ChinleaEntity> CHINLEA = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "chinlea"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinleaEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
     public static final EntityType<DeinonychusEntity> DEINONYCHUS = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "deinonychus"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DeinonychusEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
-    public static final EntityType<ProffessorEntity> PROFFESOR = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "proffesor"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ProffessorEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
+    public static final EntityType<ProffessorEntity> PROFFESOR = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "proffesor"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ProffessorEntity::new).dimensions(EntityDimensions.fixed(1f, 2)).build());
     public static final EntityType<ScorpiusEntity> SCORPIUS = Registry.register(Registry.ENTITY_TYPE, new Identifier(Dinocraft.MOD_ID, "scorpius"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ScorpiusEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
 
     public static EntityType<DragonwoodBoatEntity> DRAGONWOOD_BOAT;

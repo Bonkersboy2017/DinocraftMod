@@ -63,11 +63,6 @@ public class DragonWoodTrunkPlacer extends TrunkPlacer {
         int h_ne = (int)AdvancedMath.range((float)min/3, (float)max/3, (float)Math.random());
         int h_se = (int)AdvancedMath.range((float)min/3, (float)max/3, (float)Math.random());
 
-        int rndm_w = (int)AdvancedMath.range(5, 10, (float)Math.random());
-        int rndm_e = (int)AdvancedMath.range(5, 10, (float)Math.random());
-        int rndm_n = (int)AdvancedMath.range(5, 10, (float)Math.random());
-        int rndm_s = (int)AdvancedMath.range(5, 10, (float)Math.random());
-
         for(int i = 0; i < h; i++) {
             setLog(world, replacer, random, mutable, config, startPos, 0, i, 0); // CENTER
 

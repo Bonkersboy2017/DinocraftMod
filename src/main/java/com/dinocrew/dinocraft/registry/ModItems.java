@@ -60,6 +60,7 @@ public class ModItems {
     public static final Item DINO_FEATHER = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item AMBER_GEM = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
     public static final Item DRAGONWOOD_SCRAP = new Item(new Item.Settings().group(Dinocraft.ITEM_GROUP));
+    public static final SwordBase SPEAR = new SwordBase(new ToolMaterialEnlightened());
 
 
 
@@ -131,7 +132,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_core"),ENLIGHTENED_CORE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "enlightened_necklace"),ENLIGHTENED_NECKLACE);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_boat"), DRAGONWOOD_BOAT);
-        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "spear"), new SwordBase(new ToolMaterialEnlightened()));
+        Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "spear"), SPEAR);
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_pickaxe"), new PickaxeBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_axe"), new AxeBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, new Identifier(Dinocraft.MOD_ID, "dragonwood_shovel"), new ShovelBase(new ToolMaterialDragonwood()));

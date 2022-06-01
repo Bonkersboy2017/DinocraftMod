@@ -75,7 +75,7 @@ public class RegisterWorldgen {
 
         return (new Biome.Builder())
                 .precipitation(Biome.Precipitation.NONE)
-                .category(Biome.Category.MUSHROOM)
+                .category(Biome.Category.FOREST)
                 .temperature(0.6F)
                 .downfall(0.9F)
                 .effects((new BiomeEffects.Builder())
@@ -83,7 +83,7 @@ public class RegisterWorldgen {
                         .foliageColor(Integer.parseInt("63915b", 16))
                         .waterColor(Integer.parseInt("5f9bbf", 16))
                         .waterFogColor(Integer.parseInt("5f9bbf", 16))
-                        .fogColor(Integer.parseInt("074857", 16))
+                        .fogColor(12638463)
                         .skyColor(getSkyColor(0.8F))
                         .music(MusicType.GAME)
                         .build())
