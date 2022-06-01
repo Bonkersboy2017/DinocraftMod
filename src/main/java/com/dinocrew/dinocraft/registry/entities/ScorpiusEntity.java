@@ -2,8 +2,10 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.ModItems;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.passive.CodEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,8 +21,9 @@ import org.jetbrains.annotations.Nullable;
 public class ScorpiusEntity extends TameableEntity {
     public ScorpiusEntity(EntityType<? extends TameableEntity> entityType, World world) { super(entityType, world);}
     protected void initGoals() {
+        this.goalSelector.add(4, new TemptGoal(this, 0.7D, Ingredient.ofItems(ModItems.CYAD_LEAF), false));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.4D));
-        this.goalSelector.add(4, new TemptGoal(this, 0.7D, Ingredient.ofItems(new ItemConvertible[]{ModItems.CYAD_LEAF}), false));
+        this.targetSelector.add(10, new ActiveTargetGoal<>(this, PassiveEntity.class, 40, true, true, null));
 
     }
 
