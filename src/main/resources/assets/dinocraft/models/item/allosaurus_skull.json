@@ -1,5 +1,5 @@
 {
-	"credit": "Made By LiukRast",
+	"credit": "Made by LiukRast",
 	"texture_size": [64, 32],
 	"textures": {
 		"0": "dinocraft:item/sauropod_skull"
@@ -69,7 +69,8 @@
 		},
 		"gui": {
 			"rotation": [30, 225, 0],
-			"scale": [0.5, 0.5, 0.5]
+			"translation": [0.25, 2, 0],
+			"scale": [0.9, 0.9, 0.9]
 		},
 		"head": {
 			"translation": [0, 5, -5],
