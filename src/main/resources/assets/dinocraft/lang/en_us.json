@@ -31,9 +31,9 @@
   "item.dinocraft.deinonychus_spawn_egg": "Deinonychus Spawn Egg",
    "item.dinocraft.proffessor_spawn_egg": "Professor Spawn Egg",
    "item.dinocraft.scorpius_spawn_egg": "Scorpius Spawn Egg",
-  "item.dinocraft.cyad_seeds": "Cyad Seeds",
-  "item.dinocraft.rotting_cyads": "Rotting Cyads",
-  "item.dinocraft.cyad_leaf": "Cyad Leaf",
+  "item.dinocraft.cyad_seeds": "Cycad Seeds",
+  "item.dinocraft.rotting_cyads": "Rotting Cycads",
+  "item.dinocraft.cyad_leaf": "Cycad Leaf",
   "item.dinocraft.skeleton_dagger": "Skeleton Dagger",
   "item.dinocraft.bronzium_pickaxe": "Bronzium Pickaxe",
   "item.dinocraft.bronzium_axe": "Bronzium Axe",
@@ -119,7 +119,9 @@
   "item.dinocraft.dragonwood_scrap": "Dragonwood Scrap",
   "container.dinocraft.dinobench": "Dinobench",
   "block.dinocraft.dinotaner": "Dinotaner",
-  "container.dinotaner": "Dinotaner"
+  "container.dinotaner": "Dinotaner",
+  "block.dinocraft.liverworts": "Liverworts",
+  "block.dinocraft.cycadophyta": "Cycadophyta"
 
 
 }
