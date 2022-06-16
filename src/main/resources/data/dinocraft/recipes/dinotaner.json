@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ddd",
+        "dCd",
+        "ddd"
+    ],
+    "key": {
+        "d": {
+            "item": "dinocraft:dinosteel_ingot"
+        },
+        "C": {
+            "item": "minecraft:chest"
+        }
+    },
+    "result": {
+        "item": "dinocraft:dinotaner",
+        "count": 1
+    }
+}
