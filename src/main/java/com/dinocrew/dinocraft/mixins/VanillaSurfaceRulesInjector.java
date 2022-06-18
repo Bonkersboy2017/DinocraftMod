@@ -17,8 +17,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules.class)
 public class VanillaSurfaceRulesInjector {
     @ModifyVariable(method = "createDefaultRule", at = @At("STORE"), ordinal = 8)
-    private static MaterialRules.MaterialRule injected(MaterialRules.MaterialRule x) {
-        return
+    private static MaterialRules.MaterialRule injected(MaterialRules.MaterialRule originalRules) {
+        return MaterialRules.sequence(
                 MaterialRules.condition(
                         MaterialRules.biome(ModBiomes.BREAKTHHROUGH_KEY),
                         MaterialRules.condition(
@@ -31,9 +31,10 @@ public class VanillaSurfaceRulesInjector {
                                                         MaterialRules.block(ModBlocks.DRAGONGRASS.getDefaultState())
                                                 ),
                                                 MaterialRules.block(Blocks.DIRT.getDefaultState())
-                                        )
+                                        ))
                                 )
                         )
-                );
+              ,originalRules);
+
     }
 }
