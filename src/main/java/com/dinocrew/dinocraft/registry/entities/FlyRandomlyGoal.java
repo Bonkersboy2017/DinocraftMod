@@ -37,7 +37,7 @@ public class FlyRandomlyGoal extends Goal {
 
     @Override
     public void start() {
-        Random random = this.entity.getRandom();
+        Random random = (Random) this.entity.getRandom();
         double d = this.entity.getX() + (double)((random.nextFloat() * 2.0f - 1.0f) * 16.0f);
         double e = this.entity.getY() + (double)((random.nextFloat() * 2.0f - 1.0f) * 16.0f);
         double f = this.entity.getZ() + (double)((random.nextFloat() * 2.0f - 1.0f) * 16.0f);

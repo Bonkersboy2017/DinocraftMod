@@ -3,9 +3,9 @@ package net.frozenblock.registry;
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.registry.ModFoodComponents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.AbstractLichenBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.GlowLichenBlock;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -14,7 +14,7 @@ import net.minecraft.util.registry.Registry;
 
 public class RegisterBlocks {
 
-    public static final AbstractLichenBlock LIVERWORTS = new AbstractLichenBlock(FabricBlockSettings.copyOf(Blocks.GLOW_LICHEN));
+    public static final GlowLichenBlock LIVERWORTS = new GlowLichenBlock(FabricBlockSettings.copyOf(Blocks.GLOW_LICHEN));
     public static final PlantBlock CYCADOPHYTA = new PlantBlock(FabricBlockSettings.copyOf(Blocks.GRASS));
 
     public static void init(String modid) {

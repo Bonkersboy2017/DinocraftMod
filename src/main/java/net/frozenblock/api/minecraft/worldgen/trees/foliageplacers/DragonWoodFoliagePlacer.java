@@ -15,7 +15,7 @@ import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 import java.util.function.BiConsumer;
 
 public class DragonWoodFoliagePlacer extends FoliagePlacer {
@@ -33,11 +33,22 @@ public class DragonWoodFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, TreeFeatureConfig config, int trunkHeight, TreeNode treeNode, int foliageHeight, int radius, int offset) {
+    protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, net.minecraft.util.math.random.Random random, TreeFeatureConfig config, int trunkHeight, TreeNode treeNode, int foliageHeight, int radius, int offset) {
         BlockPos.Mutable center = treeNode.getCenter().mutableCopy();
         generateEllipsoid(9, 4, 9, 100, world, replacer, random, config, center);
-        generateEllipsoid(10, 5, 10, 50, world, replacer, random, config, center);
+        generateEllipsoid(10, 5, 10, 50, world, replacer,  random, config, center);
     }
+
+    @Override
+    public int getRandomHeight(net.minecraft.util.math.random.Random random, int trunkHeight, TreeFeatureConfig config) {
+        return 0;
+    }
+
+    @Override
+    protected boolean isInvalidForLeaves(net.minecraft.util.math.random.Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
+        return false;
+    }
+
 
     private static void generateEllipsoid(int a, int b, int c, float percentage, TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, TreeFeatureConfig config, BlockPos startPos) {
         Point3D center = new Point3D.Float(startPos.getX(), startPos.getY(), startPos.getZ());
@@ -58,13 +69,4 @@ public class DragonWoodFoliagePlacer extends FoliagePlacer {
         }
     }
 
-    @Override
-    public int getRandomHeight(Random random, int trunkHeight, TreeFeatureConfig config) {
-        return 0;
     }
-
-    @Override
-    protected boolean isInvalidForLeaves(Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
-        return false;
-    }
-}

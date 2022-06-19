@@ -8,7 +8,6 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -18,7 +17,7 @@ import net.minecraft.world.World;
 //basically copypasted Smithing Table
 
 public class DinoBenchBlock extends CraftingTableBlock {
-    private static final Text SCREEN_TITLE = new TranslatableText("container.dinocraft.dinobench");
+    private static final Text SCREEN_TITLE = Text.translatable("container.dinocraft.dinobench");
 
     public DinoBenchBlock(Settings settings) {
         super(settings);

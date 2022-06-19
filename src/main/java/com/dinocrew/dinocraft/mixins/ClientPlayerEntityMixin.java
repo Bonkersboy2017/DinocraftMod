@@ -7,6 +7,9 @@ import net.minecraft.client.input.Input;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.network.encryption.PlayerPublicKey;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,8 +25,8 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     @Shadow
     public Input input;
 
-    public ClientPlayerEntityMixin(ClientWorld world, GameProfile profile) {
-        super(world, profile);
+    public ClientPlayerEntityMixin(ClientWorld world, GameProfile pos, PlayerPublicKey yaw) {
+        super(world, pos, yaw);
     }
 
 

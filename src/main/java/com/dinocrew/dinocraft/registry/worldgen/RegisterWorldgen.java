@@ -75,7 +75,6 @@ public class RegisterWorldgen {
 
         return (new Biome.Builder())
                 .precipitation(Biome.Precipitation.NONE)
-                .category(Biome.Category.FOREST)
                 .temperature(0.6F)
                 .downfall(0.9F)
                 .effects((new BiomeEffects.Builder())
