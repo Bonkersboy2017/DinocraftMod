@@ -20,9 +20,7 @@ public class MosasaurusEntity extends FishEntity {
         this.goalSelector.add(0, new BreatheAirGoal(this));
         this.goalSelector.add(0, new MoveIntoWaterGoal(this));
         this.goalSelector.add(4, new SwimAroundGoal(this, 1.0D, 10));
-        this.goalSelector.add(4, new LookAroundGoal(this));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
-        //this.targetSelector.add(4, new ActiveTargetGoal<>(this, FishEntity.class, 10, true, true, null));
+
     }
 
     @Override

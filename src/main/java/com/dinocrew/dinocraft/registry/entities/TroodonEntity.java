@@ -2,10 +2,9 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.ModItems;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.AttackGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
@@ -24,11 +23,19 @@ public class TroodonEntity extends TameableEntity {
         super(entityType, world);
     }
     protected void initGoals() {
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.4D));
-        this.goalSelector.add(7, new AttackGoal(this));
-        this.goalSelector.add(4, new TemptGoal(this, 0.7D, Ingredient.ofItems(ModItems.CYAD_LEAF), false));
-        this.goalSelector.add(2, new TroodonAttackGoal(this, 1.0D, false));
+        this.goalSelector.add(4, new WanderAroundGoal(this, 0.20f, 5));
+        this.goalSelector.add(10, new MeleeAttackGoal(this, 1.0D,false));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(7, new LookAroundGoal(this));
+        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(5, new ActiveTargetGoal(this, PlayerEntity.class, false));
 
+//        this.targetSelector.add(2, new IndoraptorEntity.TargetGoal(this, PlayerEntity.class));
+
+    }
+
+    public static DefaultAttributeContainer.Builder createDinoAttributes() {
+        return TameableEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE);
     }
 
 
