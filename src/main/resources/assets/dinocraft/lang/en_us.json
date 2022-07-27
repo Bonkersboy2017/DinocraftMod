@@ -122,7 +122,15 @@
   "block.dinocraft.dinotaner": "Dinotaner",
   "container.dinotaner": "Dinotaner",
   "block.dinocraft.liverworts": "Liverworts",
-  "block.dinocraft.cycadophyta": "Cycadophyta"
+  "block.dinocraft.cycadophyta": "Cycadophyta",
+  "entity.dinocraft.sauropod": "Sauropod",
+  "entity.dinocraft.troodon": "Troodon",
+  "entity.dinocraft.theropod": "Theropod",
+  "entity.dinocraft.stegoraptor": "Stegoraptor",
+  "entity.dinocraft.deinonychus": "Deinonychus",
+  "entity.dinocraft.scorpius": "Scorpius",
+  "entity.dinocraft.indoraptor": "Indoraptor"
+
 
 
 }

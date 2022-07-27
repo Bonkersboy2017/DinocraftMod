@@ -31,69 +31,14 @@ import org.checkerframework.checker.units.qual.A;
 import org.checkerframework.common.returnsreceiver.qual.This;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.system.macosx.LibC;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+
 
 import java.util.function.Predicate;
 
-public class IndoraptorEntity extends PathAwareEntity implements IAnimatable {
-    private AnimationFactory factory = new AnimationFactory(this);
-    private boolean isAttacking = isAttacking();
-
-
-    public IndoraptorEntity(EntityType<? extends IndoraptorEntity> entityType, World world) {
+public class IndoraptorEntity extends TameableEntity {
+    public IndoraptorEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
-
     }
-
-
-    @Nullable
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return null;
-    }
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("indoraptor.walk", true));
-            return PlayState.CONTINUE;
-        }
-            if (isAttacking()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("indoraptor.attack", true));
-            isAttacking = false;
-            return PlayState.CONTINUE;
-            }
-
-//            if (random.nextFloat() > 0.4F)
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("indoraptor.idle", true));
-
-
-//            else
-//        event.getController().setAnimation(new AnimationBuilder().addAnimation("indoraptor.idle_timeout", true));
-        return PlayState.CONTINUE;
-
-
-    }
-
-    @Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-    }
-
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
-
-
-
-
-
     protected void initGoals() {
         this.goalSelector.add(4, new WanderAroundGoal(this, 0.20f, 5));
         this.goalSelector.add(10, new MeleeAttackGoal(this, 1.0D,false));
@@ -107,10 +52,31 @@ public class IndoraptorEntity extends PathAwareEntity implements IAnimatable {
     }
 
     public static DefaultAttributeContainer.Builder createDinoAttributes() {
-        return PathAwareEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+        return TameableEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE);
     }
 
 
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.isItemEqual(ModItems.CYAD_SEEDS.getDefaultStack())) {
+            if (!player.getAbilities().creativeMode) {
+                itemStack.decrement(1);
+            }
+            this.setOwner(player);
+            this.navigation.stop();
+            this.setTarget(null);
+            this.setSitting(true);
+            this.world.sendEntityStatus(this, (byte) 7);
 
+            return ActionResult.SUCCESS;
+        }
+        return super.interactMob(player, hand);
     }
 
+
+    @Nullable
+    @Override
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+        return null;
+    }
+}
