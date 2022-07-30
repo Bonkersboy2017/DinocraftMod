@@ -76,6 +76,6 @@ public class DragonwoodBoatItem extends Item {
     }
 
     static {
-        RIDERS = EntityPredicates.EXCEPT_SPECTATOR.and(Entity::collides);
+        RIDERS = EntityPredicates.EXCEPT_SPECTATOR.and(Entity::isCollidable);
     }
 }

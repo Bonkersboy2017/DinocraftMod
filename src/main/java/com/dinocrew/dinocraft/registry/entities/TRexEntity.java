@@ -35,8 +35,8 @@ import org.lwjgl.system.macosx.LibC;
 
 import java.util.function.Predicate;
 
-public class IndoraptorEntity extends TameableEntity {
-    public IndoraptorEntity(EntityType<? extends TameableEntity> entityType, World world) {
+public class TRexEntity extends TameableEntity {
+    public TRexEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
     protected void initGoals() {

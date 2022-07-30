@@ -18,7 +18,6 @@ import net.frozenblock.registry.RegisterBlocks;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.color.world.GrassColors;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
@@ -36,7 +35,7 @@ public class DinocraftClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_DEINONYCHUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "deinonyhchus"), "main");
     public static final EntityModelLayer MODEL_PROFFESOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "professor"), "main");
     public static final EntityModelLayer MODEL_SCORPIUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "scorpius"), "main");
-    public static final EntityModelLayer MODEL_INDORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "indoraptor"), "main");
+    public static final EntityModelLayer MODEL_TREX_LAYER = new EntityModelLayer(new Identifier("dinocraft", "trex"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -63,8 +62,8 @@ public class DinocraftClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MODEL_PROFFESOR_LAYER, ProffesorEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.SCORPIUS, ScorpiusEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_SCORPIUS_LAYER, ScorpiusEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.INDORAPTOR, IndoraptorEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_INDORAPTOR_LAYER, IndoraptorEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.TREX, TRexEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_TREX_LAYER, TRexEntityModel::getTexturedModelData);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_LEAVES, RenderLayer.getCutout());
 

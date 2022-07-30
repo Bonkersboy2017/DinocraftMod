@@ -1,29 +1,11 @@
 package com.dinocrew.dinocraft.registry.entities;
 
-import com.dinocrew.dinocraft.registry.ModItems;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.mob.PathAwareEntity;
-import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
-public class IndoraptorEntityModel extends EntityModel<IndoraptorEntity> {
+public class TRexEntityModel extends EntityModel<TRexEntity> {
     private final ModelPart indo;
     private final ModelPart excess_cubes;
     private final ModelPart spine0;
@@ -65,7 +47,7 @@ public class IndoraptorEntityModel extends EntityModel<IndoraptorEntity> {
     private final ModelPart toe0_l;
     private final ModelPart toe1_l;
     private final ModelPart toe2_l;
-    public IndoraptorEntityModel(ModelPart root) {
+    public TRexEntityModel(ModelPart root) {
         this.indo = root.getChild("indo");
         this.rump_l = this.indo.getChild("rump_l");
         this.hip_l = this.rump_l.getChild("hip_l");
@@ -160,7 +142,7 @@ public class IndoraptorEntityModel extends EntityModel<IndoraptorEntity> {
 
     }
     @Override
-    public void setAngles(IndoraptorEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setAngles(TRexEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
         //previously the render function, render code was moved to a method below
     }
     @Override

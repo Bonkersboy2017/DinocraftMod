@@ -318,7 +318,7 @@ public class DragonwoodBoatEntity extends Entity {
                         this.setVelocity(vec3d.add(0.0D, -0.7D, 0.0D));
                         this.removeAllPassengers();
                     } else {
-                        this.setVelocity(vec3d.x, this.hasPassengerType((entity) -> {
+                        this.setVelocity(vec3d.x, this.hasPassenger((entity) -> {
                             return entity instanceof PlayerEntity;
                         }) ? 2.7D : 0.6D, vec3d.z);
                     }
