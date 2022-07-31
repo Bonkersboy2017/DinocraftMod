@@ -24,19 +24,17 @@ import net.minecraft.state.StateManager.Builder;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
-
 public class DinotanerBlock extends BlockWithEntity {
-    public static final DirectionProperty FACING;
-    public static final BooleanProperty OPEN;
+    public static final DirectionProperty FACING = Properties.FACING;
+    public static final BooleanProperty OPEN = Properties.OPEN;
 
     public DinotanerBlock(Settings settings) {
         super(settings);
@@ -72,8 +70,8 @@ public class DinotanerBlock extends BlockWithEntity {
 
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof DinotanerBlockEntity) {
-            ((DinotanerBlockEntity) blockEntity).tick();
+        if (blockEntity instanceof DinotanerBlockEntity dinotanerBlockEntity) {
+            dinotanerBlockEntity.tick();
         }
 
     }
@@ -90,8 +88,8 @@ public class DinotanerBlock extends BlockWithEntity {
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if (itemStack.hasCustomName()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof DinotanerBlockEntity) {
-                ((DinotanerBlockEntity) blockEntity).setCustomName(itemStack.getName());
+            if (blockEntity instanceof DinotanerBlockEntity dinotanerBlockEntity) {
+                dinotanerBlockEntity.setCustomName(itemStack.getName());
             }
         }
 
@@ -119,10 +117,5 @@ public class DinotanerBlock extends BlockWithEntity {
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite());
-    }
-
-    static {
-        FACING = Properties.FACING;
-        OPEN = Properties.OPEN;
     }
 }

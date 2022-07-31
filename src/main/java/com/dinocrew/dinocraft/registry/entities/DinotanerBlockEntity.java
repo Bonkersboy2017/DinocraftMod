@@ -20,7 +20,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 
@@ -114,15 +113,19 @@ public class DinotanerBlockEntity extends LootableContainerBlockEntity {
 
     }
 
-    void setOpen(BlockState state, boolean open) {
-        this.world.setBlockState(this.getPos(), state.with(BarrelBlock.OPEN, open), 3);
+    private void setOpen(BlockState state, boolean open) {
+        if (this.world != null && !this.world.isClient) {
+            this.world.setBlockState(this.getPos(), state.with(BarrelBlock.OPEN, open), 3);
+        }
     }
 
-    void playSound(BlockState state, SoundEvent soundEvent) {
-        Vec3i vec3i = state.get(BarrelBlock.FACING).getVector();
-        double d = (double) this.pos.getX() + 0.5D + (double) vec3i.getX() / 2.0D;
-        double e = (double) this.pos.getY() + 0.5D + (double) vec3i.getY() / 2.0D;
-        double f = (double) this.pos.getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
-        this.world.playSound(null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
+    private void playSound(BlockState state, SoundEvent soundEvent) {
+        if (this.world != null && !this.world.isClient) {
+            Vec3i vec3i = state.get(BarrelBlock.FACING).getVector();
+            double d = (double) this.pos.getX() + 0.5D + (double) vec3i.getX() / 2.0D;
+            double e = (double) this.pos.getY() + 0.5D + (double) vec3i.getY() / 2.0D;
+            double f = (double) this.pos.getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
+            this.world.playSound(null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
+        }
     }
 }
