@@ -8,8 +8,8 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
-public class ProffessorEntity extends HostileEntity {
-    public ProffessorEntity(EntityType<? extends HostileEntity> entityType, World world) {
+public class ProfessorEntity extends HostileEntity {
+    public ProfessorEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 

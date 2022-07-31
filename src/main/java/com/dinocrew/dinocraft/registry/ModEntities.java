@@ -18,7 +18,7 @@ public class ModEntities {
     public static final EntityType<StegoraptorEntity> STEGORAPTOR = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("stegoraptor"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, StegoraptorEntity::new).dimensions(EntityDimensions.fixed(1.7F, 2.0F)).build());
     public static final EntityType<ChinleaEntity> CHINLEA = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("chinlea"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ChinleaEntity::new).dimensions(EntityDimensions.fixed(0.7F, 0.5F)).build());
     public static final EntityType<DeinonychusEntity> DEINONYCHUS = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("deinonychus"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DeinonychusEntity::new).dimensions(EntityDimensions.fixed(1.4F, 1.5F)).build());
-    public static final EntityType<ProffessorEntity> PROFFESOR = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("proffesor"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ProffessorEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.8F)).trackedUpdateRate(2).build());
+    public static final EntityType<ProfessorEntity> PROFESSOR = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("professor"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ProfessorEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.8F)).trackedUpdateRate(2).build());
     public static final EntityType<ScorpiusEntity> SCORPIUS = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("scorpius"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ScorpiusEntity::new).dimensions(EntityDimensions.fixed(2.0F, 2.3F)).build());
     public static final EntityType<TRexEntity> TREX = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("trex"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TRexEntity::new).dimensions(EntityDimensions.fixed(2.8F, 2.6F)).build());
 
@@ -31,7 +31,7 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(STEGORAPTOR, StegoraptorEntity.createDinoAttributes());
         FabricDefaultAttributeRegistry.register(CHINLEA, ChinleaEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(DEINONYCHUS, DeinonychusEntity.createDinoAttributes());
-        FabricDefaultAttributeRegistry.register(PROFFESOR, ProffessorEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(PROFESSOR, ProfessorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(SCORPIUS, ScorpiusEntity.createDinoAttributes());
         FabricDefaultAttributeRegistry.register(TREX, TRexEntity.createDinoAttributes());
     }

@@ -45,7 +45,7 @@ public class ModItems {
     public static final Item CHINLEA_SPAWN_EGG = new SpawnEggItem(ModEntities.CHINLEA, 144238144, 0xFFFFFF, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item STEGORAPTOR_SPAWN_EGG = new SpawnEggItem(ModEntities.STEGORAPTOR, 25600, 139, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 167475200, 16753920, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
-    public static final Item PROFFESSOR_SPAWN_EGG = new SpawnEggItem(ModEntities.PROFFESOR, 0xFFFFFF, 0x808080, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
+    public static final Item PROFESSOR_SPAWN_EGG = new SpawnEggItem(ModEntities.PROFESSOR, 0xFFFFFF, 0x808080, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item SCORPIUS_SPAWN_EGG = new SpawnEggItem(ModEntities.SCORPIUS, 0x808080, 0xFFFF00, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item TREX_SPAWN_EGG = new SpawnEggItem(ModEntities.TREX, 0xC8AE7E, 0xD1C0A8, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
@@ -121,7 +121,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, Dinocraft.id("stegoraptor_spawn_egg"), STEGORAPTOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("chinlea_spawn_egg"), CHINLEA_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("deinonychus_spawn_egg"), DEINONYCHUS_SPAWN_EGG);
-        Registry.register(Registry.ITEM, Dinocraft.id("proffessor_spawn_egg"), PROFFESSOR_SPAWN_EGG);
+        Registry.register(Registry.ITEM, Dinocraft.id("professor_spawn_egg"), PROFESSOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("scorpius_spawn_egg"), SCORPIUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("trex_spawn_egg"), TREX_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("time_flint"), TIME_FLINT);

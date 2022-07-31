@@ -93,18 +93,6 @@ public class BreakthroughPlants {
         }
     }
 
-    private static class LiverWortsFeature extends Feature<ProbabilityConfig> {
-        public LiverWortsFeature(Codec<ProbabilityConfig> configCodec) {
-            super(configCodec);
-        }
-
-        @Override
-        public boolean generate(FeatureContext<ProbabilityConfig> context) {
-            BreakthroughPlants.generate(context, RegisterBlocks.LIVERWORTS.getDefaultState().with(Properties.DOWN, true).with(Properties.UP, false).with(Properties.NORTH, false).with(Properties.EAST, false).with(Properties.SOUTH, false));
-            return true;
-        }
-    }
-
     private static class CycadophytaFeature extends Feature<ProbabilityConfig> {
         public CycadophytaFeature(Codec<ProbabilityConfig> configCodec) {
             super(configCodec);

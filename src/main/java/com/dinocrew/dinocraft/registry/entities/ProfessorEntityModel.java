@@ -10,8 +10,8 @@ import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 
-public class ProffesorEntityModel extends PlayerEntityModel<ProffessorEntity> {
-    public ProffesorEntityModel(ModelPart root) {
+public class ProfessorEntityModel extends PlayerEntityModel<ProfessorEntity> {
+    public ProfessorEntityModel(ModelPart root) {
         super(root, true);
     }
 

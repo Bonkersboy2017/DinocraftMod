@@ -32,7 +32,7 @@ public class DinocraftClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_CHINLEA_LAYER = new EntityModelLayer(Dinocraft.id("chinlea"), "main");
     public static final EntityModelLayer MODEL_DRAGONWOOD_BOAT_LAYER = new EntityModelLayer(Dinocraft.id("mangrove_boat"), "main");
     public static final EntityModelLayer MODEL_DEINONYCHUS_LAYER = new EntityModelLayer(Dinocraft.id("deinonyhchus"), "main");
-    public static final EntityModelLayer MODEL_PROFFESOR_LAYER = new EntityModelLayer(Dinocraft.id("professor"), "main");
+    public static final EntityModelLayer MODEL_PROFESSOR_LAYER = new EntityModelLayer(Dinocraft.id("professor"), "main");
     public static final EntityModelLayer MODEL_SCORPIUS_LAYER = new EntityModelLayer(Dinocraft.id("scorpius"), "main");
     public static final EntityModelLayer MODEL_TREX_LAYER = new EntityModelLayer(Dinocraft.id("trex"), "main");
 
@@ -55,8 +55,8 @@ public class DinocraftClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MODEL_CHINLEA_LAYER, ChinleaEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.DEINONYCHUS, DeinonychusEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_DEINONYCHUS_LAYER, DeinonychusEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.PROFFESOR, ProffesorEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_PROFFESOR_LAYER, ProffesorEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.PROFESSOR, ProfessorEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_PROFESSOR_LAYER, ProfessorEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.SCORPIUS, ScorpiusEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_SCORPIUS_LAYER, ScorpiusEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TREX, TRexEntityRenderer::new);
