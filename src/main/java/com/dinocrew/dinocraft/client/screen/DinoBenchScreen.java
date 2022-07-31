@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class DinoBenchScreen extends ForgingScreen<DinoBenchScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(Dinocraft.MOD_ID, "textures/gui/container/dinobench.png");
+    private static final Identifier TEXTURE = Dinocraft.id("textures/gui/container/dinobench.png");
 
     public DinoBenchScreen(DinoBenchScreenHandler handler, PlayerInventory playerInventory, Text title) {
         super(handler, playerInventory, title, TEXTURE);

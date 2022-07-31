@@ -1,5 +1,6 @@
 package com.dinocrew.dinocraft.registry.entities;
 
+import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.client.DinocraftClient;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
@@ -13,6 +14,6 @@ public class MosasaurusEntityRenderer extends MobEntityRenderer<MosasaurusEntity
 
     @Override
     public Identifier getTexture(MosasaurusEntity entity) {
-        return new Identifier("dinocraft", "textures/entity/mosasaurus.png");
+        return Dinocraft.id("textures/entity/mosasaurus.png");
     }
 }

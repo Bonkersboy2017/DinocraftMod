@@ -15,6 +15,6 @@ public class TRexEntityRenderer extends MobEntityRenderer<TRexEntity, TRexEntity
 
     @Override
     public Identifier getTexture(TRexEntity entity) {
-        return new Identifier(Dinocraft.MOD_ID, "textures/entity/trex.png");
+        return Dinocraft.id("textures/entity/trex.png");
     }
 }

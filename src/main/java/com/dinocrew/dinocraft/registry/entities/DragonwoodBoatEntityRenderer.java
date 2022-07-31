@@ -24,7 +24,7 @@ public class DragonwoodBoatEntityRenderer extends EntityRenderer<DragonwoodBoatE
         super(ctx);
         this.shadowRadius = 0.8F;
         this.model = new DragonwoodBoatEntityModel(ctx.getPart(DinocraftClient.MODEL_DRAGONWOOD_BOAT_LAYER));
-        this.texture = new Identifier(Dinocraft.MOD_ID, "textures/entity/boat/dragonwood.png");
+        this.texture = Dinocraft.id("textures/entity/boat/dragonwood.png");
     }
 
     public void render(DragonwoodBoatEntity boatEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {

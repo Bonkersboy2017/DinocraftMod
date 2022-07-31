@@ -35,7 +35,7 @@ import static net.minecraft.world.gen.feature.VegetationPlacedFeatures.modifiers
 
 public class Dinocraft implements ModInitializer {
     public static final String MOD_ID = "dinocraft";
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "general"), () -> new ItemStack(ModItems.FOSSIL));
+    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(id("general"), () -> new ItemStack(ModItems.FOSSIL));
     public static Identifier identify(String id){
         return new Identifier(MOD_ID+":"+id);
     }
@@ -60,6 +60,10 @@ public class Dinocraft implements ModInitializer {
        // RegisterWorldgen.initialize();
 
 
+    }
+
+    public static Identifier id(String path) {
+        return new Identifier(MOD_ID, path);
     }
 }
 

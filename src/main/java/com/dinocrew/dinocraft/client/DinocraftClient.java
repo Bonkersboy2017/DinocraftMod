@@ -24,18 +24,18 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class DinocraftClient implements ClientModInitializer {
-    public static final EntityModelLayer MODEL_SAUROPOD_LAYER = new EntityModelLayer(new Identifier(Dinocraft.MOD_ID, "sauropod"), "main");
-    public static final EntityModelLayer MODEL_THEROPOD_LAYER = new EntityModelLayer(new Identifier(Dinocraft.MOD_ID, "theropod"), "main");
-    public static final EntityModelLayer MODEL_TROODON_LAYER = new EntityModelLayer(new Identifier(Dinocraft.MOD_ID, "troodon"), "main");
-    public static final EntityModelLayer MODEL_MICRORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "micorapter"), "main");
-    public static final EntityModelLayer MODEL_MOSASAURUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mosasasaurus"), "main");
-    public static final EntityModelLayer MODEL_STEGORAPTOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "stegoraptor"), "main");
-    public static final EntityModelLayer MODEL_CHINLEA_LAYER = new EntityModelLayer(new Identifier("dinocraft", "chinlea"), "main");
-    public static final EntityModelLayer MODEL_DRAGONWOOD_BOAT_LAYER = new EntityModelLayer(new Identifier("dinocraft", "mangrove_boat"), "main");
-    public static final EntityModelLayer MODEL_DEINONYCHUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "deinonyhchus"), "main");
-    public static final EntityModelLayer MODEL_PROFFESOR_LAYER = new EntityModelLayer(new Identifier("dinocraft", "professor"), "main");
-    public static final EntityModelLayer MODEL_SCORPIUS_LAYER = new EntityModelLayer(new Identifier("dinocraft", "scorpius"), "main");
-    public static final EntityModelLayer MODEL_TREX_LAYER = new EntityModelLayer(new Identifier("dinocraft", "trex"), "main");
+    public static final EntityModelLayer MODEL_SAUROPOD_LAYER = new EntityModelLayer(Dinocraft.id("sauropod"), "main");
+    public static final EntityModelLayer MODEL_THEROPOD_LAYER = new EntityModelLayer(Dinocraft.id("theropod"), "main");
+    public static final EntityModelLayer MODEL_TROODON_LAYER = new EntityModelLayer(Dinocraft.id("troodon"), "main");
+    public static final EntityModelLayer MODEL_MICRORAPTOR_LAYER = new EntityModelLayer(Dinocraft.id("micorapter"), "main");
+    public static final EntityModelLayer MODEL_MOSASAURUS_LAYER = new EntityModelLayer(Dinocraft.id("mosasasaurus"), "main");
+    public static final EntityModelLayer MODEL_STEGORAPTOR_LAYER = new EntityModelLayer(Dinocraft.id("stegoraptor"), "main");
+    public static final EntityModelLayer MODEL_CHINLEA_LAYER = new EntityModelLayer(Dinocraft.id("chinlea"), "main");
+    public static final EntityModelLayer MODEL_DRAGONWOOD_BOAT_LAYER = new EntityModelLayer(Dinocraft.id("mangrove_boat"), "main");
+    public static final EntityModelLayer MODEL_DEINONYCHUS_LAYER = new EntityModelLayer(Dinocraft.id("deinonyhchus"), "main");
+    public static final EntityModelLayer MODEL_PROFFESOR_LAYER = new EntityModelLayer(Dinocraft.id("professor"), "main");
+    public static final EntityModelLayer MODEL_SCORPIUS_LAYER = new EntityModelLayer(Dinocraft.id("scorpius"), "main");
+    public static final EntityModelLayer MODEL_TREX_LAYER = new EntityModelLayer(Dinocraft.id("trex"), "main");
 
     @Override
     public void onInitializeClient() {

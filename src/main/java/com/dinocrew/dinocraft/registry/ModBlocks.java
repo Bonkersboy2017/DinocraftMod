@@ -60,40 +60,40 @@ public class ModBlocks
 
     public static void registerAll()
     {
-        registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "skeleton_ore"));
-        registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_ore"));
-        registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_ore"));
+        registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("skeleton_ore"));
+        registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_ore"));
+        registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_ore"));
         // Using other registerBlock method here
-        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinobench"), new Item.Settings().rarity(Rarity.RARE));
-        registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_block"));
-        registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "bronzium_bricks"));
-        registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_block"));
-        registerBlock(AMBER_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "amber_bricks"));
-        registerBlock(DRAGONGRASS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragongrass"));
-        registerBlock(DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinosaur_tempered_glass"));
-        registerBlock(FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "fossilized_stone"));
-        registerBlock(WBC, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "wbc"));
-        registerBlock(POLISHED_FS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "polished_fs"));
-        registerBlock(POLISHED_WBC, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "polished_wbc"));
-        registerBlock(FS_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "fs_bricks"));
-        registerBlock(WBC_BRICKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "wbc_bricks"));
-        registerBlock(DRAGONWOOD_PLANKS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_planks"));
-        registerBlock(DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_log"));
-        registerBlock(STRIPPED_DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "stripped_dragonwood_wood"));
-        registerBlock(STRIPPED_DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "stripped_dragonwood_log"));
-        registerBlock(DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_wood"));
-        registerBlock(DRAGONWOOD_LEAVES, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_leaves"));
-        registerBlock(DRAGONWOOD_SLAB, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_slab"));
-        registerBlock(DRAGONWOOD_FENCE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_fence"));
-        registerBlock(DRAGONWOOD_STAIRS, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_stairs"));
-        registerBlock(DRAGONWOOD_BUTTON, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_button"));
-        registerBlock(DRAGONWOOD_PRESSURE_PLATE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_pressure_plate"));
-        registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_door"));
-        registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_trapdoor"));
-        registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dragonwood_fence_gate"));
-        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
-        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "incubated_dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
-        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, new Identifier(Dinocraft.MOD_ID, "dinotaner"), new Item.Settings().rarity(Rarity.RARE));
+        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, Dinocraft.id("dinobench"), new Item.Settings().rarity(Rarity.RARE));
+        registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_block"));
+        registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_bricks"));
+        registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_block"));
+        registerBlock(AMBER_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_bricks"));
+        registerBlock(DRAGONGRASS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragongrass"));
+        registerBlock(DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP, Dinocraft.id("dinosaur_tempered_glass"));
+        registerBlock(FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("fossilized_stone"));
+        registerBlock(WBC, Dinocraft.ITEM_GROUP, Dinocraft.id("wbc"));
+        registerBlock(POLISHED_FS, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_fs"));
+        registerBlock(POLISHED_WBC, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_wbc"));
+        registerBlock(FS_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("fs_bricks"));
+        registerBlock(WBC_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("wbc_bricks"));
+        registerBlock(DRAGONWOOD_PLANKS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_planks"));
+        registerBlock(DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_log"));
+        registerBlock(STRIPPED_DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, Dinocraft.id("stripped_dragonwood_wood"));
+        registerBlock(STRIPPED_DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, Dinocraft.id("stripped_dragonwood_log"));
+        registerBlock(DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_wood"));
+        registerBlock(DRAGONWOOD_LEAVES, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_leaves"));
+        registerBlock(DRAGONWOOD_SLAB, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_slab"));
+        registerBlock(DRAGONWOOD_FENCE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence"));
+        registerBlock(DRAGONWOOD_STAIRS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_stairs"));
+        registerBlock(DRAGONWOOD_BUTTON, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_button"));
+        registerBlock(DRAGONWOOD_PRESSURE_PLATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_pressure_plate"));
+        registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_door"));
+        registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_trapdoor"));
+        registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence_gate"));
+        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
+        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
+        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new Item.Settings().rarity(Rarity.RARE));
 
     }
 

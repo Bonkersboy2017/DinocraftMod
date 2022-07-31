@@ -13,7 +13,7 @@ public class ModBiomes {
     public static final RegistryKey<Biome> BREAKTHHROUGH_KEY= registerBiomeKeys("breakthrough");
 
     private static RegistryKey<Biome> registerBiomeKeys(String name) {
-        return RegistryKey.of(Registry.BIOME_KEY, new Identifier(Dinocraft.MOD_ID, name));
+        return RegistryKey.of(Registry.BIOME_KEY, Dinocraft.id(name));
     }
 
     public static void registerBiomes() {

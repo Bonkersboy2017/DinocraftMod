@@ -69,7 +69,7 @@ public class RegisterWorldgen {
 //
 
 
-        BiomeModifications.create(new Identifier(Dinocraft.MOD_ID + "breakthrough"))
+        BiomeModifications.create(Dinocraft.id("breakthrough"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY), ctx -> {
                 });
 
