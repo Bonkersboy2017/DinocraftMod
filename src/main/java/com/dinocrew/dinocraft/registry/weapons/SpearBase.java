@@ -7,6 +7,6 @@ import net.minecraft.item.ToolMaterial;
 
 public class SpearBase extends SwordItem {
     public SpearBase(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
-        super(toolMaterial, 6, 3.0f, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+        super(toolMaterial, 6, 3.0f, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     }
 }

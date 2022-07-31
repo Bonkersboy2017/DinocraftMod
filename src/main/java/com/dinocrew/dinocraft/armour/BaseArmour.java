@@ -8,6 +8,6 @@ import net.minecraft.item.Item;
 
 public class BaseArmour extends ArmorItem {
     public BaseArmour(ArmorMaterial material, EquipmentSlot slot) {
-        super(material, slot, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+        super(material, slot, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     }
 }

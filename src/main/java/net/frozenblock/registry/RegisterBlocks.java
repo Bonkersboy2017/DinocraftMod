@@ -17,8 +17,8 @@ public class RegisterBlocks {
     public static final PlantBlock CYCADOPHYTA = new PlantBlock(FabricBlockSettings.copyOf(Blocks.GRASS));
 
     public static void init(String modid) {
-        registerBlock(LIVERWORTS, modid, "liverworts", new Item.Settings().group(Dinocraft.ITEM_GROUP));
-        registerBlock(CYCADOPHYTA, modid, "cycadophyta", new Item.Settings().group(Dinocraft.ITEM_GROUP));
+        registerBlock(LIVERWORTS, modid, "liverworts", new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
+        registerBlock(CYCADOPHYTA, modid, "cycadophyta", new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     }
 
     private static void registerBlock(Block block, String modid, String id, Item.Settings settings) {

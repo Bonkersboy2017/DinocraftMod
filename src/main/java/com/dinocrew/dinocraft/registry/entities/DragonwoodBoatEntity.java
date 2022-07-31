@@ -2,7 +2,6 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.ModItems;
 import com.google.common.collect.Lists;
-import com.google.common.collect.UnmodifiableIterator;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LilyPadBlock;
 import net.minecraft.entity.*;
@@ -42,13 +41,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
-public class DragonwoodBoatEntity extends Entity {
-    private static final TrackedData<Integer> DAMAGE_WOBBLE_TICKS;
-    private static final TrackedData<Integer> DAMAGE_WOBBLE_SIDE;
-    private static final TrackedData<Float> DAMAGE_WOBBLE_STRENGTH;
-    private static final TrackedData<Boolean> LEFT_PADDLE_MOVING;
-    private static final TrackedData<Boolean> RIGHT_PADDLE_MOVING;
-    private static final TrackedData<Integer> BUBBLE_WOBBLE_TICKS;
+public class DragonwoodBoatEntity extends BoatEntity {
+    private static final TrackedData<Integer> DAMAGE_WOBBLE_TICKS = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> DAMAGE_WOBBLE_SIDE = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Float> DAMAGE_WOBBLE_STRENGTH = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.FLOAT);
+    private static final TrackedData<Boolean> LEFT_PADDLE_MOVING = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> RIGHT_PADDLE_MOVING = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Integer> BUBBLE_WOBBLE_TICKS = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
     public static final int field_30697 = 0;
     public static final int field_30698 = 1;
     private static final int field_30695 = 60;
@@ -80,7 +79,7 @@ public class DragonwoodBoatEntity extends Entity {
     private float bubbleWobble;
     private float lastBubbleWobble;
 
-    public DragonwoodBoatEntity(EntityType<?> type, World world) {
+    public DragonwoodBoatEntity(EntityType<? extends BoatEntity> type, World world) {
         super(type, world);
         this.paddlePhases = new float[2];
         this.intersectionChecked = true;
@@ -191,10 +190,12 @@ public class DragonwoodBoatEntity extends Entity {
         this.setDamageWobbleStrength(this.getDamageWobbleStrength() * 11.0F);
     }
 
-    public boolean collides() {
+    @Override
+    public boolean canHit() {
         return !this.isRemoved();
     }
 
+    @Override
     public void updateTrackedPositionAndAngles(double x, double y, double z, float yaw, float pitch, int interpolationSteps, boolean interpolate) {
         this.x = x;
         this.y = y;
@@ -274,8 +275,7 @@ public class DragonwoodBoatEntity extends Entity {
         if (!list.isEmpty()) {
             boolean bl = !this.world.isClient && !(this.getPrimaryPassenger() instanceof PlayerEntity);
 
-            for (int j = 0; j < list.size(); ++j) {
-                Entity entity = list.get(j);
+            for (Entity entity : list) {
                 if (!entity.hasPassenger(this)) {
                     if (bl && this.getPassengerList().size() < 2 && !entity.hasVehicle() && entity.getWidth() < this.getWidth() && entity instanceof LivingEntity && !(entity instanceof WaterCreatureEntity) && !(entity instanceof PlayerEntity)) {
                         entity.startRiding(this);
@@ -642,14 +642,9 @@ public class DragonwoodBoatEntity extends Entity {
                 list.add(new Vec3d(d, (double) blockPos2.getY() + g, e));
             }
 
-            UnmodifiableIterator var14 = passenger.getPoses().iterator();
+            for (EntityPose entityPose : passenger.getPoses()) {
 
-            while (var14.hasNext()) {
-                EntityPose entityPose = (EntityPose) var14.next();
-                Iterator var16 = list.iterator();
-
-                while (var16.hasNext()) {
-                    Vec3d vec3d2 = (Vec3d) var16.next();
+                for (Vec3d vec3d2 : list) {
                     if (Dismounting.canPlaceEntityAt(this.world, vec3d2, passenger, entityPose)) {
                         passenger.setPose(entityPose);
                         return vec3d2;
@@ -794,15 +789,6 @@ public class DragonwoodBoatEntity extends Entity {
 
     public ItemStack getPickBlockStack() {
         return new ItemStack(this.asItem());
-    }
-
-    static {
-        DAMAGE_WOBBLE_TICKS = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
-        DAMAGE_WOBBLE_SIDE = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
-        DAMAGE_WOBBLE_STRENGTH = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.FLOAT);
-        LEFT_PADDLE_MOVING = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-        RIGHT_PADDLE_MOVING = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-        BUBBLE_WOBBLE_TICKS = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
     }
 
     public enum Location {

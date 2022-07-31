@@ -7,6 +7,6 @@ import net.minecraft.item.ToolMaterial;
 
 public class AxeBase extends AxeItem {
     public AxeBase(ToolMaterial toolMaterial) {
-        super(toolMaterial, 1, -2.2f, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+        super(toolMaterial, 1, -2.2f, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     }
 }

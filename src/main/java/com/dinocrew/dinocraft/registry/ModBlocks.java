@@ -4,6 +4,7 @@ import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.block.DinoBenchBlock;
 import com.dinocrew.dinocraft.block.DinotanerBlock;
 import com.dinocrew.dinocraft.registry.blocks.*;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -16,7 +17,7 @@ import net.minecraft.util.registry.Registry;
 
 
 public class ModBlocks {
-    public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.BIRCH_PLANKS);
+    public static final FabricBlockSettings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.BIRCH_PLANKS);
 
     public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4f, 26.0f).sounds(BlockSoundGroup.STONE));
 
@@ -60,7 +61,7 @@ public class ModBlocks {
         registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_ore"));
         registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_ore"));
         // Using other registerBlock method here
-        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, Dinocraft.id("dinobench"), new Item.Settings().rarity(Rarity.RARE));
+        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, Dinocraft.id("dinobench"), new FabricItemSettings().rarity(Rarity.RARE));
         registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_block"));
         registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_bricks"));
         registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_block"));
@@ -87,15 +88,15 @@ public class ModBlocks {
         registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_door"));
         registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_trapdoor"));
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence_gate"));
-        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
-        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new Item.Settings().rarity(Rarity.EPIC));
-        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new Item.Settings().rarity(Rarity.RARE));
+        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
+        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
+        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new FabricItemSettings().rarity(Rarity.RARE));
 
     }
 
 
     private static void registerBlock(Block block, ItemGroup group, Identifier ID) {
-        registerBlock(block, group, ID, new Item.Settings());
+        registerBlock(block, group, ID, new FabricItemSettings());
     }
 
     private static void registerBlock(Block block, ItemGroup group, Identifier ID, Item.Settings settings) {

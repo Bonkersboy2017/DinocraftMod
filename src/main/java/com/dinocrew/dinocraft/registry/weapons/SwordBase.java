@@ -7,6 +7,6 @@ import net.minecraft.item.ToolMaterial;
 
 public class SwordBase extends SwordItem {
     public SwordBase(ToolMaterial toolMaterial) {
-        super(toolMaterial, 4, 3.0f, new Item.Settings().group(Dinocraft.ITEM_GROUP));
+        super(toolMaterial, 4, 3.0f, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     }
 }

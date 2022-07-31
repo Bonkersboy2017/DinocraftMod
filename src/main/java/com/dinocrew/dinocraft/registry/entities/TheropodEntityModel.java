@@ -129,7 +129,6 @@ public class TheropodEntityModel extends EntityModel<TheropodEntity> {
 
     @Override
     public void render(MatrixStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-
         body.render(matrixStack, buffer, packedLight, packedOverlay);
         left_hip.render(matrixStack, buffer, packedLight, packedOverlay);
         right_hip.render(matrixStack, buffer, packedLight, packedOverlay);

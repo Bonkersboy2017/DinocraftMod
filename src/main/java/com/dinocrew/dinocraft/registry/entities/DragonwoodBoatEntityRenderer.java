@@ -47,17 +47,15 @@ public class DragonwoodBoatEntityRenderer extends EntityRenderer<DragonwoodBoatE
         }
 
         Identifier texture = this.texture;
-        DragonwoodBoatEntityModel model = this.model;
-        Identifier identifier = texture;
-        DragonwoodBoatEntityModel boatEntityModel = model;
+
         matrixStack.scale(-1.0F, -1.0F, 1.0F);
         matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90.0F));
-        boatEntityModel.setAngles(boatEntity, g, 0.0F, -0.1F, 0.0F, 0.0F);
-        VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(boatEntityModel.getLayer(identifier));
-        boatEntityModel.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.model.setAngles(boatEntity, g, 0.0F, -0.1F, 0.0F, 0.0F);
+        VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(this.model.getLayer(texture));
+        this.model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
         if (!boatEntity.isSubmergedInWater()) {
             VertexConsumer vertexConsumer2 = vertexConsumerProvider.getBuffer(RenderLayer.getWaterMask());
-            boatEntityModel.getWaterPatch().render(matrixStack, vertexConsumer2, i, OverlayTexture.DEFAULT_UV);
+            this.model.getWaterPatch().render(matrixStack, vertexConsumer2, i, OverlayTexture.DEFAULT_UV);
         }
 
         matrixStack.pop();
