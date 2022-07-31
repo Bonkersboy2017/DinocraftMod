@@ -8,7 +8,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
 
-public class modBlockEntityTypes {
+public class ModBlockEntityTypes {
 
     public static final BlockEntityType<DinotanerBlockEntity> DINOTANER_BLOCK_ENTITY = create("dinotaner_block_entity", FabricBlockEntityTypeBuilder.create(DinotanerBlockEntity::new, ModBlocks.DINOTANER).build(null));
 

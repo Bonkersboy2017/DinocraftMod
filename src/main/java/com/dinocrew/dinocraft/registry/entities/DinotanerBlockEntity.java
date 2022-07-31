@@ -1,7 +1,7 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 
-import com.dinocrew.dinocraft.registry.blocks.modBlockEntityTypes;
+import com.dinocrew.dinocraft.registry.blocks.ModBlockEntityTypes;
 import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
@@ -28,7 +28,7 @@ public class DinotanerBlockEntity extends LootableContainerBlockEntity {
     private final ViewerCountManager stateManager;
 
     public DinotanerBlockEntity(BlockPos pos, BlockState state) {
-        super(modBlockEntityTypes.DINOTANER_BLOCK_ENTITY, pos, state);
+        super(ModBlockEntityTypes.DINOTANER_BLOCK_ENTITY, pos, state);
         this.inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
         this.stateManager = new ViewerCountManager() {
             protected void onContainerOpen(World world, BlockPos pos, BlockState state) {
