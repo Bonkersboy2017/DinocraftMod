@@ -47,7 +47,7 @@ public class ModItems {
     public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 167475200, 16753920, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item PROFFESSOR_SPAWN_EGG = new SpawnEggItem(ModEntities.PROFFESOR, 0xFFFFFF, 0x808080, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item SCORPIUS_SPAWN_EGG = new SpawnEggItem(ModEntities.SCORPIUS, 0x808080, 0xFFFF00, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
-    public static final Item TREX_SPAWN_EGG = new SpawnEggItem(ModEntities.TREX, 0xBFAA8C, 0xD1C0A8, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
+    public static final Item TREX_SPAWN_EGG = new SpawnEggItem(ModEntities.TREX, 0xC8AE7E, 0xD1C0A8, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item SHARD_OF_ENLIGHTENMENT = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static final Item TROPICAL_BERRIES = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));
@@ -55,7 +55,7 @@ public class ModItems {
     public static final Item ENLIGHTENED_NECKLACE = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static final Item DRAGONWOOD_BOAT = new BoatItem(false, DinoBoats.DRAGONWOOD, new FabricItemSettings().maxCount(1).group(Dinocraft.ITEM_GROUP));
     public static final Item DRAGONWOOD_CHEST_BOAT = new BoatItem(true, DinoBoats.DRAGONWOOD, new FabricItemSettings().maxCount(1).group(Dinocraft.ITEM_GROUP));
-    public static final Item DRAGONWOOD_SIGN = new SignItem(new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(16),
+    public static final Item DRAGONWOOD_SIGN = new SignItem(new FabricItemSettings().group(Dinocraft.ITEM_GROUP).maxCount(16),
             ModBlocks.DRAGONWOOD_SIGN_BLOCK, ModBlocks.DRAGONWOOD_WALL_SIGN_BLOCK);
     public static final Item EMPTY_DNA_BOTTLE = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item DNA_BOTTLE = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
