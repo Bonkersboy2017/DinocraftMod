@@ -9,10 +9,7 @@ import com.dinocrew.dinocraft.registry.entities.DinoBoats;
 import com.dinocrew.dinocraft.registry.weapons.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.BoatItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
@@ -58,6 +55,8 @@ public class ModItems {
     public static final Item ENLIGHTENED_NECKLACE = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static final Item DRAGONWOOD_BOAT = new BoatItem(false, DinoBoats.DRAGONWOOD, new FabricItemSettings().maxCount(1).group(Dinocraft.ITEM_GROUP));
     public static final Item DRAGONWOOD_CHEST_BOAT = new BoatItem(true, DinoBoats.DRAGONWOOD, new FabricItemSettings().maxCount(1).group(Dinocraft.ITEM_GROUP));
+    public static final Item DRAGONWOOD_SIGN = new SignItem(new FabricItemSettings().group(ItemGroup.DECORATIONS).maxCount(16),
+            ModBlocks.DRAGONWOOD_SIGN_BLOCK, ModBlocks.DRAGONWOOD_WALL_SIGN_BLOCK);
     public static final Item EMPTY_DNA_BOTTLE = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item DNA_BOTTLE = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
     public static final Item MYSTERIOUS_DNA_BOTTLE = new Item(new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
@@ -130,6 +129,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_necklace"), ENLIGHTENED_NECKLACE);
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_boat"), DRAGONWOOD_BOAT);
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_chest_boat"), DRAGONWOOD_CHEST_BOAT);
+        Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_sign"), DRAGONWOOD_SIGN);
         Registry.register(Registry.ITEM, Dinocraft.id("spear"), SPEAR);
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_pickaxe"), new PickaxeBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_axe"), new AxeBase(new ToolMaterialDragonwood()));

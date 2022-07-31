@@ -2,7 +2,10 @@ package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.block.DinoBenchBlock;
+import com.dinocrew.dinocraft.block.DinoSignBlock;
+import com.dinocrew.dinocraft.block.DinoWallSignBlock;
 import com.dinocrew.dinocraft.block.DinotanerBlock;
+import com.dinocrew.dinocraft.mixins.SignTypeAccessor;
 import com.dinocrew.dinocraft.registry.blocks.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -17,6 +20,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
 
 
@@ -24,6 +28,8 @@ public class ModBlocks {
     public static final FabricBlockSettings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS);
 
     public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4f, 26.0f).sounds(BlockSoundGroup.STONE));
+
+    public static final SignType DRAGONWOOD_SIGN_TYPE = SignTypeAccessor.registerNew(SignTypeAccessor.newSignType("dragonwood"));
 
     // Now is a DinoBenchBlock
     public static final Block DINOBENCH = new DinoBenchBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
@@ -52,6 +58,8 @@ public class ModBlocks {
     public static final Block DRAGONWOOD_TRAPDOOR = new CustomTrapdoor(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque());
     public static final Block DRAGONWOOD_BUTTON = new CustomWoodenButton(DRAGONWOOD_SETTINGS);
+    public static final Block DRAGONWOOD_SIGN_BLOCK = new DinoSignBlock(FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), DRAGONWOOD_SIGN_TYPE);
+    public static final Block DRAGONWOOD_WALL_SIGN_BLOCK = new DinoWallSignBlock(FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(DRAGONWOOD_SIGN_BLOCK), DRAGONWOOD_SIGN_TYPE);
     public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
     public static final Block AMBER_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
@@ -92,6 +100,8 @@ public class ModBlocks {
         registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_door"));
         registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_trapdoor"));
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence_gate"));
+        registerBlockWithoutBlockItem(DRAGONWOOD_SIGN_BLOCK, Dinocraft.id("dragonwood_sign"));
+        registerBlockWithoutBlockItem(DRAGONWOOD_WALL_SIGN_BLOCK, Dinocraft.id("dragonwood_wall_sign"));
         registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
         registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
         registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new FabricItemSettings().rarity(Rarity.RARE));
@@ -133,5 +143,9 @@ public class ModBlocks {
     private static void registerBlock(Block block, ItemGroup group, Identifier ID, Item.Settings settings) {
         Registry.register(Registry.BLOCK, ID, block);
         Registry.register(Registry.ITEM, ID, new BlockItem(block, settings.group(group)));
+    }
+
+    private static void registerBlockWithoutBlockItem(Block block, Identifier ID) {
+        Registry.register(Registry.BLOCK, ID, block);
     }
 }
