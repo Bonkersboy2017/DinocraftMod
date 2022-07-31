@@ -23,7 +23,10 @@
     ],
     "main": [
       "com.dinocrew.dinocraft.Dinocraft"
-          ]
+    ],
+    "fabric-datagen": [
+      "com.dinocrew.dinocraft.datagen.DinoDataGenerator"
+    ]
   },
   "mixins": [
     "dinocraft.mixins.json"
