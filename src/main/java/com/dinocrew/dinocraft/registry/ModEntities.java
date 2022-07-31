@@ -22,8 +22,6 @@ public class ModEntities {
     public static final EntityType<ScorpiusEntity> SCORPIUS = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("scorpius"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ScorpiusEntity::new).dimensions(EntityDimensions.fixed(2f, 2)).build());
     public static final EntityType<TRexEntity> TREX = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("trex"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, TRexEntity::new).dimensions(EntityDimensions.fixed(4.5F, 4)).build());
 
-    public static EntityType<DragonwoodBoatEntity> DRAGONWOOD_BOAT;
-
     public static void registerAll() {
         FabricDefaultAttributeRegistry.register(SAUROPOD, SauropodEntity.createDinoAttributes());
         FabricDefaultAttributeRegistry.register(THEROPOD, TheropodEntity.createDinoAttributes());
@@ -36,7 +34,5 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(PROFFESOR, ProffessorEntity.createMobAttributes());
         FabricDefaultAttributeRegistry.register(SCORPIUS, ScorpiusEntity.createDinoAttributes());
         FabricDefaultAttributeRegistry.register(TREX, TRexEntity.createDinoAttributes());
-
-        DRAGONWOOD_BOAT = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("dragonwood_boat"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DragonwoodBoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).build());
     }
 }

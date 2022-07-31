@@ -53,8 +53,6 @@ public class DinocraftClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MODEL_STEGORAPTOR_LAYER, StegoraptorEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.CHINLEA, ChinleaEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_CHINLEA_LAYER, ChinleaEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.DRAGONWOOD_BOAT, DragonwoodBoatEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_DRAGONWOOD_BOAT_LAYER, DragonwoodBoatEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.DEINONYCHUS, DeinonychusEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MODEL_DEINONYCHUS_LAYER, DeinonychusEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.PROFFESOR, ProffesorEntityRenderer::new);

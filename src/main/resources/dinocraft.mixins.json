@@ -4,16 +4,19 @@
   "package": "com.dinocrew.dinocraft.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ClientPlayerEntityMixin",
-    "FoliagePlacerTypeInvoker",
-    "ModBiomeParameters",
-    "TrunkPlacerTypeInvoker",
-    "VanillaSurfaceRulesBlockInvoker",
-    "VanillaSurfaceRulesInjector"
+	"BoatDropsMixin",
+	"BoatTypeMixin",
+	"ChestBoatDropsMixin",
+	"ClientPlayerEntityMixin",
+	"FoliagePlacerTypeInvoker",
+	"ModBiomeParameters",
+	"TrunkPlacerTypeInvoker",
+	"VanillaSurfaceRulesBlockInvoker",
+	"VanillaSurfaceRulesInjector"
   ],
   "client": [
   ],
   "injectors": {
-    "defaultRequire": 1
+	"defaultRequire": 1
   }
 }
