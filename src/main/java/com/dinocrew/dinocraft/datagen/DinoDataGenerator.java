@@ -7,5 +7,6 @@ public class DinoDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         fabricDataGenerator.addProvider(DinoModelProvider::new);
+        fabricDataGenerator.addProvider(DinoBlockLootTableProvider::new);
     }
 }
