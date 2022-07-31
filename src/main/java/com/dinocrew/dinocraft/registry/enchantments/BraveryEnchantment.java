@@ -10,19 +10,22 @@ import net.minecraft.entity.effect.StatusEffects;
 
 public class BraveryEnchantment extends Enchantment {
     public BraveryEnchantment() {
-        super(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[] {EquipmentSlot.MAINHAND});
+        super(Rarity.VERY_RARE, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
+
     @Override
     public int getMinPower(int level) {
         return 1;
     }
+
     @Override
     public int getMaxLevel() {
         return 3;
     }
+
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
-        if(target instanceof LivingEntity) {
+        if (target instanceof LivingEntity) {
             ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 20 * 2 * level, level - 1));
             ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 20 * 2 * level, level - 1));
         }

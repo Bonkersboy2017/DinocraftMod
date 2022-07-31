@@ -35,7 +35,7 @@ public class DinoBenchBlock extends CraftingTableBlock {
         } else {
             player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
             // Make your own stat here if it makes you happy
-/*            player.incrementStat(Stats.INTERACT_WITH_SMITHING_TABLE);*/
+            /*            player.incrementStat(Stats.INTERACT_WITH_SMITHING_TABLE);*/
             return ActionResult.CONSUME;
         }
     }

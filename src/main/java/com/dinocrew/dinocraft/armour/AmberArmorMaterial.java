@@ -8,13 +8,13 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class AmberArmorMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] {7, 10, 12, 11};
-    private static final int[] PROTECTION_AMOUNTS = new int[] {4, 6, 7, 8};
+    private static final int[] BASE_DURABILITY = new int[]{7, 10, 12, 11};
+    private static final int[] PROTECTION_AMOUNTS = new int[]{4, 6, 7, 8};
 
 
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()]*25;
+        return BASE_DURABILITY[slot.getEntitySlotId()] * 25;
     }
 
     @Override
@@ -51,7 +51,6 @@ public class AmberArmorMaterial implements ArmorMaterial {
     public float getKnockbackResistance() {
         return 0;
     }
-
 
 
 }

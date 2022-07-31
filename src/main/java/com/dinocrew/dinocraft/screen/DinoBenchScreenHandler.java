@@ -23,6 +23,7 @@ public class DinoBenchScreenHandler extends ForgingScreenHandler {
     public DinoBenchScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
     }
+
     public DinoBenchScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ModScreenHandlerTypes.DINO_BENCH_SCREEN_HANDLER_TYPE, syncId, playerInventory, context);
         this.world = playerInventory.player.world;
@@ -64,7 +65,9 @@ public class DinoBenchScreenHandler extends ForgingScreenHandler {
 
     }
 
-    protected boolean isUsableAsAddition(ItemStack stack) {return this.recipes.stream().anyMatch((recipe) -> recipe.testModifier(stack));}
+    protected boolean isUsableAsAddition(ItemStack stack) {
+        return this.recipes.stream().anyMatch((recipe) -> recipe.testModifier(stack));
+    }
 
     public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
         return slot.inventory != this.output && super.canInsertIntoSlot(stack, slot);

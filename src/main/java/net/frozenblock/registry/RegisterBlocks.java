@@ -1,8 +1,9 @@
 package net.frozenblock.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import com.dinocrew.dinocraft.registry.ModFoodComponents;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.GlowLichenBlock;
@@ -18,8 +19,11 @@ public class RegisterBlocks {
     public static final PlantBlock CYCADOPHYTA = new PlantBlock(FabricBlockSettings.copyOf(Blocks.GRASS));
 
     public static void init(String modid) {
-        registerBlock(LIVERWORTS, modid, "liverworts", new Item.Settings().group(Dinocraft.ITEM_GROUP));
-        registerBlock(CYCADOPHYTA, modid, "cycadophyta", new Item.Settings().group(Dinocraft.ITEM_GROUP));
+        registerBlock(LIVERWORTS, modid, "liverworts", new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
+        registerBlock(CYCADOPHYTA, modid, "cycadophyta", new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
+
+        FlammableBlockRegistry.getDefaultInstance().add(LIVERWORTS, 15, 100);
+        FlammableBlockRegistry.getDefaultInstance().add(CYCADOPHYTA, 60, 100);
     }
 
     private static void registerBlock(Block block, String modid, String id, Item.Settings settings) {

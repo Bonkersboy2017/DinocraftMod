@@ -18,7 +18,6 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -40,14 +39,11 @@ public class DragonwoodBoatItem extends Item {
             return TypedActionResult.pass(itemStack);
         } else {
             Vec3d vec3d = user.getRotationVec(1.0F);
-            double d = 5.0D;
             List<Entity> list = world.getOtherEntities(user, user.getBoundingBox().stretch(vec3d.multiply(5.0D)).expand(1.0D), RIDERS);
             if (!list.isEmpty()) {
                 Vec3d vec3d2 = user.getEyePos();
-                Iterator var11 = list.iterator();
 
-                while(var11.hasNext()) {
-                    Entity entity = (Entity)var11.next();
+                for (Entity entity : list) {
                     Box box = entity.getBoundingBox().expand(entity.getTargetingMargin());
                     if (box.contains(vec3d2)) {
                         return TypedActionResult.pass(itemStack);
@@ -56,7 +52,7 @@ public class DragonwoodBoatItem extends Item {
             }
 
             if (hitResult.getType() == HitResult.Type.BLOCK) {
-                BlockPos finalpos = new BlockPos(hitResult.getPos().x, hitResult.getPos().y+1, hitResult.getPos().z);
+                BlockPos finalpos = new BlockPos(hitResult.getPos().x, hitResult.getPos().y + 1, hitResult.getPos().z);
                 boatEntity.setPos(finalpos.getX(), finalpos.getY(), finalpos.getZ());
                 boatEntity.setYaw(user.getYaw());
                 if (!world.isClient) {

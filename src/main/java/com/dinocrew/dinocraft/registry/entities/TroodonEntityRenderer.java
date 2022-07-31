@@ -14,6 +14,6 @@ public class TroodonEntityRenderer extends MobEntityRenderer<TroodonEntity, Troo
 
     @Override
     public Identifier getTexture(TroodonEntity entity) {
-        return new Identifier(Dinocraft.MOD_ID, "textures/entity/troodon.png");
+        return Dinocraft.id("textures/entity/troodon.png");
     }
 }

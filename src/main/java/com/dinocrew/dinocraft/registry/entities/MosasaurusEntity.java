@@ -1,11 +1,10 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.mob.GuardianEntity;
-import net.minecraft.entity.passive.DolphinEntity;
+import net.minecraft.entity.ai.goal.BreatheAirGoal;
+import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
+import net.minecraft.entity.ai.goal.SwimAroundGoal;
 import net.minecraft.entity.passive.FishEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;

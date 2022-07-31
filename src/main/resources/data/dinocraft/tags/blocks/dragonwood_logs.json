@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+	"dinocraft:dragonwood_log",
+	"dinocraft:dragonwood_wood",
+	"dinocraft:stripped_dragonwood_log",
+	"dinocraft:stripped_dragonwood_wood"
+  ]
+}

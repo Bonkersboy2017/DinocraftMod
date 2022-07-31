@@ -15,19 +15,23 @@ public class DinoBenchRecipe implements Recipe<Inventory> {
     private final Ingredient modifier;
     private final ItemStack result;
     private final Identifier id;
+
     public DinoBenchRecipe(Identifier id, Ingredient inputMain, Ingredient inputModifier, ItemStack result) {
         this.id = id;
         this.main = inputMain;
         this.modifier = inputModifier;
         this.result = result;
     }
-    public Ingredient getMain(){
+
+    public Ingredient getMain() {
         return this.main;
     }
-    public Ingredient getModifier(){
+
+    public Ingredient getModifier() {
         return this.modifier;
     }
-//Yes, World parameter is useless. No, Mojang won't elaborate
+
+    //Yes, World parameter is useless. No, Mojang won't elaborate
     @Override
     public boolean matches(Inventory inventory, World world) {
         return this.main.test(inventory.getStack(0)) && this.modifier.test(inventory.getStack(1));
@@ -50,22 +54,31 @@ public class DinoBenchRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public ItemStack getOutput() {return this.result;}
+    public ItemStack getOutput() {
+        return this.result;
+    }
 
     public boolean testModifier(ItemStack stack) {
         return this.modifier.test(stack);
     }
 
     @Override
-    public Identifier getId() {return this.id;}
+    public Identifier getId() {
+        return this.id;
+    }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {return ModRecipeSerializer.DINOBENCH;}
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipeSerializer.DINOBENCH;
+    }
+
     public static final RecipeType<DinoBenchRecipe> TYPE = Type.INSTANCE;
+
     @Override
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
+
     public static class Serializer implements RecipeSerializer<DinoBenchRecipe> {
         public Serializer() {
         }
@@ -90,8 +103,11 @@ public class DinoBenchRecipe implements Recipe<Inventory> {
             packetByteBuf.writeItemStack(dinobenchRecipe.result);
         }
     }
-    public static class Type implements RecipeType<DinoBenchRecipe>{
-        private Type(){}
+
+    public static class Type implements RecipeType<DinoBenchRecipe> {
+        private Type() {
+        }
+
         public static final Type INSTANCE = new Type();
         public static final String ID = "dinobench";
     }

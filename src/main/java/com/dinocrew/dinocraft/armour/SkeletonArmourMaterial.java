@@ -8,15 +8,15 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 
-public class SkeletonArmourMaterial implements ArmorMaterial {;
+public class SkeletonArmourMaterial implements ArmorMaterial {
 
-    private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11};
-    private static final int[] PROTECTION_AMOUNTS = new int[] {9, 11, 12, 10};
+    private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
+    private static final int[] PROTECTION_AMOUNTS = new int[]{9, 11, 12, 10};
 
 
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()]*25;
+        return BASE_DURABILITY[slot.getEntitySlotId()] * 25;
     }
 
     @Override

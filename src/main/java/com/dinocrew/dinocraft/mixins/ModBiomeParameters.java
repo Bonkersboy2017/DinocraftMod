@@ -1,28 +1,13 @@
 package com.dinocrew.dinocraft.mixins;
 
 import com.dinocrew.dinocraft.registry.ModBiomes;
-import com.dinocrew.dinocraft.registry.ModBlocks;
-import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
-import com.mojang.datafixers.util.Pair;
-import io.netty.util.internal.SuppressJava6Requirement;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.minecraft.world.biome.source.util.VanillaBiomeParameters;
 import org.objectweb.asm.Opcodes;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.function.Consumer;
-
-import static org.objectweb.asm.Opcodes.GETSTATIC;
 
 
 //@Mixin(VanillaBiomeParameters.class)

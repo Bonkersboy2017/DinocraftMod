@@ -24,16 +24,16 @@ public class BreakthoughRock extends BreakthroughStones {
     public boolean generate(@NotNull FeatureContext<ProbabilityConfig> context) {
         StructureWorldAccess world = context.getWorld();
         BlockPos topPos = world.getTopPosition(Heightmap.Type.OCEAN_FLOOR_WG, context.getOrigin());
-        int xSize = (int) AdvancedMath.range(2, 5, (float)Math.random());
-        int ySize = (int)AdvancedMath.range(4, 10, (float)Math.random());
-        int zSize = (int)AdvancedMath.range(2, 5, (float)Math.random());
+        int xSize = (int) AdvancedMath.range(2, 5, (float) Math.random());
+        int ySize = (int) AdvancedMath.range(4, 10, (float) Math.random());
+        int zSize = (int) AdvancedMath.range(2, 5, (float) Math.random());
 
         ArrayList<Block> blocks = new ArrayList<>();
         blocks.add(ModBlocks.FOSSILIZED_STONE);
         blocks.add(ModBlocks.FS_BRICKS);
         blocks.add(Blocks.SMOOTH_BASALT);
 
-        if(world.getBlockState(topPos) == Blocks.WATER.getDefaultState()) {
+        if (world.getBlockState(topPos) == Blocks.WATER.getDefaultState()) {
             generateEllipsoid(xSize, ySize, zSize, 100, world, topPos, blocks);
         }
         return true;

@@ -14,6 +14,6 @@ public class ChinleaEntityRenderer extends MobEntityRenderer<ChinleaEntity, Chin
 
     @Override
     public Identifier getTexture(ChinleaEntity entity) {
-        return new Identifier(Dinocraft.MOD_ID, "textures/entity/chinlea.png");
+        return Dinocraft.id("textures/entity/chinlea.png");
     }
 }

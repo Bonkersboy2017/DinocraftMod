@@ -5,17 +5,15 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.frozenblock.api.mathematics.Conics;
 import net.frozenblock.api.mathematics.Point3D;
-import net.frozenblock.api.minecraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.IntProvider;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 
-import net.minecraft.util.math.random.Random;
 import java.util.function.BiConsumer;
 
 public class DragonWoodFoliagePlacer extends FoliagePlacer {
@@ -36,7 +34,7 @@ public class DragonWoodFoliagePlacer extends FoliagePlacer {
     protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, net.minecraft.util.math.random.Random random, TreeFeatureConfig config, int trunkHeight, TreeNode treeNode, int foliageHeight, int radius, int offset) {
         BlockPos.Mutable center = treeNode.getCenter().mutableCopy();
         generateEllipsoid(9, 4, 9, 100, world, replacer, random, config, center);
-        generateEllipsoid(10, 5, 10, 50, world, replacer,  random, config, center);
+        generateEllipsoid(10, 5, 10, 50, world, replacer, random, config, center);
     }
 
     @Override
@@ -54,12 +52,12 @@ public class DragonWoodFoliagePlacer extends FoliagePlacer {
         Point3D center = new Point3D.Float(startPos.getX(), startPos.getY(), startPos.getZ());
 
         // Build in an area between -a, -b, -c & a, b, c
-        for(int i = -a; i <= a; i++) {
-            for(int j = -b; j <= b; j++) {
-                for(int k = -c; k <= c; k++) {
+        for (int i = -a; i <= a; i++) {
+            for (int j = -b; j <= b; j++) {
+                for (int k = -c; k <= c; k++) {
                     Point3D actual = new Point3D.Float(startPos.getX() + i, startPos.getY() + j, startPos.getZ() + k);
-                    if(Conics.isInsideEllipsoid(center, a, b, c, actual)) {
-                        if(Math.random() < percentage/100) {
+                    if (Conics.isInsideEllipsoid(center, a, b, c, actual)) {
+                        if (Math.random() < percentage / 100) {
                             BlockPos fpos = new BlockPos(startPos.getX() + i, startPos.getY() + j, startPos.getZ() + k);
                             placeFoliageBlock(world, replacer, random, config, fpos);
                         }
@@ -69,4 +67,4 @@ public class DragonWoodFoliagePlacer extends FoliagePlacer {
         }
     }
 
-    }
+}

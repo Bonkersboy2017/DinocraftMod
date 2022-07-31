@@ -23,7 +23,7 @@
     ],
     "main": [
       "com.dinocrew.dinocraft.Dinocraft"
-          ]
+    ]
   },
   "mixins": [
     "dinocraft.mixins.json"

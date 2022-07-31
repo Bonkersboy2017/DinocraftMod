@@ -58,26 +58,31 @@ public class BreakthroughPlants {
         public FernFeature(Codec<ProbabilityConfig> configCodec) {
             super(configCodec);
         }
+
         @Override
         public boolean generate(FeatureContext<ProbabilityConfig> context) {
             BreakthroughPlants.generate(context, Blocks.FERN.getDefaultState());
             return true;
         }
     }
+
     private static class LiverWortsFeature extends Feature<ProbabilityConfig> {
         public LiverWortsFeature(Codec<ProbabilityConfig> configCodec) {
             super(configCodec);
         }
+
         @Override
         public boolean generate(FeatureContext<ProbabilityConfig> context) {
             BreakthroughPlants.generate(context, RegisterBlocks.LIVERWORTS.getDefaultState());
             return true;
         }
     }
+
     private static class CycadophytaFeature extends Feature<ProbabilityConfig> {
         public CycadophytaFeature(Codec<ProbabilityConfig> configCodec) {
             super(configCodec);
         }
+
         @Override
         public boolean generate(FeatureContext<ProbabilityConfig> context) {
             BreakthroughPlants.generate(context, RegisterBlocks.CYCADOPHYTA.getDefaultState());

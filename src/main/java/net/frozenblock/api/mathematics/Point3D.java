@@ -1,7 +1,7 @@
 package net.frozenblock.api.mathematics;
 
-import java.io.Serial;
 import java.io.Serializable;
+
 /**
  * POINT 3D
  * <p>
@@ -11,9 +11,8 @@ import java.io.Serializable;
  * <p>
  * Allows you to create a 3D point with x, y & z
  *
- * @author      LiukRast (2021-2022)
+ * @author LiukRast (2021-2022)
  * @since 4.0
- *
  */
 
 public abstract class Point3D implements Cloneable {
@@ -26,8 +25,10 @@ public abstract class Point3D implements Cloneable {
         public float x;
         public float y;
         public float z;
+
         public Float() {
         }
+
         public Float(float x, float y, float z) {
             this.x = x;
             this.y = y;
@@ -35,15 +36,15 @@ public abstract class Point3D implements Cloneable {
         }
 
         public double getX() {
-            return (double) x;
+            return x;
         }
 
         public double getY() {
-            return (double) y;
+            return y;
         }
 
         public double getZ() {
-            return (double) z;
+            return z;
         }
 
 
@@ -58,8 +59,9 @@ public abstract class Point3D implements Cloneable {
             this.y = y;
             this.z = z;
         }
+
         public String toString() {
-            return "Point3D.Float["+x+", "+y+", "+z+"]";
+            return "Point3D.Float[" + x + ", " + y + ", " + z + "]";
         }
     }
 
@@ -78,15 +80,19 @@ public abstract class Point3D implements Cloneable {
             this.y = y;
             this.z = z;
         }
+
         public double getX() {
             return x;
         }
+
         public double getY() {
             return y;
         }
+
         public double getZ() {
             return y;
         }
+
         public void setLocation(double x, double y, double z) {
             this.x = x;
             this.y = y;
@@ -94,14 +100,17 @@ public abstract class Point3D implements Cloneable {
         }
 
         public String toString() {
-            return "Point3D.Double["+x+", "+y+", "+z+"]";
+            return "Point3D.Double[" + x + ", " + y + ", " + z + "]";
         }
     }
 
     protected Point3D() {
     }
+
     public abstract double getX();
+
     public abstract double getY();
+
     public abstract double getZ();
 
 
@@ -111,16 +120,14 @@ public abstract class Point3D implements Cloneable {
         setLocation(p.getX(), p.getY(), p.getZ());
     }
 
-    public static double distanceSq(double x1, double y1, double z1, double x2, double y2, double z2)
-    {
+    public static double distanceSq(double x1, double y1, double z1, double x2, double y2, double z2) {
         x1 -= x2;
         y1 -= y2;
         z1 -= z2;
         return (x1 * x1 + y1 * y1 + z1 * z1);
     }
 
-    public static double distance(double x1, double y1, double z1, double x2, double y2, double z2)
-    {
+    public static double distance(double x1, double y1, double z1, double x2, double y2, double z2) {
         x1 -= x2;
         y1 -= y2;
         z1 -= z2;
@@ -175,8 +182,7 @@ public abstract class Point3D implements Cloneable {
 
 
     public boolean equals(Object obj) {
-        if (obj instanceof Point3D) {
-            Point3D p2d = (Point3D) obj;
+        if (obj instanceof Point3D p2d) {
             return (getX() == p2d.getX()) && (getY() == p2d.getY()) && (getZ() == p2d.getZ());
         }
         return super.equals(obj);
