@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.frozenblock.registry.RegisterBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
@@ -73,7 +74,7 @@ public class BreakthroughPlants {
 
         @Override
         public boolean generate(FeatureContext<ProbabilityConfig> context) {
-            BreakthroughPlants.generate(context, RegisterBlocks.LIVERWORTS.getDefaultState());
+            BreakthroughPlants.generate(context, RegisterBlocks.LIVERWORTS.getDefaultState().with(Properties.DOWN, true).with(Properties.UP, false).with(Properties.NORTH, false).with(Properties.EAST, false).with(Properties.SOUTH, false));
             return true;
         }
     }
