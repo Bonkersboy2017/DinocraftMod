@@ -5,33 +5,28 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import static net.minecraft.entity.mob.PhantomEntity.field_28641;
-
 public class TheropodEntity extends TameableEntity {
     public TheropodEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
 
     }
+
     protected void initGoals() {
         this.goalSelector.add(4, new WanderAroundGoal(this, 0.20f, 5));
-        this.goalSelector.add(10, new MeleeAttackGoal(this, 1.0D,false));
+        this.goalSelector.add(10, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
-        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(1, new RevengeGoal(this));
         this.targetSelector.add(5, new ActiveTargetGoal(this, PlayerEntity.class, false));
 
 //        this.targetSelector.add(2, new IndoraptorEntity.TargetGoal(this, PlayerEntity.class));
@@ -41,7 +36,6 @@ public class TheropodEntity extends TameableEntity {
     public static DefaultAttributeContainer.Builder createDinoAttributes() {
         return TameableEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE);
     }
-
 
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {

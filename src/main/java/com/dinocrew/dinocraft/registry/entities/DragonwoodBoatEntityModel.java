@@ -59,8 +59,8 @@ public class DragonwoodBoatEntityModel extends CompositeEntityModel<DragonwoodBo
 
     private static void setPaddleAngle(DragonwoodBoatEntity entity, int sigma, ModelPart part, float angle) {
         float f = entity.interpolatePaddlePhase(sigma, angle);
-        part.pitch = (float)MathHelper.clampedLerp(-1.0471976F, -0.2617994F, (MathHelper.sin(-f) + 1.0F) / 2.0F);
-        part.yaw = (float)MathHelper.clampedLerp(-0.7853982F, 0.7853982F, (MathHelper.sin(-f + 1.0F) + 1.0F) / 2.0F);
+        part.pitch = MathHelper.clampedLerp(-1.0471976F, -0.2617994F, (MathHelper.sin(-f) + 1.0F) / 2.0F);
+        part.yaw = MathHelper.clampedLerp(-0.7853982F, 0.7853982F, (MathHelper.sin(-f + 1.0F) + 1.0F) / 2.0F);
         if (sigma == 1) {
             part.yaw = 3.1415927F - part.yaw;
         }

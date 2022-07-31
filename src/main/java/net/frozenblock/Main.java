@@ -13,9 +13,8 @@ public class Main {
      * Only for FrozenBlock Modders, ALL RIGHTS RESERVED
      * <p>
      *
-     * @author      LiukRast (2021-2022)
+     * @author LiukRast (2021-2022)
      * @since 4.0
-     *
      */
 
     public static void runner(String modid) {

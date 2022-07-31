@@ -1,22 +1,19 @@
 package com.dinocrew.dinocraft.registry.worldgen;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.frozenblock.api.minecraft.worldgen.features.BreakthroughStones;
-import net.frozenblock.api.minecraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
-import net.frozenblock.api.minecraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import com.dinocrew.dinocraft.registry.ModBiomes;
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.dinocrew.dinocraft.registry.ModEntities;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.frozenblock.api.minecraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
+import net.frozenblock.api.minecraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -25,10 +22,7 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.RandomSpreadFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-
-import java.awt.*;
 
 public class RegisterWorldgen {
 

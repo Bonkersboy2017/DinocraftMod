@@ -6,7 +6,6 @@ import com.dinocrew.dinocraft.block.DinotanerBlock;
 import com.dinocrew.dinocraft.registry.blocks.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -16,19 +15,18 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 
-public class ModBlocks
-{
-    public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf ( Blocks.BIRCH_PLANKS );
+public class ModBlocks {
+    public static final AbstractBlock.Settings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.BIRCH_PLANKS);
 
-    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (4f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4f, 26.0f).sounds(BlockSoundGroup.STONE));
 
     // Now is a DinoBenchBlock
-    public static final Block DINOBENCH = new DinoBenchBlock(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ));
-    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf ( Blocks.IRON_ORE ).requiresTool());
-    public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf ( Blocks.BRICKS ));
-    public static final GrassBlock DRAGONGRASS = new GrassBlock(FabricBlockSettings.copyOf ( Blocks.GRASS_BLOCK ).requiresTool ());
-    public static final Block DINOSAUR_TEMPERED_GLASS= new GlassBlock(FabricBlockSettings.copyOf ( Blocks.GLASS ).requiresTool ());
+    public static final Block DINOBENCH = new DinoBenchBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
+    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.IRON_ORE).requiresTool());
+    public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BRICKS));
+    public static final GrassBlock DRAGONGRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).requiresTool());
+    public static final Block DINOSAUR_TEMPERED_GLASS = new GlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).requiresTool());
     public static final Block FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sounds(BlockSoundGroup.STONE));
     public static final Block WBC = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).requiresTool());
     public static final Block POLISHED_FS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
@@ -49,17 +47,15 @@ public class ModBlocks
     public static final Block DRAGONWOOD_TRAPDOOR = new CustomTrapdoor(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque());
     public static final Block DRAGONWOOD_BUTTON = new CustomWoodenButton(DRAGONWOOD_SETTINGS);
-    public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block AMBER_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength (3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final EggBlock DINO_EGG = new EggBlock(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
-    public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf ( Blocks.TURTLE_EGG ));
-    public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf ( Blocks.IRON_BLOCK ));
+    public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block AMBER_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final EggBlock DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
+    public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
+    public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
 
 
-
-    public static void registerAll()
-    {
+    public static void registerAll() {
         registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("skeleton_ore"));
         registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_ore"));
         registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_ore"));
@@ -101,6 +97,7 @@ public class ModBlocks
     private static void registerBlock(Block block, ItemGroup group, Identifier ID) {
         registerBlock(block, group, ID, new Item.Settings());
     }
+
     private static void registerBlock(Block block, ItemGroup group, Identifier ID, Item.Settings settings) {
         Registry.register(Registry.BLOCK, ID, block);
         Registry.register(Registry.ITEM, ID, new BlockItem(block, settings.group(group)));

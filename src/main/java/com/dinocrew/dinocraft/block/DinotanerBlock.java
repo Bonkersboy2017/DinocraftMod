@@ -5,15 +5,11 @@
 
 package com.dinocrew.dinocraft.block;
 
-import java.util.Random;
-
 import com.dinocrew.dinocraft.registry.entities.DinotanerBlockEntity;
-import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
-
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PiglinBrain;
@@ -29,16 +25,14 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
 
 public class DinotanerBlock extends BlockWithEntity {
     public static final DirectionProperty FACING;
@@ -46,7 +40,7 @@ public class DinotanerBlock extends BlockWithEntity {
 
     public DinotanerBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(OPEN, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(OPEN, false));
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -55,7 +49,7 @@ public class DinotanerBlock extends BlockWithEntity {
         } else {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof DinotanerBlockEntity) {
-                player.openHandledScreen((DinotanerBlockEntity)blockEntity);
+                player.openHandledScreen((DinotanerBlockEntity) blockEntity);
                 player.incrementStat(Stats.OPEN_BARREL);
                 PiglinBrain.onGuardedBlockInteracted(player, true);
             }
@@ -68,7 +62,7 @@ public class DinotanerBlock extends BlockWithEntity {
         if (!state.isOf(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof Inventory) {
-                ItemScatterer.spawn(world, pos, (Inventory)blockEntity);
+                ItemScatterer.spawn(world, pos, (Inventory) blockEntity);
                 world.updateComparators(pos, this);
             }
 
@@ -79,7 +73,7 @@ public class DinotanerBlock extends BlockWithEntity {
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof DinotanerBlockEntity) {
-            ((DinotanerBlockEntity)blockEntity).tick();
+            ((DinotanerBlockEntity) blockEntity).tick();
         }
 
     }
@@ -97,7 +91,7 @@ public class DinotanerBlock extends BlockWithEntity {
         if (itemStack.hasCustomName()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof DinotanerBlockEntity) {
-                ((DinotanerBlockEntity)blockEntity).setCustomName(itemStack.getName());
+                ((DinotanerBlockEntity) blockEntity).setCustomName(itemStack.getName());
             }
         }
 
@@ -112,19 +106,19 @@ public class DinotanerBlock extends BlockWithEntity {
     }
 
     public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return (BlockState)state.with(FACING, rotation.rotate((Direction)state.get(FACING)));
+        return state.with(FACING, rotation.rotate(state.get(FACING)));
     }
 
     public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation((Direction)state.get(FACING)));
+        return state.rotate(mirror.getRotation(state.get(FACING)));
     }
 
     protected void appendProperties(Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{FACING, OPEN});
+        builder.add(FACING, OPEN);
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite());
     }
 
     static {

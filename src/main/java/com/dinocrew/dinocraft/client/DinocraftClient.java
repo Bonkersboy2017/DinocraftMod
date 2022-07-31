@@ -2,8 +2,8 @@ package com.dinocrew.dinocraft.client;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.client.screen.DinoBenchScreen;
-import com.dinocrew.dinocraft.registry.ModEntities;
 import com.dinocrew.dinocraft.registry.ModBlocks;
+import com.dinocrew.dinocraft.registry.ModEntities;
 import com.dinocrew.dinocraft.registry.entities.*;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
 import net.fabricmc.api.ClientModInitializer;
@@ -20,7 +20,6 @@ import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class DinocraftClient implements ClientModInitializer {
@@ -80,34 +79,34 @@ public class DinocraftClient implements ClientModInitializer {
         ScreenRegistry.register(ModScreenHandlerTypes.DINO_BENCH_SCREEN_HANDLER_TYPE, DinoBenchScreen::new);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-            if(world != null) {
+            if (world != null) {
                 return BiomeColors.getGrassColor(world, pos);
             } else {
-                return GrassColors.getColor(1,1);
+                return GrassColors.getColor(1, 1);
             }
         }), ModBlocks.DRAGONGRASS);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-            if(world != null) {
+            if (world != null) {
                 return BiomeColors.getGrassColor(world, pos);
             } else {
-                return GrassColors.getColor(1,1);
+                return GrassColors.getColor(1, 1);
             }
         }), RegisterBlocks.CYCADOPHYTA);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
-            if(world != null) {
+            if (world != null) {
                 return BiomeColors.getFoliageColor(world, pos);
             } else {
-                return GrassColors.getColor(1,1);
+                return GrassColors.getColor(1, 1);
             }
         }), ModBlocks.DRAGONWOOD_LEAVES);
 
-        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(1,1)), ModBlocks.DRAGONGRASS);
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(1, 1)), ModBlocks.DRAGONGRASS);
 
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> FoliageColors.getDefaultColor()), ModBlocks.DRAGONWOOD_LEAVES);
 
-        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(1,1)), RegisterBlocks.CYCADOPHYTA);
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(1, 1)), RegisterBlocks.CYCADOPHYTA);
     }
 
 

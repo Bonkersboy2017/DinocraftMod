@@ -46,8 +46,8 @@ public class DragonwoodBoatItem extends Item {
                 Vec3d vec3d2 = user.getEyePos();
                 Iterator var11 = list.iterator();
 
-                while(var11.hasNext()) {
-                    Entity entity = (Entity)var11.next();
+                while (var11.hasNext()) {
+                    Entity entity = (Entity) var11.next();
                     Box box = entity.getBoundingBox().expand(entity.getTargetingMargin());
                     if (box.contains(vec3d2)) {
                         return TypedActionResult.pass(itemStack);
@@ -56,7 +56,7 @@ public class DragonwoodBoatItem extends Item {
             }
 
             if (hitResult.getType() == HitResult.Type.BLOCK) {
-                BlockPos finalpos = new BlockPos(hitResult.getPos().x, hitResult.getPos().y+1, hitResult.getPos().z);
+                BlockPos finalpos = new BlockPos(hitResult.getPos().x, hitResult.getPos().y + 1, hitResult.getPos().z);
                 boatEntity.setPos(finalpos.getX(), finalpos.getY(), finalpos.getZ());
                 boatEntity.setYaw(user.getYaw());
                 if (!world.isClient) {

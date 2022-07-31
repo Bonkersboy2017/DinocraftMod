@@ -8,13 +8,13 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class BronziumArmourMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] {10, 13, 14, 12};
-    private static final int[] PROTECTION_AMOUNTS = new int[] {5, 7, 8, 6};
+    private static final int[] BASE_DURABILITY = new int[]{10, 13, 14, 12};
+    private static final int[] PROTECTION_AMOUNTS = new int[]{5, 7, 8, 6};
 
 
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()]*25;
+        return BASE_DURABILITY[slot.getEntitySlotId()] * 25;
     }
 
     @Override
@@ -51,7 +51,6 @@ public class BronziumArmourMaterial implements ArmorMaterial {
     public float getKnockbackResistance() {
         return 0;
     }
-
 
 
 }

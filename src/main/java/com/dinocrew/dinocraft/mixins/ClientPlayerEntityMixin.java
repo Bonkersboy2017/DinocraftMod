@@ -1,15 +1,12 @@
 package com.dinocrew.dinocraft.mixins;
 
 import com.dinocrew.dinocraft.registry.entities.DragonwoodBoatEntity;
-import com.dinocrew.dinocraft.registry.entities.DragonwoodBoatEntityRenderer;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.input.Input;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.encryption.PlayerPublicKey;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,8 +30,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     @Inject(at = @At("HEAD"), method = "tickRiding")
     public void tickRiding(CallbackInfo ci) {
         this.riding = false;
-        if (this.getVehicle() instanceof DragonwoodBoatEntity) {
-            DragonwoodBoatEntity boatEntity = (DragonwoodBoatEntity)this.getVehicle();
+        if (this.getVehicle() instanceof DragonwoodBoatEntity boatEntity) {
             boatEntity.setInputs(this.input.pressingLeft, this.input.pressingRight, this.input.pressingForward, this.input.pressingBack);
             this.riding |= this.input.pressingLeft || this.input.pressingRight || this.input.pressingForward || this.input.pressingBack;
         }

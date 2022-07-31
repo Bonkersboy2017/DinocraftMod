@@ -8,8 +8,9 @@ import com.dinocrew.dinocraft.armour.SkeletonArmourMaterial;
 import com.dinocrew.dinocraft.registry.items.DragonwoodBoatItem;
 import com.dinocrew.dinocraft.registry.weapons.*;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.*;
-import net.minecraft.util.Identifier;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
@@ -64,22 +65,13 @@ public class ModItems {
     public static final SwordBase SPEAR = new SwordBase(new ToolMaterialEnlightened());
 
 
-
-
-
-
-
-
-
-
-
     public static void registerAll() {
         Registry.register(Registry.ITEM, Dinocraft.id("allosaurus_skull"), ALLOSAURUS_SKULL);
         Registry.register(Registry.ITEM, Dinocraft.id("baryonyx_skull"), BARYONYX_SKULL);
         Registry.register(Registry.ITEM, Dinocraft.id("carnotaurus_skull"), CARNOTAURUS_SKULL);
         Registry.register(Registry.ITEM, Dinocraft.id("berries"), BERRIES);
         Registry.register(Registry.ITEM, Dinocraft.id("infected_berries"), INFECTED_BERRIES);
-        Registry.register(Registry.ITEM, Dinocraft.id("tropical_berries"),TROPICAL_BERRIES);
+        Registry.register(Registry.ITEM, Dinocraft.id("tropical_berries"), TROPICAL_BERRIES);
         Registry.register(Registry.ITEM, Dinocraft.id("cyad_seeds"), CYAD_SEEDS);
         Registry.register(Registry.ITEM, Dinocraft.id("rotting_cyads"), ROTTING_CYADS);
         Registry.register(Registry.ITEM, Dinocraft.id("cyad_leaf"), CYAD_LEAF);
@@ -117,7 +109,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, Dinocraft.id("bronzium_leggings"), new BaseArmour(BRONZIUM_ARMOUR, EquipmentSlot.LEGS));
         Registry.register(Registry.ITEM, Dinocraft.id("bronzium_boots"), new BaseArmour(BRONZIUM_ARMOUR, EquipmentSlot.FEET));
         Registry.register(Registry.ITEM, Dinocraft.id("bronzium_ingot"), BRONZIUM_INGOT);
-        Registry.register(Registry.ITEM, Dinocraft.id("shard_of_enlightenment"),SHARD_OF_ENLIGHTENMENT);
+        Registry.register(Registry.ITEM, Dinocraft.id("shard_of_enlightenment"), SHARD_OF_ENLIGHTENMENT);
         Registry.register(Registry.ITEM, Dinocraft.id("wyvern_crystal"), WYVERN_CRYSTAL);
         Registry.register(Registry.ITEM, Dinocraft.id("sauropod_spawn_egg"), SAUROPOD_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("troodon_spawn_egg"), TROODON_SPAWN_EGG);
@@ -131,8 +123,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, Dinocraft.id("scorpius_spawn_egg"), SCORPIUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("trex_spawn_egg"), TREX_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("time_flint"), TIME_FLINT);
-        Registry.register(Registry.ITEM, Dinocraft.id("enlightened_core"),ENLIGHTENED_CORE);
-        Registry.register(Registry.ITEM, Dinocraft.id("enlightened_necklace"),ENLIGHTENED_NECKLACE);
+        Registry.register(Registry.ITEM, Dinocraft.id("enlightened_core"), ENLIGHTENED_CORE);
+        Registry.register(Registry.ITEM, Dinocraft.id("enlightened_necklace"), ENLIGHTENED_NECKLACE);
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_boat"), DRAGONWOOD_BOAT);
         Registry.register(Registry.ITEM, Dinocraft.id("spear"), SPEAR);
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_pickaxe"), new PickaxeBase(new ToolMaterialDragonwood()));
@@ -141,13 +133,13 @@ public class ModItems {
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_hoe"), new HoeBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_sword"), new SwordBase(new ToolMaterialDragonwood()));
         Registry.register(Registry.ITEM, Dinocraft.id("dragonwood_scrap"), DRAGONWOOD_SCRAP);
-        Registry.register(Registry.ITEM, Dinocraft.id("dinosteel_ingot"),DINOSTEEL_INGOT);
-        Registry.register(Registry.ITEM, Dinocraft.id("empty_dna_bottle"),EMPTY_DNA_BOTTLE);
-        Registry.register(Registry.ITEM, Dinocraft.id("dna_bottle"),DNA_BOTTLE);
-        Registry.register(Registry.ITEM, Dinocraft.id("mysterious_dna_bottle"),MYSTERIOUS_DNA_BOTTLE);
-        Registry.register(Registry.ITEM, Dinocraft.id("inflamed_dna_bottle"),INFLAMED_DNA_BOTTLE);
-        Registry.register(Registry.ITEM, Dinocraft.id("dino_feather"),DINO_FEATHER);
-        Registry.register(Registry.ITEM, Dinocraft.id("amber_gem"),AMBER_GEM);
+        Registry.register(Registry.ITEM, Dinocraft.id("dinosteel_ingot"), DINOSTEEL_INGOT);
+        Registry.register(Registry.ITEM, Dinocraft.id("empty_dna_bottle"), EMPTY_DNA_BOTTLE);
+        Registry.register(Registry.ITEM, Dinocraft.id("dna_bottle"), DNA_BOTTLE);
+        Registry.register(Registry.ITEM, Dinocraft.id("mysterious_dna_bottle"), MYSTERIOUS_DNA_BOTTLE);
+        Registry.register(Registry.ITEM, Dinocraft.id("inflamed_dna_bottle"), INFLAMED_DNA_BOTTLE);
+        Registry.register(Registry.ITEM, Dinocraft.id("dino_feather"), DINO_FEATHER);
+        Registry.register(Registry.ITEM, Dinocraft.id("amber_gem"), AMBER_GEM);
         Registry.register(Registry.ITEM, Dinocraft.id("amber_helmet"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.HEAD));
         Registry.register(Registry.ITEM, Dinocraft.id("amber_chestplate"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.CHEST));
         Registry.register(Registry.ITEM, Dinocraft.id("amber_leggings"), new BaseArmour(AMBER_ARMOR, EquipmentSlot.LEGS));
@@ -158,7 +150,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, Dinocraft.id("amber_hoe"), new HoeBase(new ToolMaterialAmber()));
         Registry.register(Registry.ITEM, Dinocraft.id("amber_sword"), new SwordBase(new ToolMaterialAmber()));
     }
-    }
+}
 
 
 

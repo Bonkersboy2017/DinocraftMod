@@ -1,11 +1,9 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 
-import com.dinocrew.dinocraft.block.DinotanerBlock;
 import com.dinocrew.dinocraft.registry.blocks.modBlockEntityTypes;
 import net.minecraft.block.BarrelBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.block.entity.ViewerCountManager;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,7 +26,7 @@ import net.minecraft.world.World;
 
 public class DinotanerBlockEntity extends LootableContainerBlockEntity {
     private DefaultedList<ItemStack> inventory;
-    private ViewerCountManager stateManager;
+    private final ViewerCountManager stateManager;
 
     public DinotanerBlockEntity(BlockPos pos, BlockState state) {
         super(modBlockEntityTypes.DINOTANER_BLOCK_ENTITY, pos, state);
@@ -49,7 +47,7 @@ public class DinotanerBlockEntity extends LootableContainerBlockEntity {
 
             protected boolean isPlayerViewing(PlayerEntity player) {
                 if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
-                    Inventory inventory = ((GenericContainerScreenHandler)player.currentScreenHandler).getInventory();
+                    Inventory inventory = ((GenericContainerScreenHandler) player.currentScreenHandler).getInventory();
                     return inventory == DinotanerBlockEntity.this;
                 } else {
                     return false;
@@ -88,7 +86,7 @@ public class DinotanerBlockEntity extends LootableContainerBlockEntity {
     }
 
     protected Text getContainerName() {
-        return  Text.translatable("container.dinotaner");
+        return Text.translatable("container.dinotaner");
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
@@ -117,14 +115,14 @@ public class DinotanerBlockEntity extends LootableContainerBlockEntity {
     }
 
     void setOpen(BlockState state, boolean open) {
-        this.world.setBlockState(this.getPos(), (BlockState)state.with(BarrelBlock.OPEN, open), 3);
+        this.world.setBlockState(this.getPos(), state.with(BarrelBlock.OPEN, open), 3);
     }
 
     void playSound(BlockState state, SoundEvent soundEvent) {
-        Vec3i vec3i = ((Direction)state.get(BarrelBlock.FACING)).getVector();
-        double d = (double)this.pos.getX() + 0.5D + (double)vec3i.getX() / 2.0D;
-        double e = (double)this.pos.getY() + 0.5D + (double)vec3i.getY() / 2.0D;
-        double f = (double)this.pos.getZ() + 0.5D + (double)vec3i.getZ() / 2.0D;
-        this.world.playSound((PlayerEntity)null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
+        Vec3i vec3i = state.get(BarrelBlock.FACING).getVector();
+        double d = (double) this.pos.getX() + 0.5D + (double) vec3i.getX() / 2.0D;
+        double e = (double) this.pos.getY() + 0.5D + (double) vec3i.getY() / 2.0D;
+        double f = (double) this.pos.getZ() + 0.5D + (double) vec3i.getZ() / 2.0D;
+        this.world.playSound(null, d, e, f, soundEvent, SoundCategory.BLOCKS, 0.5F, this.world.random.nextFloat() * 0.1F + 0.9F);
     }
 }

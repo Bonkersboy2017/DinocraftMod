@@ -2,7 +2,7 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.control.MoveControl;
-import net.minecraft.entity.mob.FlyingEntity;;
+import net.minecraft.entity.mob.FlyingEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -52,7 +52,7 @@ public class MicroraptorEntity extends FlyingEntity {
         private boolean willCollide(Vec3d direction, int steps) {
             Box box = this.microraptor.getBoundingBox();
 
-            for(int i = 1; i < steps; ++i) {
+            for (int i = 1; i < steps; ++i) {
                 box = box.offset(direction);
                 if (!this.microraptor.world.isSpaceEmpty(this.microraptor, box)) {
                     return false;
@@ -61,5 +61,6 @@ public class MicroraptorEntity extends FlyingEntity {
 
             return true;
         }
-    }}
+    }
+}
 
