@@ -9,6 +9,8 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
+import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -108,6 +110,20 @@ public class ModBlocks {
         StrippableBlockRegistry.register(DRAGONWOOD_LOG, STRIPPED_DRAGONWOOD_LOG);
         StrippableBlockRegistry.register(DRAGONWOOD_WOOD, STRIPPED_DRAGONWOOD_WOOD);
     }
+
+    public static final BlockFamily DRAGONWOOD = BlockFamilies.register(DRAGONWOOD_PLANKS)
+            .button(DRAGONWOOD_BUTTON)
+            .slab(DRAGONWOOD_SLAB)
+            .stairs(DRAGONWOOD_STAIRS)
+            .fence(DRAGONWOOD_FENCE)
+            .fenceGate(DRAGONWOOD_FENCE_GATE)
+            .pressurePlate(DRAGONWOOD_PRESSURE_PLATE)
+            //.sign(DRAGONWOOD_SIGN, DRAGONWOOD_WALL_SIGN)
+            .door(DRAGONWOOD_DOOR)
+            .trapdoor(DRAGONWOOD_TRAPDOOR)
+            .group("wooden")
+            .unlockCriterionName("has_planks")
+            .build();
 
 
     private static void registerBlock(Block block, ItemGroup group, Identifier ID) {
