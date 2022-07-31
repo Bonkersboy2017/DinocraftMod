@@ -1,6 +1,7 @@
 package com.dinocrew.dinocraft.registry.weapons;
 
 import com.dinocrew.dinocraft.Dinocraft;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;

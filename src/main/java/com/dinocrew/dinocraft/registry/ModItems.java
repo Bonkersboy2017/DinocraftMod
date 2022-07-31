@@ -7,6 +7,7 @@ import com.dinocrew.dinocraft.armour.BronziumArmourMaterial;
 import com.dinocrew.dinocraft.armour.SkeletonArmourMaterial;
 import com.dinocrew.dinocraft.registry.items.DragonwoodBoatItem;
 import com.dinocrew.dinocraft.registry.weapons.*;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
