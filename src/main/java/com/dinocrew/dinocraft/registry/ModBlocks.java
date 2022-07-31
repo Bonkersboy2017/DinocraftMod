@@ -7,6 +7,7 @@ import com.dinocrew.dinocraft.registry.blocks.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -103,6 +104,9 @@ public class ModBlocks {
         FlammableBlockRegistry.getDefaultInstance().add(STRIPPED_DRAGONWOOD_WOOD, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(DRAGONWOOD_WOOD, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(DRAGONWOOD_LEAVES, 30, 60);
+
+        StrippableBlockRegistry.register(DRAGONWOOD_LOG, STRIPPED_DRAGONWOOD_LOG);
+        StrippableBlockRegistry.register(DRAGONWOOD_WOOD, STRIPPED_DRAGONWOOD_WOOD);
     }
 
 
