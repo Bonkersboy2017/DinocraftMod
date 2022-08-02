@@ -21,11 +21,13 @@
       "icon": "assets/dinocraft/icon.png"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
+    "load_type": "if_possible",
     "license": "cc",
     "environment": "*",
     "entrypoints": {
       "init": "com.dinocrew.dinocraft.Dinocraft",
-      "client_init": "com.dinocrew.dinocraft.client.DinocraftClient"
+      "client_init": "com.dinocrew.dinocraft.client.DinocraftClient",
+      "events": "com.dinocrew.dinocraft.registry.worldgen.ModSurfaceRules"
     },
     "accessWidener": "dinocraft.accesswidener",
     "depends": [

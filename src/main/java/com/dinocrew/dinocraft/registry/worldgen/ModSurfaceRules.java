@@ -1,18 +1,18 @@
-package com.dinocrew.dinocraft.mixins;
+package com.dinocrew.dinocraft.registry.worldgen;
 
 import com.dinocrew.dinocraft.registry.ModBiomes;
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.quiltmc.qsl.worldgen.surface_rule.api.SurfaceRuleContext;
+import org.quiltmc.qsl.worldgen.surface_rule.api.SurfaceRuleEvents;
 
-@Mixin(net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules.class)
-public class VanillaSurfaceRulesInjector {
-    @ModifyVariable(method = "createDefaultRule", at = @At("STORE"), ordinal = 8)
-    private static MaterialRules.MaterialRule injected(MaterialRules.MaterialRule originalRules) {
-        return MaterialRules.sequence(
+public class ModSurfaceRules implements SurfaceRuleEvents.OverworldModifierCallback {
+
+    @Override
+    public void modifyOverworldRules(SurfaceRuleContext.Overworld context) {
+
+        context.materialRules().add(0,
                 MaterialRules.condition(
                         MaterialRules.biome(ModBiomes.BREAKTHHROUGH_KEY),
                         MaterialRules.condition(
@@ -28,7 +28,6 @@ public class VanillaSurfaceRulesInjector {
                                         ))
                         )
                 )
-                , originalRules);
-
+        );
     }
 }
