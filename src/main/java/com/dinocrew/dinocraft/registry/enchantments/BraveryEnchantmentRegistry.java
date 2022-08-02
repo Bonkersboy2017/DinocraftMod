@@ -1,9 +1,10 @@
 package com.dinocrew.dinocraft.registry.enchantments;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.fabricmc.api.ModInitializer;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.util.registry.Registry;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 
 public class BraveryEnchantmentRegistry implements ModInitializer {
     private static final Enchantment BRAVERY = Registry.register(
@@ -13,7 +14,7 @@ public class BraveryEnchantmentRegistry implements ModInitializer {
     );
 
     @Override
-    public void onInitialize() {
+    public void onInitialize(ModContainer modContainer) {
 
     }
 }

@@ -9,10 +9,8 @@ public class AdvancedMath {
      * Only for FrozenBlock Modders, ALL RIGHTS RESERVED
      * <p>
      *
-     *
-     * @author      LiukRast (2021-2022)
+     * @author LiukRast (2021-2022)
      * @since 4.0
-     *
      */
     public static float range(float min, float max, float number) {
         return (number * max) + min;

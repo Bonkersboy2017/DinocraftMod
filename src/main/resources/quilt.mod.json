@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.dinocrew",
+    "id": "dinocraft",
+    "version": "${version}",
+    "metadata": {
+      "name": "Dinocraft",
+      "description": "Dinocraft is a mod that contains new dinosaur and prehistoric items, blocks and mobs to the game.",
+      "contributors": {
+        "Bonkersboy2017": "Owner",
+        "Liukrast": "Author",
+        "dejoVSscimmia": "Author",
+        "Treetrain1": "Author"
+      },
+      "contact": {
+        "homepage": " http://thedinocrew.website2.me/",
+        "sources": "https://github.com/Bonkersboy2017/DinocraftMod",
+        "issues": "https://github.com/Bonkersboy2017/DinocraftMod/issues"
+      },
+      "icon": "assets/dinocraft/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "license": "cc",
+    "environment": "*",
+    "entrypoints": {
+      "init": "com.dinocrew.dinocraft.Dinocraft",
+      "client_init": "com.dinocrew.dinocraft.client.DinocraftClient"
+    },
+    "accessWidener": "dinocraft.accesswidener",
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.17.1-"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=4.0.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": "1.19.1"
+      },
+      {
+        "id": "java",
+        "versions": ">=17"
+      }
+    ]
+  },
+  "mixin": "dinocraft.mixins.json"
+}

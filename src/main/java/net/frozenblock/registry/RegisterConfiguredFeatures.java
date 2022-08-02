@@ -1,8 +1,6 @@
 package net.frozenblock.registry;
 
 import com.dinocrew.dinocraft.registry.ModBiomes;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.frozenblock.api.minecraft.worldgen.features.BreakthoughRock;
 import net.frozenblock.api.minecraft.worldgen.features.BreakthroughPlants;
 import net.frozenblock.api.minecraft.worldgen.features.BreakthroughStones;
@@ -18,6 +16,8 @@ import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
+import org.quiltmc.qsl.worldgen.biome.api.BiomeSelectors;
 
 public class RegisterConfiguredFeatures {
 

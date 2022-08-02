@@ -6,8 +6,6 @@ import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.registry.blocks.ModBlockEntityTypes;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.frozenblock.api.minecraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
 import net.frozenblock.api.minecraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import net.minecraft.item.ItemGroup;
@@ -15,10 +13,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.minecraft.world.gen.trunk.TrunkPlacerType;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import org.quiltmc.qsl.item.group.api.QuiltItemGroup;
 
 public class Dinocraft implements ModInitializer {
     public static final String MOD_ID = "dinocraft";
-    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(id("general"), () -> new ItemStack(ModItems.FOSSIL));
+    public static final ItemGroup ITEM_GROUP = QuiltItemGroup.createWithIcon(id("general"), () -> new ItemStack(ModItems.FOSSIL));
 
     public static Identifier identify(String id) {
         return new Identifier(MOD_ID + ":" + id);
@@ -28,7 +29,7 @@ public class Dinocraft implements ModInitializer {
     public static final FoliagePlacerType<DragonWoodFoliagePlacer> DRAGONWOOD_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("rich_foliage_placer", DragonWoodFoliagePlacer.CODEC);
 
     @Override
-    public void onInitialize() {
+    public void onInitialize(ModContainer modContainer) {
 
         net.frozenblock.Main.runner(MOD_ID); // Run FrozenBlock stuff
 

@@ -1,13 +1,12 @@
 package com.dinocrew.dinocraft.registry.weapons;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public class SpearBase extends SwordItem {
     public SpearBase(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
-        super(toolMaterial, 6, 3.0f, new FabricItemSettings().group(Dinocraft.ITEM_GROUP));
+        super(toolMaterial, 6, 3.0f, new QuiltItemSettings().group(Dinocraft.ITEM_GROUP));
     }
 }

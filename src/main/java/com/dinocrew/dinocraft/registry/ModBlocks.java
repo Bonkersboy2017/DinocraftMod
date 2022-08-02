@@ -7,8 +7,6 @@ import com.dinocrew.dinocraft.block.DinoWallSignBlock;
 import com.dinocrew.dinocraft.block.DinotanerBlock;
 import com.dinocrew.dinocraft.mixins.SignTypeAccessor;
 import com.dinocrew.dinocraft.registry.blocks.*;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
@@ -22,28 +20,30 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
+import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
+import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 
 public class ModBlocks {
-    public static final FabricBlockSettings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS);
+    public static final QuiltBlockSettings DRAGONWOOD_SETTINGS = QuiltBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS);
 
-    public static final OreBlock SKELETON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final OreBlock SKELETON_ORE = new OreBlock(QuiltBlockSettings.of(Material.STONE).strength(4f, 26.0f).sounds(BlockSoundGroup.STONE));
 
     public static final SignType DRAGONWOOD_SIGN_TYPE = SignTypeAccessor.registerNew(SignTypeAccessor.newSignType("dragonwood"));
 
     // Now is a DinoBenchBlock
-    public static final Block DINOBENCH = new DinoBenchBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
-    public static final OreBlock BRONZIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block BRONZIUM_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.IRON_ORE).requiresTool());
-    public static final Block BRONZIUM_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.BRICKS));
-    public static final GrassBlock DRAGONGRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).requiresTool());
-    public static final Block DINOSAUR_TEMPERED_GLASS = new GlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).requiresTool());
-    public static final Block FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sounds(BlockSoundGroup.STONE));
-    public static final Block WBC = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).requiresTool());
-    public static final Block POLISHED_FS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
-    public static final Block POLISHED_WBC = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
-    public static final Block FS_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
-    public static final Block WBC_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
+    public static final Block DINOBENCH = new DinoBenchBlock(QuiltBlockSettings.copyOf(Blocks.IRON_BLOCK));
+    public static final OreBlock BRONZIUM_ORE = new OreBlock(QuiltBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block BRONZIUM_BLOCK = new Block(QuiltBlockSettings.copyOf(Blocks.IRON_ORE).requiresTool());
+    public static final Block BRONZIUM_BRICKS = new Block(QuiltBlockSettings.copyOf(Blocks.BRICKS));
+    public static final GrassBlock DRAGONGRASS = new GrassBlock(QuiltBlockSettings.copyOf(Blocks.GRASS_BLOCK).requiresTool());
+    public static final Block DINOSAUR_TEMPERED_GLASS = new GlassBlock(QuiltBlockSettings.copyOf(Blocks.GLASS).requiresTool());
+    public static final Block FOSSILIZED_STONE = new Block(QuiltBlockSettings.copyOf(Blocks.TUFF).sounds(BlockSoundGroup.STONE));
+    public static final Block WBC = new Block(QuiltBlockSettings.copyOf(Blocks.TUFF).requiresTool());
+    public static final Block POLISHED_FS = new Block(QuiltBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
+    public static final Block POLISHED_WBC = new Block(QuiltBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
+    public static final Block FS_BRICKS = new Block(QuiltBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
+    public static final Block WBC_BRICKS = new Block(QuiltBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresTool());
     public static final Block DRAGONWOOD_LOG = new PillarBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_PLANKS = new Block(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_STAIRS = new CustomStair(Blocks.OAK_STAIRS.getDefaultState(), DRAGONWOOD_SETTINGS);
@@ -56,16 +56,16 @@ public class ModBlocks {
     public static final Block DRAGONWOOD_FENCE_GATE = new FenceGateBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_PRESSURE_PLATE = new CustomPressurePlate(PressurePlateBlock.ActivationRule.EVERYTHING, DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_TRAPDOOR = new CustomTrapdoor(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque());
+    public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(QuiltBlockSettings.copyOf(Blocks.OAK_LEAVES).nonOpaque());
     public static final Block DRAGONWOOD_BUTTON = new CustomWoodenButton(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_SIGN_BLOCK = new DinoSignBlock(FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), DRAGONWOOD_SIGN_TYPE);
-    public static final Block DRAGONWOOD_WALL_SIGN_BLOCK = new DinoWallSignBlock(FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(DRAGONWOOD_SIGN_BLOCK), DRAGONWOOD_SIGN_TYPE);
-    public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final Block AMBER_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
-    public static final EggBlock DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
-    public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
-    public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
+    public static final Block DRAGONWOOD_SIGN_BLOCK = new DinoSignBlock(QuiltBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), DRAGONWOOD_SIGN_TYPE);
+    public static final Block DRAGONWOOD_WALL_SIGN_BLOCK = new DinoWallSignBlock(QuiltBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(DRAGONWOOD_SIGN_BLOCK), DRAGONWOOD_SIGN_TYPE);
+    public static final Block AMBER_BLOCK = new Block(QuiltBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block AMBER_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final Block AMBER_ORE = new OreBlock(QuiltBlockSettings.of(Material.STONE).strength(3f, 26.0f).sounds(BlockSoundGroup.STONE));
+    public static final EggBlock DINO_EGG = new EggBlock(QuiltBlockSettings.copyOf(Blocks.TURTLE_EGG));
+    public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(QuiltBlockSettings.copyOf(Blocks.TURTLE_EGG));
+    public static final Block DINOTANER = new DinotanerBlock(QuiltBlockSettings.copyOf(Blocks.IRON_BLOCK));
 
 
     public static void registerAll() {
@@ -73,7 +73,7 @@ public class ModBlocks {
         registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_ore"));
         registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_ore"));
         // Using other registerBlock method here
-        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, Dinocraft.id("dinobench"), new FabricItemSettings().rarity(Rarity.RARE));
+        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, Dinocraft.id("dinobench"), new QuiltItemSettings().rarity(Rarity.RARE));
         registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_block"));
         registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_bricks"));
         registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_block"));
@@ -102,9 +102,9 @@ public class ModBlocks {
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence_gate"));
         registerBlockWithoutBlockItem(DRAGONWOOD_SIGN_BLOCK, Dinocraft.id("dragonwood_sign"));
         registerBlockWithoutBlockItem(DRAGONWOOD_WALL_SIGN_BLOCK, Dinocraft.id("dragonwood_wall_sign"));
-        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
-        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
-        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new FabricItemSettings().rarity(Rarity.RARE));
+        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new QuiltItemSettings().rarity(Rarity.EPIC));
+        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new QuiltItemSettings().rarity(Rarity.EPIC));
+        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new QuiltItemSettings().rarity(Rarity.RARE));
 
         FlammableBlockRegistry.getDefaultInstance().add(DRAGONWOOD_PLANKS, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(DRAGONWOOD_SLAB, 5, 20);
@@ -137,7 +137,7 @@ public class ModBlocks {
 
 
     private static void registerBlock(Block block, ItemGroup group, Identifier ID) {
-        registerBlock(block, group, ID, new FabricItemSettings());
+        registerBlock(block, group, ID, new QuiltItemSettings());
     }
 
     private static void registerBlock(Block block, ItemGroup group, Identifier ID, Item.Settings settings) {

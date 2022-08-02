@@ -42,7 +42,7 @@ public class BoatTypeMixin {
         var types = new ArrayList<>(Arrays.asList(field_7724));
         var last = types.get(types.size() - 1);
 
-        var dragonwood  = newType("DRAGONWOOD", last.ordinal() + 1, ModBlocks.DRAGONWOOD_PLANKS, "dragonwood");
+        var dragonwood = newType("DRAGONWOOD", last.ordinal() + 1, ModBlocks.DRAGONWOOD_PLANKS, "dragonwood");
         DinoBoats.DRAGONWOOD = dragonwood;
         types.add(dragonwood);
         field_7724 = types.toArray(new BoatEntity.Type[0]);

@@ -13,9 +13,8 @@ public interface AnimationAPI {
      * Defining a point A(x,y) & B(x,y) you can create an animation between those two points ( A.geyY() wont affect the animation).
      * Learn more at https://github.com/LIUKRAST/AnimationAPI/blob/main/README.md
      *
-     * @author      LiukRast (2021-2022)
+     * @author LiukRast (2021-2022)
      * @since 4.0
-     *
      */
 
     private float relativeX(Point2D a, Point2D b, float x) {
