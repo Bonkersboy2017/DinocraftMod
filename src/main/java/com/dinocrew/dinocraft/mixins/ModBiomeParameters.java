@@ -44,6 +44,6 @@ public class ModBiomeParameters {
 
     public RegistryKey<Biome> redirectSomeMethod() {
 
-        return ModBiomes.BREAKTHHROUGH_KEY;
+        return ModBiomes.BREAKTHROUGH;
     }
 }

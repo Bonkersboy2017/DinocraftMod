@@ -14,7 +14,7 @@ public class VanillaSurfaceRulesInjector {
     private static MaterialRules.MaterialRule injected(MaterialRules.MaterialRule originalRules) {
         return MaterialRules.sequence(
                 MaterialRules.condition(
-                        MaterialRules.biome(ModBiomes.BREAKTHHROUGH_KEY),
+                        MaterialRules.biome(ModBiomes.BREAKTHROUGH),
                         MaterialRules.condition(
                                 MaterialRules.STONE_DEPTH_FLOOR,
                                 MaterialRules.condition(

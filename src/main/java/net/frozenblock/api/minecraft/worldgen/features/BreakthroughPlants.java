@@ -2,6 +2,7 @@ package net.frozenblock.api.minecraft.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.ModBiomes;
 import com.dinocrew.dinocraft.registry.ModBlocks;
+import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -9,7 +10,6 @@ import net.frozenblock.registry.RegisterBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
@@ -30,8 +30,8 @@ public class BreakthroughPlants {
     public static final FernFeature BT_FERN = new FernFeature(ProbabilityConfig.CODEC);
     public static final CycadophytaFeature BT_CYCADOPHYTA = new CycadophytaFeature(ProbabilityConfig.CODEC);
 
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_FERN_CONFIGURED = ConfiguredFeatures.register("bt_fern", BT_FERN, new ProbabilityConfig(0.1F));
-    public static final RegistryEntry<ConfiguredFeature<MultifaceGrowthFeatureConfig, ?>> BT_LIVERWORTS_CONFIGURED = ConfiguredFeatures.register(
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_FERN_CONFIGURED = RegisterWorldgen.register("bt_fern", BT_FERN, new ProbabilityConfig(0.1F));
+    public static final RegistryEntry<ConfiguredFeature<MultifaceGrowthFeatureConfig, ?>> BT_LIVERWORTS_CONFIGURED = RegisterWorldgen.register(
             "bt_liverworts",
             Feature.MULTIFACE_GROWTH,
             new MultifaceGrowthFeatureConfig(
@@ -57,7 +57,7 @@ public class BreakthroughPlants {
                     )
             )
     );
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_CYCADOPHYTA_CONFIGURED = ConfiguredFeatures.register("bt_cycadophyta", BT_CYCADOPHYTA, new ProbabilityConfig(0.1F));
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_CYCADOPHYTA_CONFIGURED = RegisterWorldgen.register("bt_cycadophyta", BT_CYCADOPHYTA, new ProbabilityConfig(0.1F));
 
     public static final RegistryEntry<PlacedFeature> BT_FERN_PLACED = PlacedFeatures.register("bt_fern_placed", BT_FERN_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> BT_LIVERWORTS_PLACED = PlacedFeatures.register("bt_liverworts_placed", BT_LIVERWORTS_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
@@ -66,11 +66,11 @@ public class BreakthroughPlants {
     public static void registerAll(String modid) {
         Registry.register(Registry.FEATURE, new Identifier(modid, "bt_fern"), BT_FERN);
         Registry.register(Registry.FEATURE, new Identifier(modid, "bt_cycadophyta"), BT_CYCADOPHYTA);
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
                 GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_FERN_PLACED.getKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
                 GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_LIVERWORTS_PLACED.getKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
                 GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_CYCADOPHYTA_PLACED.getKey().get());
     }
 

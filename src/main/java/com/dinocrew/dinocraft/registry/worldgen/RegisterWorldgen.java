@@ -14,6 +14,8 @@ import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -22,7 +24,11 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class RegisterWorldgen {
 
@@ -64,14 +70,14 @@ public class RegisterWorldgen {
 
 
         BiomeModifications.create(Dinocraft.id("breakthrough"))
-                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHHROUGH_KEY), ctx -> {
+                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH), ctx -> {
                 });
 
-        return (new Biome.Builder())
+        return new Biome.Builder()
                 .precipitation(Biome.Precipitation.NONE)
                 .temperature(0.6F)
                 .downfall(0.9F)
-                .effects((new BiomeEffects.Builder())
+                .effects(new BiomeEffects.Builder()
                         .grassColor(Integer.parseInt("a7a543", 16))
                         .foliageColor(Integer.parseInt("63915b", 16))
                         .waterColor(Integer.parseInt("5f9bbf", 16))
@@ -86,7 +92,7 @@ public class RegisterWorldgen {
 
     }
 
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = ConfiguredFeatures.register("dragonwood", Feature.TREE, new TreeFeatureConfig.Builder(
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = register("dragonwood", Feature.TREE, new TreeFeatureConfig.Builder(
 
             BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG),
             new DragonWoodTrunkPlacer(3, 3, 0),
@@ -96,7 +102,19 @@ public class RegisterWorldgen {
 
     ).ignoreVines().build());
 
-    public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register("trees_dragonwood", RegisterWorldgen.DRAGONWOOD, VegetationPlacedFeatures.modifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.1f, 1), Blocks.OAK_SAPLING));
+    public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = register("trees_dragonwood", RegisterWorldgen.DRAGONWOOD, VegetationPlacedFeatures.modifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.1f, 1), Blocks.OAK_SAPLING));
+
+    public static <FC extends FeatureConfig, F extends Feature<FC>> RegistryEntry<ConfiguredFeature<FC, ?>> register(@NotNull String id, F feature, @NotNull FC config) {
+        return addCasted(BuiltinRegistries.CONFIGURED_FEATURE, id, new ConfiguredFeature<>(feature, config));
+    }
+
+    public static <V extends T, T> RegistryEntry<V> addCasted(Registry<T> registry, String id, V value) {
+        return (RegistryEntry<V>) BuiltinRegistries.add(registry, Dinocraft.id(id), value);
+    }
+
+    public static RegistryEntry<PlacedFeature> register(String id, RegistryEntry<? extends ConfiguredFeature<?, ?>> registryEntry, List<PlacementModifier> modifiers) {
+        return BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, Dinocraft.id(id), new PlacedFeature(RegistryEntry.upcast(registryEntry), List.copyOf(modifiers)));
+    }
 }
 
 

@@ -9,14 +9,14 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 
 public class ModBiomes {
-    public static final RegistryKey<Biome> BREAKTHHROUGH_KEY = registerBiomeKeys("breakthrough");
+    public static final RegistryKey<Biome> BREAKTHROUGH = registerBiomeKeys("breakthrough");
 
     private static RegistryKey<Biome> registerBiomeKeys(String name) {
         return RegistryKey.of(Registry.BIOME_KEY, Dinocraft.id(name));
     }
 
     public static void registerBiomes() {
-        register(BREAKTHHROUGH_KEY, RegisterWorldgen.createBreakthrough());
+        register(BREAKTHROUGH, RegisterWorldgen.createBreakthrough());
     }
 
 
