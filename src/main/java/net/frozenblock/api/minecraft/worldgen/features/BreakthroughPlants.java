@@ -29,6 +29,7 @@ public class BreakthroughPlants {
 
     public static final FernFeature BT_FERN = new FernFeature(ProbabilityConfig.CODEC);
     public static final CycadophytaFeature BT_CYCADOPHYTA = new CycadophytaFeature(ProbabilityConfig.CODEC);
+    public static final CycadophytaFeature.EggFeature BT_EGG = new CycadophytaFeature.EggFeature(ProbabilityConfig.CODEC);
 
     public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_FERN_CONFIGURED = ConfiguredFeatures.register("bt_fern", BT_FERN, new ProbabilityConfig(0.1F));
     public static final RegistryEntry<ConfiguredFeature<MultifaceGrowthFeatureConfig, ?>> BT_LIVERWORTS_CONFIGURED = ConfiguredFeatures.register(
@@ -58,20 +59,26 @@ public class BreakthroughPlants {
             )
     );
     public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_CYCADOPHYTA_CONFIGURED = ConfiguredFeatures.register("bt_cycadophyta", BT_CYCADOPHYTA, new ProbabilityConfig(0.1F));
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_EGG_CONFIGURED = ConfiguredFeatures.register("bt_egg", BT_EGG, new ProbabilityConfig(0.1F));
 
     public static final RegistryEntry<PlacedFeature> BT_FERN_PLACED = PlacedFeatures.register("bt_fern_placed", BT_FERN_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> BT_LIVERWORTS_PLACED = PlacedFeatures.register("bt_liverworts_placed", BT_LIVERWORTS_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> BT_CYCADOPHYTA_PLACED = PlacedFeatures.register("bt_cycadophyta_placed", BT_CYCADOPHYTA_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+    public static final RegistryEntry<PlacedFeature> BT_EGG_PLACED = PlacedFeatures.register("bt_egg_placed", BT_EGG_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
 
     public static void registerAll(String modid) {
         Registry.register(Registry.FEATURE, new Identifier(modid, "bt_fern"), BT_FERN);
         Registry.register(Registry.FEATURE, new Identifier(modid, "bt_cycadophyta"), BT_CYCADOPHYTA);
+        Registry.register(Registry.FEATURE, new Identifier(modid, "bt_egg"), BT_EGG);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
                 GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_FERN_PLACED.getKey().get());
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
                 GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_LIVERWORTS_PLACED.getKey().get());
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
                 GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_CYCADOPHYTA_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
+                GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_EGG_PLACED.getKey().get());
     }
 
     private static void generate(FeatureContext<ProbabilityConfig> context, BlockState state) {
@@ -98,10 +105,23 @@ public class BreakthroughPlants {
             super(configCodec);
         }
 
+
         @Override
         public boolean generate(FeatureContext<ProbabilityConfig> context) {
             BreakthroughPlants.generate(context, RegisterBlocks.CYCADOPHYTA.getDefaultState());
             return true;
+        }
+
+        private static class EggFeature extends Feature<ProbabilityConfig> {
+            public EggFeature(Codec<ProbabilityConfig> configCodec) {
+                super(configCodec);
+            }
+
+            @Override
+            public boolean generate(FeatureContext<ProbabilityConfig> context) {
+                BreakthroughPlants.generate(context, ModBlocks.INCUBATED_DINO_EGG.getDefaultState());
+                return true;
+            }
         }
     }
 }
