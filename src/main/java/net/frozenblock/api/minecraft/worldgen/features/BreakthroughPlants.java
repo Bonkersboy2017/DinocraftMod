@@ -30,8 +30,8 @@ public class BreakthroughPlants {
     public static final FernFeature BT_FERN = new FernFeature(ProbabilityConfig.CODEC);
     public static final CycadophytaFeature BT_CYCADOPHYTA = new CycadophytaFeature(ProbabilityConfig.CODEC);
 
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_FERN_CONFIGURED = RegisterWorldgen.register("bt_fern", BT_FERN, new ProbabilityConfig(0.1F));
-    public static final RegistryEntry<ConfiguredFeature<MultifaceGrowthFeatureConfig, ?>> BT_LIVERWORTS_CONFIGURED = RegisterWorldgen.register(
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_FERN_CONFIGURED = ConfiguredFeatures.register("bt_fern", BT_FERN, new ProbabilityConfig(0.1F));
+    public static final RegistryEntry<ConfiguredFeature<MultifaceGrowthFeatureConfig, ?>> BT_LIVERWORTS_CONFIGURED = ConfiguredFeatures.register(
             "bt_liverworts",
             Feature.MULTIFACE_GROWTH,
             new MultifaceGrowthFeatureConfig(
@@ -57,7 +57,7 @@ public class BreakthroughPlants {
                     )
             )
     );
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_CYCADOPHYTA_CONFIGURED = RegisterWorldgen.register("bt_cycadophyta", BT_CYCADOPHYTA, new ProbabilityConfig(0.1F));
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_CYCADOPHYTA_CONFIGURED = ConfiguredFeatures.register("bt_cycadophyta", BT_CYCADOPHYTA, new ProbabilityConfig(0.1F));
 
     public static final RegistryEntry<PlacedFeature> BT_FERN_PLACED = PlacedFeatures.register("bt_fern_placed", BT_FERN_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> BT_LIVERWORTS_PLACED = PlacedFeatures.register("bt_liverworts_placed", BT_LIVERWORTS_CONFIGURED, RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());

@@ -13,6 +13,7 @@ import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
@@ -24,10 +25,10 @@ public class RegisterConfiguredFeatures {
     public static final BreakthroughStones BT_STONE = new BreakthroughStones(ProbabilityConfig.CODEC);
     public static final BreakthoughRock BT_ROCK = new BreakthoughRock(ProbabilityConfig.CODEC);
 
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_STONE_CONFIGURED = RegisterWorldgen.register("bt_stones",
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_STONE_CONFIGURED = ConfiguredFeatures.register("bt_stones",
             BT_STONE, new ProbabilityConfig(0.8F));
 
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_ROCK_CONFIGURED = RegisterWorldgen.register("bt_rock",
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_ROCK_CONFIGURED = ConfiguredFeatures.register("bt_rock",
             BT_ROCK, new ProbabilityConfig(0.8F));
 
     public static final RegistryEntry<PlacedFeature> BT_STONE_PLACED = PlacedFeatures.register("bt_stones_placed",

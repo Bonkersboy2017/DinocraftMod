@@ -92,30 +92,27 @@ public class RegisterWorldgen {
 
     }
 
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = register("dragonwood", Feature.TREE, new TreeFeatureConfig.Builder(
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = ConfiguredFeatures.register(
+            "dragonwood",
+            Feature.TREE,
+            new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG),
+                new DragonWoodTrunkPlacer(3, 3, 0),
+                BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES),
+                new DragonWoodFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(0)),
+                new TwoLayersFeatureSize(1, 0, 2)
+            )
+            .ignoreVines()
+            .build()
+    );
 
-            BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG),
-            new DragonWoodTrunkPlacer(3, 3, 0),
-            BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES),
-            new DragonWoodFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(0)),
-            new TwoLayersFeatureSize(1, 0, 2)
-
-    ).ignoreVines().build());
-
-    public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = register("trees_dragonwood", RegisterWorldgen.DRAGONWOOD, VegetationPlacedFeatures.modifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.1f, 1), Blocks.OAK_SAPLING));
-
-
-    public static <FC extends FeatureConfig, F extends Feature<FC>> RegistryEntry<ConfiguredFeature<FC, ?>> register(@NotNull String id, F feature, @NotNull FC config) {
-        return addCasted(BuiltinRegistries.CONFIGURED_FEATURE, id, new ConfiguredFeature<>(feature, config));
-    }
-
-    public static <V extends T, T> RegistryEntry<V> addCasted(Registry<T> registry, String id, V value) {
-        return (RegistryEntry<V>) BuiltinRegistries.add(registry, Dinocraft.id(id), value);
-    }
-
-    public static RegistryEntry<PlacedFeature> register(String id, RegistryEntry<? extends ConfiguredFeature<?, ?>> registryEntry, List<PlacementModifier> modifiers) {
-        return BuiltinRegistries.add(BuiltinRegistries.PLACED_FEATURE, Dinocraft.id(id), new PlacedFeature(RegistryEntry.upcast(registryEntry), List.copyOf(modifiers)));
-    }
+    public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register(
+            "trees_dragonwood",
+            RegisterWorldgen.DRAGONWOOD,
+            VegetationPlacedFeatures.modifiersWithWouldSurvive(
+                    PlacedFeatures.createCountExtraModifier(1, 0.1f, 1),
+                    Blocks.OAK_SAPLING)
+    );
 }
 
 
