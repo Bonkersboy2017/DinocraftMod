@@ -7,6 +7,7 @@ import com.dinocrew.dinocraft.block.DinoWallSignBlock;
 import com.dinocrew.dinocraft.block.DinotanerBlock;
 import com.dinocrew.dinocraft.mixins.SignTypeAccessor;
 import com.dinocrew.dinocraft.registry.blocks.*;
+import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -22,6 +23,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
+import org.spongepowered.asm.mixin.Final;
 
 
 public class ModBlocks {
@@ -66,6 +68,7 @@ public class ModBlocks {
     public static final EggBlock DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
     public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
     public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
+    public static final DragonwoodSaplingBlock DRAGONWOOD_SAPLING = new DragonwoodSaplingBlock(new DragonwoodSaplingGenerator(RegisterWorldgen.DRAGONWOOD), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
 
 
     public static void registerAll() {
@@ -102,9 +105,11 @@ public class ModBlocks {
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence_gate"));
         registerBlockWithoutBlockItem(DRAGONWOOD_SIGN_BLOCK, Dinocraft.id("dragonwood_sign"));
         registerBlockWithoutBlockItem(DRAGONWOOD_WALL_SIGN_BLOCK, Dinocraft.id("dragonwood_wall_sign"));
+        registerBlock(DRAGONWOOD_SAPLING, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_sapling"));
         registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
         registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
         registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new FabricItemSettings().rarity(Rarity.RARE));
+
 
         FlammableBlockRegistry.getDefaultInstance().add(DRAGONWOOD_PLANKS, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(DRAGONWOOD_SLAB, 5, 20);

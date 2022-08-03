@@ -90,13 +90,13 @@ public class ModItems {
         Registry.register(Registry.ITEM, Dinocraft.id("skeleton_shovel"), new ShovelBase(new ToolMaterialSkeleton()));
         Registry.register(Registry.ITEM, Dinocraft.id("skeleton_hoe"), new HoeBase(new ToolMaterialSkeleton()));
         Registry.register(Registry.ITEM, Dinocraft.id("skeleton_sword"), new SwordBase(new ToolMaterialSkeleton()));
-        Registry.register(Registry.ITEM, Dinocraft.id("skeleton_dagger"), new SwordBase(new ToolMaterialSkeleton()));
+        Registry.register(Registry.ITEM, Dinocraft.id("skeleton_dagger"), new DaggerBase(new ToolMaterialSkeleton()));
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_pickaxe"), new PickaxeBase(new ToolMaterialEnlightened()));
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_axe"), new AxeBase(new ToolMaterialEnlightened()));
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_shovel"), new ShovelBase(new ToolMaterialEnlightened()));
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_hoe"), new HoeBase(new ToolMaterialEnlightened()));
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_skeletonsword"), new SwordBase(new ToolMaterialEnlightened()));
-        Registry.register(Registry.ITEM, Dinocraft.id("enlightened_skeleton_dagger"), new SwordBase(new ToolMaterialSkeleton()));
+        Registry.register(Registry.ITEM, Dinocraft.id("enlightened_skeleton_dagger"), new DaggerBase(new ToolMaterialSkeleton()));
         Registry.register(Registry.ITEM, Dinocraft.id("skeleton_helmet"), new BaseArmour(SKELETON_ARMOUR, EquipmentSlot.HEAD));
         Registry.register(Registry.ITEM, Dinocraft.id("skeleton_chestplate"), new BaseArmour(SKELETON_ARMOUR, EquipmentSlot.CHEST));
         Registry.register(Registry.ITEM, Dinocraft.id("skeleton_leggings"), new BaseArmour(SKELETON_ARMOUR, EquipmentSlot.LEGS));
