@@ -8,7 +8,6 @@
 	"BoatDropsMixin",
 	"BoatTypeMixin",
 	"ChestBoatDropsMixin",
-	"ClientPlayerEntityMixin",
 	"FoliagePlacerTypeInvoker",
 	"ModBiomeParameters",
 	"SignTypeAccessor",

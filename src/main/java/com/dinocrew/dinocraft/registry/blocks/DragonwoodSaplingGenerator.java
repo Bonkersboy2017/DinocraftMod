@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
 public class DragonwoodSaplingGenerator extends SaplingGenerator {
 
 
-    public DragonwoodSaplingGenerator(RegistryEntry<ConfiguredFeature<TreeFeatureConfig,?>> DRAGONWOOD) {
+    public DragonwoodSaplingGenerator(RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD) {
     }
 
     @Nullable

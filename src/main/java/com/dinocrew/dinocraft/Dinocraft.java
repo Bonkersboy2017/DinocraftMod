@@ -5,6 +5,7 @@ import com.dinocrew.dinocraft.mixins.TrunkPlacerTypeInvoker;
 import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.registry.blocks.ModBlockEntityTypes;
+import com.dinocrew.dinocraft.registry.enchantments.EnchantmentRegistry;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -36,6 +37,7 @@ public class Dinocraft implements ModInitializer {
         ModItems.registerAll();
         ModBlocks.registerAll();
         ModEntities.registerAll();
+        EnchantmentRegistry.init();
         ModSpawns.registerAll();
         ModFeatures.registerAll();
         ModBiomes.registerBiomes();

@@ -23,7 +23,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
-import org.spongepowered.asm.mixin.Final;
 
 
 public class ModBlocks {
