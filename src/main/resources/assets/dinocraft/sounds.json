@@ -2,73 +2,71 @@
   "bigdino_hit": {
     "sounds": [
       "dinocraft:entity/bigdino_hit"
-    ],
-    },
-    "chinlea_hit": {
-      "sounds": [
-       "dinocraft:entity/chinlea_hit"
-        ],
-        },
-    "chinlea_idle": {
-      "sounds": [
-        "dinocraft:entity/chinlea_idle"
-      ],
-      },
-    "dino_death": {
-      "sounds": [
-        "dinocraft:entity/dino_death"
-      ],
-      },
-    "dino_hit": {
-      "sounds": [
-        "dinocraft:entity/dino_hit"
-      ],
-      },
-    "dino_,idle": {
-      "sounds": [
-        "dinocraft:entity/dino_idle"
-      ],
-      },
-     "micro_hit": {
-       "sounds": [
-         "dinocraft:entity/micro_hit"
-       ],
-       },
-     "micro_idle": {
-       "sounds": [
-         "dinocraft:entity/micro_idle"
-       ],
-       },
-     "mosa_hit": {
-       "sounds": [
-         "dinocraft:entity/mosa_hit"
-       ],
-       },
-     "mosa_idle": {
-       "sounds": [
-         "dinocraft:entity/mosa_idle"
-       ],
-       },
-     "professor_death": {
-       "sounds": [
-         "dinocraft:entity/professor_death"
-       ],
-       },
-     "professor_hit": {
-       "sounds": [
-         "dinocraft:entity/professor_death"
-       ],
-       },
-      "professor_idle": {
-        "sounds": [
-          "dinocraft:entity/professor_idle"
-        ],
-        },
-        "music_breakthrough": {
-          "sounds": [
-            "dinocraft:music_breakthrough"
-          ]
-          }
-       }
-
-
+    ]
+  },
+  "chinlea_hit": {
+    "sounds": [
+      "dinocraft:entity/chinlea_hit"
+    ]
+  },
+  "chinlea_idle": {
+    "sounds": [
+      "dinocraft:entity/chinlea_idle"
+    ]
+  },
+  "dino_death": {
+    "sounds": [
+      "dinocraft:entity/dino_death"
+    ]
+  },
+  "dino_hit": {
+    "sounds": [
+      "dinocraft:entity/dino_hit"
+    ]
+  },
+  "dino_idle": {
+    "sounds": [
+      "dinocraft:entity/dino_idle"
+    ]
+  },
+  "micro_hit": {
+    "sounds": [
+      "dinocraft:entity/micro_hit"
+    ]
+  },
+  "micro_idle": {
+    "sounds": [
+      "dinocraft:entity/micro_idle"
+    ]
+  },
+  "mosa_hit": {
+    "sounds": [
+      "dinocraft:entity/mosa_hit"
+    ]
+  },
+  "mosa_idle": {
+    "sounds": [
+      "dinocraft:entity/mosa_idle"
+    ]
+  },
+  "professor_death": {
+    "sounds": [
+      "dinocraft:entity/professor_death"
+    ]
+  },
+  "professor_hit": {
+    "sounds": [
+      "dinocraft:entity/professor_death"
+    ]
+  },
+  "professor_idle": {
+    "sounds": [
+      "dinocraft:entity/professor_idle"
+    ]
+  },
+  "music_breakthrough": {
+    "sounds": [
+      "dinocraft:music_breakthrough"
+    ]
+  }
+}
