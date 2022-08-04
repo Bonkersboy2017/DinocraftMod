@@ -1,12 +1,16 @@
 package com.dinocrew.dinocraft.registry.entities;
 
+import com.dinocrew.dinocraft.registry.RegisterSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.control.MoveControl;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.FlyingEntity;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class MicroraptorEntity extends FlyingEntity {
     public MicroraptorEntity(EntityType<? extends MicroraptorEntity> entityType, World world) {
@@ -61,6 +65,24 @@ public class MicroraptorEntity extends FlyingEntity {
 
             return true;
         }
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return RegisterSounds.MICRO_IDLE;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return RegisterSounds.MICRO_HIT;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return RegisterSounds.DINO_DEATH;
     }
 }
 

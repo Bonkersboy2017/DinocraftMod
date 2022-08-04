@@ -44,6 +44,7 @@ public class Dinocraft implements ModInitializer {
         ModScreenHandlerTypes.initialize();
         ModRecipeSerializer.initialize();
         ModBlockEntityTypes.initialize();
+        RegisterSounds.init();
         // RegisterWorldgen.initialize();
 
 

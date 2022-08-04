@@ -1,15 +1,18 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.ModItems;
+import com.dinocrew.dinocraft.registry.RegisterSounds;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
@@ -59,4 +62,24 @@ public class DeinonychusEntity extends TameableEntity {
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return null;
     }
+
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return RegisterSounds.DINO_IDLE;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return RegisterSounds.DINO_HIT;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return RegisterSounds.DINO_DEATH;
+    }
+
 }

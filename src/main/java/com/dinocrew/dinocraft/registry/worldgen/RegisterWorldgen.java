@@ -4,6 +4,7 @@ import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.registry.ModBiomes;
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.dinocrew.dinocraft.registry.ModEntities;
+import com.dinocrew.dinocraft.registry.RegisterSounds;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
@@ -84,7 +85,7 @@ public class RegisterWorldgen {
                         .waterFogColor(Integer.parseInt("0000FF", 16))
                         .fogColor(12638463)
                         .skyColor(getSkyColor(0.8F))
-                        .music(MusicType.GAME)
+                        .music(MusicType.createIngameMusic(RegisterSounds.MUSIC_BREAKTHROUGH))
                         .build())
                 .spawnSettings(spawnSettings.build())
                 .generationSettings(featureSettings.build())
