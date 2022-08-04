@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dinocraft:skeleton_ore",
+          "name": "dinocraft:bronzium_ore",
           "functions": [
             {
               "function": "minecraft:set_count",
