@@ -56,12 +56,14 @@ public abstract class ModBiomeParameters {
 
     @Shadow @Final private MultiNoiseUtil.ParameterRange[] temperatureParameters;
 
+    @Shadow @Final private MultiNoiseUtil.ParameterRange[] humidityParameters;
+
     @Inject(method = "writeOceanBiomes", at = @At("HEAD"))
     private void writeOceanBiomes(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, CallbackInfo ci) {
         this.writeBiomeParameters(
                 parameters,
                 this.temperatureParameters[2],
-                this.defaultParameter,
+                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[2], this.humidityParameters[4]),
                 this.mushroomFieldsContinentalness,
                 this.defaultParameter,
                 this.defaultParameter,
@@ -97,7 +99,7 @@ public abstract class ModBiomeParameters {
         this.writeBiomeParameters(
                 parameters,
                 this.temperatureParameters[2],
-                this.defaultParameter,
+                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[2], this.humidityParameters[4]),
                 this.mushroomFieldsContinentalness,
                 this.defaultParameter,
                 this.defaultParameter,
