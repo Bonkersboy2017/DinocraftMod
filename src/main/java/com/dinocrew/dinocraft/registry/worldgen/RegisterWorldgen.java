@@ -41,7 +41,6 @@ public class RegisterWorldgen {
 
     public static Biome createBreakthrough() {
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addBatsAndMonsters(spawnSettings);
 
 
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.DEINONYCHUS, 10, 1, 2));
@@ -74,15 +73,15 @@ public class RegisterWorldgen {
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH), ctx -> {
                 });
 
-        return new Biome.Builder()
+        return (new Biome.Builder())
                 .precipitation(Biome.Precipitation.NONE)
                 .temperature(0.6F)
                 .downfall(0.9F)
-                .effects(new BiomeEffects.Builder()
+                .effects((new BiomeEffects.Builder())
                         .grassColor(Integer.parseInt("a7a543", 16))
                         .foliageColor(Integer.parseInt("63915b", 16))
-                        .waterColor(Integer.parseInt("0000FF", 16))
-                        .waterFogColor(Integer.parseInt("0000FF", 16))
+                        .waterColor(4159204)
+                        .waterFogColor(329011)
                         .fogColor(12638463)
                         .skyColor(getSkyColor(0.8F))
                         .music(MusicType.createIngameMusic(RegisterSounds.MUSIC_BREAKTHROUGH))
@@ -109,7 +108,7 @@ public class RegisterWorldgen {
 
     public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register(
             "trees_dragonwood",
-            RegisterWorldgen.DRAGONWOOD,
+            DRAGONWOOD,
             VegetationPlacedFeatures.modifiersWithWouldSurvive(
                     PlacedFeatures.createCountExtraModifier(1, 0.1f, 1),
                     Blocks.OAK_SAPLING)

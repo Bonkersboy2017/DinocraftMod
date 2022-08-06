@@ -3,9 +3,9 @@ package com.dinocrew.dinocraft.registry.entities;
 import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.util.math.random.Random;
 
 import java.util.EnumSet;
-import java.util.Random;
 
 public class FlyRandomlyGoal extends Goal {
     private final MobEntity entity;
@@ -35,7 +35,7 @@ public class FlyRandomlyGoal extends Goal {
 
     @Override
     public void start() {
-        Random random = (Random) this.entity.getRandom();
+        Random random = this.entity.getRandom();
         double d = this.entity.getX() + (double) ((random.nextFloat() * 2.0f - 1.0f) * 16.0f);
         double e = this.entity.getY() + (double) ((random.nextFloat() * 2.0f - 1.0f) * 16.0f);
         double f = this.entity.getZ() + (double) ((random.nextFloat() * 2.0f - 1.0f) * 16.0f);
