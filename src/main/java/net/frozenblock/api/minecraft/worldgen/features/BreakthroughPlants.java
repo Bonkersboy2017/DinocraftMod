@@ -37,11 +37,11 @@ public class BreakthroughPlants {
             Feature.MULTIFACE_GROWTH,
             new MultifaceGrowthFeatureConfig(
                     RegisterBlocks.LIVERWORTS,
-                    20,
+                    30,
                     true,
                     false,
                     true,
-                    0.6F,
+                    0.8F,
                     RegistryEntryList.of(
                             Block::getRegistryEntry,
                             ModBlocks.DRAGONGRASS,
