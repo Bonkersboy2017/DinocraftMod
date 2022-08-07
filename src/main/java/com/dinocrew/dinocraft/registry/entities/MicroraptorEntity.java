@@ -11,6 +11,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.FlyingEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
@@ -80,6 +81,11 @@ public class MicroraptorEntity extends PathAwareEntity  {
     @Override
     protected SoundEvent getAmbientSound() {
         return RegisterSounds.MICRO_IDLE;
+    }
+
+    @Override
+    public SoundCategory getSoundCategory() {
+        return SoundCategory.HOSTILE;
     }
 
     @Nullable

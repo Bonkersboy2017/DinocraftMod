@@ -8,6 +8,7 @@ import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -33,6 +34,11 @@ public class ProfessorEntity extends HostileEntity {
     @Override
     protected SoundEvent getAmbientSound() {
         return RegisterSounds.PROFESSOR_IDLE;
+    }
+
+    @Override
+    public SoundCategory getSoundCategory() {
+        return SoundCategory.HOSTILE;
     }
 
     @Nullable

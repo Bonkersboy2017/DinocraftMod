@@ -12,6 +12,7 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -68,6 +69,11 @@ public class TheropodEntity extends TameableEntity {
     @Override
     protected SoundEvent getAmbientSound() {
         return RegisterSounds.DINO_IDLE;
+    }
+
+    @Override
+    public SoundCategory getSoundCategory() {
+        return SoundCategory.HOSTILE;
     }
 
     @Nullable
