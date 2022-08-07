@@ -63,7 +63,7 @@ public abstract class ModBiomeParameters {
         this.writeBiomeParameters(
                 parameters,
                 this.temperatureParameters[2],
-                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[2], this.humidityParameters[4]),
+                this.defaultParameter,
                 this.mushroomFieldsContinentalness,
                 this.defaultParameter,
                 this.defaultParameter,
@@ -99,7 +99,7 @@ public abstract class ModBiomeParameters {
         this.writeBiomeParameters(
                 parameters,
                 this.temperatureParameters[2],
-                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[2], this.humidityParameters[4]),
+                this.defaultParameter,
                 this.mushroomFieldsContinentalness,
                 this.defaultParameter,
                 this.defaultParameter,
