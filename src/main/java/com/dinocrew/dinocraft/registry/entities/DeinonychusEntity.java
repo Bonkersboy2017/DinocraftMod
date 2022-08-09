@@ -25,7 +25,7 @@ public class DeinonychusEntity extends TameableEntity {
     }
 
     protected void initGoals() {
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.3F));
+        this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.7D));
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
