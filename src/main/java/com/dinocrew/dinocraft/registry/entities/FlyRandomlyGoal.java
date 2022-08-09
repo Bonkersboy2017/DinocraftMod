@@ -2,15 +2,16 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.mob.FlyingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.math.random.Random;
 
 import java.util.EnumSet;
 
 public class FlyRandomlyGoal extends Goal {
-    private final MobEntity entity;
+    private final FlyingEntity entity;
 
-    public FlyRandomlyGoal(MobEntity entity) {
+    public FlyRandomlyGoal(FlyingEntity entity) {
         this.entity = entity;
         this.setControls(EnumSet.of(Goal.Control.MOVE));
     }
@@ -30,7 +31,7 @@ public class FlyRandomlyGoal extends Goal {
 
     @Override
     public boolean shouldContinue() {
-        return false;
+        return !this.entity.getNavigation().isIdle() && !this.entity.hasPassengers();
     }
 
     @Override
