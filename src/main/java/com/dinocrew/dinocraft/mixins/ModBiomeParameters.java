@@ -62,8 +62,19 @@ public abstract class ModBiomeParameters {
     private void writeOceanBiomes(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, CallbackInfo ci) {
         this.writeBiomeParameters(
                 parameters,
-                this.temperatureParameters[2],
+                MultiNoiseUtil.ParameterRange.combine(this.temperatureParameters[2], this.temperatureParameters[4]),
+                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[3], this.humidityParameters[4]),
+                this.mushroomFieldsContinentalness,
                 this.defaultParameter,
+                this.defaultParameter,
+                0.0F,
+                ModBiomes.BREAKTHROUGH
+        );
+
+        this.writeBiomeParameters(
+                parameters,
+                this.temperatureParameters[2],
+                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[3], this.humidityParameters[4]),
                 this.mushroomFieldsContinentalness,
                 this.defaultParameter,
                 this.defaultParameter,
@@ -98,8 +109,19 @@ public abstract class ModBiomeParameters {
     private void writeOceanBiomesTail(Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> parameters, CallbackInfo ci) {
         this.writeBiomeParameters(
                 parameters,
-                this.temperatureParameters[2],
+                MultiNoiseUtil.ParameterRange.combine(this.temperatureParameters[2], this.temperatureParameters[4]),
+                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[3], this.humidityParameters[4]),
+                this.mushroomFieldsContinentalness,
                 this.defaultParameter,
+                this.defaultParameter,
+                0.0F,
+                ModBiomes.BREAKTHROUGH
+        );
+
+        this.writeBiomeParameters(
+                parameters,
+                this.temperatureParameters[2],
+                MultiNoiseUtil.ParameterRange.combine(this.humidityParameters[3], this.humidityParameters[4]),
                 this.mushroomFieldsContinentalness,
                 this.defaultParameter,
                 this.defaultParameter,
