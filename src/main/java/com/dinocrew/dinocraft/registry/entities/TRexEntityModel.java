@@ -1,6 +1,6 @@
 package com.dinocrew.dinocraft.registry.entities;
 
-import net.frozenblock.api.mathematics.AnimationAPI;
+import net.frozenblock.api.math.AnimationAPI;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
