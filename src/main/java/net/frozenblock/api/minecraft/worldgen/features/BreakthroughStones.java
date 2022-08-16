@@ -2,9 +2,9 @@ package net.frozenblock.api.minecraft.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.mojang.serialization.Codec;
-import net.frozenblock.api.mathematics.AdvancedMath;
-import net.frozenblock.api.mathematics.Conics;
-import net.frozenblock.api.mathematics.Point3D;
+import net.frozenblock.api.math.AdvancedMath;
+import net.frozenblock.api.math.Conics;
+import net.frozenblock.api.math.Point3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;

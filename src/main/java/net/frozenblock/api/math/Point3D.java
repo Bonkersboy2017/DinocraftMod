@@ -1,4 +1,4 @@
-package net.frozenblock.api.mathematics;
+package net.frozenblock.api.math;
 
 import java.io.Serializable;
 
