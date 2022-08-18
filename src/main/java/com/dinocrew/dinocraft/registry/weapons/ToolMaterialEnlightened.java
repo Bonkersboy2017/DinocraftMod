@@ -34,4 +34,6 @@ public class ToolMaterialEnlightened implements ToolMaterial {
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(ModItems.WYVERN_CRYSTAL);
     }
+
+    
 }

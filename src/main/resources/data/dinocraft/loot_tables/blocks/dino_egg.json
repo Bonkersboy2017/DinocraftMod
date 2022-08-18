@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dinocraft:fossilized_stone",
+          "name": "dinocraft:dino_egg",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -32,7 +32,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "dinocraft:fossilized_stone"
+          "name": "dinocraft:dino_egg"
         }
       ],
       "functions": [
