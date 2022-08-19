@@ -1,3 +1,6 @@
 {
-  "parent": "dinocraft:block/dino_egg"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "dinocraft:item/dino_egg"
+  }
 }
