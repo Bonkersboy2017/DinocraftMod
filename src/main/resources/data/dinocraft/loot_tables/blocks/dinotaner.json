@@ -6,11 +6,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dinocraft:dinobench"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "dinocraft:dinobench",
+          "name": "dinocraft:dinotaner",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ],
           "conditions": [
             {
               "condition": "minecraft:match_tool",
@@ -19,13 +21,27 @@
                   {
                     "enchantment": "minecraft:silk_touch",
                     "levels": {
-                      "min": 1
+                      "min": 1,
+                      "max": 1
                     }
                   }
                 ]
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "dinocraft:dinotaner"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "min": 1,
+            "max": 1
+          }
         }
       ]
     }
