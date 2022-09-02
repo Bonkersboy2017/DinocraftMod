@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dinocraft:dragongrass",
+          "name": "minecraft:dirt",
           "functions": [
             {
               "function": "minecraft:set_count",

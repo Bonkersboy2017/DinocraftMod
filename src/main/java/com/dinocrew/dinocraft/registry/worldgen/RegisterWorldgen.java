@@ -48,6 +48,9 @@ public class RegisterWorldgen {
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.STEGORAPTOR, 10, 1, 2));
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.THEROPOD, 10, 1, 2));
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TROODON, 10, 1, 2));
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SCORPIUS, 2, 1, 2));
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TREX, 2, 1, 2));
+
         GenerationSettings.Builder featureSettings = new GenerationSettings.Builder();
 
         featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, TREES_DRAGONWOOD);
@@ -80,8 +83,8 @@ public class RegisterWorldgen {
                 .effects((new BiomeEffects.Builder())
                         .grassColor(Integer.parseInt("a7a543", 16))
                         .foliageColor(Integer.parseInt("63915b", 16))
-                        .waterColor(4445678)
-                        .waterFogColor(270131)
+                        .waterColor(4159204)
+                        .waterFogColor(329011)
                         .fogColor(12638463)
                         .skyColor(getSkyColor(0.8F))
                         .music(MusicType.createIngameMusic(RegisterSounds.MUSIC_BREAKTHROUGH))
