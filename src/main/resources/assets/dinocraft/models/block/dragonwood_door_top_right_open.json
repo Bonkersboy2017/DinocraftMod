@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "dinocraft:block/dragonwood_door_bottom",
+    "top": "dinocraft:block/dragonwood_door_top"
+  }
+}

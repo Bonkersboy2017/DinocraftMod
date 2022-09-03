@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "dinocraft:item/dragonwood_sapling"
+    "cross": "dinocraft:block/dragonwood_sapling"
   }
 }

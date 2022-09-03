@@ -11,3 +11,4 @@ public class DinoBoats {
     public static BoatEntity.Type DRAGONWOOD;
 
 }
+
