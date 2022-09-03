@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "minecraft:acacia_door",
+              "block": "dinocraft:dragonwood_door",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "minecraft:acacia_door"
+          "name": "dinocraft:dragonwood_door"
         }
       ],
       "rolls": 1.0

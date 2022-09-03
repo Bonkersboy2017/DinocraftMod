@@ -63,18 +63,14 @@ public class DinocraftClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MODEL_TREX_LAYER, TRexEntityModel::getTexturedModelData);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_LEAVES, RenderLayer.getCutout());
-
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.LIVERWORTS, RenderLayer.getCutout());
-
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.CYCADOPHYTA, RenderLayer.getCutout());
-
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONGRASS, RenderLayer.getCutout());
-
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DINOSAUR_TEMPERED_GLASS, RenderLayer.getTranslucent());
-
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INCUBATED_DINO_EGG, RenderLayer.getCutout());
-
         ScreenRegistry.register(ModScreenHandlerTypes.DINO_BENCH_SCREEN_HANDLER_TYPE, DinoBenchScreen::new);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_SAPLING, RenderLayer.getCutout());
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
             if (world != null) {
