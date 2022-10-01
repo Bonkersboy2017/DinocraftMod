@@ -32,19 +32,19 @@ public class BoatTypeMixin {
     @Final
     @Shadow
     @Mutable
-    private static BoatEntity.Type[] field_7724;
+    private static BoatEntity.Type[] f_euabqhid;
 
     @Inject(method = "<clinit>", at = @At(value = "FIELD",
             opcode = Opcodes.PUTSTATIC,
-            target = "Lnet/minecraft/entity/vehicle/BoatEntity$Type;field_7724:[Lnet/minecraft/entity/vehicle/BoatEntity$Type;",
+            target = "Lnet/minecraft/entity/vehicle/BoatEntity$Type;f_euabqhid:[Lnet/minecraft/entity/vehicle/BoatEntity$Type;",
             shift = At.Shift.AFTER))
     private static void addCustomBoatType(CallbackInfo ci) {
-        var types = new ArrayList<>(Arrays.asList(field_7724));
+        var types = new ArrayList<>(Arrays.asList(f_euabqhid));
         var last = types.get(types.size() - 1);
 
         var dragonwood = newType("DRAGONWOOD", last.ordinal() + 1, ModBlocks.DRAGONWOOD_PLANKS, "dragonwood");
         DinoBoats.DRAGONWOOD = dragonwood;
         types.add(dragonwood);
-        field_7724 = types.toArray(new BoatEntity.Type[0]);
+        f_euabqhid = types.toArray(new BoatEntity.Type[0]);
     }
 }
