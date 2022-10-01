@@ -1,2 +1,2 @@
 accessWidener	v2	 named
-extendable    method    net/minecraft/block/AbstractBlock    getLootTableId    ()Lnet/minecraft/util/Identifier;
+extendable    method    net/minecraft/world/level/block/state/BlockBehaviour    getLootTable    ()Lnet/minecraft/resources/ResourceLocation;
