@@ -2,6 +2,8 @@ package com.dinocrew.dinocraft.mixins;
 
 import com.dinocrew.dinocraft.registry.ModBlocks;
 import com.dinocrew.dinocraft.registry.entities.DinoBoats;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.level.block.Block;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,8 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.level.block.Block;
 
 @Mixin(Boat.Type.class)
 public class BoatTypeMixin {

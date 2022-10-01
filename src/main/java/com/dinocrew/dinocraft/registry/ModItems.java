@@ -10,12 +10,7 @@ import com.dinocrew.dinocraft.registry.weapons.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.core.Registry;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.BoatItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SignItem;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 
 public class ModItems {
 

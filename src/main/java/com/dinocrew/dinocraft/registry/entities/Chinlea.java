@@ -1,13 +1,17 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.RegisterSounds;
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
 public class Chinlea extends AbstractSchoolingFish {
@@ -19,6 +23,10 @@ public class Chinlea extends AbstractSchoolingFish {
         this.goalSelector.addGoal(7, new RandomSwimmingGoal(this, 0.4D, 1));
 
 
+    }
+
+    public static boolean canSpawn(EntityType<Chinlea> type, LevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
+        return true;
     }
 
     @Override

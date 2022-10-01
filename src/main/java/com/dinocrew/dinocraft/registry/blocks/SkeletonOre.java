@@ -1,6 +1,5 @@
 package com.dinocrew.dinocraft.registry.blocks;
 
-import java.util.Random;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
@@ -9,6 +8,8 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.Random;
 
 public class SkeletonOre extends Block {
 

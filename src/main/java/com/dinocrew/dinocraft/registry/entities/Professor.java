@@ -1,16 +1,20 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.RegisterSounds;
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
 public class Professor extends Monster {
@@ -22,6 +26,10 @@ public class Professor extends Monster {
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.initCustomGoals();
+    }
+
+    public static boolean canSpawn(EntityType<Professor> type, LevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
+        return true;
     }
 
     protected void initCustomGoals() {

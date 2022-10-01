@@ -29,7 +29,6 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixerBuilder;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixes;
-import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.SimpleFixes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

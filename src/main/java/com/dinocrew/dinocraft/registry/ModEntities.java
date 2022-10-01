@@ -7,6 +7,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.levelgen.Heightmap;
 
 public class ModEntities {
     public static final EntityType<Sauropod> SAUROPOD = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("sauropod"), FabricEntityTypeBuilder.createMob().entityFactory(Sauropod::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Sauropod::createDinoAttributes).dimensions(EntityDimensions.fixed(2F, 3F)).build());
@@ -22,5 +24,17 @@ public class ModEntities {
     public static final EntityType<Tyrannosaurus> TYRANNOSAURUS = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("tyrannosaurus"), FabricEntityTypeBuilder.createMob().entityFactory(Tyrannosaurus::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Tyrannosaurus::createDinoAttributes).dimensions(EntityDimensions.fixed(2.8F, 2.6F)).build());
 
     public static void registerAll() {
+        Dinocraft.logDino("Registering Entities for", true);
+        SpawnPlacements.register(SAUROPOD, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Sauropod::canSpawn);
+        SpawnPlacements.register(THEROPOD, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Theropod::canSpawn);
+        SpawnPlacements.register(TROODON, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Troodon::canSpawn);
+        SpawnPlacements.register(MICRORAPTOR, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, Microraptor::canSpawn);
+        SpawnPlacements.register(MOSASAURUS, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mosasaurus::canSpawn);
+        SpawnPlacements.register(STEGORAPTOR, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Stegoraptor::canSpawn);
+        SpawnPlacements.register(CHINLEA, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Chinlea::canSpawn);
+        SpawnPlacements.register(DEINONYCHUS, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Deinonychus::canSpawn);
+        SpawnPlacements.register(PROFESSOR, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Professor::canSpawn);
+        SpawnPlacements.register(SCORPIUS, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Scorpius::canSpawn);
+        SpawnPlacements.register(TYRANNOSAURUS, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Tyrannosaurus::canSpawn);
     }
 }

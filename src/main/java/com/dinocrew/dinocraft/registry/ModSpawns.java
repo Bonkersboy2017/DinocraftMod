@@ -4,13 +4,11 @@ package com.dinocrew.dinocraft.registry;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.MobCategory;
 
 public class ModSpawns {
     public static void registerAll() {
-
 
         BiomeModifications.addSpawn(BiomeSelectors.tag(ModTags.DINO_SPAWNABLE), MobCategory.MONSTER, ModEntities.SAUROPOD, 1, 1, 1);
         BiomeModifications.addSpawn(BiomeSelectors.tag(ModTags.DINO_SPAWNABLE), MobCategory.MONSTER, ModEntities.TROODON, 1, 1, 1);

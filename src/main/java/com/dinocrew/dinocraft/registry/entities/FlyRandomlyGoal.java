@@ -1,10 +1,11 @@
 package com.dinocrew.dinocraft.registry.entities;
 
-import java.util.EnumSet;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.FlyingMob;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
+
+import java.util.EnumSet;
 
 public class FlyRandomlyGoal extends Goal {
     private final FlyingMob entity;

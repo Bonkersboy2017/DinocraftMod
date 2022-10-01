@@ -1,7 +1,6 @@
 package com.dinocrew.dinocraft.registry.blocks;
 
 import com.dinocrew.dinocraft.registry.ModFeatures;
-import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;

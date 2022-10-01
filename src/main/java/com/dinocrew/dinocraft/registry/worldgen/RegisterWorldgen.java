@@ -1,7 +1,10 @@
 package com.dinocrew.dinocraft.registry.worldgen;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import com.dinocrew.dinocraft.registry.*;
+import com.dinocrew.dinocraft.registry.ModBiomes;
+import com.dinocrew.dinocraft.registry.ModEntities;
+import com.dinocrew.dinocraft.registry.ModFeatures;
+import com.dinocrew.dinocraft.registry.RegisterSounds;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
