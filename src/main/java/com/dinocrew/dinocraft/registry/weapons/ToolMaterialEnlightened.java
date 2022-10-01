@@ -35,5 +35,5 @@ public class ToolMaterialEnlightened implements Tier {
         return Ingredient.of(ModItems.WYVERN_CRYSTAL);
     }
 
-    
+
 }

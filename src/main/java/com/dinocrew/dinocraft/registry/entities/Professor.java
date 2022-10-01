@@ -37,7 +37,6 @@ public class Professor extends Monster {
     }
 
 
-
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {

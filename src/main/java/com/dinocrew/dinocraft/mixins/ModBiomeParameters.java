@@ -49,13 +49,21 @@ public class ModBiomeParameters {
 
     }
 
-    @Shadow @Final private Climate.Parameter FULL_RANGE;
+    @Shadow
+    @Final
+    private Climate.Parameter FULL_RANGE;
 
-    @Shadow @Final private Climate.Parameter mushroomFieldsContinentalness;
+    @Shadow
+    @Final
+    private Climate.Parameter mushroomFieldsContinentalness;
 
-    @Shadow @Final private Climate.Parameter[] temperatures;
+    @Shadow
+    @Final
+    private Climate.Parameter[] temperatures;
 
-    @Shadow @Final private Climate.Parameter[] humidities;
+    @Shadow
+    @Final
+    private Climate.Parameter[] humidities;
 
     @Inject(method = "addOffCoastBiomes", at = @At("HEAD"))
     private void writeOceanBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> parameters, CallbackInfo ci) {

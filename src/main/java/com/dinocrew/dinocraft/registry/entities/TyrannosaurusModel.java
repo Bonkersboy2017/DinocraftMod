@@ -38,6 +38,7 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
     private final ModelPart jaw;
     private final ModelPart right_arm;
     private final ModelPart left_arm;
+
     public TyrannosaurusModel(ModelPart root) {
         super(RenderType::entityCutoutNoCull);
         this.root = root;
@@ -62,33 +63,35 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
         this.tail3 = this.tail2.getChild("tail3");
         this.tail4 = this.tail3.getChild("tail4");
     }
+
     public static LayerDefinition createBodyLayer() {
         MeshDefinition modelData = new MeshDefinition();
         PartDefinition modelPartData = modelData.getRoot();
-        PartDefinition modelPartData1 = modelPartData.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0,85).addBox(-16.0F, -6.0F, -9.0F, 10.0F, 25.0F, 19.0F), PartPose.offset(0.0F,-6.0F,8.0F));
-        PartDefinition modelPartData2 = modelPartData1.addOrReplaceChild("right_knee", CubeListBuilder.create().texOffs(79,142).addBox(-15.01F, -3.0F, -3.0F, 9.0F, 16.0F, 9.0F), PartPose.offset(0.0F,13.0F,6.0F));
-        PartDefinition modelPartData3 = modelPartData2.addOrReplaceChild("right_thigh", CubeListBuilder.create().texOffs(144,35).addBox(-6.0F, -1.0F, -2.0F, 8.0F, 14.0F, 6.0F), PartPose.offset(-8.0F,7.0F,2.0F));
-        modelPartData3.addOrReplaceChild("right_foot", CubeListBuilder.create().texOffs(39,91).addBox(-6.0F, -1.0F, -6.0F, 8.0F, 3.0F, 10.0F, new CubeDeformation(-0.01F)).texOffs(0,43).addBox(-5.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0,38).addBox(-2.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0,33).addBox(1.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F), PartPose.offset(0.0F,14.0F,0.0F));
-        PartDefinition modelPartData4 = modelPartData.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0,85).addBox(-16.0F, -6.0F, -9.0F, 10.0F, 25.0F, 19.0F), PartPose.offset(22.0F,-6.0F,8.0F));
-        PartDefinition modelPartData5 = modelPartData4.addOrReplaceChild("left_knee", CubeListBuilder.create().texOffs(79,142).addBox(-14.986F, -3.0F, -3.0F, 9.0F, 16.0F, 9.0F), PartPose.offset(-1.0F,13.0F,6.0F));
-        PartDefinition modelPartData6 = modelPartData5.addOrReplaceChild("left_thigh", CubeListBuilder.create().texOffs(144,35).addBox(-5.0F, -1.0F, -2.0F, 8.0F, 14.0F, 6.0F), PartPose.offset(-9.0F,7.0F,2.0F));
-        modelPartData6.addOrReplaceChild("left_foot", CubeListBuilder.create().texOffs(39,91).addBox(-5.0F, -1.0F, -6.0F, 8.0F, 3.0F, 10.0F, new CubeDeformation(-0.01F)).texOffs(0,33).addBox(-4.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0,38).addBox(-1.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0,43).addBox(2.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F), PartPose.offset(0.0F,14.0F,0.0F));
-        PartDefinition modelPartData7 = modelPartData.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0,0).addBox(-11.0F, -7.0F, -13.0F, 22.0F, 19.0F, 25.0F).texOffs(0,107).addBox(-4.0F, -16.0F, -10.0F, 0.0F, 9.0F, 22.0F).texOffs(0,107).addBox(4.0F, -16.0F, -10.0F, 0.0F, 9.0F, 22.0F).texOffs(0,135).addBox(0.0F, -16.0F, -10.0F, 0.0F, 9.0F, 22.0F), PartPose.offset(0.0F,-8.0F,8.0F));
-        PartDefinition modelPartData8 = modelPartData7.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0,44).addBox(-9.0F, -6.0F, -1.0F, 18.0F, 16.0F, 25.0F).texOffs(103,76).addBox(0.0F, -12.0F, 0.0F, 0.0F, 8.0F, 25.0F), PartPose.offset(0.0F,-1.0F,13.0F));
-        PartDefinition modelPartData9 = modelPartData8.addOrReplaceChild("tail2", CubeListBuilder.create().texOffs(106,115).addBox(-7.0F, -4.0F, -2.0F, 14.0F, 12.0F, 18.0F).texOffs(0,120).addBox(0.0F, -11.0F, -1.0F, 0.0F, 7.0F, 18.0F), PartPose.offset(0.0F,0.0F,26.0F));
-        PartDefinition modelPartData10 = modelPartData9.addOrReplaceChild("tail3", CubeListBuilder.create().texOffs(29,133).addBox(-5.0F, -4.0F, -1.0F, 10.0F, 9.0F, 15.0F).texOffs(122,13).addBox(0.0F, -11.0F, 0.0F, 0.0F, 7.0F, 15.0F), PartPose.offset(0.0F,0.0F,17.0F));
-        modelPartData10.addOrReplaceChild("tail4", CubeListBuilder.create().texOffs(69,0).addBox(-3.0F, -4.0F, -2.0F, 6.0F, 6.0F, 13.0F), PartPose.offset(0.0F,0.0F,16.0F));
-        PartDefinition modelPartData11 = modelPartData7.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(65,64).addBox(-8.0F, -7.0F, -13.0F, 16.0F, 16.0F, 21.0F).texOffs(64,112).addBox(0.0F, -16.0F, -13.0F, 0.0F, 9.0F, 21.0F), PartPose.offset(0.0F,0.0F,-12.0F));
-        PartDefinition modelPartData12 = modelPartData11.addOrReplaceChild("neck2", CubeListBuilder.create().texOffs(72,22).addBox(-7.0F, -9.0F, -17.0F, 14.0F, 15.0F, 22.0F), PartPose.offset(0.0F,3.0F,-13.0F));
-        PartDefinition modelPartData13 = modelPartData12.addOrReplaceChild("neck3", CubeListBuilder.create().texOffs(122,0).addBox(-6.0F, -7.0F, -15.0F, 12.0F, 12.0F, 16.0F, new CubeDeformation(-0.1F)), PartPose.offset(0.0F,1.0F,-12.0F));
-        PartDefinition modelPartData14 = modelPartData13.addOrReplaceChild("head", CubeListBuilder.create().texOffs(61,37).addBox(0.0F, -16.0F, -15.0F, 0.0F, 5.0F, 22.0F).texOffs(58,101).addBox(-6.0F, -12.0F, -15.0F, 12.0F, 11.0F, 21.0F).texOffs(94,146).addBox(-6.0F, -10.0F, -15.0F, 12.0F, 11.0F, 21.0F, new CubeDeformation(-0.5F)), PartPose.offset(0.0F,7.0F,-10.0F));
-        modelPartData14.addOrReplaceChild("jaw", CubeListBuilder.create().texOffs(118,59).addBox(-5.0F, -1.0F, -18.0F, 10.0F, 4.0F, 19.0F), PartPose.offset(0.0F,0.0F,4.0F));
-        modelPartData12.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(0,0).addBox(-13.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F).texOffs(94,0).addBox(-13.0F, 11.0F, -10.0F, 6.0F, 5.0F, 7.0F), PartPose.offset(1.0F,-3.0F,-9.0F));
-        modelPartData12.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0,0).addBox(7.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F, true).texOffs(94,0).addBox(7.0F, 11.0F, -10.0F, 6.0F, 5.0F, 7.0F, true), PartPose.offset(0.0F,-3.0F,-9.0F));
-        return LayerDefinition.create(modelData,256,256);
+        PartDefinition modelPartData1 = modelPartData.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(0, 85).addBox(-16.0F, -6.0F, -9.0F, 10.0F, 25.0F, 19.0F), PartPose.offset(0.0F, -6.0F, 8.0F));
+        PartDefinition modelPartData2 = modelPartData1.addOrReplaceChild("right_knee", CubeListBuilder.create().texOffs(79, 142).addBox(-15.01F, -3.0F, -3.0F, 9.0F, 16.0F, 9.0F), PartPose.offset(0.0F, 13.0F, 6.0F));
+        PartDefinition modelPartData3 = modelPartData2.addOrReplaceChild("right_thigh", CubeListBuilder.create().texOffs(144, 35).addBox(-6.0F, -1.0F, -2.0F, 8.0F, 14.0F, 6.0F), PartPose.offset(-8.0F, 7.0F, 2.0F));
+        modelPartData3.addOrReplaceChild("right_foot", CubeListBuilder.create().texOffs(39, 91).addBox(-6.0F, -1.0F, -6.0F, 8.0F, 3.0F, 10.0F, new CubeDeformation(-0.01F)).texOffs(0, 43).addBox(-5.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0, 38).addBox(-2.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0, 33).addBox(1.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F), PartPose.offset(0.0F, 14.0F, 0.0F));
+        PartDefinition modelPartData4 = modelPartData.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 85).addBox(-16.0F, -6.0F, -9.0F, 10.0F, 25.0F, 19.0F), PartPose.offset(22.0F, -6.0F, 8.0F));
+        PartDefinition modelPartData5 = modelPartData4.addOrReplaceChild("left_knee", CubeListBuilder.create().texOffs(79, 142).addBox(-14.986F, -3.0F, -3.0F, 9.0F, 16.0F, 9.0F), PartPose.offset(-1.0F, 13.0F, 6.0F));
+        PartDefinition modelPartData6 = modelPartData5.addOrReplaceChild("left_thigh", CubeListBuilder.create().texOffs(144, 35).addBox(-5.0F, -1.0F, -2.0F, 8.0F, 14.0F, 6.0F), PartPose.offset(-9.0F, 7.0F, 2.0F));
+        modelPartData6.addOrReplaceChild("left_foot", CubeListBuilder.create().texOffs(39, 91).addBox(-5.0F, -1.0F, -6.0F, 8.0F, 3.0F, 10.0F, new CubeDeformation(-0.01F)).texOffs(0, 33).addBox(-4.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0, 38).addBox(-1.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F).texOffs(0, 43).addBox(2.0F, -3.0F, -12.0F, 0.0F, 5.0F, 11.0F), PartPose.offset(0.0F, 14.0F, 0.0F));
+        PartDefinition modelPartData7 = modelPartData.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-11.0F, -7.0F, -13.0F, 22.0F, 19.0F, 25.0F).texOffs(0, 107).addBox(-4.0F, -16.0F, -10.0F, 0.0F, 9.0F, 22.0F).texOffs(0, 107).addBox(4.0F, -16.0F, -10.0F, 0.0F, 9.0F, 22.0F).texOffs(0, 135).addBox(0.0F, -16.0F, -10.0F, 0.0F, 9.0F, 22.0F), PartPose.offset(0.0F, -8.0F, 8.0F));
+        PartDefinition modelPartData8 = modelPartData7.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 44).addBox(-9.0F, -6.0F, -1.0F, 18.0F, 16.0F, 25.0F).texOffs(103, 76).addBox(0.0F, -12.0F, 0.0F, 0.0F, 8.0F, 25.0F), PartPose.offset(0.0F, -1.0F, 13.0F));
+        PartDefinition modelPartData9 = modelPartData8.addOrReplaceChild("tail2", CubeListBuilder.create().texOffs(106, 115).addBox(-7.0F, -4.0F, -2.0F, 14.0F, 12.0F, 18.0F).texOffs(0, 120).addBox(0.0F, -11.0F, -1.0F, 0.0F, 7.0F, 18.0F), PartPose.offset(0.0F, 0.0F, 26.0F));
+        PartDefinition modelPartData10 = modelPartData9.addOrReplaceChild("tail3", CubeListBuilder.create().texOffs(29, 133).addBox(-5.0F, -4.0F, -1.0F, 10.0F, 9.0F, 15.0F).texOffs(122, 13).addBox(0.0F, -11.0F, 0.0F, 0.0F, 7.0F, 15.0F), PartPose.offset(0.0F, 0.0F, 17.0F));
+        modelPartData10.addOrReplaceChild("tail4", CubeListBuilder.create().texOffs(69, 0).addBox(-3.0F, -4.0F, -2.0F, 6.0F, 6.0F, 13.0F), PartPose.offset(0.0F, 0.0F, 16.0F));
+        PartDefinition modelPartData11 = modelPartData7.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(65, 64).addBox(-8.0F, -7.0F, -13.0F, 16.0F, 16.0F, 21.0F).texOffs(64, 112).addBox(0.0F, -16.0F, -13.0F, 0.0F, 9.0F, 21.0F), PartPose.offset(0.0F, 0.0F, -12.0F));
+        PartDefinition modelPartData12 = modelPartData11.addOrReplaceChild("neck2", CubeListBuilder.create().texOffs(72, 22).addBox(-7.0F, -9.0F, -17.0F, 14.0F, 15.0F, 22.0F), PartPose.offset(0.0F, 3.0F, -13.0F));
+        PartDefinition modelPartData13 = modelPartData12.addOrReplaceChild("neck3", CubeListBuilder.create().texOffs(122, 0).addBox(-6.0F, -7.0F, -15.0F, 12.0F, 12.0F, 16.0F, new CubeDeformation(-0.1F)), PartPose.offset(0.0F, 1.0F, -12.0F));
+        PartDefinition modelPartData14 = modelPartData13.addOrReplaceChild("head", CubeListBuilder.create().texOffs(61, 37).addBox(0.0F, -16.0F, -15.0F, 0.0F, 5.0F, 22.0F).texOffs(58, 101).addBox(-6.0F, -12.0F, -15.0F, 12.0F, 11.0F, 21.0F).texOffs(94, 146).addBox(-6.0F, -10.0F, -15.0F, 12.0F, 11.0F, 21.0F, new CubeDeformation(-0.5F)), PartPose.offset(0.0F, 7.0F, -10.0F));
+        modelPartData14.addOrReplaceChild("jaw", CubeListBuilder.create().texOffs(118, 59).addBox(-5.0F, -1.0F, -18.0F, 10.0F, 4.0F, 19.0F), PartPose.offset(0.0F, 0.0F, 4.0F));
+        modelPartData12.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(0, 0).addBox(-13.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F).texOffs(94, 0).addBox(-13.0F, 11.0F, -10.0F, 6.0F, 5.0F, 7.0F), PartPose.offset(1.0F, -3.0F, -9.0F));
+        modelPartData12.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 0).addBox(7.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F, true).texOffs(94, 0).addBox(7.0F, 11.0F, -10.0F, 6.0F, 5.0F, 7.0F, true), PartPose.offset(0.0F, -3.0F, -9.0F));
+        return LayerDefinition.create(modelData, 256, 256);
     }
+
     @Override
-    public void setupAnim(Tyrannosaurus entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
+    public void setupAnim(Tyrannosaurus entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.right_thigh.xRot = -1.3963F;
         this.right_foot.xRot = 0.5672F;
         this.left_thigh.xRot = -1.3963F;
@@ -106,15 +109,15 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
         float trueCosAnim = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
         float trueSinAnim = Mth.sin(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
-        this.tail.yRot = Mth.cos(ageInTicks/3)/5;
-        this.tail2.yRot = Mth.sin(ageInTicks/3)/5;
-        this.tail3.yRot = Mth.cos(ageInTicks/3)/5;
-        this.tail4.yRot = Mth.sin(ageInTicks/3)/5;
+        this.tail.yRot = Mth.cos(ageInTicks / 3) / 5;
+        this.tail2.yRot = Mth.sin(ageInTicks / 3) / 5;
+        this.tail3.yRot = Mth.cos(ageInTicks / 3) / 5;
+        this.tail4.yRot = Mth.sin(ageInTicks / 3) / 5;
 
-        this.neck.xRot = 0.2f + Mth.cos(ageInTicks/5)/20;
+        this.neck.xRot = 0.2f + Mth.cos(ageInTicks / 5) / 20;
 
-        float cos0to1 = (cosAnim * amount)/4;
-        float sin0to1 = (sinAnim * amount)/4;
+        float cos0to1 = (cosAnim * amount) / 4;
+        float sin0to1 = (sinAnim * amount) / 4;
 
         this.right_leg.xRot = -(cos0to1 + 0.83f);
         this.right_knee.xRot = sin0to1 + 1.6f;
@@ -126,8 +129,9 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
 
         //previously the render function, render code was moved to a method below
     }
+
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 
         right_leg.render(poseStack, buffer, packedLight, packedOverlay);
         left_leg.render(poseStack, buffer, packedLight, packedOverlay);

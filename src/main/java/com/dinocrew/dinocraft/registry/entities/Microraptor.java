@@ -188,7 +188,7 @@ public class Microraptor extends FlyingMob implements Enemy {
                 if (!list.isEmpty()) {
                     list.sort(Comparator.comparing(entity -> ((Entity) entity).getY()).reversed());
 
-                    for(Player playerEntity : list) {
+                    for (Player playerEntity : list) {
                         if (this.microraptor.canAttack(playerEntity, TargetingConditions.DEFAULT)) {
                             this.microraptor.setTarget(playerEntity);
                             return true;
@@ -278,9 +278,9 @@ public class Microraptor extends FlyingMob implements Enemy {
                 g = Math.sqrt(x * x + z * z);
                 double i = Math.sqrt(x * x + z * z + y * y);
                 float j = this.microraptor.getYRot();
-                float k = (float)Mth.atan2(z, x);
+                float k = (float) Mth.atan2(z, x);
                 float l = Mth.wrapDegrees(this.microraptor.getYRot() + 90.0F);
-                float m = Mth.wrapDegrees(k * 180.0F / (float)Math.PI);
+                float m = Mth.wrapDegrees(k * 180.0F / (float) Math.PI);
                 this.microraptor.setYRot(Mth.approachDegrees(l, m, 4.0F) - 90.0F);
                 this.microraptor.yBodyRot = this.microraptor.getYRot();
                 if (Mth.degreesDifferenceAbs(j, this.microraptor.getYRot()) < 3.0F) {
@@ -289,12 +289,12 @@ public class Microraptor extends FlyingMob implements Enemy {
                     this.targetSpeed = Mth.approach(this.targetSpeed, 0.2F, 0.025F);
                 }
 
-                float n = (float)(-(Mth.atan2(-y, g) * 180.0F / (float)Math.PI));
+                float n = (float) (-(Mth.atan2(-y, g) * 180.0F / (float) Math.PI));
                 this.microraptor.setXRot(n);
                 float o = this.microraptor.getYRot() + 90.0F;
-                double p = (double)(this.targetSpeed * Mth.cos(o * (float) (Math.PI / 180.0))) * Math.abs(x / i);
-                double q = (double)(this.targetSpeed * Mth.sin(o * (float) (Math.PI / 180.0))) * Math.abs(z / i);
-                double r = (double)(this.targetSpeed * Mth.sin(n * (float) (Math.PI / 180.0))) * Math.abs(y / i);
+                double p = (double) (this.targetSpeed * Mth.cos(o * (float) (Math.PI / 180.0))) * Math.abs(x / i);
+                double q = (double) (this.targetSpeed * Mth.sin(o * (float) (Math.PI / 180.0))) * Math.abs(z / i);
+                double r = (double) (this.targetSpeed * Mth.sin(n * (float) (Math.PI / 180.0))) * Math.abs(y / i);
                 Vec3 vec3d = this.microraptor.getDeltaMovement();
                 this.microraptor.setDeltaMovement(vec3d.add(new Vec3(p, r, q).subtract(vec3d).scale(0.2)));
             }
@@ -304,7 +304,7 @@ public class Microraptor extends FlyingMob implements Enemy {
 
     private enum MicroraptorMovementType {
         CIRCLE,
-        SWOOP;
+        SWOOP
     }
 
     private static class StartAttackGoal extends Goal {
@@ -395,7 +395,7 @@ public class Microraptor extends FlyingMob implements Enemy {
                         List<Cat> list = this.microraptor.level
                                 .getEntitiesOfClass(Cat.class, this.microraptor.getBoundingBox().inflate(16.0), EntitySelector.ENTITY_STILL_ALIVE);
 
-                        for(Cat catEntity : list) {
+                        for (Cat catEntity : list) {
                             catEntity.hiss();
                         }
 

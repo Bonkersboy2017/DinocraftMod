@@ -95,5 +95,4 @@ public class Stegoraptor extends TamableAnimal {
     }
 
 
-
 }
