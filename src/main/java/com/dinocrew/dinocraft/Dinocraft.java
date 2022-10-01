@@ -32,6 +32,10 @@ public class Dinocraft implements ModInitializer {
         return new Identifier(MOD_ID + ":" + id);
     }
 
+    public static boolean areConfigsInit = false;
+
+    public static boolean hasCloth = FabricLoader.getInstance().isModLoaded("cloth-config");
+
     public static boolean naturally_generate_mobs;
 
     public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("dinocraft.json");

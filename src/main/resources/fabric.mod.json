@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "dinocraft",
-  "version": "${0.10}",
+  "version": "${version}",
 
   "name": "Dinocraft",
   "description": "Dinocraft is a mod that contains new dinosaur and prehistoric items, blocks and mobs to the game.",
@@ -22,11 +22,17 @@
 
   "environment": "*",
   "entrypoints": {
+    "main": [
+      "com.dinocrew.dinocraft.Dinocraft"
+    ],
     "client": [
       "com.dinocrew.dinocraft.client.DinocraftClient"
     ],
-    "main": [
-      "com.dinocrew.dinocraft.Dinocraft"
+    "frozenlib:main": [
+      "com.dinocrew.dinocraft.misc.FrozenLibIntegration"
+    ],
+    "modmenu": [
+      "com.dinocrew.dinocraft.misc.config.ModMenuIntegration"
     ]
   },
   "mixins": [

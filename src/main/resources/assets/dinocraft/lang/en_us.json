@@ -136,8 +136,14 @@
   "entity.dinocraft.deinonychus": "Deinonychus",
   "entity.dinocraft.scorpius": "Scorpius",
   "entity.dinocraft.indoraptor": "Indoraptor",
-  "block.dinocraft.dragonwood_sapling": "Dragonwood Sapling"
+  "block.dinocraft.dragonwood_sapling": "Dragonwood Sapling",
 
+  "option.dinocraft.component.title": "Dinocraft Options",
+  "option.dinocraft.block": "Block",
+  "option.dinocraft.entity": "Entity",
+  "option.dinocraft.item": "Item",
+  "option.dinocraft.worldgen": "Worldgen",
 
-
+  "option.dinocraft.naturally_generate_dinos": "Naturally Generate Dinos",
+  "tooltip.dinocraft.naturally_generate_dinos": "Whether or not dinos should spawn naturally in the world"
 }
