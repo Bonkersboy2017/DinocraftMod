@@ -9,7 +9,7 @@ import java.io.Serializable;
  * <p>
  * Only for FrozenBlock Modders, ALL RIGHTS RESERVED
  * <p>
- * Allows you to create a 3D point with x, y & z
+ * Allows you to create a 3D point with x, y and z
  *
  * @author LiukRast (2021-2022)
  * @since 4.0
