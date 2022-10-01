@@ -4,7 +4,7 @@ import com.dinocrew.dinocraft.Dinocraft;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.frozenblock.api.math.AdvancedMath;
+import net.frozenblock.lib.mathematics.AdvancedMath;
 import net.frozenblock.api.math.Conics;
 import net.frozenblock.api.math.Point3D;
 import net.minecraft.block.BlockState;
