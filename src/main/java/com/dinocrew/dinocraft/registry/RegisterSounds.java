@@ -27,8 +27,8 @@ public class RegisterSounds {
     public static final SoundEvent MUSIC_BREAKTHROUGH = register("music_breakthrough");
 
 
-    private static SoundEvent register(String string) {
-        return Registry.register(Registry.SOUND_EVENT, new ResourceLocation(Dinocraft.MOD_ID, string), new SoundEvent(new ResourceLocation(Dinocraft.MOD_ID, string)));
+    private static SoundEvent register(String path) {
+        return Registry.register(Registry.SOUND_EVENT, new ResourceLocation(Dinocraft.MOD_ID, path), new SoundEvent(new ResourceLocation(Dinocraft.MOD_ID, path)));
     }
 
     public static void init() {

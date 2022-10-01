@@ -16,8 +16,6 @@ import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
-import java.util.List;
-
 public class RegisterWorldgen {
 
     public static void initialize() {
@@ -40,7 +38,7 @@ public class RegisterWorldgen {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.THEROPOD, 10, 1, 2));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.TROODON, 10, 1, 2));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.SCORPIUS, 2, 1, 2));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.TREX, 2, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.TYRANNOSAURUS, 2, 1, 2));
 
         BiomeGenerationSettings.Builder featureSettings = new BiomeGenerationSettings.Builder();
 

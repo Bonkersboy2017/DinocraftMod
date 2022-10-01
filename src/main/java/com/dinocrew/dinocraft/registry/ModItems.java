@@ -51,7 +51,7 @@ public class ModItems {
     public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(ModEntities.DEINONYCHUS, 167475200, 16753920, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item PROFESSOR_SPAWN_EGG = new SpawnEggItem(ModEntities.PROFESSOR, 0xFFFFFF, 0x808080, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item SCORPIUS_SPAWN_EGG = new SpawnEggItem(ModEntities.SCORPIUS, 0x808080, 0xFFFF00, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
-    public static final Item TREX_SPAWN_EGG = new SpawnEggItem(ModEntities.TREX, 0xC8AE7E, 0xD1C0A8, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
+    public static final Item TREX_SPAWN_EGG = new SpawnEggItem(ModEntities.TYRANNOSAURUS, 0xC8AE7E, 0xD1C0A8, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item SHARD_OF_ENLIGHTENMENT = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static final Item TROPICAL_BERRIES = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP).food(ModFoodComponents.TROPICAL_BERRIES));

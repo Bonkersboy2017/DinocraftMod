@@ -39,28 +39,28 @@ public class DinocraftClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        EntityRendererRegistry.register(ModEntities.SAUROPOD, SauropodEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_SAUROPOD_LAYER, SauropodEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.THEROPOD, TheropodEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_THEROPOD_LAYER, TheropodEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.TROODON, TroodonEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_TROODON_LAYER, TroodonEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.MICRORAPTOR, MicroraptorEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_MICRORAPTOR_LAYER, MicroRaptorEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.MOSASAURUS, MosasaurusEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_MOSASAURUS_LAYER, MosasaurusEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.STEGORAPTOR, StegoraptorEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_STEGORAPTOR_LAYER, StegoraptorEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.CHINLEA, ChinleaEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_CHINLEA_LAYER, ChinleaEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.DEINONYCHUS, DeinonychusEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_DEINONYCHUS_LAYER, DeinonychusEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.PROFESSOR, ProfessorEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_PROFESSOR_LAYER, ProfessorEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.SCORPIUS, ScorpiusEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_SCORPIUS_LAYER, ScorpiusEntityModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.TREX, TRexEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_TREX_LAYER, TRexEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SAUROPOD, SauropodRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_SAUROPOD_LAYER, SauropodModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.THEROPOD, TheropodRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_THEROPOD_LAYER, TheropodModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.TROODON, TroodonRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_TROODON_LAYER, TroodonModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.MICRORAPTOR, MicroraptorRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_MICRORAPTOR_LAYER, MicroraptorModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.MOSASAURUS, MosasaurusRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_MOSASAURUS_LAYER, MosasaurusModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.STEGORAPTOR, StegoraptorRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_STEGORAPTOR_LAYER, StegoraptorModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.CHINLEA, ChinleaRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_CHINLEA_LAYER, ChinleaModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.DEINONYCHUS, DeinonychusRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_DEINONYCHUS_LAYER, DeinonychusModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.PROFESSOR, ProfessorRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_PROFESSOR_LAYER, ProfessorModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.SCORPIUS, ScorpiusRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_SCORPIUS_LAYER, ScorpiusModel::createBodyLayer);
+        EntityRendererRegistry.register(ModEntities.TYRANNOSAURUS, TyrannosaurusRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_TREX_LAYER, TyrannosaurusModel::createBodyLayer);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRAGONWOOD_LEAVES, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.LIVERWORTS, RenderType.cutout());
