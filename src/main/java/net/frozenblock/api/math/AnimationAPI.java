@@ -10,7 +10,7 @@ public interface AnimationAPI {
      * <p>
      * Only for FrozenBlock Modders, ALL RIGHTS RESERVED
      * <p>
-     * Defining a point A(x,y) & B(x,y) you can create an animation between those two points ( A.geyY() wont affect the animation).
+     * Defining a point A(x,y) & B(x,y) you can create an animation between those two points ( A.geyY() won't affect the animation).
      * Learn more at https://github.com/LIUKRAST/AnimationAPI/blob/main/README.md
      *
      * @author      LiukRast (2021-2022)

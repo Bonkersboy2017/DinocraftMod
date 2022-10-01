@@ -2,8 +2,9 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import net.frozenblock.api.math.AnimationAPI;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;`
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
@@ -13,7 +14,8 @@ import net.minecraft.util.math.MathHelper;
 // Exported for Minecraft version 1.15 - 1.16
 // Paste this class into your mod and generate all required imports
 
-public class TRexEntityModel extends EntityModel<TRexEntity> implements AnimationAPI {
+public class TRexEntityModel extends SinglePartEntityModel<TRexEntity> implements AnimationAPI {
+    private final ModelPart root;
     private final ModelPart right_leg;
     private final ModelPart right_knee;
     private final ModelPart right_thigh;
@@ -35,15 +37,17 @@ public class TRexEntityModel extends EntityModel<TRexEntity> implements Animatio
     private final ModelPart right_arm;
     private final ModelPart left_arm;
     public TRexEntityModel(ModelPart root) {
-        this.right_leg = root.getChild("right_leg");
+        super(RenderLayer::getEntityCutoutNoCull);
+        this.root = root;
+        this.right_leg = this.root.getChild("right_leg");
         this.right_knee = this.right_leg.getChild("right_knee");
         this.right_thigh = this.right_knee.getChild("right_thigh");
         this.right_foot = this.right_thigh.getChild("right_foot");
-        this.left_leg = root.getChild("left_leg");
+        this.left_leg = this.root.getChild("left_leg");
         this.left_knee = this.left_leg.getChild("left_knee");
         this.left_thigh = this.left_knee.getChild("left_thigh");
         this.left_foot = this.left_thigh.getChild("left_foot");
-        this.body = root.getChild("body");
+        this.body = this.root.getChild("body");
         this.neck = this.body.getChild("neck");
         this.neck2 = this.neck.getChild("neck2");
         this.left_arm = this.neck2.getChild("left_arm");
@@ -83,20 +87,13 @@ public class TRexEntityModel extends EntityModel<TRexEntity> implements Animatio
     }
     @Override
     public void setAngles(TRexEntity entity, float limbAngle, float limbDistance, float AnimationProgress, float netHeadYaw, float headPitch){
-        this.right_leg.pitch = -0.829F;
-        this.right_knee.pitch = 1.6581F;
         this.right_thigh.pitch = -1.3963F;
         this.right_foot.pitch = 0.5672F;
-        this.left_leg.pitch = -0.829F;
-        this.left_knee.pitch = 1.6581F;
         this.left_thigh.pitch = -1.3963F;
         this.left_foot.pitch = 0.5672F;
-        this.neck.pitch = 0.2182F;
         this.neck2.pitch = -0.1745F;
         this.neck3.pitch = -0.8727F;
         this.head.pitch = 0.829F;
-        this.right_arm.pitch = -0.0873F;
-        this.left_arm.pitch = -0.0873F;
 
         float amount = 1; // change this if legs make too much/too less movement
         float speed = 1; // change this if legs are too slow/fast
@@ -134,6 +131,12 @@ public class TRexEntityModel extends EntityModel<TRexEntity> implements Animatio
         left_leg.render(matrixStack, buffer, packedLight, packedOverlay);
         body.render(matrixStack, buffer, packedLight, packedOverlay);
     }
+
+    @Override
+    public ModelPart getPart() {
+        return this.root;
+    }
+
     public void setRotationAngle(ModelPart bone, float x, float y, float z) {
         bone.pitch = x;
         bone.yaw = y;
