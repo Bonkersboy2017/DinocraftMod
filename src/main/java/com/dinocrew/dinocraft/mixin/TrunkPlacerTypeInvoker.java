@@ -1,4 +1,4 @@
-package com.dinocrew.dinocraft.mixins;
+package com.dinocrew.dinocraft.mixin;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;

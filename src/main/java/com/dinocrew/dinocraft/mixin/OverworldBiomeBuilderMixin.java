@@ -1,4 +1,4 @@
-package com.dinocrew.dinocraft.mixins;
+package com.dinocrew.dinocraft.mixin;
 
 import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import com.mojang.datafixers.util.Pair;

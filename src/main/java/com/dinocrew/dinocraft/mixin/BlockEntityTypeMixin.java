@@ -1,4 +1,4 @@
-package com.dinocrew.dinocraft.mixins;
+package com.dinocrew.dinocraft.mixin;
 
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;

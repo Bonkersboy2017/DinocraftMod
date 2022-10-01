@@ -1,7 +1,7 @@
 package com.dinocrew.dinocraft;
 
-import com.dinocrew.dinocraft.mixins.FoliagePlacerTypeInvoker;
-import com.dinocrew.dinocraft.mixins.TrunkPlacerTypeInvoker;
+import com.dinocrew.dinocraft.mixin.FoliagePlacerTypeInvoker;
+import com.dinocrew.dinocraft.mixin.TrunkPlacerTypeInvoker;
 import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.block.ModBlockEntityTypes;
