@@ -2,65 +2,70 @@ package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.ModItems;
 import com.dinocrew.dinocraft.registry.RegisterSounds;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class StegoraptorEntity extends TameableEntity {
-    public StegoraptorEntity(EntityType<? extends TameableEntity> entityType, World world) {
+public class StegoraptorEntity extends TamableAnimal {
+    public StegoraptorEntity(EntityType<? extends TamableAnimal> entityType, Level world) {
         super(entityType, world);
     }
 
-    protected void initGoals() {
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.7D));
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, false));
-        this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(8, new LookAroundGoal(this));
-        this.targetSelector.add(1, new RevengeGoal(this).setGroupRevenge(PlayerEntity.class));
-        this.targetSelector.add(5, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+    protected void registerGoals() {
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.7D));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers(Player.class));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Player.class, true));
 
 //        this.targetSelector.add(2, new IndoraptorEntity.TargetGoal(this, PlayerEntity.class));
 
     }
 
-    public static DefaultAttributeContainer.Builder createDinoAttributes() {
-        return TameableEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+    public static AttributeSupplier.Builder createDinoAttributes() {
+        return TamableAnimal.createMobAttributes().add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.30000001192092896D).add(Attributes.ATTACK_DAMAGE);
     }
 
 
-    public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isItemEqual(ModItems.CYAD_SEEDS.getDefaultStack())) {
-            if (!player.getAbilities().creativeMode) {
-                itemStack.decrement(1);
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        ItemStack itemStack = player.getItemInHand(hand);
+        if (itemStack.sameItemStackIgnoreDurability(ModItems.CYAD_SEEDS.getDefaultInstance())) {
+            if (!player.getAbilities().instabuild) {
+                itemStack.shrink(1);
             }
-            this.setOwner(player);
+            this.tame(player);
             this.navigation.stop();
             this.setTarget(null);
-            this.setSitting(true);
-            this.world.sendEntityStatus(this, (byte) 7);
+            this.setOrderedToSit(true);
+            this.level.broadcastEntityEvent(this, (byte) 7);
 
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
-        return super.interactMob(player, hand);
+        return super.mobInteract(player, hand);
     }
 
     @Nullable
     @Override
-    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+    public AgeableMob getBreedOffspring(ServerLevel world, AgeableMob entity) {
         return null;
     }
 
@@ -71,8 +76,8 @@ public class StegoraptorEntity extends TameableEntity {
     }
 
     @Override
-    public SoundCategory getSoundCategory() {
-        return SoundCategory.HOSTILE;
+    public SoundSource getSoundSource() {
+        return SoundSource.HOSTILE;
     }
 
     @Nullable

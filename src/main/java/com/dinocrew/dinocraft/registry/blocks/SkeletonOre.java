@@ -1,33 +1,32 @@
 package com.dinocrew.dinocraft.registry.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-
 import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class SkeletonOre extends Block {
 
-    public SkeletonOre(Settings settings) {
+    public SkeletonOre(Properties settings) {
         super(settings);
     }
 
     protected int getExperienceWhenMined(Random random) {
-        return MathHelper.nextInt((net.minecraft.util.math.random.Random) random, 0, 2);
+        return Mth.nextInt((net.minecraft.util.RandomSource) random, 0, 2);
     }
 
-    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack) {
-        super.onStacksDropped(state, world, pos, stack, dropExperience(world, pos, stack, 2));
-        if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
+    public void onStacksDropped(BlockState state, ServerLevel world, BlockPos pos, ItemStack stack) {
+        super.spawnAfterBreak(state, world, pos, stack, dropExperience(world, pos, stack, 2));
+        if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, stack) == 0) {
         }
     }
 
-    private boolean dropExperience(ServerWorld world, BlockPos pos, ItemStack stack, int i) {
+    private boolean dropExperience(ServerLevel world, BlockPos pos, ItemStack stack, int i) {
         return dropExperience(world, pos, stack, i);
     }
 }

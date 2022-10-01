@@ -1,9 +1,9 @@
 package com.dinocrew.dinocraft.registry.blocks;
 
-import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
 
 public class CustomPressurePlate extends PressurePlateBlock {
-    public CustomPressurePlate(ActivationRule type, Settings settings) {
+    public CustomPressurePlate(Sensitivity type, Properties settings) {
         super(type, settings);
     }
 }

@@ -5,17 +5,16 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.frozenblock.lib.mathematics.AdvancedMath;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.frozenblock.api.math.Conics;
 import net.frozenblock.api.math.Point3D;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraft.world.gen.foliage.FoliagePlacer;
-import net.minecraft.world.gen.trunk.TrunkPlacer;
-import net.minecraft.world.gen.trunk.TrunkPlacerType;
-
 import java.util.List;
 import java.util.function.BiConsumer;
 
@@ -28,27 +27,27 @@ public class DragonWoodTrunkPlacer extends TrunkPlacer {
     }
 
     public static final Codec<DragonWoodTrunkPlacer> CODEC = RecordCodecBuilder.create(instance ->
-            fillTrunkPlacerFields(instance).apply(instance, DragonWoodTrunkPlacer::new));
+            trunkPlacerParts(instance).apply(instance, DragonWoodTrunkPlacer::new));
 
-    protected TrunkPlacerType<?> getType() {
+    protected TrunkPlacerType<?> type() {
         return Dinocraft.DRAGONWOOD_TRUNK_PLACER;
     }
 
     @Override
-    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, net.minecraft.util.math.random.Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
-        BlockPos blockPos = startPos.down();
+    public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, net.minecraft.util.RandomSource random, int height, BlockPos startPos, TreeConfiguration config) {
+        BlockPos blockPos = startPos.below();
 
         // generate dirt below tree's base
-        setToDirt(world, replacer, random, blockPos, config); // CENTER
-        setToDirt(world, replacer, random, blockPos.east(), config); // EAST
-        setToDirt(world, replacer, random, blockPos.west(), config); // WEST
-        setToDirt(world, replacer, random, blockPos.north(), config); // NORTH
-        setToDirt(world, replacer, random, blockPos.north().east(), config); // NORTH-EAST
-        setToDirt(world, replacer, random, blockPos.north().west(), config); // NORTH-WEST
-        setToDirt(world, replacer, random, blockPos.south(), config); // SOUTH
-        setToDirt(world, replacer, random, blockPos.south().east(), config); // SOUTH-EAST
-        setToDirt(world, replacer, random, blockPos.south().west(), config); // SOUTH-WEST
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        setDirtAt(world, replacer, random, blockPos, config); // CENTER
+        setDirtAt(world, replacer, random, blockPos.east(), config); // EAST
+        setDirtAt(world, replacer, random, blockPos.west(), config); // WEST
+        setDirtAt(world, replacer, random, blockPos.north(), config); // NORTH
+        setDirtAt(world, replacer, random, blockPos.north().east(), config); // NORTH-EAST
+        setDirtAt(world, replacer, random, blockPos.north().west(), config); // NORTH-WEST
+        setDirtAt(world, replacer, random, blockPos.south(), config); // SOUTH
+        setDirtAt(world, replacer, random, blockPos.south().east(), config); // SOUTH-EAST
+        setDirtAt(world, replacer, random, blockPos.south().west(), config); // SOUTH-WEST
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         int min = 6;
         int max = 13;
@@ -79,23 +78,23 @@ public class DragonWoodTrunkPlacer extends TrunkPlacer {
         generateHalfEllipsoid(9, 4, 9, 10, world, replacer, random, new BlockPos(startPos.getX(), startPos.getY() + h, startPos.getZ()), config, mutable);
 
 
-        return ImmutableList.of(new FoliagePlacer.TreeNode(startPos.up(h), 0, false));
+        return ImmutableList.of(new FoliagePlacer.FoliageAttachment(startPos.above(h), 0, false));
     }
 
 
-    private void setLogs(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos.Mutable pos, TreeFeatureConfig config, BlockPos startPos, int x, int y, int z, boolean condition) {
+    private void setLogs(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, RandomSource random, BlockPos.MutableBlockPos pos, TreeConfiguration config, BlockPos startPos, int x, int y, int z, boolean condition) {
         if (condition) {
-            pos.set(startPos, x, y, z);
-            trySetState(world, replacer, random, pos, config);
+            pos.setWithOffset(startPos, x, y, z);
+            placeLogIfFree(world, replacer, random, pos, config);
         }
     }
 
-    private void setLog(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos.Mutable pos, TreeFeatureConfig config, BlockPos startPos, int x, int y, int z, boolean condition) {
+    private void setLog(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, RandomSource random, BlockPos.MutableBlockPos pos, TreeConfiguration config, BlockPos startPos, int x, int y, int z, boolean condition) {
         setLogs(world, replacer, random, pos, config, startPos, x, y, z, condition);
 
     }
 
-    private void generateEllipsoid(int a, int b, int c, float percentage, TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos startPos, TreeFeatureConfig config, BlockPos.Mutable mutable) {
+    private void generateEllipsoid(int a, int b, int c, float percentage, LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, RandomSource random, BlockPos startPos, TreeConfiguration config, BlockPos.MutableBlockPos mutable) {
         Point3D center = new Point3D.Float(startPos.getX(), startPos.getY(), startPos.getZ());
 
         // Build in an area between -a, -b, -c & a, b, c
@@ -113,7 +112,7 @@ public class DragonWoodTrunkPlacer extends TrunkPlacer {
         }
     }
 
-    private void generateHalfEllipsoid(int a, int b, int c, float percentage, TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, BlockPos startPos, TreeFeatureConfig config, BlockPos.Mutable mutable) {
+    private void generateHalfEllipsoid(int a, int b, int c, float percentage, LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, RandomSource random, BlockPos startPos, TreeConfiguration config, BlockPos.MutableBlockPos mutable) {
         Point3D center = new Point3D.Float(startPos.getX(), startPos.getY(), startPos.getZ());
 
         // Build in an area between -a, -b, -c & a, b, c

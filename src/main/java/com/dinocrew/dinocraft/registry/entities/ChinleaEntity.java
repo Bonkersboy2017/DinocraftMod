@@ -1,22 +1,22 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.RegisterSounds;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.SwimAroundGoal;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.passive.SchoolingFishEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.world.World;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
+import net.minecraft.world.entity.animal.AbstractSchoolingFish;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class ChinleaEntity extends SchoolingFishEntity {
-    public ChinleaEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+public class ChinleaEntity extends AbstractSchoolingFish {
+    public ChinleaEntity(EntityType<? extends AbstractSchoolingFish> entityType, Level world) {
         super(entityType, world);
     }
 
-    protected void initGoals() {
-        this.goalSelector.add(7, new SwimAroundGoal(this, 0.4D, 1));
+    protected void registerGoals() {
+        this.goalSelector.addGoal(7, new RandomSwimmingGoal(this, 0.4D, 1));
 
 
     }
@@ -27,7 +27,7 @@ public class ChinleaEntity extends SchoolingFishEntity {
     }
 
     @Override
-    public ItemStack getBucketItem() {
+    public ItemStack getBucketItemStack() {
         return null;
     }
 

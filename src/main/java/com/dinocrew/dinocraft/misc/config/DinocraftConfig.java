@@ -8,11 +8,12 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.TransitiveObject;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
+import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.Text;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 
 @Config(name = Dinocraft.MOD_ID)
 public class DinocraftConfig extends PartitioningSerializer.GlobalData {
@@ -36,12 +37,12 @@ public class DinocraftConfig extends PartitioningSerializer.GlobalData {
         return AutoConfig.getConfigHolder(DinocraftConfig.class).getConfig();
     }
 
-    public static Text text(String key) {
-        return Text.translatable("option." + Dinocraft.MOD_ID + "." + key);
+    public static Component text(String key) {
+        return Component.translatable("option." + Dinocraft.MOD_ID + "." + key);
     }
 
-    public static Text tooltip(String key) {
-        return Text.translatable("tooltip." + Dinocraft.MOD_ID + "." + key);
+    public static Component tooltip(String key) {
+        return Component.translatable("tooltip." + Dinocraft.MOD_ID + "." + key);
     }
 
     @Environment(EnvType.CLIENT)

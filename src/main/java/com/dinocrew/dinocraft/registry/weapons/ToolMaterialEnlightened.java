@@ -1,38 +1,38 @@
 package com.dinocrew.dinocraft.registry.weapons;
 
 import com.dinocrew.dinocraft.registry.ModItems;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
-public class ToolMaterialEnlightened implements ToolMaterial {
+public class ToolMaterialEnlightened implements Tier {
     @Override
-    public int getDurability() {
+    public int getUses() {
         return 400;
     }
 
     @Override
-    public float getMiningSpeedMultiplier() {
+    public float getSpeed() {
         return 10.0f;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return 3.5f;
     }
 
     @Override
-    public int getMiningLevel() {
+    public int getLevel() {
         return 4;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return 5;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ModItems.WYVERN_CRYSTAL);
+        return Ingredient.of(ModItems.WYVERN_CRYSTAL);
     }
 
     

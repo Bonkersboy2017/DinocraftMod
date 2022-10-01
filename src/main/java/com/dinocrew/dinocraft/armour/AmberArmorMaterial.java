@@ -1,11 +1,11 @@
 package com.dinocrew.dinocraft.armour;
 
 import com.dinocrew.dinocraft.registry.ModItems;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
 
 public class AmberArmorMaterial implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[]{7, 10, 12, 11};
@@ -13,28 +13,28 @@ public class AmberArmorMaterial implements ArmorMaterial {
 
 
     @Override
-    public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * 25;
+    public int getDurabilityForSlot(EquipmentSlot slot) {
+        return BASE_DURABILITY[slot.getIndex()] * 25;
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return PROTECTION_AMOUNTS[slot.getEntitySlotId()];
+    public int getDefenseForSlot(EquipmentSlot slot) {
+        return PROTECTION_AMOUNTS[slot.getIndex()];
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return 15;
     }
 
     @Override
     public SoundEvent getEquipSound() {
-        return SoundEvents.BLOCK_METAL_PLACE;
+        return SoundEvents.METAL_PLACE;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ModItems.ROTTING_CYADS);
+        return Ingredient.of(ModItems.ROTTING_CYADS);
     }
 
     @Override

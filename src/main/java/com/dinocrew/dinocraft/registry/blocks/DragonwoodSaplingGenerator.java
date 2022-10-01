@@ -1,21 +1,22 @@
 package com.dinocrew.dinocraft.registry.blocks;
 
+import com.dinocrew.dinocraft.registry.ModFeatures;
 import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
-import net.minecraft.block.sapling.SaplingGenerator;
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.core.Holder;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import org.jetbrains.annotations.Nullable;
 
-public class DragonwoodSaplingGenerator extends SaplingGenerator {
+public class DragonwoodSaplingGenerator extends AbstractTreeGrower {
 
 
-    public DragonwoodSaplingGenerator(RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD) {
+    public DragonwoodSaplingGenerator(Holder<ConfiguredFeature<TreeConfiguration, ?>> DRAGONWOOD) {
     }
 
     @Nullable
     @Override
-    protected RegistryEntry<? extends ConfiguredFeature<?, ?>> getTreeFeature(net.minecraft.util.math.random.Random random, boolean bees) {
-        return RegisterWorldgen.DRAGONWOOD;
+    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(net.minecraft.util.RandomSource random, boolean bees) {
+        return ModFeatures.DRAGONWOOD;
     }
 }

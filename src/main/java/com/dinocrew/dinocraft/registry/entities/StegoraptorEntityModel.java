@@ -5,11 +5,16 @@
 // Paste this class into your mod and generate all required imports
 package com.dinocrew.dinocraft.registry.entities;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
 
 public class StegoraptorEntityModel extends EntityModel<StegoraptorEntity> {
     private final ModelPart body;
@@ -62,69 +67,69 @@ public class StegoraptorEntityModel extends EntityModel<StegoraptorEntity> {
         this.left_foot = this.left_knee.getChild("left_foot");
     }
 
-    public static TexturedModelData getTexturedModelData() {
-        ModelData modelData = new ModelData();
-        ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData modelPartData1 = modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-6.0F, -6.0F, -9.0F, 12.0F, 12.0F, 18.0F).uv(0, 51).cuboid(0.0F, -12.0F, -7.0F, 0.0F, 6.0F, 14.0F), ModelTransform.pivot(0.0F, 2.0F, 0.0F));
-        ModelPartData modelPartData2 = modelPartData1.addChild("neck1", ModelPartBuilder.create().uv(58, 48).cuboid(-4.0F, -4.5F, -8.0F, 8.0F, 9.0F, 8.0F), ModelTransform.pivot(0.0F, -1.5F, -5.0F));
-        ModelPartData modelPartData3 = modelPartData2.addChild("neck2", ModelPartBuilder.create().uv(78, 0).cuboid(-3.0F, -3.0F, -7.25F, 6.0F, 6.0F, 8.0F), ModelTransform.pivot(0.0F, 0.0F, -6.25F));
-        ModelPartData modelPartData4 = modelPartData3.addChild("head", ModelPartBuilder.create().uv(24, 34).cuboid(-4.5F, -5.0F, -12.0F, 9.0F, 10.0F, 12.0F).uv(0, 12).cuboid(0.0F, -11.0F, -12.0F, 0.0F, 16.0F, 18.0F).uv(70, 79).cuboid(-3.5F, 0.0F, -20.0F, 7.0F, 3.0F, 8.0F), ModelTransform.pivot(0.0F, -3.0F, -7.25F));
-        modelPartData4.addChild("nose", ModelPartBuilder.create().uv(0, 71).cuboid(-2.0F, 0.0F, 0.0F, 5.0F, 4.0F, 10.0F), ModelTransform.pivot(-0.5F, 0.0F, -20.0F));
-        modelPartData4.addChild("jaw", ModelPartBuilder.create().uv(62, 65).cuboid(-2.5F, 0.0F, 0.0F, 6.0F, 4.0F, 10.0F), ModelTransform.pivot(-0.5F, 3.0F, -20.0F));
-        ModelPartData modelPartData5 = modelPartData1.addChild("right_arm", ModelPartBuilder.create().uv(0, 0).cuboid(-2.5F, -1.0F, -2.5F, 4.0F, 10.0F, 5.0F), ModelTransform.pivot(-4.5F, -2.0F, -6.5F));
-        ModelPartData modelPartData6 = modelPartData5.addChild("right_wrist", ModelPartBuilder.create().uv(26, 84).cuboid(-1.5F, -0.75F, -2.0F, 3.0F, 10.0F, 4.0F), ModelTransform.pivot(-0.5F, 8.25F, 0.0F));
-        modelPartData6.addChild("right_hand", ModelPartBuilder.create().uv(66, 0).cuboid(-2.5F, -0.75F, -1.0F, 5.0F, 6.0F, 2.0F), ModelTransform.pivot(0.0F, 8.5F, 0.0F));
-        ModelPartData modelPartData7 = modelPartData1.addChild("left_arm", ModelPartBuilder.create().uv(0, 0).cuboid(-1.5F, -1.0F, -2.5F, 4.0F, 10.0F, 5.0F, true), ModelTransform.pivot(4.5F, -2.0F, -6.5F));
-        ModelPartData modelPartData8 = modelPartData7.addChild("left_wrist", ModelPartBuilder.create().uv(26, 84).cuboid(-1.5F, -0.75F, -2.0F, 3.0F, 10.0F, 4.0F, true), ModelTransform.pivot(0.5F, 8.25F, 0.0F));
-        modelPartData8.addChild("left_hand", ModelPartBuilder.create().uv(66, 0).cuboid(-2.5F, -0.75F, -1.0F, 5.0F, 6.0F, 2.0F, true), ModelTransform.pivot(0.0F, 8.5F, 0.0F));
-        ModelPartData modelPartData9 = modelPartData1.addChild("tail1", ModelPartBuilder.create().uv(54, 18).cuboid(-4.0F, -3.0F, 0.0F, 8.0F, 8.0F, 12.0F).uv(54, 67).cuboid(0.0F, -9.0F, 0.0F, 0.0F, 6.0F, 12.0F), ModelTransform.pivot(0.0F, -3.0F, 7.0F));
-        ModelPartData modelPartData10 = modelPartData9.addChild("tail2", ModelPartBuilder.create().uv(42, 0).cuboid(-3.0F, 0.0F, 0.0F, 6.0F, 6.0F, 12.0F).uv(30, 66).cuboid(0.0F, -6.0F, 0.0F, 0.0F, 6.0F, 12.0F), ModelTransform.pivot(0.0F, -2.0F, 12.0F));
-        modelPartData10.addChild("tail3", ModelPartBuilder.create().uv(0, 46).cuboid(-2.0F, 0.0F, 0.0F, 4.0F, 3.0F, 16.0F).uv(54, 26).cuboid(0.0F, -6.0F, 0.0F, 0.0F, 6.0F, 12.0F), ModelTransform.pivot(0.0F, 2.0F, 12.0F));
-        ModelPartData modelPartData11 = modelPartData.addChild("right_hip", ModelPartBuilder.create().uv(30, 56).cuboid(-3.0F, -3.0F, -5.0F, 6.0F, 12.0F, 10.0F, true), ModelTransform.pivot(-4.5F, 3.5F, 6.5F));
-        ModelPartData modelPartData12 = modelPartData11.addChild("right_leg", ModelPartBuilder.create().uv(82, 14).cuboid(-2.5F, -1.5F, -3.0F, 5.0F, 8.0F, 6.0F, true), ModelTransform.pivot(0.0F, 6.5F, 1.0F));
-        ModelPartData modelPartData13 = modelPartData12.addChild("right_knee", ModelPartBuilder.create().uv(0, 46).cuboid(-2.0F, -1.0F, -2.0F, 4.0F, 11.0F, 4.0F, true), ModelTransform.pivot(0.0F, 4.5F, -1.5F));
-        modelPartData13.addChild("right_foot", ModelPartBuilder.create().uv(70, 38).cuboid(-3.0F, 0.0F, -6.5F, 6.0F, 2.0F, 8.0F, true), ModelTransform.pivot(0.0F, 9.5F, -0.5F));
-        ModelPartData modelPartData14 = modelPartData.addChild("left_hip", ModelPartBuilder.create().uv(30, 56).cuboid(-3.0F, -3.0F, -5.0F, 6.0F, 12.0F, 10.0F), ModelTransform.pivot(4.5F, 3.5F, 6.5F));
-        ModelPartData modelPartData15 = modelPartData14.addChild("left_leg", ModelPartBuilder.create().uv(82, 14).cuboid(-2.5F, -1.5F, -3.0F, 5.0F, 8.0F, 6.0F), ModelTransform.pivot(0.0F, 6.5F, 1.0F));
-        ModelPartData modelPartData16 = modelPartData15.addChild("left_knee", ModelPartBuilder.create().uv(0, 46).cuboid(-2.0F, -1.0F, -2.0F, 4.0F, 11.0F, 4.0F), ModelTransform.pivot(0.0F, 4.5F, -1.5F));
-        modelPartData16.addChild("left_foot", ModelPartBuilder.create().uv(70, 38).cuboid(-3.0F, 0.0F, -6.5F, 6.0F, 2.0F, 8.0F), ModelTransform.pivot(0.0F, 9.5F, -0.5F));
-        return TexturedModelData.of(modelData, 128, 128);
+    public static LayerDefinition getTexturedModelData() {
+        MeshDefinition modelData = new MeshDefinition();
+        PartDefinition modelPartData = modelData.getRoot();
+        PartDefinition modelPartData1 = modelPartData.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-6.0F, -6.0F, -9.0F, 12.0F, 12.0F, 18.0F).texOffs(0, 51).addBox(0.0F, -12.0F, -7.0F, 0.0F, 6.0F, 14.0F), PartPose.offset(0.0F, 2.0F, 0.0F));
+        PartDefinition modelPartData2 = modelPartData1.addOrReplaceChild("neck1", CubeListBuilder.create().texOffs(58, 48).addBox(-4.0F, -4.5F, -8.0F, 8.0F, 9.0F, 8.0F), PartPose.offset(0.0F, -1.5F, -5.0F));
+        PartDefinition modelPartData3 = modelPartData2.addOrReplaceChild("neck2", CubeListBuilder.create().texOffs(78, 0).addBox(-3.0F, -3.0F, -7.25F, 6.0F, 6.0F, 8.0F), PartPose.offset(0.0F, 0.0F, -6.25F));
+        PartDefinition modelPartData4 = modelPartData3.addOrReplaceChild("head", CubeListBuilder.create().texOffs(24, 34).addBox(-4.5F, -5.0F, -12.0F, 9.0F, 10.0F, 12.0F).texOffs(0, 12).addBox(0.0F, -11.0F, -12.0F, 0.0F, 16.0F, 18.0F).texOffs(70, 79).addBox(-3.5F, 0.0F, -20.0F, 7.0F, 3.0F, 8.0F), PartPose.offset(0.0F, -3.0F, -7.25F));
+        modelPartData4.addOrReplaceChild("nose", CubeListBuilder.create().texOffs(0, 71).addBox(-2.0F, 0.0F, 0.0F, 5.0F, 4.0F, 10.0F), PartPose.offset(-0.5F, 0.0F, -20.0F));
+        modelPartData4.addOrReplaceChild("jaw", CubeListBuilder.create().texOffs(62, 65).addBox(-2.5F, 0.0F, 0.0F, 6.0F, 4.0F, 10.0F), PartPose.offset(-0.5F, 3.0F, -20.0F));
+        PartDefinition modelPartData5 = modelPartData1.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(0, 0).addBox(-2.5F, -1.0F, -2.5F, 4.0F, 10.0F, 5.0F), PartPose.offset(-4.5F, -2.0F, -6.5F));
+        PartDefinition modelPartData6 = modelPartData5.addOrReplaceChild("right_wrist", CubeListBuilder.create().texOffs(26, 84).addBox(-1.5F, -0.75F, -2.0F, 3.0F, 10.0F, 4.0F), PartPose.offset(-0.5F, 8.25F, 0.0F));
+        modelPartData6.addOrReplaceChild("right_hand", CubeListBuilder.create().texOffs(66, 0).addBox(-2.5F, -0.75F, -1.0F, 5.0F, 6.0F, 2.0F), PartPose.offset(0.0F, 8.5F, 0.0F));
+        PartDefinition modelPartData7 = modelPartData1.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 0).addBox(-1.5F, -1.0F, -2.5F, 4.0F, 10.0F, 5.0F, true), PartPose.offset(4.5F, -2.0F, -6.5F));
+        PartDefinition modelPartData8 = modelPartData7.addOrReplaceChild("left_wrist", CubeListBuilder.create().texOffs(26, 84).addBox(-1.5F, -0.75F, -2.0F, 3.0F, 10.0F, 4.0F, true), PartPose.offset(0.5F, 8.25F, 0.0F));
+        modelPartData8.addOrReplaceChild("left_hand", CubeListBuilder.create().texOffs(66, 0).addBox(-2.5F, -0.75F, -1.0F, 5.0F, 6.0F, 2.0F, true), PartPose.offset(0.0F, 8.5F, 0.0F));
+        PartDefinition modelPartData9 = modelPartData1.addOrReplaceChild("tail1", CubeListBuilder.create().texOffs(54, 18).addBox(-4.0F, -3.0F, 0.0F, 8.0F, 8.0F, 12.0F).texOffs(54, 67).addBox(0.0F, -9.0F, 0.0F, 0.0F, 6.0F, 12.0F), PartPose.offset(0.0F, -3.0F, 7.0F));
+        PartDefinition modelPartData10 = modelPartData9.addOrReplaceChild("tail2", CubeListBuilder.create().texOffs(42, 0).addBox(-3.0F, 0.0F, 0.0F, 6.0F, 6.0F, 12.0F).texOffs(30, 66).addBox(0.0F, -6.0F, 0.0F, 0.0F, 6.0F, 12.0F), PartPose.offset(0.0F, -2.0F, 12.0F));
+        modelPartData10.addOrReplaceChild("tail3", CubeListBuilder.create().texOffs(0, 46).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 3.0F, 16.0F).texOffs(54, 26).addBox(0.0F, -6.0F, 0.0F, 0.0F, 6.0F, 12.0F), PartPose.offset(0.0F, 2.0F, 12.0F));
+        PartDefinition modelPartData11 = modelPartData.addOrReplaceChild("right_hip", CubeListBuilder.create().texOffs(30, 56).addBox(-3.0F, -3.0F, -5.0F, 6.0F, 12.0F, 10.0F, true), PartPose.offset(-4.5F, 3.5F, 6.5F));
+        PartDefinition modelPartData12 = modelPartData11.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(82, 14).addBox(-2.5F, -1.5F, -3.0F, 5.0F, 8.0F, 6.0F, true), PartPose.offset(0.0F, 6.5F, 1.0F));
+        PartDefinition modelPartData13 = modelPartData12.addOrReplaceChild("right_knee", CubeListBuilder.create().texOffs(0, 46).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 11.0F, 4.0F, true), PartPose.offset(0.0F, 4.5F, -1.5F));
+        modelPartData13.addOrReplaceChild("right_foot", CubeListBuilder.create().texOffs(70, 38).addBox(-3.0F, 0.0F, -6.5F, 6.0F, 2.0F, 8.0F, true), PartPose.offset(0.0F, 9.5F, -0.5F));
+        PartDefinition modelPartData14 = modelPartData.addOrReplaceChild("left_hip", CubeListBuilder.create().texOffs(30, 56).addBox(-3.0F, -3.0F, -5.0F, 6.0F, 12.0F, 10.0F), PartPose.offset(4.5F, 3.5F, 6.5F));
+        PartDefinition modelPartData15 = modelPartData14.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(82, 14).addBox(-2.5F, -1.5F, -3.0F, 5.0F, 8.0F, 6.0F), PartPose.offset(0.0F, 6.5F, 1.0F));
+        PartDefinition modelPartData16 = modelPartData15.addOrReplaceChild("left_knee", CubeListBuilder.create().texOffs(0, 46).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 11.0F, 4.0F), PartPose.offset(0.0F, 4.5F, -1.5F));
+        modelPartData16.addOrReplaceChild("left_foot", CubeListBuilder.create().texOffs(70, 38).addBox(-3.0F, 0.0F, -6.5F, 6.0F, 2.0F, 8.0F), PartPose.offset(0.0F, 9.5F, -0.5F));
+        return LayerDefinition.create(modelData, 128, 128);
     }
 
     @Override
     public void setAngles(StegoraptorEntity entity, float limbAngle, float limbDistance, float animationProgress, float netHeadYaw, float headPitch) {
         float flatAngle = 3 * (limbDistance) + 1;
-        this.body.pitch = -0.1745F / flatAngle;
-        this.neck1.pitch = -0.5236F / flatAngle;
-        this.neck2.pitch = -0.48F / flatAngle;
-        this.head.pitch = 1.3963F / flatAngle;
-        this.nose.pitch = 0.5236F;
-        this.jaw.pitch = 0.2618F;
-        this.right_arm.pitch = 0.1745F;
-        this.right_wrist.pitch = -0.7418F;
-        this.right_hand.pitch = 0.8727F;
-        this.left_arm.pitch = 0.1745F;
-        this.left_wrist.pitch = -0.7418F;
-        this.left_hand.pitch = 0.8727F;
-        this.tail1.pitch = 0.1745F / flatAngle;
-        this.body.roll = MathHelper.cos(limbAngle * 2) * limbDistance / 7;
+        this.body.xRot = -0.1745F / flatAngle;
+        this.neck1.xRot = -0.5236F / flatAngle;
+        this.neck2.xRot = -0.48F / flatAngle;
+        this.head.xRot = 1.3963F / flatAngle;
+        this.nose.xRot = 0.5236F;
+        this.jaw.xRot = 0.2618F;
+        this.right_arm.xRot = 0.1745F;
+        this.right_wrist.xRot = -0.7418F;
+        this.right_hand.xRot = 0.8727F;
+        this.left_arm.xRot = 0.1745F;
+        this.left_wrist.xRot = -0.7418F;
+        this.left_hand.xRot = 0.8727F;
+        this.tail1.xRot = 0.1745F / flatAngle;
+        this.body.zRot = Mth.cos(limbAngle * 2) * limbDistance / 7;
 
-        this.tail1.yaw = MathHelper.cos(animationProgress / 5) / 10;
-        this.tail2.yaw = MathHelper.sin(animationProgress / 5) / 10;
-        this.tail3.yaw = MathHelper.cos(animationProgress / 5) / 10;
+        this.tail1.yRot = Mth.cos(animationProgress / 5) / 10;
+        this.tail2.yRot = Mth.sin(animationProgress / 5) / 10;
+        this.tail3.yRot = Mth.cos(animationProgress / 5) / 10;
 
-        this.right_hip.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 0.3491F;
-        this.right_leg.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 + 1.2217F;
-        this.right_knee.pitch = MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 1.3963F;
-        this.right_foot.pitch = 0.5236F;
-        this.left_hip.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 0.3491F;
-        this.left_leg.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 + 1.2217F;
-        this.left_knee.pitch = -MathHelper.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 1.3963F;
-        this.left_foot.pitch = 0.5236F;
+        this.right_hip.xRot = Mth.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 0.3491F;
+        this.right_leg.xRot = Mth.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 + 1.2217F;
+        this.right_knee.xRot = Mth.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 1.3963F;
+        this.right_foot.xRot = 0.5236F;
+        this.left_hip.xRot = -Mth.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 0.3491F;
+        this.left_leg.xRot = -Mth.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 + 1.2217F;
+        this.left_knee.xRot = -Mth.cos(limbAngle * 0.6662F + 3.1415927F) * 1.4F * limbDistance / 3 - 1.3963F;
+        this.left_foot.xRot = 0.5236F;
     }
 
     @Override
-    public void render(MatrixStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 
         body.render(matrixStack, buffer, packedLight, packedOverlay);
         right_hip.render(matrixStack, buffer, packedLight, packedOverlay);

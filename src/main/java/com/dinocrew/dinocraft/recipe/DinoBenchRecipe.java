@@ -1,22 +1,26 @@
 package com.dinocrew.dinocraft.recipe;
 
 import com.google.gson.JsonObject;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.*;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.Container;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.level.Level;
 
-public class DinoBenchRecipe implements Recipe<Inventory> {
+public class DinoBenchRecipe implements Recipe<Container> {
     private final Ingredient main;
     private final Ingredient modifier;
     private final ItemStack result;
-    private final Identifier id;
+    private final ResourceLocation id;
 
-    public DinoBenchRecipe(Identifier id, Ingredient inputMain, Ingredient inputModifier, ItemStack result) {
+    public DinoBenchRecipe(ResourceLocation id, Ingredient inputMain, Ingredient inputModifier, ItemStack result) {
         this.id = id;
         this.main = inputMain;
         this.modifier = inputModifier;
@@ -33,28 +37,28 @@ public class DinoBenchRecipe implements Recipe<Inventory> {
 
     //Yes, World parameter is useless. No, Mojang won't elaborate
     @Override
-    public boolean matches(Inventory inventory, World world) {
-        return this.main.test(inventory.getStack(0)) && this.modifier.test(inventory.getStack(1));
+    public boolean matches(Container inventory, Level world) {
+        return this.main.test(inventory.getItem(0)) && this.modifier.test(inventory.getItem(1));
     }
 
     @Override
-    public ItemStack craft(Inventory inventory) {
+    public ItemStack assemble(Container inventory) {
         ItemStack itemStack = this.result.copy();
-        NbtCompound nbtCompound = inventory.getStack(0).getNbt();
+        CompoundTag nbtCompound = inventory.getItem(0).getTag();
         if (nbtCompound != null) {
-            itemStack.setNbt(nbtCompound.copy());
+            itemStack.setTag(nbtCompound.copy());
         }
 
         return itemStack;
     }
 
     @Override
-    public boolean fits(int width, int height) {
+    public boolean canCraftInDimensions(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getOutput() {
+    public ItemStack getResultItem() {
         return this.result;
     }
 
@@ -63,7 +67,7 @@ public class DinoBenchRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public Identifier getId() {
+    public ResourceLocation getId() {
         return this.id;
     }
 
@@ -83,24 +87,24 @@ public class DinoBenchRecipe implements Recipe<Inventory> {
         public Serializer() {
         }
 
-        public DinoBenchRecipe read(Identifier identifier, JsonObject jsonObject) {
-            Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(jsonObject, "main"));
-            Ingredient ingredient2 = Ingredient.fromJson(JsonHelper.getObject(jsonObject, "modifier"));
-            ItemStack itemStack = ShapedRecipe.outputFromJson(JsonHelper.getObject(jsonObject, "result"));
+        public DinoBenchRecipe fromJson(ResourceLocation identifier, JsonObject jsonObject) {
+            Ingredient ingredient = Ingredient.fromJson(GsonHelper.getAsJsonObject(jsonObject, "main"));
+            Ingredient ingredient2 = Ingredient.fromJson(GsonHelper.getAsJsonObject(jsonObject, "modifier"));
+            ItemStack itemStack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, "result"));
             return new DinoBenchRecipe(identifier, ingredient, ingredient2, itemStack);
         }
 
-        public DinoBenchRecipe read(Identifier identifier, PacketByteBuf packetByteBuf) {
-            Ingredient ingredient = Ingredient.fromPacket(packetByteBuf);
-            Ingredient ingredient2 = Ingredient.fromPacket(packetByteBuf);
-            ItemStack itemStack = packetByteBuf.readItemStack();
+        public DinoBenchRecipe fromNetwork(ResourceLocation identifier, FriendlyByteBuf packetByteBuf) {
+            Ingredient ingredient = Ingredient.fromNetwork(packetByteBuf);
+            Ingredient ingredient2 = Ingredient.fromNetwork(packetByteBuf);
+            ItemStack itemStack = packetByteBuf.readItem();
             return new DinoBenchRecipe(identifier, ingredient, ingredient2, itemStack);
         }
 
-        public void write(PacketByteBuf packetByteBuf, DinoBenchRecipe dinobenchRecipe) {
-            dinobenchRecipe.main.write(packetByteBuf);
-            dinobenchRecipe.modifier.write(packetByteBuf);
-            packetByteBuf.writeItemStack(dinobenchRecipe.result);
+        public void toNetwork(FriendlyByteBuf packetByteBuf, DinoBenchRecipe dinobenchRecipe) {
+            dinobenchRecipe.main.toNetwork(packetByteBuf);
+            dinobenchRecipe.modifier.toNetwork(packetByteBuf);
+            packetByteBuf.writeItem(dinobenchRecipe.result);
         }
     }
 

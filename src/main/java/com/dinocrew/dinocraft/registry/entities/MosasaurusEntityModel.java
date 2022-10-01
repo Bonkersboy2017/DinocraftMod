@@ -5,11 +5,17 @@
 // Paste this class into your mod and generate all required imports
 package com.dinocrew.dinocraft.registry.entities;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.util.Mth;
 
 public class MosasaurusEntityModel extends EntityModel<MosasaurusEntity> {
     private final ModelPart body;
@@ -46,48 +52,48 @@ public class MosasaurusEntityModel extends EntityModel<MosasaurusEntity> {
         this.exit1 = this.tail2.getChild("exit1");
     }
 
-    public static TexturedModelData getTexturedModelData() {
-        ModelData modelData = new ModelData();
-        ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData modelPartData1 = modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-6.0F, -15.0F, -15.0F, 12.0F, 12.0F, 24.0F), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
-        ModelPartData modelPartData2 = modelPartData1.addChild("back_body", ModelPartBuilder.create().uv(42, 58).cuboid(-5.0F, -6.0F, -1.0F, 10.0F, 10.0F, 10.0F), ModelTransform.pivot(0.0F, -8.0F, 9.0F));
-        ModelPartData modelPartData3 = modelPartData2.addChild("tail1", ModelPartBuilder.create().uv(32, 78).cuboid(-4.0F, -5.0F, -4.0F, 8.0F, 8.0F, 8.0F), ModelTransform.pivot(0.0F, 0.0F, 13.0F));
-        ModelPartData modelPartData4 = modelPartData3.addChild("tail2", ModelPartBuilder.create().uv(44, 36).cuboid(-3.0F, -4.0F, 0.0F, 6.0F, 6.0F, 16.0F), ModelTransform.pivot(0.0F, 0.0F, 4.0F));
-        modelPartData4.addChild("exit1", ModelPartBuilder.create().uv(76, 47).cuboid(-1.0F, -5.0F, 0.0F, 2.0F, 6.0F, 12.0F), ModelTransform.pivot(0.0F, 1.0F, 9.0F));
-        modelPartData4.addChild("exit2", ModelPartBuilder.create().uv(0, 50).cuboid(-2.0F, -4.0F, -4.0F, 4.0F, 6.0F, 17.0F), ModelTransform.pivot(0.0F, 1.0F, 9.0F));
-        modelPartData3.addChild("left_back_fin", ModelPartBuilder.create().uv(72, 37).cuboid(0.0F, -1.0F, -4.0F, 12.0F, 2.0F, 8.0F), ModelTransform.pivot(2.0F, 1.0F, 1.0F));
-        modelPartData3.addChild("left_back_fin2", ModelPartBuilder.create().uv(72, 27).cuboid(-12.0F, -1.0F, -4.0F, 12.0F, 2.0F, 8.0F), ModelTransform.pivot(-2.0F, 1.0F, 1.0F));
-        ModelPartData modelPartData5 = modelPartData1.addChild("head", ModelPartBuilder.create().uv(0, 73).cuboid(-5.0F, -7.0F, -9.0F, 10.0F, 11.0F, 6.0F), ModelTransform.pivot(0.0F, -8.0F, -12.0F));
-        ModelPartData modelPartData6 = modelPartData5.addChild("head2", ModelPartBuilder.create().uv(71, 67).cuboid(-4.0F, -6.0F, -10.0F, 8.0F, 7.0F, 11.0F), ModelTransform.pivot(0.0F, 0.0F, -9.0F));
-        modelPartData6.addChild("head4", ModelPartBuilder.create().uv(55, 85).cuboid(-3.0F, 2.0F, -9.0F, 6.0F, 3.0F, 9.0F).uv(48, 14).cuboid(-3.0F, 5.0F, -9.0F, 6.0F, 1.0F, 9.0F, new Dilation(0.01F)), ModelTransform.pivot(0.0F, -4.0F, -10.0F));
-        ModelPartData modelPartData7 = modelPartData5.addChild("mouth", ModelPartBuilder.create().uv(72, 14).cuboid(-4.0F, 1.0F, -10.0F, 8.0F, 2.0F, 11.0F), ModelTransform.pivot(0.0F, 0.0F, -9.0F));
-        modelPartData7.addChild("mouth2", ModelPartBuilder.create().uv(85, 85).cuboid(-3.0F, -1.0F, -9.0F, 6.0F, 2.0F, 9.0F), ModelTransform.pivot(0.0F, 2.0F, -10.0F));
-        modelPartData1.addChild("left_front_fin", ModelPartBuilder.create().uv(48, 0).cuboid(-3.0F, -1.0F, -5.0F, 18.0F, 2.0F, 12.0F).uv(48, 0).cuboid(-3.0F, -1.0F, -5.0F, 18.0F, 2.0F, 12.0F), ModelTransform.pivot(7.0F, -4.0F, -5.0F));
-        modelPartData1.addChild("right_front_fin", ModelPartBuilder.create().uv(0, 36).cuboid(-15.0F, -1.0F, -5.0F, 18.0F, 2.0F, 12.0F), ModelTransform.pivot(-7.0F, -4.0F, -5.0F));
-        return TexturedModelData.of(modelData, 128, 128);
+    public static LayerDefinition getTexturedModelData() {
+        MeshDefinition modelData = new MeshDefinition();
+        PartDefinition modelPartData = modelData.getRoot();
+        PartDefinition modelPartData1 = modelPartData.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-6.0F, -15.0F, -15.0F, 12.0F, 12.0F, 24.0F), PartPose.offset(0.0F, 24.0F, 0.0F));
+        PartDefinition modelPartData2 = modelPartData1.addOrReplaceChild("back_body", CubeListBuilder.create().texOffs(42, 58).addBox(-5.0F, -6.0F, -1.0F, 10.0F, 10.0F, 10.0F), PartPose.offset(0.0F, -8.0F, 9.0F));
+        PartDefinition modelPartData3 = modelPartData2.addOrReplaceChild("tail1", CubeListBuilder.create().texOffs(32, 78).addBox(-4.0F, -5.0F, -4.0F, 8.0F, 8.0F, 8.0F), PartPose.offset(0.0F, 0.0F, 13.0F));
+        PartDefinition modelPartData4 = modelPartData3.addOrReplaceChild("tail2", CubeListBuilder.create().texOffs(44, 36).addBox(-3.0F, -4.0F, 0.0F, 6.0F, 6.0F, 16.0F), PartPose.offset(0.0F, 0.0F, 4.0F));
+        modelPartData4.addOrReplaceChild("exit1", CubeListBuilder.create().texOffs(76, 47).addBox(-1.0F, -5.0F, 0.0F, 2.0F, 6.0F, 12.0F), PartPose.offset(0.0F, 1.0F, 9.0F));
+        modelPartData4.addOrReplaceChild("exit2", CubeListBuilder.create().texOffs(0, 50).addBox(-2.0F, -4.0F, -4.0F, 4.0F, 6.0F, 17.0F), PartPose.offset(0.0F, 1.0F, 9.0F));
+        modelPartData3.addOrReplaceChild("left_back_fin", CubeListBuilder.create().texOffs(72, 37).addBox(0.0F, -1.0F, -4.0F, 12.0F, 2.0F, 8.0F), PartPose.offset(2.0F, 1.0F, 1.0F));
+        modelPartData3.addOrReplaceChild("left_back_fin2", CubeListBuilder.create().texOffs(72, 27).addBox(-12.0F, -1.0F, -4.0F, 12.0F, 2.0F, 8.0F), PartPose.offset(-2.0F, 1.0F, 1.0F));
+        PartDefinition modelPartData5 = modelPartData1.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 73).addBox(-5.0F, -7.0F, -9.0F, 10.0F, 11.0F, 6.0F), PartPose.offset(0.0F, -8.0F, -12.0F));
+        PartDefinition modelPartData6 = modelPartData5.addOrReplaceChild("head2", CubeListBuilder.create().texOffs(71, 67).addBox(-4.0F, -6.0F, -10.0F, 8.0F, 7.0F, 11.0F), PartPose.offset(0.0F, 0.0F, -9.0F));
+        modelPartData6.addOrReplaceChild("head4", CubeListBuilder.create().texOffs(55, 85).addBox(-3.0F, 2.0F, -9.0F, 6.0F, 3.0F, 9.0F).texOffs(48, 14).addBox(-3.0F, 5.0F, -9.0F, 6.0F, 1.0F, 9.0F, new CubeDeformation(0.01F)), PartPose.offset(0.0F, -4.0F, -10.0F));
+        PartDefinition modelPartData7 = modelPartData5.addOrReplaceChild("mouth", CubeListBuilder.create().texOffs(72, 14).addBox(-4.0F, 1.0F, -10.0F, 8.0F, 2.0F, 11.0F), PartPose.offset(0.0F, 0.0F, -9.0F));
+        modelPartData7.addOrReplaceChild("mouth2", CubeListBuilder.create().texOffs(85, 85).addBox(-3.0F, -1.0F, -9.0F, 6.0F, 2.0F, 9.0F), PartPose.offset(0.0F, 2.0F, -10.0F));
+        modelPartData1.addOrReplaceChild("left_front_fin", CubeListBuilder.create().texOffs(48, 0).addBox(-3.0F, -1.0F, -5.0F, 18.0F, 2.0F, 12.0F).texOffs(48, 0).addBox(-3.0F, -1.0F, -5.0F, 18.0F, 2.0F, 12.0F), PartPose.offset(7.0F, -4.0F, -5.0F));
+        modelPartData1.addOrReplaceChild("right_front_fin", CubeListBuilder.create().texOffs(0, 36).addBox(-15.0F, -1.0F, -5.0F, 18.0F, 2.0F, 12.0F), PartPose.offset(-7.0F, -4.0F, -5.0F));
+        return LayerDefinition.create(modelData, 128, 128);
     }
 
     @Override
     public void setAngles(MosasaurusEntity entity, float limbSwing, float limbSwingAmount, float time, float netHeadYaw, float headPitch) {
-        this.left_back_fin.yaw = -0.3927F + MathHelper.cos(time / 5) / 5;
-        this.left_back_fin.roll = 0.4363F;
-        this.left_back_fin2.yaw = 0.3927F;
-        this.left_back_fin2.roll = -0.4363F;
-        this.exit1.pitch = 0.3491F;
-        this.exit2.pitch = -0.3491F;
-        this.left_front_fin.yaw = -0.3927F - MathHelper.cos(time / 5) / 5;
-        this.left_front_fin.roll = 0.4363F;
-        this.right_front_fin.yaw = 0.3927F + MathHelper.cos(time / 5) / 5;
-        this.right_front_fin.roll = -0.4363F;
-        this.body.pitch = MathHelper.sin(time / 5) / 10;
-        this.back_body.pitch = MathHelper.cos(time / 8) / 8;
-        this.tail1.pitch = MathHelper.sin(time / 8) / 8;
-        this.tail2.pitch = -MathHelper.cos(time / 8) / 8;
+        this.left_back_fin.yRot = -0.3927F + Mth.cos(time / 5) / 5;
+        this.left_back_fin.zRot = 0.4363F;
+        this.left_back_fin2.yRot = 0.3927F;
+        this.left_back_fin2.zRot = -0.4363F;
+        this.exit1.xRot = 0.3491F;
+        this.exit2.xRot = -0.3491F;
+        this.left_front_fin.yRot = -0.3927F - Mth.cos(time / 5) / 5;
+        this.left_front_fin.zRot = 0.4363F;
+        this.right_front_fin.yRot = 0.3927F + Mth.cos(time / 5) / 5;
+        this.right_front_fin.zRot = -0.4363F;
+        this.body.xRot = Mth.sin(time / 5) / 10;
+        this.back_body.xRot = Mth.cos(time / 8) / 8;
+        this.tail1.xRot = Mth.sin(time / 8) / 8;
+        this.tail2.xRot = -Mth.cos(time / 8) / 8;
 
     }
 
     @Override
-    public void render(MatrixStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack matrixStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         matrixStack.scale(2, 2, 2);
         matrixStack.translate(0, -0.5, 0);
         body.render(matrixStack, buffer, packedLight, packedOverlay);

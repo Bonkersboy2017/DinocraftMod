@@ -1,37 +1,37 @@
 package com.dinocrew.dinocraft.registry.weapons;
 
 import com.dinocrew.dinocraft.registry.ModItems;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
-public class ToolMaterialSkeleton implements ToolMaterial {
+public class ToolMaterialSkeleton implements Tier {
     @Override
-    public int getDurability() {
+    public int getUses() {
         return 250;
     }
 
     @Override
-    public float getMiningSpeedMultiplier() {
+    public float getSpeed() {
         return 8.0f;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return 2.0f;
     }
 
     @Override
-    public int getMiningLevel() {
+    public int getLevel() {
         return 3;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return 10;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ModItems.DINO_KIDNEY);
+        return Ingredient.of(ModItems.DINO_KIDNEY);
     }
 }

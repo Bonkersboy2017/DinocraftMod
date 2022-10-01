@@ -1,8 +1,8 @@
 package com.dinocrew.dinocraft.registry.enchantments;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.world.item.enchantment.Enchantment;
 
 public class EnchantmentRegistry {
 

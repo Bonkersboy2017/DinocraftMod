@@ -1,27 +1,27 @@
 package com.dinocrew.dinocraft.registry.entities;
 
 import com.dinocrew.dinocraft.registry.RegisterSounds;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.BreatheAirGoal;
-import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
-import net.minecraft.entity.ai.goal.SwimAroundGoal;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.passive.FishEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.world.World;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.goal.BreathAirGoal;
+import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
+import net.minecraft.world.entity.ai.goal.TryFindWaterGoal;
+import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class MosasaurusEntity extends FishEntity {
+public class MosasaurusEntity extends AbstractFish {
 
-    public MosasaurusEntity(EntityType<? extends FishEntity> entityType, World world) {
+    public MosasaurusEntity(EntityType<? extends AbstractFish> entityType, Level world) {
         super(entityType, world);
     }
 
-    protected void initGoals() {
-        this.goalSelector.add(0, new BreatheAirGoal(this));
-        this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(4, new SwimAroundGoal(this, 1.0D, 10));
+    protected void registerGoals() {
+        this.goalSelector.addGoal(0, new BreathAirGoal(this));
+        this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
+        this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1.0D, 10));
 
     }
 
@@ -31,7 +31,7 @@ public class MosasaurusEntity extends FishEntity {
     }
 
     @Override
-    public ItemStack getBucketItem() {
+    public ItemStack getBucketItemStack() {
         return null;
     }
 

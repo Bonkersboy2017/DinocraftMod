@@ -1,16 +1,16 @@
 package com.dinocrew.dinocraft.registry;
 
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.FoodComponent;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 
 public class ModFoodComponents {
 
-    public static final FoodComponent CYAD_LEAF = (new FoodComponent.Builder()).hunger(7).saturationModifier(1).build();
-    public static final FoodComponent CYAD_SEEDS = (new FoodComponent.Builder()).hunger(7).saturationModifier(1).build();
-    public static final FoodComponent BERRIES = (new FoodComponent.Builder()).hunger(7).saturationModifier(1).build();
-    public static final FoodComponent TROPICAL_BERRIES = (new FoodComponent.Builder()).hunger(7).saturationModifier(1).build();
-    public static final FoodComponent ROTTING_CYADS = (new FoodComponent.Builder()).hunger(7).saturationModifier(1).statusEffect(new StatusEffectInstance(StatusEffects.POISON, 600, 0), 0.8F).build();
-    public static final FoodComponent INFECTED_BERRIES = (new FoodComponent.Builder()).hunger(7).saturationModifier(1).statusEffect(new StatusEffectInstance(StatusEffects.POISON, 600, 0), 0.8F).build();
-    public static final FoodComponent DINO_FLESH = (new FoodComponent.Builder()).hunger(7).saturationModifier(1).build();
+    public static final FoodProperties CYAD_LEAF = (new FoodProperties.Builder()).nutrition(7).saturationMod(1).build();
+    public static final FoodProperties CYAD_SEEDS = (new FoodProperties.Builder()).nutrition(7).saturationMod(1).build();
+    public static final FoodProperties BERRIES = (new FoodProperties.Builder()).nutrition(7).saturationMod(1).build();
+    public static final FoodProperties TROPICAL_BERRIES = (new FoodProperties.Builder()).nutrition(7).saturationMod(1).build();
+    public static final FoodProperties ROTTING_CYADS = (new FoodProperties.Builder()).nutrition(7).saturationMod(1).effect(new MobEffectInstance(MobEffects.POISON, 600, 0), 0.8F).build();
+    public static final FoodProperties INFECTED_BERRIES = (new FoodProperties.Builder()).nutrition(7).saturationMod(1).effect(new MobEffectInstance(MobEffects.POISON, 600, 0), 0.8F).build();
+    public static final FoodProperties DINO_FLESH = (new FoodProperties.Builder()).nutrition(7).saturationMod(1).build();
 }

@@ -1,10 +1,10 @@
 package com.dinocrew.dinocraft.registry.blocks;
 
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.sapling.SaplingGenerator;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 
 public class DragonwoodSaplingBlock extends SaplingBlock {
-    public DragonwoodSaplingBlock(SaplingGenerator generator, Settings settings) {
+    public DragonwoodSaplingBlock(AbstractTreeGrower generator, Properties settings) {
         super(generator, settings);
     }
 }

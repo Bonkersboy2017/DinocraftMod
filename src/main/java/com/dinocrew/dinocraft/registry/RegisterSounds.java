@@ -1,9 +1,9 @@
 package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 
 public class RegisterSounds {
 
@@ -28,7 +28,7 @@ public class RegisterSounds {
 
 
     private static SoundEvent register(String string) {
-        return Registry.register(Registry.SOUND_EVENT, new Identifier(Dinocraft.MOD_ID, string), new SoundEvent(new Identifier(Dinocraft.MOD_ID, string)));
+        return Registry.register(Registry.SOUND_EVENT, new ResourceLocation(Dinocraft.MOD_ID, string), new SoundEvent(new ResourceLocation(Dinocraft.MOD_ID, string)));
     }
 
     public static void init() {

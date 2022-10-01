@@ -1,9 +1,9 @@
 package com.dinocrew.dinocraft.registry.blocks;
 
-import net.minecraft.block.WoodenButtonBlock;
+import net.minecraft.world.level.block.WoodButtonBlock;
 
-public class CustomWoodenButton extends WoodenButtonBlock {
-    public CustomWoodenButton(Settings settings) {
+public class CustomWoodenButton extends WoodButtonBlock {
+    public CustomWoodenButton(Properties settings) {
         super(settings);
     }
 }

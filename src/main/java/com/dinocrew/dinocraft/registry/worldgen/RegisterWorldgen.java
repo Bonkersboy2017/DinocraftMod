@@ -1,74 +1,65 @@
 package com.dinocrew.dinocraft.registry.worldgen;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import com.dinocrew.dinocraft.registry.ModBiomes;
-import com.dinocrew.dinocraft.registry.ModBlocks;
-import com.dinocrew.dinocraft.registry.ModEntities;
-import com.dinocrew.dinocraft.registry.RegisterSounds;
+import com.dinocrew.dinocraft.registry.*;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.frozenblock.api.minecraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
-import net.frozenblock.api.minecraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
-import net.minecraft.block.Blocks;
-import net.minecraft.client.sound.MusicType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
+import net.minecraft.sounds.Musics;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.BiomeSpecialEffects;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 import java.util.List;
 
 public class RegisterWorldgen {
 
+    public static void initialize() {
+
+    }
+
     protected static int getSkyColor(float temperature) {
         float f = temperature / 3.0F;
-        f = MathHelper.clamp(f, -1.0F, 1.0F);
-        return MathHelper.hsvToRgb(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
+        f = Mth.clamp(f, -1.0F, 1.0F);
+        return Mth.hsvToRgb(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
     }
 
     public static Biome createBreakthrough() {
-        SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
 
 
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.DEINONYCHUS, 10, 1, 2));
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SAUROPOD, 10, 1, 2));
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.STEGORAPTOR, 10, 1, 2));
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.THEROPOD, 10, 1, 2));
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TROODON, 10, 1, 2));
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.SCORPIUS, 2, 1, 2));
-        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TREX, 2, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.DEINONYCHUS, 10, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.SAUROPOD, 10, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.STEGORAPTOR, 10, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.THEROPOD, 10, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.TROODON, 10, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.SCORPIUS, 2, 1, 2));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.TREX, 2, 1, 2));
 
-        GenerationSettings.Builder featureSettings = new GenerationSettings.Builder();
+        BiomeGenerationSettings.Builder featureSettings = new BiomeGenerationSettings.Builder();
 
-        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, TREES_DRAGONWOOD);
-        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_NORMAL);
+        featureSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModFeatures.TREES_DRAGONWOOD);
+        featureSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_NORMAL);
 //        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_PLAIN);
-        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BROWN_MUSHROOM_SWAMP);
-        featureSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.RED_MUSHROOM_SWAMP);
-        DefaultBiomeFeatures.addPlainsTallGrass(featureSettings);
-        DefaultBiomeFeatures.addDefaultOres(featureSettings);
-        DefaultBiomeFeatures.addDefaultDisks(featureSettings);
-        DefaultBiomeFeatures.addExtraDefaultFlowers(featureSettings);
+        featureSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.BROWN_MUSHROOM_SWAMP);
+        featureSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.RED_MUSHROOM_SWAMP);
+        BiomeDefaultFeatures.addPlainGrass(featureSettings);
+        BiomeDefaultFeatures.addDefaultOres(featureSettings);
+        BiomeDefaultFeatures.addDefaultSoftDisks(featureSettings);
+        BiomeDefaultFeatures.addWarmFlowers(featureSettings);
 //        DefaultBiomeFeatures.addDefaultGrass(featureSettings);
-        DefaultBiomeFeatures.addLandCarvers(featureSettings);
-        DefaultBiomeFeatures.addAmethystGeodes(featureSettings);
-        DefaultBiomeFeatures.addDungeons(featureSettings);
+        BiomeDefaultFeatures.addDefaultCarversAndLakes(featureSettings);
+        BiomeDefaultFeatures.addDefaultCrystalFormations(featureSettings);
+        BiomeDefaultFeatures.addDefaultMonsterRoom(featureSettings);
 //        DefaultBiomeFeatures.addMineables(featureSettings);
-        DefaultBiomeFeatures.addFrozenTopLayer(featureSettings);
-        DefaultBiomeFeatures.addSprings(featureSettings);
+        BiomeDefaultFeatures.addSurfaceFreezing(featureSettings);
+        BiomeDefaultFeatures.addDefaultSprings(featureSettings);
 //
 
 
@@ -76,46 +67,24 @@ public class RegisterWorldgen {
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH), ctx -> {
                 });
 
-        return (new Biome.Builder())
+        return (new Biome.BiomeBuilder())
                 .precipitation(Biome.Precipitation.NONE)
                 .temperature(0.6F)
                 .downfall(0.9F)
-                .effects((new BiomeEffects.Builder())
-                        .grassColor(Integer.parseInt("a7a543", 16))
-                        .foliageColor(Integer.parseInt("63915b", 16))
+                .specialEffects((new BiomeSpecialEffects.Builder())
+                        .grassColorOverride(Integer.parseInt("a7a543", 16))
+                        .foliageColorOverride(Integer.parseInt("63915b", 16))
                         .waterColor(4159204)
                         .waterFogColor(329011)
                         .fogColor(12638463)
                         .skyColor(getSkyColor(0.8F))
-                        .music(MusicType.createIngameMusic(RegisterSounds.MUSIC_BREAKTHROUGH))
+                        .backgroundMusic(Musics.createGameMusic(RegisterSounds.MUSIC_BREAKTHROUGH))
                         .build())
-                .spawnSettings(spawnSettings.build())
+                .mobSpawnSettings(spawnSettings.build())
                 .generationSettings(featureSettings.build())
                 .build();
 
     }
-
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> DRAGONWOOD = ConfiguredFeatures.register(
-            "dragonwood",
-            Feature.TREE,
-            new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModBlocks.DRAGONWOOD_LOG),
-                new DragonWoodTrunkPlacer(3, 3, 0),
-                BlockStateProvider.of(ModBlocks.DRAGONWOOD_LEAVES),
-                new DragonWoodFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(0)),
-                new TwoLayersFeatureSize(1, 0, 2)
-            )
-            .ignoreVines()
-            .build()
-    );
-
-    public static final RegistryEntry<PlacedFeature> TREES_DRAGONWOOD = PlacedFeatures.register(
-            "trees_dragonwood",
-            DRAGONWOOD,
-            VegetationPlacedFeatures.modifiersWithWouldSurvive(
-                    PlacedFeatures.createCountExtraModifier(1, 0.1f, 1),
-                    Blocks.OAK_SAPLING)
-    );
 }
 
 

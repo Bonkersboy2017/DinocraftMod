@@ -12,7 +12,6 @@
 	"ModBiomeParameters",
 	"SignTypeAccessor",
 	"TrunkPlacerTypeInvoker",
-	"VanillaSurfaceRulesBlockInvoker",
 	"VanillaSurfaceRulesInjector"
   ],
   "client": [

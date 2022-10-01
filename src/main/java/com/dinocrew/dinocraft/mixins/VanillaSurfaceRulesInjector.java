@@ -2,29 +2,30 @@ package com.dinocrew.dinocraft.mixins;
 
 import com.dinocrew.dinocraft.registry.ModBiomes;
 import com.dinocrew.dinocraft.registry.ModBlocks;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.surfacebuilder.MaterialRules;
+import net.minecraft.data.worldgen.SurfaceRuleData;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-@Mixin(net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules.class)
+@Mixin(SurfaceRuleData.class)
 public class VanillaSurfaceRulesInjector {
-    @ModifyVariable(method = "createDefaultRule", at = @At("STORE"), ordinal = 8)
-    private static MaterialRules.MaterialRule injected(MaterialRules.MaterialRule originalRules) {
-        return MaterialRules.sequence(
-                MaterialRules.condition(
-                        MaterialRules.biome(ModBiomes.BREAKTHROUGH),
-                        MaterialRules.condition(
-                                MaterialRules.STONE_DEPTH_FLOOR,
-                                MaterialRules.condition(
-                                        MaterialRules.surface(),
-                                        MaterialRules.sequence(
-                                                MaterialRules.condition(
-                                                        MaterialRules.water(0, 0),
-                                                        MaterialRules.block(ModBlocks.DRAGONGRASS.getDefaultState())
+    @ModifyVariable(method = "overworldLike", at = @At("STORE"), ordinal = 8)
+    private static SurfaceRules.RuleSource injected(SurfaceRules.RuleSource originalRules) {
+        return SurfaceRules.sequence(
+                SurfaceRules.ifTrue(
+                        SurfaceRules.isBiome(ModBiomes.BREAKTHROUGH),
+                        SurfaceRules.ifTrue(
+                                SurfaceRules.ON_FLOOR,
+                                SurfaceRules.ifTrue(
+                                        SurfaceRules.abovePreliminarySurface(),
+                                        SurfaceRules.sequence(
+                                                SurfaceRules.ifTrue(
+                                                        SurfaceRules.waterBlockCheck(0, 0),
+                                                        SurfaceRules.state(ModBlocks.DRAGONGRASS.defaultBlockState())
                                                 ),
-                                                MaterialRules.block(Blocks.DIRT.getDefaultState())
+                                                SurfaceRules.state(Blocks.DIRT.defaultBlockState())
                                         ))
                         )
                 )

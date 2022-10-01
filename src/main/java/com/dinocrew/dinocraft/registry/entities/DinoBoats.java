@@ -1,14 +1,14 @@
 package com.dinocrew.dinocraft.registry.entities;
 
-import net.minecraft.entity.vehicle.BoatEntity;
+import net.minecraft.world.entity.vehicle.Boat;
 
 public class DinoBoats {
     //CREDIT TO nyuppo/fabric-boat-example ON GITHUB
     static {
-        BoatEntity.Type.values();
+        Boat.Type.values();
     }
 
-    public static BoatEntity.Type DRAGONWOOD;
+    public static Boat.Type DRAGONWOOD;
 
 }
 

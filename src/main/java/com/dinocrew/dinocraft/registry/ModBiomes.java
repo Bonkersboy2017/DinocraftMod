@@ -2,17 +2,17 @@ package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 
 public class ModBiomes {
-    public static final RegistryKey<Biome> BREAKTHROUGH = registerBiomeKeys("breakthrough");
+    public static final ResourceKey<Biome> BREAKTHROUGH = registerBiomeKeys("breakthrough");
 
-    private static RegistryKey<Biome> registerBiomeKeys(String name) {
-        return RegistryKey.of(Registry.BIOME_KEY, Dinocraft.id(name));
+    private static ResourceKey<Biome> registerBiomeKeys(String name) {
+        return ResourceKey.create(Registry.BIOME_REGISTRY, Dinocraft.id(name));
     }
 
     public static void registerBiomes() {
@@ -20,7 +20,7 @@ public class ModBiomes {
     }
 
 
-    private static RegistryEntry<Biome> register(RegistryKey<Biome> key, Biome biome) {
-        return BuiltinRegistries.add(BuiltinRegistries.BIOME, key, biome);
+    private static Holder<Biome> register(ResourceKey<Biome> key, Biome biome) {
+        return BuiltinRegistries.register(BuiltinRegistries.BIOME, key, biome);
     }
 }
