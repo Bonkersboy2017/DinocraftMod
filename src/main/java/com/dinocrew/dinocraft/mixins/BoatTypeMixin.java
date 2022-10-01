@@ -1,7 +1,7 @@
 package com.dinocrew.dinocraft.mixins;
 
-import com.dinocrew.dinocraft.registry.ModBlocks;
-import com.dinocrew.dinocraft.registry.entities.DinoBoats;
+import com.dinocrew.dinocraft.registry.RegisterBlocks;
+import com.dinocrew.dinocraft.entity.DinoBoats;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.block.Block;
 import org.objectweb.asm.Opcodes;
@@ -42,7 +42,7 @@ public class BoatTypeMixin {
         var types = new ArrayList<>(Arrays.asList($VALUES));
         var last = types.get(types.size() - 1);
 
-        var dragonwood = newType("DRAGONWOOD", last.ordinal() + 1, ModBlocks.DRAGONWOOD_PLANKS, "dragonwood");
+        var dragonwood = newType("DRAGONWOOD", last.ordinal() + 1, RegisterBlocks.DRAGONWOOD_PLANKS, "dragonwood");
         DinoBoats.DRAGONWOOD = dragonwood;
         types.add(dragonwood);
         $VALUES = types.toArray(new Boat.Type[0]);

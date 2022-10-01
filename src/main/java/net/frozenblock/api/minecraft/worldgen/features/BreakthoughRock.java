@@ -1,6 +1,6 @@
 package net.frozenblock.api.minecraft.worldgen.features;
 
-import com.dinocrew.dinocraft.registry.ModBlocks;
+import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.mojang.serialization.Codec;
 import net.frozenblock.lib.mathematics.AdvancedMath;
 import net.minecraft.core.BlockPos;
@@ -29,8 +29,8 @@ public class BreakthoughRock extends BreakthroughStones {
         int zSize = (int) AdvancedMath.range(2, 5, (float) Math.random());
 
         ArrayList<Block> blocks = new ArrayList<>();
-        blocks.add(ModBlocks.FOSSILIZED_STONE);
-        blocks.add(ModBlocks.FS_BRICKS);
+        blocks.add(RegisterBlocks.FOSSILIZED_STONE);
+        blocks.add(RegisterBlocks.FS_BRICKS);
         blocks.add(Blocks.SMOOTH_BASALT);
 
         if (world.getBlockState(topPos) == Blocks.WATER.defaultBlockState()) {

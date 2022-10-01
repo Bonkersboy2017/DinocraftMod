@@ -1,7 +1,7 @@
 package com.dinocrew.dinocraft.mixins;
 
-import com.dinocrew.dinocraft.registry.ModBiomes;
-import com.dinocrew.dinocraft.registry.ModBlocks;
+import com.dinocrew.dinocraft.registry.RegisterBlocks;
+import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import net.minecraft.data.worldgen.SurfaceRuleData;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -15,7 +15,7 @@ public class VanillaSurfaceRulesInjector {
     private static SurfaceRules.RuleSource injected(SurfaceRules.RuleSource originalRules) {
         return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(
-                        SurfaceRules.isBiome(ModBiomes.BREAKTHROUGH),
+                        SurfaceRules.isBiome(RegisterWorldgen.BREAKTHROUGH),
                         SurfaceRules.ifTrue(
                                 SurfaceRules.ON_FLOOR,
                                 SurfaceRules.ifTrue(
@@ -23,7 +23,7 @@ public class VanillaSurfaceRulesInjector {
                                         SurfaceRules.sequence(
                                                 SurfaceRules.ifTrue(
                                                         SurfaceRules.waterBlockCheck(0, 0),
-                                                        SurfaceRules.state(ModBlocks.DRAGONGRASS.defaultBlockState())
+                                                        SurfaceRules.state(RegisterBlocks.DRAGONGRASS.defaultBlockState())
                                                 ),
                                                 SurfaceRules.state(Blocks.DIRT.defaultBlockState())
                                         ))

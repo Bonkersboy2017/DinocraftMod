@@ -8,7 +8,7 @@ public class Main {
     /**
      * FROZENBLOCK's INITIALIZER
      * <p>
-     * I dont like how's dinocraft organized so i made a separated part
+     * I don't like how's dinocraft organized, so I made a separated part
      * <p>
      * Only for FrozenBlock Modders, ALL RIGHTS RESERVED
      * <p>

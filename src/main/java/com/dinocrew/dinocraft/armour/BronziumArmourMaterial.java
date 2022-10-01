@@ -1,6 +1,6 @@
 package com.dinocrew.dinocraft.armour;
 
-import com.dinocrew.dinocraft.registry.ModItems;
+import com.dinocrew.dinocraft.registry.RegisterItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -34,7 +34,7 @@ public class BronziumArmourMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(ModItems.ROTTING_CYADS);
+        return Ingredient.of(RegisterItems.ROTTING_CYADS);
     }
 
     @Override

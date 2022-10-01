@@ -5,7 +5,7 @@
 
 package com.dinocrew.dinocraft.block;
 
-import com.dinocrew.dinocraft.registry.entities.DinotanerBlockEntity;
+import com.dinocrew.dinocraft.entity.DinotanerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;

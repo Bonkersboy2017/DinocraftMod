@@ -1,6 +1,6 @@
 package net.frozenblock.api.minecraft.worldgen.features;
 
-import com.dinocrew.dinocraft.registry.ModBlocks;
+import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.mojang.serialization.Codec;
 import net.frozenblock.lib.mathematics.AdvancedMath;
 import net.minecraft.core.BlockPos;
@@ -29,7 +29,7 @@ public class BreakthroughStones extends Feature<ProbabilityFeatureConfiguration>
         int zSize = (int) AdvancedMath.range(1, 3, (float) Math.random());
 
         ArrayList<Block> blocks = new ArrayList<>();
-        blocks.add(ModBlocks.FOSSILIZED_STONE);
+        blocks.add(RegisterBlocks.FOSSILIZED_STONE);
         blocks.add(Blocks.SMOOTH_BASALT);
         blocks.add(Blocks.MOSS_BLOCK);
         blocks.add(Blocks.MOSSY_COBBLESTONE);

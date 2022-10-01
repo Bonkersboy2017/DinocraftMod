@@ -9,8 +9,7 @@
 	"BoatTypeMixin",
 	"ChestBoatDropsMixin",
 	"FoliagePlacerTypeInvoker",
-	"ModBiomeParameters",
-	"SignTypeAccessor",
+	"OverworldBiomeBuilderMixin",
 	"TrunkPlacerTypeInvoker",
 	"VanillaSurfaceRulesInjector"
   ],

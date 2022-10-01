@@ -1,12 +1,10 @@
 package net.frozenblock.api.minecraft.worldgen.features;
 
-import com.dinocrew.dinocraft.registry.ModBiomes;
-import com.dinocrew.dinocraft.registry.ModBlocks;
-import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
+import com.dinocrew.dinocraft.registry.RegisterBlocks;
+import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.frozenblock.registry.RegisterBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -41,7 +39,7 @@ public class BreakthroughPlants {
             "bt_liverworts",
             Feature.MULTIFACE_GROWTH,
             new MultifaceGrowthConfiguration(
-                    RegisterBlocks.LIVERWORTS,
+                    net.frozenblock.registry.RegisterBlocks.LIVERWORTS,
                     30,
                     true,
                     false,
@@ -49,8 +47,8 @@ public class BreakthroughPlants {
                     0.8F,
                     HolderSet.direct(
                             Block::builtInRegistryHolder,
-                            ModBlocks.DRAGONGRASS,
-                            ModBlocks.DRAGONWOOD_LOG,
+                            RegisterBlocks.DRAGONGRASS,
+                            RegisterBlocks.DRAGONWOOD_LOG,
                             Blocks.DIRT,
                             Blocks.STONE,
                             Blocks.ANDESITE,
@@ -76,13 +74,13 @@ public class BreakthroughPlants {
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "bt_fern"), BT_FERN);
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "bt_cycadophyta"), BT_CYCADOPHYTA);
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "bt_egg"), BT_EGG);
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_FERN_PLACED.unwrapKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_LIVERWORTS_PLACED.unwrapKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_CYCADOPHYTA_PLACED.unwrapKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_EGG_PLACED.unwrapKey().get());
     }
 
@@ -113,7 +111,7 @@ public class BreakthroughPlants {
 
         @Override
         public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
-            BreakthroughPlants.generate(context, RegisterBlocks.CYCADOPHYTA.defaultBlockState());
+            BreakthroughPlants.generate(context, net.frozenblock.registry.RegisterBlocks.CYCADOPHYTA.defaultBlockState());
             return true;
         }
 
@@ -124,7 +122,7 @@ public class BreakthroughPlants {
 
             @Override
             public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
-                BreakthroughPlants.generate(context, ModBlocks.INCUBATED_DINO_EGG.defaultBlockState());
+                BreakthroughPlants.generate(context, RegisterBlocks.INCUBATED_DINO_EGG.defaultBlockState());
                 return true;
             }
         }

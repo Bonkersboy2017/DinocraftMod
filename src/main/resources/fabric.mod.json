@@ -26,7 +26,7 @@
       "com.dinocrew.dinocraft.Dinocraft"
     ],
     "client": [
-      "com.dinocrew.dinocraft.client.DinocraftClient"
+      "com.dinocrew.dinocraft.DinocraftClient"
     ],
     "frozenlib:main": [
       "com.dinocrew.dinocraft.misc.FrozenLibIntegration"

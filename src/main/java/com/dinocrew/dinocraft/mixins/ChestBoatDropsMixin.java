@@ -1,7 +1,7 @@
 package com.dinocrew.dinocraft.mixins;
 
-import com.dinocrew.dinocraft.registry.ModItems;
-import com.dinocrew.dinocraft.registry.entities.DinoBoats;
+import com.dinocrew.dinocraft.registry.RegisterItems;
+import com.dinocrew.dinocraft.entity.DinoBoats;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 import net.minecraft.world.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,7 +17,7 @@ public class ChestBoatDropsMixin {
     @Inject(method = "getDropItem", at = @At("HEAD"), cancellable = true)
     public void getDropItem(CallbackInfoReturnable<Item> ci) {
         if (((ChestBoat) (Object) this).getBoatType() == DinoBoats.DRAGONWOOD) {
-            ci.setReturnValue(ModItems.DRAGONWOOD_CHEST_BOAT);
+            ci.setReturnValue(RegisterItems.DRAGONWOOD_CHEST_BOAT);
             ci.cancel();
         }
     }

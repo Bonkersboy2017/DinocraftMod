@@ -4,9 +4,9 @@ import com.dinocrew.dinocraft.mixins.FoliagePlacerTypeInvoker;
 import com.dinocrew.dinocraft.mixins.TrunkPlacerTypeInvoker;
 import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
-import com.dinocrew.dinocraft.registry.blocks.ModBlockEntityTypes;
-import com.dinocrew.dinocraft.registry.enchantments.EnchantmentRegistry;
-import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
+import com.dinocrew.dinocraft.block.ModBlockEntityTypes;
+import com.dinocrew.dinocraft.registry.RegisterEnchantments;
+import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
 import com.mojang.datafixers.schemas.Schema;
 import com.mojang.datafixers.util.Pair;
@@ -35,19 +35,17 @@ import org.slf4j.LoggerFactory;
 import java.nio.file.Path;
 import java.util.Objects;
 
-public class Dinocraft implements ModInitializer {
+public final class Dinocraft implements ModInitializer {
     public static final String MOD_ID = "dinocraft";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static final CreativeModeTab ITEM_GROUP = FabricItemGroupBuilder.build(id("general"), () -> new ItemStack(ModItems.FOSSIL));
-
-    public static ResourceLocation identify(String id) {
-        return new ResourceLocation(MOD_ID + ":" + id);
-    }
+    public static boolean DEV_LOGGING = false;
+    public static boolean UNSTABLE_LOGGING = FabricLoader.getInstance().isDevelopmentEnvironment(); //Used for features that may be unstable and crash in public builds - it's smart to use this for at least registries.
 
     public static boolean areConfigsInit = false;
 
     public static boolean hasCloth = FabricLoader.getInstance().isModLoaded("cloth-config");
 
+    public static final CreativeModeTab ITEM_GROUP = FabricItemGroupBuilder.build(id("general"), () -> new ItemStack(RegisterItems.FOSSIL));
     public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("dinocraft.json");
 
     public static final TrunkPlacerType<DragonWoodTrunkPlacer> DRAGONWOOD_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("dragonwood_trunk_placer", DragonWoodTrunkPlacer.CODEC);
@@ -59,18 +57,17 @@ public class Dinocraft implements ModInitializer {
         net.frozenblock.Main.runner(MOD_ID); // Run FrozenBlock stuff
 
 
-        ModItems.registerAll();
-        ModBlocks.registerAll();
-        ModEntities.registerAll();
-        EnchantmentRegistry.init();
-        ModSpawns.registerAll();
-        ModFeatures.registerAll();
-        ModBiomes.registerBiomes();
+        RegisterItems.registerAll();
+        RegisterBlocks.registerAll();
+        RegisterEntities.registerAll();
+        RegisterEnchantments.init();
+        RegisterSpawns.registerAll();
+        RegisterFeatures.registerAll();
+        RegisterWorldgen.registerWorldgen();
         ModScreenHandlerTypes.initialize();
         ModRecipeSerializer.initialize();
         ModBlockEntityTypes.initialize();
         RegisterSounds.init();
-        RegisterWorldgen.initialize();
 
 
     }
@@ -85,7 +82,7 @@ public class Dinocraft implements ModInitializer {
         builder.addFixer(new SimpleEntityRenameFix("EntityTyrannosaurusFix", schemaV1, true) {
             @Override
             protected Pair<String, Dynamic<?>> getNewNameAndTag(String name, Dynamic<?> tag) {
-                return Pair.of(Objects.equals(name, id("trex").toString()) ? id("tyrannosaurus").toString() : name, tag);
+                return Pair.of(Objects.equals(name, identify("trex")) ? identify("tyrannosaurus") : name, tag);
             }
         });
 
@@ -142,6 +139,10 @@ public class Dinocraft implements ModInitializer {
 
     public static ResourceLocation id(String path) {
         return new ResourceLocation(MOD_ID, path);
+    }
+
+    public static String identify(String id) {
+        return MOD_ID + ":" + id;
     }
 }
 

@@ -1,7 +1,7 @@
 package com.dinocrew.dinocraft.screen;
 
 import com.dinocrew.dinocraft.recipe.DinoBenchRecipe;
-import com.dinocrew.dinocraft.registry.ModBlocks;
+import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -31,7 +31,7 @@ public class DinoBenchScreenHandler extends ItemCombinerMenu {
     }
 
     protected boolean isValidBlock(BlockState state) {
-        return state.is(ModBlocks.DINOBENCH);
+        return state.is(RegisterBlocks.DINOBENCH);
     }
 
     protected boolean mayPickup(Player player, boolean present) {

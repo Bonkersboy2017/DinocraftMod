@@ -1,7 +1,6 @@
 package net.frozenblock.registry;
 
-import com.dinocrew.dinocraft.registry.ModBiomes;
-import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
+import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.frozenblock.api.minecraft.worldgen.features.BreakthoughRock;
@@ -42,9 +41,9 @@ public class RegisterConfiguredFeatures {
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "breakthrough_stone"), BT_STONE);
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "breakthrough_rock"), BT_ROCK);
 
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_STONE_PLACED.unwrapKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_ROCK_PLACED.unwrapKey().get());
 
         BreakthroughPlants.registerAll(modid);

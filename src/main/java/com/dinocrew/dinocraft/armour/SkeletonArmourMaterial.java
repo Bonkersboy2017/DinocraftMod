@@ -1,6 +1,6 @@
 package com.dinocrew.dinocraft.armour;
 
-import com.dinocrew.dinocraft.registry.ModItems;
+import com.dinocrew.dinocraft.registry.RegisterItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -36,7 +36,7 @@ public class SkeletonArmourMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(ModItems.BARYONYX_SKULL);
+        return Ingredient.of(RegisterItems.BARYONYX_SKULL);
     }
 
     @Override
