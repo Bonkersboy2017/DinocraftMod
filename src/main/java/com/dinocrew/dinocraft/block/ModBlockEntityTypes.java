@@ -17,7 +17,7 @@ public class ModBlockEntityTypes {
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> create(String id, BlockEntityType<T> blockEntityType) {
-        return Registry.register(Registry.BLOCK_ENTITY_TYPE, Dinocraft.identify(id), blockEntityType);
+        return Registry.register(Registry.BLOCK_ENTITY_TYPE, Dinocraft.id(id), blockEntityType);
 
 
     }

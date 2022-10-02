@@ -8,9 +8,7 @@
 	"BoatDropsMixin",
 	"BoatTypeMixin",
 	"ChestBoatDropsMixin",
-	"FoliagePlacerTypeInvoker",
 	"OverworldBiomeBuilderMixin",
-	"TrunkPlacerTypeInvoker",
 	"VanillaSurfaceRulesInjector"
   ],
   "client": [

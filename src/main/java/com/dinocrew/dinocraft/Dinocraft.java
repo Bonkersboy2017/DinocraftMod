@@ -1,7 +1,5 @@
 package com.dinocrew.dinocraft;
 
-import com.dinocrew.dinocraft.mixin.FoliagePlacerTypeInvoker;
-import com.dinocrew.dinocraft.mixin.TrunkPlacerTypeInvoker;
 import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.block.ModBlockEntityTypes;
@@ -10,6 +8,7 @@ import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
 import com.mojang.datafixers.schemas.Schema;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.Dynamic;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -18,6 +17,7 @@ import net.fabricmc.loader.api.ModContainer;
 import net.frozenblock.api.minecraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
 import net.frozenblock.api.minecraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.datafix.fixes.SimpleEntityRenameFix;
 import net.minecraft.util.datafix.schemas.NamespacedSchema;
@@ -25,7 +25,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixerBuilder;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixes;
@@ -48,8 +50,8 @@ public final class Dinocraft implements ModInitializer {
     public static final CreativeModeTab ITEM_GROUP = FabricItemGroupBuilder.build(id("general"), () -> new ItemStack(RegisterItems.FOSSIL));
     public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("dinocraft.json");
 
-    public static final TrunkPlacerType<DragonWoodTrunkPlacer> DRAGONWOOD_TRUNK_PLACER = TrunkPlacerTypeInvoker.callRegister("dragonwood_trunk_placer", DragonWoodTrunkPlacer.CODEC);
-    public static final FoliagePlacerType<DragonWoodFoliagePlacer> DRAGONWOOD_FOLIAGE_PLACER = FoliagePlacerTypeInvoker.callRegister("rich_foliage_placer", DragonWoodFoliagePlacer.CODEC);
+    public static final TrunkPlacerType<DragonWoodTrunkPlacer> DRAGONWOOD_TRUNK_PLACER = registerTrunk("dragonwood_trunk_placer", DragonWoodTrunkPlacer.CODEC);
+    public static final FoliagePlacerType<DragonWoodFoliagePlacer> DRAGONWOOD_FOLIAGE_PLACER = registerFoliage("rich_foliage_placer", DragonWoodFoliagePlacer.CODEC);
 
     @Override
     public void onInitialize() {
@@ -143,6 +145,14 @@ public final class Dinocraft implements ModInitializer {
 
     public static String identify(String id) {
         return MOD_ID + ":" + id;
+    }
+
+    public static <P extends TrunkPlacer> TrunkPlacerType<P> registerTrunk(String path, Codec<P> codec) {
+        return Registry.register(Registry.TRUNK_PLACER_TYPES, id(path), new TrunkPlacerType<>(codec));
+    }
+
+    public static <P extends FoliagePlacer> FoliagePlacerType<P> registerFoliage(String path, Codec<P> codec) {
+        return Registry.register(Registry.FOLIAGE_PLACER_TYPES, id(path), new FoliagePlacerType<>(codec));
     }
 }
 
