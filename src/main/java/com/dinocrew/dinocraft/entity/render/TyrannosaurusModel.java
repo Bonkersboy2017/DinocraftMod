@@ -128,9 +128,9 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
         this.right_arm.xRot = trueCosAnim;
         this.left_arm.xRot = trueSinAnim;
 
-        this.animate(dino.attackAnimationState, TyrannosaurusAnimation.ATTACK, ageInTicks);
-        this.animate(dino.roarAnimationState, TyrannosaurusAnimation.ROAR, ageInTicks);
-        this.animate(dino.sniffAnimationState, TyrannosaurusAnimation.SNIFF, ageInTicks);
+        //this.animate(dino.attackAnimationState, TyrannosaurusAnimation.ATTACK, ageInTicks);
+        //this.animate(dino.roarAnimationState, TyrannosaurusAnimation.ROAR, ageInTicks);
+        //this.animate(dino.sniffAnimationState, TyrannosaurusAnimation.SNIFF, ageInTicks);
 
         //previously the render function, render code was moved to a method below
     }
