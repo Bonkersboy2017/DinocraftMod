@@ -1,5 +1,6 @@
 package net.frozenblock.registry;
 
+import com.dinocrew.dinocraft.registry.RegisterFeatures;
 import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -24,16 +25,16 @@ public class RegisterConfiguredFeatures {
     public static final BreakthroughStones BT_STONE = new BreakthroughStones(ProbabilityFeatureConfiguration.CODEC);
     public static final BreakthoughRock BT_ROCK = new BreakthoughRock(ProbabilityFeatureConfiguration.CODEC);
 
-    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_STONE_CONFIGURED = FeatureUtils.register("bt_stones",
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_STONE_CONFIGURED = RegisterFeatures.registerConfigured("bt_stones",
             BT_STONE, new ProbabilityFeatureConfiguration(0.8F));
 
-    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_ROCK_CONFIGURED = FeatureUtils.register("bt_rock",
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_ROCK_CONFIGURED = RegisterFeatures.registerConfigured("bt_rock",
             BT_ROCK, new ProbabilityFeatureConfiguration(0.8F));
 
-    public static final Holder<PlacedFeature> BT_STONE_PLACED = PlacementUtils.register("bt_stones_placed",
+    public static final Holder<PlacedFeature> BT_STONE_PLACED = RegisterFeatures.registerPlaced("bt_stones_placed",
             BT_STONE_CONFIGURED, RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(),
             PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-    public static final Holder<PlacedFeature> BT_ROCK_PLACED = PlacementUtils.register("bt_rock_placed",
+    public static final Holder<PlacedFeature> BT_ROCK_PLACED = RegisterFeatures.registerPlaced("bt_rock_placed",
             BT_ROCK_CONFIGURED, RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(),
             PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
@@ -42,9 +43,9 @@ public class RegisterConfiguredFeatures {
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "breakthrough_rock"), BT_ROCK);
 
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_STONE_PLACED.unwrapKey().get());
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_STONE_PLACED.unwrapKey().orElseThrow());
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_ROCK_PLACED.unwrapKey().get());
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_ROCK_PLACED.unwrapKey().orElseThrow());
 
         BreakthroughPlants.registerAll(modid);
 

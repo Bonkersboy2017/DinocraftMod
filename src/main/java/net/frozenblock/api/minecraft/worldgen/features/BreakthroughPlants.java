@@ -1,6 +1,7 @@
 package net.frozenblock.api.minecraft.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.RegisterBlocks;
+import com.dinocrew.dinocraft.registry.RegisterFeatures;
 import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import com.mojang.serialization.Codec;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -9,7 +10,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.WorldGenLevel;
@@ -34,8 +34,8 @@ public class BreakthroughPlants {
     public static final CycadophytaFeature BT_CYCADOPHYTA = new CycadophytaFeature(ProbabilityFeatureConfiguration.CODEC);
     public static final CycadophytaFeature.EggFeature BT_EGG = new CycadophytaFeature.EggFeature(ProbabilityFeatureConfiguration.CODEC);
 
-    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_FERN_CONFIGURED = FeatureUtils.register("bt_fern", BT_FERN, new ProbabilityFeatureConfiguration(0.1F));
-    public static final Holder<ConfiguredFeature<MultifaceGrowthConfiguration, ?>> BT_LIVERWORTS_CONFIGURED = FeatureUtils.register(
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_FERN_CONFIGURED = RegisterFeatures.registerConfigured("bt_fern", BT_FERN, new ProbabilityFeatureConfiguration(0.1F));
+    public static final Holder<ConfiguredFeature<MultifaceGrowthConfiguration, ?>> BT_LIVERWORTS_CONFIGURED = RegisterFeatures.registerConfigured(
             "bt_liverworts",
             Feature.MULTIFACE_GROWTH,
             new MultifaceGrowthConfiguration(
@@ -61,13 +61,21 @@ public class BreakthroughPlants {
                     )
             )
     );
-    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_CYCADOPHYTA_CONFIGURED = FeatureUtils.register("bt_cycadophyta", BT_CYCADOPHYTA, new ProbabilityFeatureConfiguration(0.1F));
-    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_EGG_CONFIGURED = FeatureUtils.register("bt_egg", BT_EGG, new ProbabilityFeatureConfiguration(0.1F));
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_CYCADOPHYTA_CONFIGURED = RegisterFeatures.registerConfigured("bt_cycadophyta", BT_CYCADOPHYTA, new ProbabilityFeatureConfiguration(0.1F));
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_EGG_CONFIGURED = RegisterFeatures.registerConfigured("bt_egg",
+            BT_EGG,
+            new ProbabilityFeatureConfiguration(0.1F));
 
-    public static final Holder<PlacedFeature> BT_FERN_PLACED = PlacementUtils.register("bt_fern_placed", BT_FERN_CONFIGURED, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-    public static final Holder<PlacedFeature> BT_LIVERWORTS_PLACED = PlacementUtils.register("bt_liverworts_placed", BT_LIVERWORTS_CONFIGURED, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-    public static final Holder<PlacedFeature> BT_CYCADOPHYTA_PLACED = PlacementUtils.register("bt_cycadophyta_placed", BT_CYCADOPHYTA_CONFIGURED, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-    public static final Holder<PlacedFeature> BT_EGG_PLACED = PlacementUtils.register("bt_egg_placed", BT_EGG_CONFIGURED, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> BT_FERN_PLACED = RegisterFeatures.registerPlaced("bt_fern_placed", BT_FERN_CONFIGURED, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> BT_LIVERWORTS_PLACED = RegisterFeatures.registerPlaced("bt_liverworts_placed", BT_LIVERWORTS_CONFIGURED, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> BT_CYCADOPHYTA_PLACED = RegisterFeatures.registerPlaced("bt_cycadophyta_placed", BT_CYCADOPHYTA_CONFIGURED, RarityFilter.onAverageOnceEvery(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> BT_EGG_PLACED = RegisterFeatures.registerPlaced("bt_egg_placed",
+            BT_EGG_CONFIGURED,
+            RarityFilter.onAverageOnceEvery(1),
+            InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP,
+            BiomeFilter.biome()
+    );
 
 
     public static void registerAll(String modid) {
@@ -75,13 +83,13 @@ public class BreakthroughPlants {
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "bt_cycadophyta"), BT_CYCADOPHYTA);
         Registry.register(Registry.FEATURE, new ResourceLocation(modid, "bt_egg"), BT_EGG);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_FERN_PLACED.unwrapKey().get());
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_FERN_PLACED.unwrapKey().orElseThrow());
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_LIVERWORTS_PLACED.unwrapKey().get());
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_LIVERWORTS_PLACED.unwrapKey().orElseThrow());
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_CYCADOPHYTA_PLACED.unwrapKey().get());
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_CYCADOPHYTA_PLACED.unwrapKey().orElseThrow());
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_EGG_PLACED.unwrapKey().get());
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_EGG_PLACED.unwrapKey().orElseThrow());
     }
 
     private static void generate(FeaturePlaceContext<ProbabilityFeatureConfiguration> context, BlockState state) {

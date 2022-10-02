@@ -19,71 +19,75 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
+import java.util.List;
 
 public final class RegisterFeatures {
-    private static final ConfiguredFeature<?, ?> OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE = new ConfiguredFeature<>
-            (Feature.ORE, new OreConfiguration(
+    private static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_SKELETON_CONFIGURED = registerConfigured("ore_skeleton",
+            Feature.ORE, new OreConfiguration(
                     OreFeatures.STONE_ORE_REPLACEABLES,
                     RegisterBlocks.SKELETON_ORE.defaultBlockState(),
-                    9)); // vein size
+                    9) // vein size
+    );
 
-    public static PlacedFeature OVERWORLD_SKELETON_ORE_PLACED_FEATURE = new PlacedFeature(
-            Holder.direct(OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE),
-            Arrays.asList(
-                    CountPlacement.of(20), // number of veins per chunk
-                    InSquarePlacement.spread(), // spreading horizontally
-                    HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))));
+    public static Holder<PlacedFeature> ORE_SKELETON_PLACED = registerPlaced("ore_skeleton",
+            ORE_SKELETON_CONFIGURED,
+            CountPlacement.of(20), // number of veins per chunk
+            InSquarePlacement.spread(), // spreading horizontally
+            HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))
+    );
 
-    private static final ConfiguredFeature<?, ?> OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE = new ConfiguredFeature<>
-            (Feature.ORE, new OreConfiguration(
+    private static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_BRONZIUM_CONFIGURED = registerConfigured("ore_bronzium",
+            Feature.ORE, new OreConfiguration(
                     OreFeatures.STONE_ORE_REPLACEABLES,
                     RegisterBlocks.BRONZIUM_ORE.defaultBlockState(),
-                    9)); // vein size
+                    9) // vein size
+    );
 
-    public static PlacedFeature OVERWORLD_BRONZIUM_ORE_PLACED_FEATURE = new PlacedFeature(
-            Holder.direct(OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE),
-            Arrays.asList(
-                    CountPlacement.of(20), // number of veins per chunk
-                    InSquarePlacement.spread(), // spreading horizontally
-                    HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))));
+    public static Holder<PlacedFeature> ORE_BRONZIUM_PLACED = registerPlaced("ore_bronzium",
+            ORE_BRONZIUM_CONFIGURED,
+            CountPlacement.of(20), // number of veins per chunk
+            InSquarePlacement.spread(), // spreading horizontally
+            HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))
+    );
 
-    private static final ConfiguredFeature<?, ?> OVERWORLD_FOSSILISED_STONE_CONFIGURED_FEATURE = new ConfiguredFeature<>
-            (Feature.ORE, new OreConfiguration(
+    private static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_FOSSILIZED_STONE_CONFIGURED = registerConfigured("ore_fossilized_stone",
+            Feature.ORE, new OreConfiguration(
                     OreFeatures.STONE_ORE_REPLACEABLES,
                     RegisterBlocks.FOSSILIZED_STONE.defaultBlockState(),
-                    9)); // vein size
+                    9) // vein size
+    );
 
-    public static PlacedFeature OVERWORLD_FOSSILISED_STONE_PLACED_FEATURE = new PlacedFeature(
-            Holder.direct(OVERWORLD_FOSSILISED_STONE_CONFIGURED_FEATURE),
-            Arrays.asList(
-                    CountPlacement.of(20), // number of veins per chunk
-                    InSquarePlacement.spread(), // spreading horizontally
-                    HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))));
+    public static Holder<PlacedFeature> ORE_FOSSILIZED_STONE_PLACED = registerPlaced("ore_fossilized_stone",
+            ORE_FOSSILIZED_STONE_CONFIGURED,
+            CountPlacement.of(20), // number of veins per chunk
+            InSquarePlacement.spread(), // spreading horizontally
+            HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))
+    );
 
-    private static final ConfiguredFeature<?, ?> OVERWORLD_AMBER_ORE_CONFIGURED_FEATURE = new ConfiguredFeature<>
-            (Feature.ORE, new OreConfiguration(
+    private static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_AMBER_CONFIGURED = registerConfigured("ore_amber",
+            Feature.ORE, new OreConfiguration(
                     OreFeatures.STONE_ORE_REPLACEABLES,
                     RegisterBlocks.AMBER_ORE.defaultBlockState(),
-                    9)); // vein size
+                    9) // vein size
+    );
 
-    public static PlacedFeature OVERWORLD_AMBER_ORE_PLACED_FEATURE = new PlacedFeature(
-            Holder.direct(OVERWORLD_AMBER_ORE_CONFIGURED_FEATURE),
-            Arrays.asList(
-                    CountPlacement.of(20), // number of veins per chunk
-                    InSquarePlacement.spread(), // spreading horizontally
-                    HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))));
+    public static Holder<PlacedFeature> ORE_AMBER_PLACED = registerPlaced("ore_amber",
+            ORE_AMBER_CONFIGURED,
+            CountPlacement.of(20), // number of veins per chunk
+            InSquarePlacement.spread(), // spreading horizontally
+            HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64))
+    );
 
-    public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> DRAGONWOOD = FeatureUtils.register(
+    public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> DRAGONWOOD = registerConfigured(
             "dragonwood",
             Feature.TREE,
             new TreeConfiguration.TreeConfigurationBuilder(
@@ -92,12 +96,10 @@ public final class RegisterFeatures {
                     BlockStateProvider.simple(RegisterBlocks.DRAGONWOOD_LEAVES),
                     new DragonWoodFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0)),
                     new TwoLayersFeatureSize(1, 0, 2)
-            )
-                    .ignoreVines()
-                    .build()
+            ).ignoreVines().build()
     );
 
-    public static final Holder<PlacedFeature> TREES_DRAGONWOOD = PlacementUtils.register(
+    public static final Holder<PlacedFeature> TREES_DRAGONWOOD = registerPlaced(
             "trees_dragonwood",
             DRAGONWOOD,
             VegetationPlacements.treePlacement(
@@ -110,15 +112,25 @@ public final class RegisterFeatures {
 
 
     public static void registerAll() {
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, Dinocraft.id("overworld_skeleton_ore"), OVERWORLD_SKELETON_ORE_PLACED_FEATURE);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, Dinocraft.id("overworld_skeleton_ore")));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, Dinocraft.id("overworld_bronzium_ore"), OVERWORLD_BRONZIUM_ORE_CONFIGURED_FEATURE);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, Dinocraft.id("overworld_bronzium_ore"), OVERWORLD_BRONZIUM_ORE_PLACED_FEATURE);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, Dinocraft.id("overworld_bronzium_ore")));
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, Dinocraft.id("overworld_fossilised_stone"), OVERWORLD_FOSSILISED_STONE_PLACED_FEATURE);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, Dinocraft.id("overworld_fossilised_stone")));
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ORE_SKELETON_PLACED.unwrapKey().orElseThrow());
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ORE_BRONZIUM_PLACED.unwrapKey().orElseThrow());
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ORE_FOSSILIZED_STONE_PLACED.unwrapKey().orElseThrow());
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ORE_AMBER_PLACED.unwrapKey().orElseThrow());
+    }
 
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, Dinocraft.id("overworld_amber_ore"), OVERWORLD_AMBER_ORE_PLACED_FEATURE);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, Dinocraft.id("overworld_amber_ore")));
+    public static Holder<PlacedFeature> registerPlaced(@NotNull String id, Holder<? extends ConfiguredFeature<?, ?>> registryEntry, @NotNull List<PlacementModifier> modifiers) {
+        return BuiltinRegistries.register(BuiltinRegistries.PLACED_FEATURE, Dinocraft.id(id), new PlacedFeature(Holder.hackyErase(registryEntry), List.copyOf(modifiers)));
+    }
+
+    public static Holder<PlacedFeature> registerPlaced(@NotNull String id, Holder<? extends ConfiguredFeature<?, ?>> registryEntry, @NotNull PlacementModifier... modifiers) {
+        return registerPlaced(id, registryEntry, List.of(modifiers));
+    }
+
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> registerConfigured(@NotNull String id, F feature, @NotNull FC config) {
+        return registerExact(BuiltinRegistries.CONFIGURED_FEATURE, id, new ConfiguredFeature<>(feature, config));
+    }
+
+    public static <V extends T, T> Holder<V> registerExact(Registry<T> registry, String id, V value) {
+        return (Holder<V>) BuiltinRegistries.register(registry, Dinocraft.id(id), value);
     }
 }
