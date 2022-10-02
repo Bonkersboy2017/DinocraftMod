@@ -3,8 +3,9 @@
 // Made with Blockbench 4.2.2
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
-package com.dinocrew.dinocraft.entity;
+package com.dinocrew.dinocraft.entity.render;
 
+import com.dinocrew.dinocraft.entity.Scorpius;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.frozenblock.api.math.AnimationAPI;

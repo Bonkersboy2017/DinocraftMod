@@ -31,6 +31,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixerBuilder;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixes;
+import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.SimpleFixes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -87,6 +88,8 @@ public final class Dinocraft implements ModInitializer {
                 return Pair.of(Objects.equals(name, identify("trex")) ? identify("tyrannosaurus") : name, tag);
             }
         });
+        //Schema schemaV2 = builder.addSchema(2, NamespacedSchema::new);
+        //SimpleFixes.addItemRenameFix(builder, "Rename trex_spawn_egg to tyrannosaurus_spawn_egg", id("trex_spawn_egg"), id("tyrannosaurus_spawn_egg"), schemaV2);
 
         QuiltDataFixes.buildAndRegisterFixer(mod, builder);
         log("DataFixes for Dinocraft have been applied", true);

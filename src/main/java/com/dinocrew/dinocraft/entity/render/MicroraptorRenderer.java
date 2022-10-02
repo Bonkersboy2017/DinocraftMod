@@ -1,7 +1,8 @@
-package com.dinocrew.dinocraft.entity;
+package com.dinocrew.dinocraft.entity.render;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.DinocraftClient;
+import com.dinocrew.dinocraft.entity.Microraptor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

@@ -46,7 +46,7 @@ public final class RegisterItems {
     public static final Item DEINONYCHUS_SPAWN_EGG = new SpawnEggItem(RegisterEntities.DEINONYCHUS, 167475200, 16753920, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item PROFESSOR_SPAWN_EGG = new SpawnEggItem(RegisterEntities.PROFESSOR, 0xFFFFFF, 0x808080, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item SCORPIUS_SPAWN_EGG = new SpawnEggItem(RegisterEntities.SCORPIUS, 0x808080, 0xFFFF00, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
-    public static final Item TREX_SPAWN_EGG = new SpawnEggItem(RegisterEntities.TYRANNOSAURUS, 0xC8AE7E, 0xD1C0A8, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
+    public static final Item TYRANNOSAURUS_SPAWN_EGG = new SpawnEggItem(RegisterEntities.TYRANNOSAURUS, 0xC8AE7E, 0xD1C0A8, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item DINOSTEEL_INGOT = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item SHARD_OF_ENLIGHTENMENT = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP).rarity(Rarity.EPIC));
     public static final Item TROPICAL_BERRIES = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP).food(RegisterFood.TROPICAL_BERRIES));
@@ -125,7 +125,7 @@ public final class RegisterItems {
         Registry.register(Registry.ITEM, Dinocraft.id("deinonychus_spawn_egg"), DEINONYCHUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("professor_spawn_egg"), PROFESSOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("scorpius_spawn_egg"), SCORPIUS_SPAWN_EGG);
-        Registry.register(Registry.ITEM, Dinocraft.id("trex_spawn_egg"), TREX_SPAWN_EGG);
+        Registry.register(Registry.ITEM, Dinocraft.id("trex_spawn_egg"), TYRANNOSAURUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("time_flint"), TIME_FLINT);
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_core"), ENLIGHTENED_CORE);
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_necklace"), ENLIGHTENED_NECKLACE);

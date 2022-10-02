@@ -1,9 +1,9 @@
 package com.dinocrew.dinocraft;
 
 import com.dinocrew.dinocraft.client.screen.DinoBenchScreen;
+import com.dinocrew.dinocraft.entity.render.*;
 import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.dinocrew.dinocraft.registry.RegisterEntities;
-import com.dinocrew.dinocraft.entity.*;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;

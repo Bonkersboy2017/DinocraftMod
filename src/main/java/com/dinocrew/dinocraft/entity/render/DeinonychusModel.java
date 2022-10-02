@@ -1,5 +1,6 @@
-package com.dinocrew.dinocraft.entity;
+package com.dinocrew.dinocraft.entity.render;
 
+import com.dinocrew.dinocraft.entity.Deinonychus;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;

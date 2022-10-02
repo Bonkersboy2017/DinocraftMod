@@ -4,8 +4,9 @@
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-package com.dinocrew.dinocraft.entity;
+package com.dinocrew.dinocraft.entity.render;
 
+import com.dinocrew.dinocraft.entity.Microraptor;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.fabricmc.api.EnvType;

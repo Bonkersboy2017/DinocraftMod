@@ -3,8 +3,9 @@
 // Made with Blockbench 4.0.1
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
-package com.dinocrew.dinocraft.entity;
+package com.dinocrew.dinocraft.entity.render;
 
+import com.dinocrew.dinocraft.entity.Mosasaurus;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.HierarchicalModel;

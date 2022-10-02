@@ -1,7 +1,8 @@
-package com.dinocrew.dinocraft.entity;
+package com.dinocrew.dinocraft.entity.render;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.DinocraftClient;
+import com.dinocrew.dinocraft.entity.Professor;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
