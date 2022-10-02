@@ -62,9 +62,9 @@ public class TyrannosaurusVibrationListener extends VibrationListener {
                     Vec3 vec32 = optional.get();
                     if (!this.config.shouldListen(level, this, new BlockPos(vec3), gameEvent, context)) {
                         return false;
-                    } else if (isOccluded(level, vec3, vec32)) {
+                    /*} else if (isOccluded(level, vec3, vec32)) {
                         return false;
-                    } else {
+                    */} else {
                         this.scheduleSignal(level, gameEvent, context, vec3, vec32);
                         return true;
                     }

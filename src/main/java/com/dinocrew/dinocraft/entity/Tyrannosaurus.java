@@ -17,6 +17,9 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.GameEventTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Unit;
 import net.minecraft.world.damagesource.DamageSource;
@@ -304,7 +307,12 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
 
     @Override
     public boolean canTriggerAvoidVibration() {
-        return true;
+        return false;
+    }
+
+    @Override
+    public TagKey<GameEvent> getListenableEvents() {
+        return GameEventTags.WARDEN_CAN_LISTEN;
     }
 
     @Override
@@ -364,6 +372,30 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
                 if (projectileOwner != null || optional.isEmpty() || optional.get() == sourceEntity) {
                     TyrannosaurusAi.setDisturbanceLocation(this, blockPos);
                 }
+            }
+        }
+    }
+
+    @Override
+    public boolean isValidVibration(GameEvent gameEvent, GameEvent.Context context) {
+        if (!gameEvent.is(this.getListenableEvents())) {
+            return false;
+        } else {
+            Entity entity = context.sourceEntity();
+            if (entity != null) {
+                if (entity.isSpectator()) {
+                    return false;
+                }
+
+                if (entity.dampensVibrations()) {
+                    return false;
+                }
+            }
+
+            if (context.affectedState() != null) {
+                return !context.affectedState().is(BlockTags.DAMPENS_VIBRATIONS);
+            } else {
+                return true;
             }
         }
     }
