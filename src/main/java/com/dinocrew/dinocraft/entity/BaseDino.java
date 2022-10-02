@@ -61,7 +61,7 @@ public class BaseDino extends TamableAnimal {
     public static AttributeSupplier.Builder createDinoAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 16.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.3F)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.7)
                 .add(Attributes.ATTACK_KNOCKBACK, 1.5)
                 .add(Attributes.ATTACK_DAMAGE, 5.0);

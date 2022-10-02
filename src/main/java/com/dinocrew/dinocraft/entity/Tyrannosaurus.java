@@ -83,7 +83,8 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
 
     public static AttributeSupplier.Builder createDinoAttributes() {
         return BaseDino.createDinoAttributes()
-                .add(Attributes.MAX_HEALTH, 32.0);
+                .add(Attributes.MAX_HEALTH, 32.0)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
     }
 
     @Override
@@ -152,7 +153,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     }
 
     public void increaseAngerAt(@Nullable Entity entity) {
-        this.increaseAngerAt(entity, 35, true);
+        this.increaseAngerAt(entity, 5, true);
     }
 
     @VisibleForTesting
@@ -344,7 +345,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     @Override
     public void onSignalReceive(ServerLevel level, GameEventListener listener, BlockPos sourcePos, GameEvent gameEvent, @Nullable Entity sourceEntity, @Nullable Entity projectileOwner, float distance) {
         if (!this.isDeadOrDying()) {
-            this.brain.setMemoryWithExpiry(MemoryModuleType.VIBRATION_COOLDOWN, Unit.INSTANCE, 40L);
+            this.brain.setMemoryWithExpiry(MemoryModuleType.VIBRATION_COOLDOWN, Unit.INSTANCE, 2L);
             level.broadcastEntityEvent(this, (byte) 61);
             //this.playSound(RegisterSounds.TYRANNOSAURUS_SOUND_RECEIVE, 3.5F, this.getVoicePitch());
             this.playSound(SoundEvents.WARDEN_TENDRIL_CLICKS, 3.5F, this.getVoicePitch());
@@ -358,7 +359,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
 
                         this.increaseAngerAt(projectileOwner);
                     } else {
-                        this.increaseAngerAt(projectileOwner, 10, true);
+                        this.increaseAngerAt(projectileOwner, 3, true);
                     }
                 }
 
