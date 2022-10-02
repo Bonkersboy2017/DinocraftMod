@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 
 
-public class RegisterBlocks {
+public final class RegisterBlocks {
     public static final FabricBlockSettings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS);
 
     public static final DropExperienceBlock SKELETON_ORE = new DropExperienceBlock(FabricBlockSettings.of(Material.STONE).strength(4f, 26.0f).sound(SoundType.STONE));
@@ -65,6 +65,9 @@ public class RegisterBlocks {
     public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
     public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
     public static final DragonwoodSaplingBlock DRAGONWOOD_SAPLING = new DragonwoodSaplingBlock(new DragonwoodSaplingGenerator(RegisterFeatures.DRAGONWOOD), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
+
+    private RegisterBlocks() {
+    }
 
 
     public static void registerAll() {

@@ -31,6 +31,9 @@
     "frozenlib:main": [
       "com.dinocrew.dinocraft.misc.FrozenLibIntegration"
     ],
+    "frozenlib:events": [
+      "com.dinocrew.dinocraft.registry.RegisterWorldgen"
+    ],
     "modmenu": [
       "com.dinocrew.dinocraft.misc.config.ModMenuIntegration"
     ]

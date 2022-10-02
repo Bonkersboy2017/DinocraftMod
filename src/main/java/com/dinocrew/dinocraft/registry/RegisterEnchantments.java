@@ -6,7 +6,7 @@ import com.dinocrew.dinocraft.enchantment.DinoEnchantment;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.enchantment.Enchantment;
 
-public class RegisterEnchantments {
+public final class RegisterEnchantments {
 
     public static final Enchantment BRAVERY = Registry.register(
             Registry.ENCHANTMENT,
@@ -20,6 +20,9 @@ public class RegisterEnchantments {
             new DinoEnchantment()
 
     );
+
+    private RegisterEnchantments() {
+    }
 
     public static void init() {
 

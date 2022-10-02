@@ -10,7 +10,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-public class RegisterEntities {
+public final class RegisterEntities {
     public static final EntityType<Sauropod> SAUROPOD = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("sauropod"), FabricEntityTypeBuilder.createMob().entityFactory(Sauropod::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Sauropod::createDinoAttributes).dimensions(EntityDimensions.fixed(2F, 3F)).build());
     public static final EntityType<Theropod> THEROPOD = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("theropod"), FabricEntityTypeBuilder.createMob().entityFactory(Theropod::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Theropod::createDinoAttributes).dimensions(EntityDimensions.fixed(1.8F, 2.3F)).build());
     public static final EntityType<Troodon> TROODON = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("troodon"), FabricEntityTypeBuilder.createMob().entityFactory(Troodon::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Troodon::createDinoAttributes).dimensions(EntityDimensions.fixed(1.5F, 2.0F)).build());
@@ -22,6 +22,9 @@ public class RegisterEntities {
     public static final EntityType<Professor> PROFESSOR = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("professor"), FabricEntityTypeBuilder.createMob().entityFactory(Professor::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Professor::createMobAttributes).dimensions(EntityDimensions.fixed(0.6F, 1.8F)).trackedUpdateRate(2).build());
     public static final EntityType<Scorpius> SCORPIUS = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("scorpius"), FabricEntityTypeBuilder.createMob().entityFactory(Scorpius::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Scorpius::createDinoAttributes).dimensions(EntityDimensions.fixed(2.0F, 2.3F)).build());
     public static final EntityType<Tyrannosaurus> TYRANNOSAURUS = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("tyrannosaurus"), FabricEntityTypeBuilder.createMob().entityFactory(Tyrannosaurus::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Tyrannosaurus::createDinoAttributes).dimensions(EntityDimensions.fixed(2.8F, 2.6F)).build());
+
+    private RegisterEntities() {
+    }
 
     public static void registerAll() {
         Dinocraft.logDino("Registering Entities for", Dinocraft.UNSTABLE_LOGGING);

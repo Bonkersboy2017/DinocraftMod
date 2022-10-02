@@ -5,7 +5,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 
-public class RegisterSounds {
+public final class RegisterSounds {
 
     //ENTITIES
     public static final SoundEvent BIGDINO_HIT = register("bigdino_hit");
@@ -25,6 +25,9 @@ public class RegisterSounds {
     //BIOME
 
     public static final SoundEvent MUSIC_BREAKTHROUGH = register("music_breakthrough");
+
+    private RegisterSounds() {
+    }
 
 
     private static SoundEvent register(String path) {

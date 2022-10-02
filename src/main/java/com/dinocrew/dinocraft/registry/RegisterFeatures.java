@@ -30,7 +30,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.Arrays;
 
-public class RegisterFeatures {
+public final class RegisterFeatures {
     private static final ConfiguredFeature<?, ?> OVERWORLD_SKELETON_ORE_CONFIGURED_FEATURE = new ConfiguredFeature<>
             (Feature.ORE, new OreConfiguration(
                     OreFeatures.STONE_ORE_REPLACEABLES,
@@ -104,6 +104,9 @@ public class RegisterFeatures {
                     PlacementUtils.countExtra(1, 0.1f, 1),
                     Blocks.OAK_SAPLING)
     );
+
+    private RegisterFeatures() {
+    }
 
 
     public static void registerAll() {

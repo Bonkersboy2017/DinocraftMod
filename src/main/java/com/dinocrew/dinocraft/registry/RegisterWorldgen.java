@@ -18,9 +18,14 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.SurfaceRules;
+import org.jetbrains.annotations.NotNull;
+import org.quiltmc.qsl.frozenblock.worldgen.surface_rule.api.SurfaceRuleContext;
+import org.quiltmc.qsl.frozenblock.worldgen.surface_rule.api.SurfaceRuleEvents;
 
-public class RegisterWorldgen {
+public final class RegisterWorldgen implements SurfaceRuleEvents.OverworldModifierCallback {
 
     public static final ResourceKey<Biome> BREAKTHROUGH = registerBiomeKeys("breakthrough");
 
@@ -33,12 +38,34 @@ public class RegisterWorldgen {
         register(BREAKTHROUGH.location(), RegisterWorldgen.createBreakthrough());
     }
 
+    @Override
+    public void modifyOverworldRules(SurfaceRuleContext.@NotNull Overworld overworld) {
+        overworld.materialRules().add(0,
+                SurfaceRules.ifTrue(
+                        SurfaceRules.isBiome(RegisterWorldgen.BREAKTHROUGH),
+                        SurfaceRules.ifTrue(
+                                SurfaceRules.ON_FLOOR,
+                                SurfaceRules.ifTrue(
+                                        SurfaceRules.abovePreliminarySurface(),
+                                        SurfaceRules.sequence(
+                                                SurfaceRules.ifTrue(
+                                                        SurfaceRules.waterBlockCheck(0, 0),
+                                                        SurfaceRules.state(RegisterBlocks.DRAGONGRASS.defaultBlockState())
+                                                ),
+                                                SurfaceRules.state(Blocks.DIRT.defaultBlockState())
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
 
     private static Holder<Biome> register(ResourceLocation key, Biome biome) {
         return BuiltinRegistries.register(BuiltinRegistries.BIOME, key, biome);
     }
 
-    protected static int getSkyColor(float temperature) {
+    public static int getSkyColor(float temperature) {
         float f = temperature / 3.0F;
         f = Mth.clamp(f, -1.0F, 1.0F);
         return Mth.hsvToRgb(0.62222224F - f * 0.05F, 0.5F + f * 0.1F, 1.0F);
@@ -100,7 +127,3 @@ public class RegisterWorldgen {
 
     }
 }
-
-
-
-

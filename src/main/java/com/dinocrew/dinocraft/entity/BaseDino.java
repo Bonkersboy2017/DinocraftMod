@@ -82,6 +82,11 @@ public class BaseDino extends TamableAnimal {
         return SoundSource.HOSTILE;
     }
 
+    @Override
+    public float getSoundVolume() {
+        return 2.5F;
+    }
+
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {

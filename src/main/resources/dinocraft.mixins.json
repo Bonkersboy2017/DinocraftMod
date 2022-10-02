@@ -8,8 +8,7 @@
 	"BoatDropsMixin",
 	"BoatTypeMixin",
 	"ChestBoatDropsMixin",
-	"OverworldBiomeBuilderMixin",
-	"VanillaSurfaceRulesInjector"
+	"OverworldBiomeBuilderMixin"
   ],
   "client": [
   ],

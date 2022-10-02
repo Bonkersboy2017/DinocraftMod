@@ -12,7 +12,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 
-public class RegisterItems {
+public final class RegisterItems {
 
     public static final Item ALLOSAURUS_SKULL = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP).rarity(Rarity.UNCOMMON));
     public static final Item BARYONYX_SKULL = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP).rarity(Rarity.UNCOMMON));
@@ -64,6 +64,9 @@ public class RegisterItems {
     public static final Item AMBER_GEM = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item DRAGONWOOD_SCRAP = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final SwordBase SPEAR = new SwordBase(new ToolMaterialEnlightened());
+
+    private RegisterItems() {
+    }
 
 
     public static void registerAll() {
