@@ -75,7 +75,7 @@ public final class Dinocraft implements ModInitializer {
 
     }
 
-    public static final int DATA_VERSION = 1;
+    public static final int DATA_VERSION = 2;
 
     private static QuiltDataFixerBuilder applyDataFixes(ModContainer mod) {
         log("Applying DataFixes for Dinocraft", true);
@@ -88,8 +88,8 @@ public final class Dinocraft implements ModInitializer {
                 return Pair.of(Objects.equals(name, identify("trex")) ? identify("tyrannosaurus") : name, tag);
             }
         });
-        //Schema schemaV2 = builder.addSchema(2, NamespacedSchema::new);
-        //SimpleFixes.addItemRenameFix(builder, "Rename trex_spawn_egg to tyrannosaurus_spawn_egg", id("trex_spawn_egg"), id("tyrannosaurus_spawn_egg"), schemaV2);
+        Schema schemaV2 = builder.addSchema(2, NamespacedSchema::new);
+        SimpleFixes.addItemRenameFix(builder, "Rename trex_spawn_egg to tyrannosaurus_spawn_egg", id("trex_spawn_egg"), id("tyrannosaurus_spawn_egg"), schemaV2);
 
         QuiltDataFixes.buildAndRegisterFixer(mod, builder);
         log("DataFixes for Dinocraft have been applied", true);

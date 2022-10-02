@@ -125,7 +125,7 @@ public final class RegisterItems {
         Registry.register(Registry.ITEM, Dinocraft.id("deinonychus_spawn_egg"), DEINONYCHUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("professor_spawn_egg"), PROFESSOR_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("scorpius_spawn_egg"), SCORPIUS_SPAWN_EGG);
-        Registry.register(Registry.ITEM, Dinocraft.id("trex_spawn_egg"), TYRANNOSAURUS_SPAWN_EGG);
+        Registry.register(Registry.ITEM, Dinocraft.id("tyrannosaurus_spawn_egg"), TYRANNOSAURUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, Dinocraft.id("time_flint"), TIME_FLINT);
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_core"), ENLIGHTENED_CORE);
         Registry.register(Registry.ITEM, Dinocraft.id("enlightened_necklace"), ENLIGHTENED_NECKLACE);
