@@ -6,7 +6,9 @@
   },
   "chinlea_hit": {
     "sounds": [
-      "dinocraft:entity/chinlea_hit"
+      "dinocraft:entity/chinlea_hit_1",
+      "dinocraft:entity/chinlea_hit_2",
+      "dinocraft:entity/chinlea_hit_3"
     ]
   },
   "chinlea_idle": {
@@ -26,7 +28,14 @@
   },
   "dino_idle": {
     "sounds": [
-      "dinocraft:entity/dino_idle"
+      "dinocraft:entity/dino_idle_1",
+      "dinocraft:entity/dino_idle_2",
+      "dinocraft:entity/dino_idle_3",
+      "dinocraft:entity/dino_idle_4",
+      "dinocraft:entity/dino_idle_5",
+      "dinocraft:entity/dino_idle_6",
+      "dinocraft:entity/dino_idle_7",
+      "dinocraft:entity/dino_idle_8"
     ]
   },
   "micro_hit": {
@@ -46,7 +55,8 @@
   },
   "mosa_idle": {
     "sounds": [
-      "dinocraft:entity/mosa_idle"
+      "dinocraft:entity/mosa_idle_1",
+      "dinocraft:entity/mosa_idle_2"
     ]
   },
   "professor_death": {
