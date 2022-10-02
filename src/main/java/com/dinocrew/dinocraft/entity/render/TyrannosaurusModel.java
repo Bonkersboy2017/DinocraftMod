@@ -1,6 +1,7 @@
 package com.dinocrew.dinocraft.entity.render;
 
 import com.dinocrew.dinocraft.entity.Tyrannosaurus;
+import com.dinocrew.dinocraft.entity.render.animation.TyrannosaurusAnimation;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.frozenblock.api.math.AnimationAPI;
@@ -43,6 +44,7 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
     public TyrannosaurusModel(ModelPart root) {
         super(RenderType::entityCutoutNoCull);
         this.root = root;
+        this.body = this.root.getChild("body");
         this.right_leg = this.root.getChild("right_leg");
         this.right_knee = this.right_leg.getChild("right_knee");
         this.right_thigh = this.right_knee.getChild("right_thigh");
@@ -51,7 +53,6 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
         this.left_knee = this.left_leg.getChild("left_knee");
         this.left_thigh = this.left_knee.getChild("left_thigh");
         this.left_foot = this.left_thigh.getChild("left_foot");
-        this.body = this.root.getChild("body");
         this.neck = this.body.getChild("neck");
         this.neck2 = this.neck.getChild("neck2");
         this.left_arm = this.neck2.getChild("left_arm");
@@ -92,7 +93,7 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
     }
 
     @Override
-    public void setupAnim(Tyrannosaurus entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(Tyrannosaurus dino, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.right_thigh.xRot = -1.3963F;
         this.right_foot.xRot = 0.5672F;
         this.left_thigh.xRot = -1.3963F;
@@ -127,6 +128,9 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
         this.right_arm.xRot = trueCosAnim;
         this.left_arm.xRot = trueSinAnim;
 
+        this.animate(dino.attackAnimationState, TyrannosaurusAnimation.ATTACK, ageInTicks);
+        this.animate(dino.roarAnimationState, TyrannosaurusAnimation.ROAR, ageInTicks);
+        this.animate(dino.sniffAnimationState, TyrannosaurusAnimation.SNIFF, ageInTicks);
 
         //previously the render function, render code was moved to a method below
     }
