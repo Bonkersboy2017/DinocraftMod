@@ -79,7 +79,8 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     }
 
     public static AttributeSupplier.Builder createDinoAttributes() {
-        return TamableAnimal.createMobAttributes().add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.30000001192092896D).add(Attributes.ATTACK_DAMAGE);
+        return BaseDino.createDinoAttributes()
+                .add(Attributes.MAX_HEALTH, 32.0);
     }
 
     @Override
