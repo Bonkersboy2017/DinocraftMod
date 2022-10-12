@@ -11,6 +11,7 @@ import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
+import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -35,6 +36,7 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -84,6 +86,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     public static AttributeSupplier.Builder createDinoAttributes() {
         return BaseDino.createDinoAttributes()
                 .add(Attributes.MAX_HEALTH, 32.0)
+                .add(Attributes.MOVEMENT_SPEED, 0.3F)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
     }
 
@@ -153,7 +156,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     }
 
     public void increaseAngerAt(@Nullable Entity entity) {
-        this.increaseAngerAt(entity, 5, true);
+        this.increaseAngerAt(entity, 35, true);
     }
 
     @VisibleForTesting
@@ -246,7 +249,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     }
 
     @Override
-    protected void customServerAiStep() {
+    public void customServerAiStep() {
         ServerLevel serverLevel = (ServerLevel)this.level;
         serverLevel.getProfiler().push("tyrannosaurusBrain");
         this.getBrain().tick(serverLevel, this);
@@ -296,6 +299,12 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     @Override
     public Brain<Tyrannosaurus> getBrain() {
         return (Brain<Tyrannosaurus>) super.getBrain();
+    }
+
+    @Override
+    protected void sendDebugPackets() {
+        super.sendDebugPackets();
+        DebugPackets.sendEntityBrain(this);
     }
 
     @Override
@@ -359,7 +368,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
 
                         this.increaseAngerAt(projectileOwner);
                     } else {
-                        this.increaseAngerAt(projectileOwner, 3, true);
+                        this.increaseAngerAt(projectileOwner, 10, true);
                     }
                 }
 

@@ -85,7 +85,7 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
         PartDefinition modelPartData11 = modelPartData7.addOrReplaceChild("neck", CubeListBuilder.create().texOffs(65, 64).addBox(-8.0F, -7.0F, -13.0F, 16.0F, 16.0F, 21.0F).texOffs(64, 112).addBox(0.0F, -16.0F, -13.0F, 0.0F, 9.0F, 21.0F), PartPose.offset(0.0F, 0.0F, -12.0F));
         PartDefinition modelPartData12 = modelPartData11.addOrReplaceChild("neck2", CubeListBuilder.create().texOffs(72, 22).addBox(-7.0F, -9.0F, -17.0F, 14.0F, 15.0F, 22.0F), PartPose.offset(0.0F, 3.0F, -13.0F));
         PartDefinition modelPartData13 = modelPartData12.addOrReplaceChild("neck3", CubeListBuilder.create().texOffs(122, 0).addBox(-6.0F, -7.0F, -15.0F, 12.0F, 12.0F, 16.0F, new CubeDeformation(-0.1F)), PartPose.offset(0.0F, 1.0F, -12.0F));
-        PartDefinition modelPartData14 = modelPartData13.addOrReplaceChild("head", CubeListBuilder.create().texOffs(61, 37).addBox(0.0F, -16.0F, -15.0F, 0.0F, 5.0F, 22.0F).texOffs(58, 101).addBox(-6.0F, -12.0F, -15.0F, 12.0F, 11.0F, 21.0F).texOffs(94, 146).addBox(-6.0F, -10.0F, -15.0F, 12.0F, 11.0F, 21.0F, new CubeDeformation(-0.5F)), PartPose.offset(0.0F, 7.0F, -10.0F));
+        PartDefinition modelPartData14 = modelPartData13.addOrReplaceChild("head", CubeListBuilder.create().texOffs(61, 37).addBox(0.0F, -16.0F, -15.0F, 0.0F, 5.0F, 22.0F).texOffs(58, 101).addBox(-6.0F, -12.0F, -15.0F, 12.0F, 11.0F, 21.0F).texOffs(94, 146).addBox(-6.0F, -10.0F, -15.0F, 12.0F, 11.0F, 21.0F, new CubeDeformation(-0.5F)), PartPose.offsetAndRotation(0.0F, 7.0F, -10.0F, 0.829F, 0.0F, 0.0F));
         modelPartData14.addOrReplaceChild("jaw", CubeListBuilder.create().texOffs(118, 59).addBox(-5.0F, -1.0F, -18.0F, 10.0F, 4.0F, 19.0F), PartPose.offset(0.0F, 0.0F, 4.0F));
         modelPartData12.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(0, 0).addBox(-13.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F).texOffs(94, 0).addBox(-13.0F, 11.0F, -10.0F, 6.0F, 5.0F, 7.0F), PartPose.offset(1.0F, -3.0F, -9.0F));
         modelPartData12.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 0).addBox(7.0F, 0.0F, -3.0F, 6.0F, 16.0F, 6.0F, true).texOffs(94, 0).addBox(7.0F, 11.0F, -10.0F, 6.0F, 5.0F, 7.0F, true), PartPose.offset(0.0F, -3.0F, -9.0F));
@@ -94,13 +94,14 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> impleme
 
     @Override
     public void setupAnim(Tyrannosaurus dino, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        this.head.xRot = headPitch * (float) (Math.PI / 180.0);
+        this.head.yRot = netHeadYaw * (float) (Math.PI / 180.0);
         this.right_thigh.xRot = -1.3963F;
         this.right_foot.xRot = 0.5672F;
         this.left_thigh.xRot = -1.3963F;
         this.left_foot.xRot = 0.5672F;
         this.neck2.xRot = -0.1745F;
         this.neck3.xRot = -0.8727F;
-        this.head.xRot = 0.829F;
 
         float amount = 1; // change this if legs make too much/too less movement
         float speed = 1; // change this if legs are too slow/fast

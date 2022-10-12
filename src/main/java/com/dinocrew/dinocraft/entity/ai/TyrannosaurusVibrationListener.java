@@ -11,6 +11,7 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.ClipBlockStateContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.PositionSource;
 import net.minecraft.world.level.gameevent.vibrations.VibrationListener;
@@ -62,9 +63,9 @@ public class TyrannosaurusVibrationListener extends VibrationListener {
                     Vec3 vec32 = optional.get();
                     if (!this.config.shouldListen(level, this, new BlockPos(vec3), gameEvent, context)) {
                         return false;
-                    /*} else if (isOccluded(level, vec3, vec32)) {
+                    } else if (isOccluded(level, vec3, vec32)) {
                         return false;
-                    */} else {
+                    } else {
                         this.scheduleSignal(level, gameEvent, context, vec3, vec32);
                         return true;
                     }
@@ -76,7 +77,7 @@ public class TyrannosaurusVibrationListener extends VibrationListener {
     private void scheduleSignal(ServerLevel level, GameEvent event, GameEvent.Context context, Vec3 origin, Vec3 destination) {
         this.receivingDistance = (float)origin.distanceTo(destination);
         this.receivingEvent = new VibrationListener.ReceivingEvent(event, this.receivingDistance, origin, context.sourceEntity());
-        this.travelTimeInTicks = Mth.floor(this.receivingDistance) / 2;
+        this.travelTimeInTicks = Mth.floor(this.receivingDistance);
         level.sendParticles(new VibrationParticleOption(this.listenerSource, this.travelTimeInTicks), origin.x, origin.y, origin.z, 1, 0.0, 0.0, 0.0, 0.0);
         this.config.onSignalSchedule();
     }
@@ -87,7 +88,7 @@ public class TyrannosaurusVibrationListener extends VibrationListener {
 
         for(Direction direction : Direction.values()) {
             Vec3 vec33 = vec3.relative(direction, 1.0E-5F);
-            if (level.isBlockInLine(new ClipBlockStateContext(vec33, vec32, block -> block.is(BlockTags.OCCLUDES_VIBRATION_SIGNALS))).getType() != HitResult.Type.BLOCK) {
+            if (level.isBlockInLine(new ClipBlockStateContext(vec33, vec32, BlockBehaviour.BlockStateBase::canOcclude)).getType() != HitResult.Type.BLOCK) {
                 return false;
             }
         }

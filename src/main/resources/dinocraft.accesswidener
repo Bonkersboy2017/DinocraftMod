@@ -2,3 +2,5 @@ accessWidener	v2	 named
 accessible    method    net/minecraft/world/level/block/state/BlockBehaviour    getLootTable    ()Lnet/minecraft/resources/ResourceLocation;
 accessible    method    net/minecraft/world/level/levelgen/feature/foliageplacers/FoliagePlacerType    <init>    (Lcom/mojang/serialization/Codec;)V
 accessible    method    net/minecraft/world/entity/monster/warden/AngerManagement    createUuidAngerPairs    ()Ljava/util/List;
+accessible    method    net/minecraft/world/entity/Mob    customServerAiStep    ()V
+accessible    method    net/minecraft/world/entity/animal/Animal    customServerAiStep    ()V

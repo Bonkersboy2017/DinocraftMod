@@ -107,14 +107,18 @@ public class BaseDino extends TamableAnimal {
     }
 
     @Override
-    protected void customServerAiStep() {
-        ServerLevel serverLevel = (ServerLevel) this.level;
-        serverLevel.getProfiler().push("baseDinoBrain");
-        ((Brain<BaseDino>) this.getBrain()).tick(serverLevel, this);
-        this.level.getProfiler().pop();
+    public void customServerAiStep() {
+        if (!(this instanceof Tyrannosaurus)) {
+            ServerLevel serverLevel = (ServerLevel) this.level;
+            serverLevel.getProfiler().push("baseDinoBrain");
+            ((Brain<BaseDino>) this.getBrain()).tick(serverLevel, this);
+            this.level.getProfiler().pop();
+        }
         super.customServerAiStep();
 
-        BaseDinoAi.updateActivity(this);
+        if (!(this instanceof Tyrannosaurus)) {
+            BaseDinoAi.updateActivity(this);
+        }
     }
 
     @Override
