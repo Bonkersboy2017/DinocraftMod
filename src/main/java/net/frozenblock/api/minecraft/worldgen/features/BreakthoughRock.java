@@ -2,7 +2,7 @@ package net.frozenblock.api.minecraft.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.mojang.serialization.Codec;
-import net.frozenblock.lib.mathematics.AdvancedMath;
+import net.frozenblock.lib.math.AdvancedMath;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;

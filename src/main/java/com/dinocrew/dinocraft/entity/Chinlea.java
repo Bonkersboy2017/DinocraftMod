@@ -45,13 +45,13 @@ public class Chinlea extends AbstractSchoolingFish {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return RegisterSounds.CHINLEA_IDLE;
+        return RegisterSounds.CHINLEA_AMBIENT;
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return RegisterSounds.CHINLEA_HIT;
+        return RegisterSounds.CHINLEA_HURT;
     }
 
     @Nullable

@@ -29,14 +29,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -55,6 +48,9 @@ import java.util.function.BiConsumer;
 public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationListener.VibrationListenerConfig {
 
     private static final Logger LOGGER = LogUtils.getLogger();
+    public static final int CALM_ANGER = 0;
+    public static final int AGITATED_ANGER = 200;
+    public static final int ANGRY_ANGER = 400;
     private static final EntityDataAccessor<Integer> CLIENT_ANGER_LEVEL = SynchedEntityData.defineId(Tyrannosaurus.class, EntityDataSerializers.INT);
     public AnimationState roarAnimationState = new AnimationState();
     public AnimationState sniffAnimationState = new AnimationState();
@@ -85,16 +81,26 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
 
     public static AttributeSupplier.Builder createDinoAttributes() {
         return BaseDino.createDinoAttributes()
-                .add(Attributes.MAX_HEALTH, 32.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.3F)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0);
+                .add(Attributes.MAX_HEALTH, 64.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.3D)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
     }
 
     @Override
     public boolean doHurtTarget(Entity target) {
         this.level.broadcastEntityEvent(this, (byte) 4);
-        this.playSound(SoundEvents.EVOKER_FANGS_ATTACK, 10.0F, this.getVoicePitch());
+        this.playSound(RegisterSounds.TYRANNOSAURUS_ATTACK_IMPACT, 10.0F, this.getVoicePitch());
         return super.doHurtTarget(target);
+    }
+
+    @Override
+    protected float nextStep() {
+        return this.moveDist + 1F;
+    }
+
+    @Override
+    public double getMeleeAttackRangeSqr(LivingEntity entity) {
+        return this.getBbWidth() * 1.3 * this.getBbWidth() * 1.3 + entity.getBbWidth();
     }
 
     @Override
@@ -107,6 +113,11 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
         return 3.0F;
     }
 
+    @Override
+    public float getVoicePitch() {
+        return (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F;
+    }
+
     @Nullable
     @Override
     public SoundEvent getAmbientSound() {
@@ -116,17 +127,17 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return RegisterSounds.BIGDINO_HIT;
+        return RegisterSounds.TYRANNOSAURUS_HURT;
     }
 
     @Override
     public SoundEvent getDeathSound() {
-        return SoundEvents.RAVAGER_DEATH;
+        return RegisterSounds.TYRANNOSAURUS_DEATH;
     }
 
     @Override
     public void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(SoundEvents.RAVAGER_STEP, 5.0F, 1.0F);
+        this.playSound(RegisterSounds.TYRANNOSAURUS_STEP, 5.0F, 1.0F);
     }
 
     @Override
@@ -357,7 +368,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
             this.brain.setMemoryWithExpiry(MemoryModuleType.VIBRATION_COOLDOWN, Unit.INSTANCE, 2L);
             level.broadcastEntityEvent(this, (byte) 61);
             //this.playSound(RegisterSounds.TYRANNOSAURUS_SOUND_RECEIVE, 3.5F, this.getVoicePitch());
-            this.playSound(SoundEvents.WARDEN_TENDRIL_CLICKS, 3.5F, this.getVoicePitch());
+            //this.playSound(SoundEvents.WARDEN_TENDRIL_CLICKS, 3.5F, this.getVoicePitch());
             BlockPos blockPos = sourcePos;
             if (projectileOwner != null) {
                 if (this.closerThan(projectileOwner, 30.0)) {

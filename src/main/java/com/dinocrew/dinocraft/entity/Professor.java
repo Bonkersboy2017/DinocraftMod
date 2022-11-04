@@ -40,7 +40,7 @@ public class Professor extends Monster {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return RegisterSounds.PROFESSOR_IDLE;
+        return RegisterSounds.PROFESSOR_AMBIENT;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Professor extends Monster {
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return RegisterSounds.PROFESSOR_HIT;
+        return RegisterSounds.PROFESSOR_HURT;
     }
 
     @Nullable

@@ -25,7 +25,7 @@ public class TyrannosaurusAngerManagement {
     @VisibleForTesting
     protected static final int CONVERSION_DELAY = 2;
     @VisibleForTesting
-    protected static final int MAX_ANGER = 150;
+    protected static final int MAX_ANGER = 470;
     private static final int DEFAULT_ANGER_DECREASE = 1;
     private int conversionDelay = Mth.randomBetweenInclusive(RandomSource.create(), 0, CONVERSION_DELAY);
     int highestAnger;

@@ -42,7 +42,7 @@ public class TyrannosaurusSniffing<E extends Tyrannosaurus> extends Behavior<E> 
     }
 
     protected void start(ServerLevel level, E entity, long gameTime) {
-        entity.playSound(SoundEvents.WARDEN_SNIFF, 5.0F, 1.0F);
+        entity.playSound(RegisterSounds.TYRANNOSAURUS_SNIFF, 5.0F, 1.0F);
     }
 
     protected void stop(ServerLevel level, E entity, long gameTime) {

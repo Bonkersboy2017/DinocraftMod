@@ -77,7 +77,7 @@ public class Microraptor extends FlyingMob implements Enemy {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return RegisterSounds.MICRO_IDLE;
+        return RegisterSounds.MICRORAPTOR_AMBIENT;
     }
 
     @Override
@@ -88,7 +88,7 @@ public class Microraptor extends FlyingMob implements Enemy {
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return RegisterSounds.MICRO_HIT;
+        return RegisterSounds.MICRORAPTOR_HURT;
     }
 
     @Nullable

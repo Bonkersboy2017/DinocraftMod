@@ -50,7 +50,7 @@ public class Mosasaurus extends AbstractFish {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return RegisterSounds.MOSA_IDLE;
+        return RegisterSounds.MOSASAURUS_AMBIENT;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Mosasaurus extends AbstractFish {
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return RegisterSounds.MOSA_HIT;
+        return RegisterSounds.MOSASAURUS_HURT;
     }
 
     @Nullable

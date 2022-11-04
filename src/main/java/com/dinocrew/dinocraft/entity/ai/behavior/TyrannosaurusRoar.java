@@ -1,11 +1,11 @@
 package com.dinocrew.dinocraft.entity.ai.behavior;
 
-import com.dinocrew.dinocraft.entity.BaseDino;
 import com.dinocrew.dinocraft.entity.Tyrannosaurus;
 import com.dinocrew.dinocraft.entity.ai.TyrannosaurusAi;
+import com.dinocrew.dinocraft.registry.RegisterSounds;
 import com.google.common.collect.ImmutableMap;
+import net.frozenblock.lib.screenshake.ScreenShakePackets;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
@@ -37,7 +37,7 @@ public class TyrannosaurusRoar extends Behavior<Tyrannosaurus> {
 
     protected void start(ServerLevel serverLevel, Tyrannosaurus dino, long l) {
         Brain<Tyrannosaurus> brain = dino.getBrain();
-        brain.setMemoryWithExpiry(MemoryModuleType.ROAR_SOUND_DELAY, Unit.INSTANCE, 25L);
+        brain.setMemoryWithExpiry(MemoryModuleType.ROAR_SOUND_DELAY, Unit.INSTANCE, TICKS_BEFORE_PLAYING_ROAR_SOUND);
         brain.eraseMemory(MemoryModuleType.WALK_TARGET);
         LivingEntity livingEntity = dino.getBrain().getMemory(MemoryModuleType.ROAR_TARGET).get();
         BehaviorUtils.lookAtEntity(dino, livingEntity);
@@ -51,8 +51,9 @@ public class TyrannosaurusRoar extends Behavior<Tyrannosaurus> {
 
     protected void tick(ServerLevel serverLevel, Tyrannosaurus dino, long l) {
         if (!dino.getBrain().hasMemoryValue(MemoryModuleType.ROAR_SOUND_DELAY) && !dino.getBrain().hasMemoryValue(MemoryModuleType.ROAR_SOUND_COOLDOWN)) {
-            dino.getBrain().setMemoryWithExpiry(MemoryModuleType.ROAR_SOUND_COOLDOWN, Unit.INSTANCE, TyrannosaurusAi.ROAR_DURATION - 25);
-            dino.playSound(SoundEvents.WARDEN_ROAR, 3.0F, 1.0F);
+            dino.getBrain().setMemoryWithExpiry(MemoryModuleType.ROAR_SOUND_COOLDOWN, Unit.INSTANCE, TyrannosaurusAi.ROAR_DURATION - TICKS_BEFORE_PLAYING_ROAR_SOUND);
+            dino.playSound(RegisterSounds.TYRANNOSAURUS_ROAR, 3.0F, 1.0F);
+            ScreenShakePackets.createScreenShakePacket(serverLevel, 0.4F, TyrannosaurusAi.ROAR_DURATION - TICKS_BEFORE_PLAYING_ROAR_SOUND, dino.getX(), dino.getY(), dino.getZ(), 19);
         }
     }
 
