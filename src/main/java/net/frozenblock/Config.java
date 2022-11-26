@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
 
+@Deprecated(forRemoval = true)
 public class Config {
 
     public static void createConfig() {

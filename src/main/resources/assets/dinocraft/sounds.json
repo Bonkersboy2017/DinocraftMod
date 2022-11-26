@@ -1,70 +1,228 @@
 {
-  "bigdino_hit": {
+  "entity.bigdino.hurt": {
     "sounds": [
-      "dinocraft:entity/bigdino_hit"
-    ]
+      "dinocraft:mob/bigdino/hurt"
+    ],
+    "subtitle": "subtitles.entity.bigdino.hurt"
   },
-  "chinlea_hit": {
+  "entity.chinlea.hurt": {
     "sounds": [
-      "dinocraft:entity/chinlea_hit"
-    ]
+      "dinocraft:mob/chinlea/hit_1",
+      "dinocraft:mob/chinlea/hit_2",
+      "dinocraft:mob/chinlea/hit_3"
+    ],
+    "subtitle": "subtitles.entity.chinlea.hurt"
   },
-  "chinlea_idle": {
+  "entity.chinlea.ambient": {
     "sounds": [
-      "dinocraft:entity/chinlea_idle"
-    ]
+      "dinocraft:mob/chinlea/ambient"
+    ],
+    "subtitle": "subtitles.entity.chinlea.ambient"
   },
-  "dino_death": {
+  "entity.dino.death": {
     "sounds": [
-      "dinocraft:entity/dino_death"
-    ]
+      "dinocraft:mob/dino/death"
+    ],
+    "subtitle": "subtitles.entity.dino.death"
   },
-  "dino_hit": {
+  "entity.dino.hurt": {
     "sounds": [
-      "dinocraft:entity/dino_hit"
-    ]
+      "dinocraft:mob/dino/hurt"
+    ],
+    "subtitle": "subtitles.entity.dino.hurt"
   },
-  "dino_idle": {
+  "entity.dino.ambient": {
     "sounds": [
-      "dinocraft:entity/dino_idle"
-    ]
+      "dinocraft:mob/dino/ambient_1",
+      "dinocraft:mob/dino/ambient_2",
+      "dinocraft:mob/dino/ambient_3",
+      "dinocraft:mob/dino/ambient_4",
+      "dinocraft:mob/dino/ambient_5",
+      "dinocraft:mob/dino/ambient_6",
+      "dinocraft:mob/dino/ambient_7",
+      "dinocraft:mob/dino/ambient_8"
+    ],
+    "subtitle": "subtitles.entity.dino.ambient"
   },
-  "micro_hit": {
+  "entity.microraptor.hurt": {
     "sounds": [
-      "dinocraft:entity/micro_hit"
-    ]
+      "dinocraft:mob/micro/hurt"
+    ],
+    "subtitle": "subtitles.entity.microraptor.hurt"
   },
-  "micro_idle": {
+  "entity.microraptor.ambient": {
     "sounds": [
-      "dinocraft:entity/micro_idle"
-    ]
+      "dinocraft:mob/micro/ambient"
+    ],
+    "subtitle": "subtitles.entity.microraptor.ambient"
   },
-  "mosa_hit": {
+  "entity.mosasaurus.hurt": {
     "sounds": [
-      "dinocraft:entity/mosa_hit"
-    ]
+      "dinocraft:mob/mosasaurus/hurt"
+    ],
+    "subtitle": "subtitles.entity.mosasaurus.hurt"
   },
-  "mosa_idle": {
+  "entity.mosasaurus.ambient": {
     "sounds": [
-      "dinocraft:entity/mosa_idle"
-    ]
+      "dinocraft:mob/mosasaurus/ambient_1",
+      "dinocraft:mob/mosasaurus/ambient_2"
+    ],
+    "subtitle": "subtitles.entity.mosasaurus.ambient"
   },
-  "professor_death": {
+  "entity.professor.death": {
     "sounds": [
-      "dinocraft:entity/professor_death"
-    ]
+      "dinocraft:mob/professor/death"
+    ],
+    "subtitle": "subtitles.entity.professor.death"
   },
-  "professor_hit": {
+  "entity.professor.hurt": {
     "sounds": [
-      "dinocraft:entity/professor_death"
-    ]
+      "dinocraft:mob/professor/death"
+    ],
+    "subtitle": "subtitles.entity.professor.hurt"
   },
-  "professor_idle": {
+  "entity.professor.ambient": {
     "sounds": [
-      "dinocraft:entity/professor_idle"
-    ]
+      "dinocraft:mob/professor/ambient"
+    ],
+    "subtitle": "subittles.entity.professor.ambient"
   },
-  "music_breakthrough": {
+  "entity.tyrannosaurus.agitated": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/agitated_1",
+      "dinocraft:mob/tyrannosaurus/agitated_2",
+      "dinocraft:mob/tyrannosaurus/agitated_3",
+      "dinocraft:mob/tyrannosaurus/agitated_4",
+      "dinocraft:mob/tyrannosaurus/agitated_5",
+      "dinocraft:mob/tyrannosaurus/agitated_6"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.agitated"
+  },
+  "entity.tyrannosaurus.ambient": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/ambient_1",
+      "dinocraft:mob/tyrannosaurus/ambient_2",
+      "dinocraft:mob/tyrannosaurus/ambient_3",
+      "dinocraft:mob/tyrannosaurus/ambient_4",
+      "dinocraft:mob/tyrannosaurus/ambient_5",
+      "dinocraft:mob/tyrannosaurus/ambient_6",
+      "dinocraft:mob/tyrannosaurus/ambient_7",
+      "dinocraft:mob/tyrannosaurus/ambient_8"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.ambient"
+  },
+  "entity.tyrannosaurus.angry": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/angry_1",
+      "dinocraft:mob/tyrannosaurus/angry_2",
+      "dinocraft:mob/tyrannosaurus/angry_3",
+      "dinocraft:mob/tyrannosaurus/angry_4",
+      "dinocraft:mob/tyrannosaurus/angry_5",
+      "dinocraft:mob/tyrannosaurus/angry_6"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.angry"
+  },
+  "entity.tyrannosaurus.attack_impact": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/attack_impact_1",
+      "dinocraft:mob/tyrannosaurus/attack_impact_2"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.attack_impact"
+  },
+  "entity.tyrannosaurus.death": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/death_1",
+      "dinocraft:mob/tyrannosaurus/death_2",
+      "dinocraft:mob/tyrannosaurus/death_3"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.death"
+  },
+  "entity.tyrannosaurus.detecting": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/detecting_1",
+      "dinocraft:mob/tyrannosaurus/detecting_2",
+      "dinocraft:mob/tyrannosaurus/detecting_3",
+      "dinocraft:mob/tyrannosaurus/detecting_4",
+      "dinocraft:mob/tyrannosaurus/detecting_5"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.detecting"
+  },
+  "entity.tyrannosaurus.detecting_angry": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/detecting_angry_1",
+      "dinocraft:mob/tyrannosaurus/detecting_angry_2",
+      "dinocraft:mob/tyrannosaurus/detecting_angry_3",
+      "dinocraft:mob/tyrannosaurus/detecting_angry_4",
+      "dinocraft:mob/tyrannosaurus/detecting_angry_5"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.detecting_angry"
+  },
+  "entity.tyrannosaurus.hurt": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/hurt_1",
+      "dinocraft:mob/tyrannosaurus/hurt_2",
+      "dinocraft:mob/tyrannosaurus/hurt_3",
+      "dinocraft:mob/tyrannosaurus/hurt_4"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.hurt"
+  },
+  "entity.tyrannosaurus.roar": {
+    "sounds": [
+      "dinocraft:mob/tyrannosaurus/roar_1",
+      "dinocraft:mob/tyrannosaurus/roar_2",
+      "dinocraft:mob/tyrannosaurus/roar_3",
+      "dinocraft:mob/tyrannosaurus/roar_4",
+      "dinocraft:mob/tyrannosaurus/roar_5"
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.roar"
+  },
+  "entity.tyrannosaurus.sniff": {
+    "sounds": [
+      {
+        "name": "dinocraft:mob/tyrannosaurus/sniff_1",
+        "volume": 0.75
+      },
+      {
+        "name": "dinocraft:mob/tyrannosaurus/sniff_2",
+        "volume": 0.75
+      },
+      {
+        "name": "dinocraft:mob/tyrannosaurus/sniff_3",
+        "volume": 0.75
+      },
+      {
+        "name": "dinocraft:mob/tyrannosaurus/sniff_4",
+        "volume": 0.75
+      }
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.sniff"
+  },
+  "entity.tyrannosaurus.step": {
+    "sounds": [
+      {
+        "name": "dinocraft:mob/tyrannosaurus/step_1",
+        "volume": 0.3
+      },
+      {
+        "name": "dinocraft:mob/tyrannosaurus/step_2",
+        "volume": 0.3
+      },
+      {
+        "name": "dinocraft:mob/tyrannosaurus/step_3",
+        "volume": 0.3
+      },
+      {
+        "name": "dinocraft:mob/tyrannosaurus/step_4",
+        "volume": 0.3
+      },
+      {
+        "name": "dinocraft:mob/tyrannosaurus/step_5",
+        "volume": 0.3
+      }
+    ],
+    "subtitle": "subtitles.entity.tyrannosaurus.step"
+  },
+  "music.breakthrough": {
     "sounds": [
       "dinocraft:music_breakthrough"
     ]

@@ -1,34 +1,47 @@
 package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.sounds.SoundEvent;
 
-public class RegisterSounds {
+public final class RegisterSounds {
 
     //ENTITIES
-    public static final SoundEvent BIGDINO_HIT = register("bigdino_hit");
-    public static final SoundEvent CHINLEA_HIT = register("chinlea_hit");
-    public static final SoundEvent CHINLEA_IDLE = register("chinlea_idle");
-    public static final SoundEvent DINO_DEATH = register("dino_death");
-    public static final SoundEvent DINO_HIT = register("dino_hit");
-    public static final SoundEvent DINO_IDLE = register("dino_idle");
-    public static final SoundEvent MICRO_HIT = register("micro_hit");
-    public static final SoundEvent MICRO_IDLE = register("micro_idle");
-    public static final SoundEvent MOSA_HIT = register("mosa_hit");
-    public static final SoundEvent MOSA_IDLE = register("mosa_idle");
-    public static final SoundEvent PROFESSOR_DEATH = register("professor_death");
-    public static final SoundEvent PROFESSOR_HIT = register("professor_hit");
-    public static final SoundEvent PROFESSOR_IDLE = register("professor_idle");
+    public static final SoundEvent BIGDINO_HURT = register("entity.bigdino.hurt");
+    public static final SoundEvent CHINLEA_HURT = register("entity.chinlea.hurt");
+    public static final SoundEvent CHINLEA_AMBIENT = register("entity.chinlea.ambient");
+    public static final SoundEvent DINO_DEATH = register("entity.dino.death");
+    public static final SoundEvent DINO_HURT = register("entity.dino.hurt");
+    public static final SoundEvent DINO_AMBIENT = register("entity.dino.ambient");
+    public static final SoundEvent MICRORAPTOR_HURT = register("entity.microraptor.hurt");
+    public static final SoundEvent MICRORAPTOR_AMBIENT = register("entity.microraptor.ambient");
+    public static final SoundEvent MOSASAURUS_HURT = register("entity.mosasaurus.hurt");
+    public static final SoundEvent MOSASAURUS_AMBIENT = register("entity.mosasaurus.ambient");
+    public static final SoundEvent PROFESSOR_DEATH = register("entity.professor.death");
+    public static final SoundEvent PROFESSOR_HURT = register("entity.professor.hurt");
+    public static final SoundEvent PROFESSOR_AMBIENT = register("entity.professor.ambient");
+    public static final SoundEvent TYRANNOSAURUS_AGITATED = register("entity.tyrannosaurus.agitated");
+    public static final SoundEvent TYRANNOSAURUS_AMBIENT = register("entity.tyrannosaurus.ambient");
+    public static final SoundEvent TYRANNOSAURUS_ANGRY = register("entity.tyrannosaurus.angry");
+    public static final SoundEvent TYRANNOSAURUS_ATTACK_IMPACT = register("entity.tyrannosaurus.attack_impact");
+    public static final SoundEvent TYRANNOSAURUS_DEATH = register("entity.tyrannosaurus.death");
+    public static final SoundEvent TYRANNOSAURUS_DETECTING = register("entity.tyrannosaurus.detecting");
+    public static final SoundEvent TYRANNOSAURUS_DETECTING_ANGRY = register("entity.tyrannosaurus.detecting_angry");
+    public static final SoundEvent TYRANNOSAURUS_HURT = register("entity.tyrannosaurus.hurt");
+    public static final SoundEvent TYRANNOSAURUS_ROAR = register("entity.tyrannosaurus.roar");
+    public static final SoundEvent TYRANNOSAURUS_SNIFF = register("entity.tyrannosaurus.sniff");
+    public static final SoundEvent TYRANNOSAURUS_STEP = register("entity.tyrannosaurus.step");
 
     //BIOME
 
-    public static final SoundEvent MUSIC_BREAKTHROUGH = register("music_breakthrough");
+    public static final SoundEvent MUSIC_BREAKTHROUGH = register("music.breakthrough");
+
+    private RegisterSounds() {
+    }
 
 
-    private static SoundEvent register(String string) {
-        return Registry.register(Registry.SOUND_EVENT, new Identifier(Dinocraft.MOD_ID, string), new SoundEvent(new Identifier(Dinocraft.MOD_ID, string)));
+    private static SoundEvent register(String path) {
+        return Registry.register(Registry.SOUND_EVENT, Dinocraft.id(path), new SoundEvent(Dinocraft.id(path)));
     }
 
     public static void init() {

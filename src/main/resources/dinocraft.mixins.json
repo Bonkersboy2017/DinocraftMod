@@ -1,19 +1,15 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.dinocrew.dinocraft.mixins",
+  "package": "com.dinocrew.dinocraft.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
 	"BlockEntityTypeMixin",
 	"BoatDropsMixin",
 	"BoatTypeMixin",
 	"ChestBoatDropsMixin",
-	"FoliagePlacerTypeInvoker",
-	"ModBiomeParameters",
-	"SignTypeAccessor",
-	"TrunkPlacerTypeInvoker",
-	"VanillaSurfaceRulesBlockInvoker",
-	"VanillaSurfaceRulesInjector"
+	"DebugPacketsMixin",
+	"OverworldBiomeBuilderMixin"
   ],
   "client": [
   ],

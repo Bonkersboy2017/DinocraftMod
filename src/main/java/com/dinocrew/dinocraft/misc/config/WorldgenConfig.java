@@ -7,9 +7,6 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
-import static com.dinocrew.dinocraft.misc.config.DinocraftConfig.text;
-import static com.dinocrew.dinocraft.misc.config.DinocraftConfig.tooltip;
-
 @Config(name = "worldgen")
 public final class WorldgenConfig implements ConfigData {
 

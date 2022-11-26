@@ -1,23 +1,25 @@
 package com.dinocrew.dinocraft.block;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.minecraft.block.SignBlock;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.SignType;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
-public class DinoSignBlock extends SignBlock {
+import java.util.Objects;
 
-    public DinoSignBlock(Settings settings, SignType type) {
+public class DinoSignBlock extends StandingSignBlock {
+
+    public DinoSignBlock(Properties settings, WoodType type) {
         super(settings, type);
     }
 
     @Override
-    public final Identifier getLootTableId() {
-        Identifier correctedLootTableId = new Identifier(Dinocraft.MOD_ID, "blocks/" + this.getSignType().getName() + "_sign");
-        if (this.lootTableId != correctedLootTableId) {
-            this.lootTableId = correctedLootTableId;
+    public final ResourceLocation getLootTable() {
+        ResourceLocation correctedLootTableId = new ResourceLocation(Dinocraft.MOD_ID, "blocks/" + this.type().name() + "_sign");
+        if (!Objects.equals(this.drops, correctedLootTableId)) {
+            this.drops = correctedLootTableId;
         }
 
-        return this.lootTableId;
+        return this.drops;
     }
 }

@@ -26,10 +26,13 @@
       "com.dinocrew.dinocraft.Dinocraft"
     ],
     "client": [
-      "com.dinocrew.dinocraft.client.DinocraftClient"
+      "com.dinocrew.dinocraft.DinocraftClient"
     ],
     "frozenlib:main": [
       "com.dinocrew.dinocraft.misc.FrozenLibIntegration"
+    ],
+    "frozenlib:events": [
+      "com.dinocrew.dinocraft.registry.RegisterWorldgen"
     ],
     "modmenu": [
       "com.dinocrew.dinocraft.misc.config.ModMenuIntegration"
@@ -43,7 +46,7 @@
 
   "depends": {
     "fabricloader": ">=0.14.8",
-    "fabric-api": ">=0.60.0",
+    "fabric-api": ">=0.67.1",
     "minecraft": ">=1.19.2",
     "java": ">=17"
   }

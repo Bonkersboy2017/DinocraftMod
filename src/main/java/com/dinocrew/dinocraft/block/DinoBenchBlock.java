@@ -1,42 +1,42 @@
 package com.dinocrew.dinocraft.block;
 
 import com.dinocrew.dinocraft.screen.DinoBenchScreenHandler;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CraftingTableBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.CraftingTableBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 
 //basically copypasted Smithing Table
 
 public class DinoBenchBlock extends CraftingTableBlock {
-    private static final Text SCREEN_TITLE = Text.translatable("container.dinocraft.dinobench");
+    private static final Component SCREEN_TITLE = Component.translatable("container.dinocraft.dinobench");
 
-    public DinoBenchBlock(Settings settings) {
+    public DinoBenchBlock(Properties settings) {
         super(settings);
     }
 
-    public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
-        return new SimpleNamedScreenHandlerFactory((syncId, inventory, player)
+    public MenuProvider getMenuProvider(BlockState state, Level world, BlockPos pos) {
+        return new SimpleMenuProvider((syncId, inventory, player)
                 // Made it pass your new ScreenHandler here tho
-                -> new DinoBenchScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), SCREEN_TITLE);
+                -> new DinoBenchScreenHandler(syncId, inventory, ContainerLevelAccess.create(world, pos)), SCREEN_TITLE);
     }
 
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) {
-            return ActionResult.SUCCESS;
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (world.isClientSide) {
+            return InteractionResult.SUCCESS;
         } else {
-            player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
+            player.openMenu(state.getMenuProvider(world, pos));
             // Make your own stat here if it makes you happy
             /*            player.incrementStat(Stats.INTERACT_WITH_SMITHING_TABLE);*/
-            return ActionResult.CONSUME;
+            return InteractionResult.CONSUME;
         }
     }
 }

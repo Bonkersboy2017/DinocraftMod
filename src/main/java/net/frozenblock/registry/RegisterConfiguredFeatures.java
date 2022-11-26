@@ -1,51 +1,51 @@
 package net.frozenblock.registry;
 
-import com.dinocrew.dinocraft.registry.ModBiomes;
-import com.dinocrew.dinocraft.registry.worldgen.RegisterWorldgen;
+import com.dinocrew.dinocraft.registry.RegisterFeatures;
+import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.frozenblock.api.minecraft.worldgen.features.BreakthoughRock;
 import net.frozenblock.api.minecraft.worldgen.features.BreakthroughPlants;
 import net.frozenblock.api.minecraft.worldgen.features.BreakthroughStones;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.ProbabilityConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.PlacedFeatures;
-import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 
 public class RegisterConfiguredFeatures {
 
-    public static final BreakthroughStones BT_STONE = new BreakthroughStones(ProbabilityConfig.CODEC);
-    public static final BreakthoughRock BT_ROCK = new BreakthoughRock(ProbabilityConfig.CODEC);
+    public static final BreakthroughStones BT_STONE = new BreakthroughStones(ProbabilityFeatureConfiguration.CODEC);
+    public static final BreakthoughRock BT_ROCK = new BreakthoughRock(ProbabilityFeatureConfiguration.CODEC);
 
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_STONE_CONFIGURED = ConfiguredFeatures.register("bt_stones",
-            BT_STONE, new ProbabilityConfig(0.8F));
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_STONE_CONFIGURED = RegisterFeatures.registerConfigured("bt_stones",
+            BT_STONE, new ProbabilityFeatureConfiguration(0.8F));
 
-    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> BT_ROCK_CONFIGURED = ConfiguredFeatures.register("bt_rock",
-            BT_ROCK, new ProbabilityConfig(0.8F));
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> BT_ROCK_CONFIGURED = RegisterFeatures.registerConfigured("bt_rock",
+            BT_ROCK, new ProbabilityFeatureConfiguration(0.8F));
 
-    public static final RegistryEntry<PlacedFeature> BT_STONE_PLACED = PlacedFeatures.register("bt_stones_placed",
-            BT_STONE_CONFIGURED, RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(),
-            PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
-    public static final RegistryEntry<PlacedFeature> BT_ROCK_PLACED = PlacedFeatures.register("bt_rock_placed",
-            BT_ROCK_CONFIGURED, RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(),
-            PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+    public static final Holder<PlacedFeature> BT_STONE_PLACED = RegisterFeatures.registerPlaced("bt_stones_placed",
+            BT_STONE_CONFIGURED, RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> BT_ROCK_PLACED = RegisterFeatures.registerPlaced("bt_rock_placed",
+            BT_ROCK_CONFIGURED, RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(),
+            PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
     public static void init(String modid) {
-        Registry.register(Registry.FEATURE, new Identifier(modid, "breakthrough_stone"), BT_STONE);
-        Registry.register(Registry.FEATURE, new Identifier(modid, "breakthrough_rock"), BT_ROCK);
+        Registry.register(Registry.FEATURE, new ResourceLocation(modid, "breakthrough_stone"), BT_STONE);
+        Registry.register(Registry.FEATURE, new ResourceLocation(modid, "breakthrough_rock"), BT_ROCK);
 
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
-                GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_STONE_PLACED.getKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(ModBiomes.BREAKTHROUGH),
-                GenerationStep.Feature.TOP_LAYER_MODIFICATION, BT_ROCK_PLACED.getKey().get());
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_STONE_PLACED.unwrapKey().orElseThrow());
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(RegisterWorldgen.BREAKTHROUGH),
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BT_ROCK_PLACED.unwrapKey().orElseThrow());
 
         BreakthroughPlants.registerAll(modid);
 

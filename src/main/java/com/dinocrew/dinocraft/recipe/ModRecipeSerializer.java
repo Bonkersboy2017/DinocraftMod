@@ -1,9 +1,9 @@
 package com.dinocrew.dinocraft.recipe;
 
 import com.dinocrew.dinocraft.Dinocraft;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 
 public class ModRecipeSerializer<T extends Recipe<?>> {
     public static final RecipeSerializer<DinoBenchRecipe> DINOBENCH = register("dinobench", new DinoBenchRecipe.Serializer());
