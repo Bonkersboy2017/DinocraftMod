@@ -55,7 +55,7 @@ public final class RegisterItems {
     public static final Item DRAGONWOOD_BOAT = new BoatItem(false, DinoBoats.DRAGONWOOD, new FabricItemSettings().stacksTo(1).tab(Dinocraft.ITEM_GROUP));
     public static final Item DRAGONWOOD_CHEST_BOAT = new BoatItem(true, DinoBoats.DRAGONWOOD, new FabricItemSettings().stacksTo(1).tab(Dinocraft.ITEM_GROUP));
     public static final Item DRAGONWOOD_SIGN = new SignItem(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP).stacksTo(16),
-            RegisterBlocks.DRAGONWOOD_SIGN_BLOCK, RegisterBlocks.DRAGONWOOD_WALL_SIGN_BLOCK);
+            RegisterBlocks.DRAGONWOOD_SIGN, RegisterBlocks.DRAGONWOOD_WALL_SIGN);
     public static final Item EMPTY_DNA_BOTTLE = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item DNA_BOTTLE = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
     public static final Item MYSTERIOUS_DNA_BOTTLE = new Item(new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));

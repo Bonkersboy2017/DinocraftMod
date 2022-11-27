@@ -23,6 +23,11 @@ import net.minecraft.world.level.material.Material;
 
 
 public final class RegisterBlocks {
+
+    private RegisterBlocks() {
+        throw new UnsupportedOperationException("RegisterBlocks contains only static declarations.");
+    }
+
     public static final FabricBlockSettings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS);
 
     public static final DropExperienceBlock SKELETON_ORE = new DropExperienceBlock(FabricBlockSettings.of(Material.STONE).strength(4f, 26.0f).sound(SoundType.STONE));
@@ -56,8 +61,8 @@ public final class RegisterBlocks {
     public static final Block DRAGONWOOD_TRAPDOOR = new TrapDoorBlock(DRAGONWOOD_SETTINGS);
     public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noOcclusion());
     public static final Block DRAGONWOOD_BUTTON = new WoodButtonBlock(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_SIGN_BLOCK = new FrozenSignBlock(FabricBlockSettings.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), DRAGONWOOD_WOOD_TYPE, Dinocraft.id("blocks/dragonwood_sign"));
-    public static final Block DRAGONWOOD_WALL_SIGN_BLOCK = new FrozenWallSignBlock(FabricBlockSettings.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(DRAGONWOOD_SIGN_BLOCK), DRAGONWOOD_WOOD_TYPE, Dinocraft.id("blocks/dragonwood_sign"));
+    public static final Block DRAGONWOOD_SIGN = new FrozenSignBlock(FabricBlockSettings.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), DRAGONWOOD_WOOD_TYPE, Dinocraft.id("blocks/dragonwood_sign"));
+    public static final Block DRAGONWOOD_WALL_SIGN = new FrozenWallSignBlock(FabricBlockSettings.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(DRAGONWOOD_SIGN), DRAGONWOOD_WOOD_TYPE, Dinocraft.id("blocks/dragonwood_sign"));
     public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sound(SoundType.STONE));
     public static final Block AMBER_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sound(SoundType.STONE));
     public static final Block AMBER_ORE = new DropExperienceBlock(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sound(SoundType.STONE));
@@ -65,9 +70,6 @@ public final class RegisterBlocks {
     public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
     public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
     public static final DragonwoodSaplingBlock DRAGONWOOD_SAPLING = new DragonwoodSaplingBlock(new DragonwoodSaplingGenerator(RegisterFeatures.DRAGONWOOD), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
-
-    private RegisterBlocks() {
-    }
 
 
     public static void registerAll() {
@@ -102,8 +104,8 @@ public final class RegisterBlocks {
         registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_door"));
         registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_trapdoor"));
         registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence_gate"));
-        registerBlockWithoutBlockItem(DRAGONWOOD_SIGN_BLOCK, Dinocraft.id("dragonwood_sign"));
-        registerBlockWithoutBlockItem(DRAGONWOOD_WALL_SIGN_BLOCK, Dinocraft.id("dragonwood_wall_sign"));
+        registerBlockWithoutBlockItem(DRAGONWOOD_SIGN, Dinocraft.id("dragonwood_sign"));
+        registerBlockWithoutBlockItem(DRAGONWOOD_WALL_SIGN, Dinocraft.id("dragonwood_wall_sign"));
         registerBlock(DRAGONWOOD_SAPLING, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_sapling"));
         registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
         registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
@@ -132,7 +134,7 @@ public final class RegisterBlocks {
             .fence(DRAGONWOOD_FENCE)
             .fenceGate(DRAGONWOOD_FENCE_GATE)
             .pressurePlate(DRAGONWOOD_PRESSURE_PLATE)
-            //.sign(DRAGONWOOD_SIGN, DRAGONWOOD_WALL_SIGN)
+            .sign(DRAGONWOOD_SIGN, DRAGONWOOD_WALL_SIGN)
             .door(DRAGONWOOD_DOOR)
             .trapdoor(DRAGONWOOD_TRAPDOOR)
             .recipeGroupPrefix("wooden")
