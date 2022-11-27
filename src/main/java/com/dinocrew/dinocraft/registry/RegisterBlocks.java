@@ -9,17 +9,28 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.frozenblock.lib.blocks.FrozenSignBlock;
 import net.frozenblock.lib.blocks.FrozenWallSignBlock;
 import net.frozenblock.lib.blocks.FrozenWoodTypes;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 
 
 public final class RegisterBlocks {
@@ -27,8 +38,6 @@ public final class RegisterBlocks {
     private RegisterBlocks() {
         throw new UnsupportedOperationException("RegisterBlocks contains only static declarations.");
     }
-
-    public static final FabricBlockSettings DRAGONWOOD_SETTINGS = FabricBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS);
 
     public static final DropExperienceBlock SKELETON_ORE = new DropExperienceBlock(FabricBlockSettings.of(Material.STONE).strength(4f, 26.0f).sound(SoundType.STONE));
 
@@ -47,20 +56,23 @@ public final class RegisterBlocks {
     public static final Block POLISHED_WBC = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
     public static final Block FS_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
     public static final Block WBC_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
-    public static final Block DRAGONWOOD_LOG = new RotatedPillarBlock(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_PLANKS = new Block(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_STAIRS = new StairBlock(Blocks.OAK_STAIRS.defaultBlockState(), DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_DOOR = new DoorBlock(DRAGONWOOD_SETTINGS);
-    public static final Block STRIPPED_DRAGONWOOD_LOG = new RotatedPillarBlock(DRAGONWOOD_SETTINGS);
-    public static final Block STRIPPED_DRAGONWOOD_WOOD = new RotatedPillarBlock(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_WOOD = new RotatedPillarBlock(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_FENCE = new FenceBlock(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_SLAB = new SlabBlock(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_FENCE_GATE = new FenceGateBlock(DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, DRAGONWOOD_SETTINGS);
-    public static final Block DRAGONWOOD_TRAPDOOR = new TrapDoorBlock(DRAGONWOOD_SETTINGS);
+
+    // DRAGONWOOD
+
+    public static final Block DRAGONWOOD_LOG = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.DARK_OAK_LOG));
+    public static final Block DRAGONWOOD_PLANKS = new Block(FabricBlockSettings.copyOf(Blocks.DARK_OAK_PLANKS));
+    public static final Block DRAGONWOOD_STAIRS = new StairBlock(DRAGONWOOD_PLANKS.defaultBlockState(), FabricBlockSettings.copyOf(DRAGONWOOD_PLANKS));
+    public static final Block DRAGONWOOD_DOOR = new DoorBlock(FabricBlockSettings.of(Material.WOOD, DRAGONWOOD_PLANKS.defaultMaterialColor()).strength(3.0F).sounds(SoundType.WOOD).noOcclusion(), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN);
+    public static final Block STRIPPED_DRAGONWOOD_LOG = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_DARK_OAK_LOG));
+    public static final Block STRIPPED_DRAGONWOOD_WOOD = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_DARK_OAK_WOOD));
+    public static final Block DRAGONWOOD_WOOD = new RotatedPillarBlock(FabricBlockSettings.copyOf(Blocks.DARK_OAK_WOOD));
+    public static final Block DRAGONWOOD_FENCE = new FenceBlock(FabricBlockSettings.copyOf(FabricBlockSettings.of(Material.WOOD, DRAGONWOOD_PLANKS.defaultMaterialColor()).strength(2.0F, 3.0F).sounds(SoundType.WOOD)));
+    public static final Block DRAGONWOOD_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.DARK_OAK_SLAB));
+    public static final Block DRAGONWOOD_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, DRAGONWOOD_PLANKS.defaultMaterialColor()).strength(2.0F, 3.0F).sound(SoundType.WOOD), SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN);
+    public static final Block DRAGONWOOD_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, FabricBlockSettings.of(Material.WOOD, DRAGONWOOD_PLANKS.defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD), SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON);
+    public static final Block DRAGONWOOD_TRAPDOOR = new TrapDoorBlock(FabricBlockSettings.copyOf(Blocks.DARK_OAK_TRAPDOOR), SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN);
     public static final Block DRAGONWOOD_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).noOcclusion());
-    public static final Block DRAGONWOOD_BUTTON = new WoodButtonBlock(DRAGONWOOD_SETTINGS);
+    public static final Block DRAGONWOOD_BUTTON = woodenButton();
     public static final Block DRAGONWOOD_SIGN = new FrozenSignBlock(FabricBlockSettings.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD), DRAGONWOOD_WOOD_TYPE, Dinocraft.id("blocks/dragonwood_sign"));
     public static final Block DRAGONWOOD_WALL_SIGN = new FrozenWallSignBlock(FabricBlockSettings.of(Material.WOOD).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(DRAGONWOOD_SIGN), DRAGONWOOD_WOOD_TYPE, Dinocraft.id("blocks/dragonwood_sign"));
     public static final Block AMBER_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).strength(3f, 26.0f).sound(SoundType.STONE));
@@ -141,17 +153,44 @@ public final class RegisterBlocks {
             .recipeUnlockedBy("has_planks")
             .getFamily();
 
+    private static RotatedPillarBlock log(MaterialColor topColor, MaterialColor barkColor) {
+        return new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (state) -> {
+            return state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;
+        }).strength(2.0F).sound(SoundType.WOOD));
+    }
+
+    private static RotatedPillarBlock log(MaterialColor uprightColor, MaterialColor sidewaysColor, SoundType soundGroup, FeatureFlag... flags) {
+        return new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (state) -> {
+            return state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? uprightColor : sidewaysColor;
+        }).strength(2.0F).sound(soundGroup).requiredFeatures(flags));
+    }
+
+    private static ButtonBlock woodenButton() {
+        return woodenButton(SoundEvents.WOODEN_BUTTON_CLICK_OFF, SoundEvents.WOODEN_BUTTON_CLICK_ON);
+    }
+
+    private static ButtonBlock woodenButton(SoundEvent offSound, SoundEvent onSound) {
+        return new ButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F).sound(SoundType.WOOD), 30, true, offSound, onSound);
+    }
+
+    private static Boolean never(BlockState state, BlockGetter blockGetter, BlockPos pos, EntityType<?> entity) {
+        return false;
+    }
+
+    private static Boolean always(BlockState state, BlockGetter blockGetter, BlockPos pos, EntityType<?> entity) {
+        return true;
+    }
 
     private static void registerBlock(Block block, CreativeModeTab group, ResourceLocation ID) {
         registerBlock(block, group, ID, new FabricItemSettings());
     }
 
     private static void registerBlock(Block block, CreativeModeTab group, ResourceLocation ID, Item.Properties settings) {
-        Registry.register(Registry.BLOCK, ID, block);
-        Registry.register(Registry.ITEM, ID, new BlockItem(block, settings.tab(group)));
+        Registry.register(BuiltInRegistries.BLOCK, ID, block);
+        Registry.register(BuiltInRegistries.ITEM, ID, new BlockItem(block, settings.tab(group)));
     }
 
     private static void registerBlockWithoutBlockItem(Block block, ResourceLocation ID) {
-        Registry.register(Registry.BLOCK, ID, block);
+        Registry.register(BuiltInRegistries.BLOCK, ID, block);
     }
 }

@@ -109,8 +109,10 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
 	// FrozenLib
-	modImplementation "maven.modrinth:frozenlib:${frozenlib_version}"
-	include "maven.modrinth:frozenlib:${frozenlib_version}"
+	modImplementation "com.github.FrozenBlock:FrozenLib:1.19.3-SNAPSHOT"
+	include "com.github.FrozenBlock:FrozenLib:1.19.3-SNAPSHOT"
+	//modImplementation "maven.modrinth:frozenlib:${frozenlib_version}"
+	//include "maven.modrinth:frozenlib:${frozenlib_version}"
 
 	// Mod Menu
 	modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
