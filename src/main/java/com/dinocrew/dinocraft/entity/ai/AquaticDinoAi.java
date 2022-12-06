@@ -92,10 +92,12 @@ public class AquaticDinoAi {
                 Activity.FIGHT,
                 10,
                 ImmutableList.of(
+                        new StopAttackingIfTargetInvalid<>(
+                                livingEntity -> !dino.canTargetEntity(livingEntity), AquaticDinoAi::onTargetInvalid, false
+                        ),
                         new SetEntityLookTarget(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
                         new SetWalkTargetFromAttackTargetIfTargetOutOfReach(1.2F),
-                        new MeleeAttack(18),
-                        new StopAttackingIfTargetInvalid<>()
+                        new MeleeAttack(18)
                 ),
                 MemoryModuleType.ATTACK_TARGET
         );
@@ -103,5 +105,11 @@ public class AquaticDinoAi {
 
     private static boolean isTarget(AquaticDino dino, LivingEntity entity) {
         return dino.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).filter(targetedEntity -> targetedEntity == entity).isPresent();
+    }
+
+    private static void onTargetInvalid(AquaticDino dino, LivingEntity target) {
+        if (dino.getTarget() == target) {
+            dino.getBrain().eraseMemory(MemoryModuleType.ATTACK_TARGET);
+        }
     }
 }

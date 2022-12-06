@@ -27,7 +27,7 @@ public class TyrannosaurusAi {
     public static final float SPEED_MULTIPLIER_WHEN_IDLING = 0.5F;
     public static final float SPEED_MULTIPLIER_WHEN_INVESTIGATING = 0.7F;
     public static final float SPEED_MULTIPLIER_WHEN_FIGHTING = 1.2F;
-    public static final int MELEE_ATTACK_COOLDOWN = 18;
+    public static final int MELEE_ATTACK_COOLDOWN = 40;
     public static final int ROAR_DURATION = Mth.ceil(84.0F);
     public static final int SNIFFING_DURATION = Mth.ceil(83.2F);
     public static final int DISTURBANCE_LOCATION_EXPIRY_TIME = 100;

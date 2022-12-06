@@ -6,8 +6,10 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.BreathAirGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.TryFindWaterGoal;
@@ -28,7 +30,12 @@ public class Mosasaurus extends AquaticDino {
     }
 
     public static AttributeSupplier.Builder createDinoAttributes() {
-        return BaseDino.createDinoAttributes();
+        return AquaticDino.createDinoAttributes().add(Attributes.MAX_HEALTH, 25.0);
+    }
+
+    @Override
+    public double getMeleeAttackRangeSqr(LivingEntity entity) {
+        return this.getBbWidth() * 1.15 * this.getBbWidth() * 1.15 + entity.getBbWidth();
     }
 
     @Override

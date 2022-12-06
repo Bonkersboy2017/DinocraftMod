@@ -87,6 +87,7 @@ public class BaseDino extends TamableAnimal {
                 && !this.isAlliedTo(entity)
                 && livingEntity.getType() != EntityType.ARMOR_STAND
                 && !(livingEntity instanceof BaseDino)
+                && !(livingEntity instanceof AquaticDino)
                 && !livingEntity.isInvulnerable()
                 && !livingEntity.isDeadOrDying()
                 && this.level.getWorldBorder().isWithinBounds(livingEntity.getBoundingBox());

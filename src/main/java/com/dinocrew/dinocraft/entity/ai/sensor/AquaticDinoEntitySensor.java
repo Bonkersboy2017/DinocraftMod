@@ -9,6 +9,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.sensing.NearestLivingEntitySensor;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.function.Predicate;
 public class AquaticDinoEntitySensor extends NearestLivingEntitySensor<AquaticDino> {
 
     @Override
+    @NotNull
     public Set<MemoryModuleType<?>> requires() {
         return ImmutableSet.copyOf(Iterables.concat(super.requires(), List.of(MemoryModuleType.NEAREST_ATTACKABLE)));
     }
