@@ -4,7 +4,7 @@ import com.dinocrew.dinocraft.entity.Tyrannosaurus;
 import com.dinocrew.dinocraft.entity.ai.TyrannosaurusAi;
 import com.dinocrew.dinocraft.registry.RegisterSounds;
 import com.google.common.collect.ImmutableMap;
-import net.frozenblock.lib.screenshake.ScreenShakePackets;
+import net.frozenblock.lib.screenshake.api.ScreenShakePackets;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.LivingEntity;

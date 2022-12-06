@@ -1,10 +1,12 @@
-package net.frozenblock.api.minecraft.worldgen.trees.trunkplacers;
+package net.frozenblock.worldgen.trees.trunkplacers;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.frozenblock.lib.math.AdvancedMath;
+import net.frozenblock.lib.math.api.AdvancedMath;
+import net.frozenblock.lib.math.api.Conics;
+import net.frozenblock.lib.math.api.Point3D;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
@@ -13,8 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.frozenblock.api.math.Conics;
-import net.frozenblock.api.math.Point3D;
+
 import java.util.List;
 import java.util.function.BiConsumer;
 

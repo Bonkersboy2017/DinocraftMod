@@ -8,14 +8,14 @@ package com.dinocrew.dinocraft.entity.render;
 import com.dinocrew.dinocraft.entity.Scorpius;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.frozenblock.api.math.AnimationAPI;
+import net.frozenblock.lib.math.api.AnimationAPI;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
 
-public class ScorpiusModel extends HierarchicalModel<Scorpius> implements AnimationAPI {
+public class ScorpiusModel extends HierarchicalModel<Scorpius> {
     private final ModelPart root;
     private final ModelPart bone;
     private final ModelPart right_leg;
@@ -147,15 +147,15 @@ public class ScorpiusModel extends HierarchicalModel<Scorpius> implements Animat
         this.tail5.yRot = (float) Math.cos((ageInTicks + 4) / 5) / 5;
         this.tail6.yRot = (float) Math.cos((ageInTicks + 5) / 5) / 5;
 
-        this.right_leg.xRot = legAnimation(0.9599F, 0.25f, 1, limbSwing, limbSwingAmount);
-        this.right_hip.xRot = legAnimation(-0.48F, 0.25f, 1, limbSwing, limbSwingAmount, true);
-        this.right_knee.xRot = legAnimation(0.2182F, 0.25f, 1, limbSwing, limbSwingAmount);
-        this.right_foot.xRot = legAnimation(-0.6981F, 0.25f, 1, limbSwing, limbSwingAmount);
+        this.right_leg.xRot = AnimationAPI.legAnimation(0.9599F, 0.25f, 1, limbSwing, limbSwingAmount);
+        this.right_hip.xRot = AnimationAPI.legAnimation(-0.48F, 0.25f, 1, limbSwing, limbSwingAmount, true);
+        this.right_knee.xRot = AnimationAPI.legAnimation(0.2182F, 0.25f, 1, limbSwing, limbSwingAmount);
+        this.right_foot.xRot = AnimationAPI.legAnimation(-0.6981F, 0.25f, 1, limbSwing, limbSwingAmount);
         this.right_toe.xRot = -0.829F;
-        this.left_leg.xRot = legAnimation(0.9599F, 0.25f, 1, limbSwing, limbSwingAmount, true);
-        this.left_hip.xRot = legAnimation(-0.48F, 0.25f, 1, limbSwing, limbSwingAmount);
-        this.left_knee.xRot = legAnimation(0.2182F, 0.25f, 1, limbSwing, limbSwingAmount, true);
-        this.left_foot.xRot = legAnimation(-0.6981F, 0.25f, 1, limbSwing, limbSwingAmount, true);
+        this.left_leg.xRot = AnimationAPI.legAnimation(0.9599F, 0.25f, 1, limbSwing, limbSwingAmount, true);
+        this.left_hip.xRot = AnimationAPI.legAnimation(-0.48F, 0.25f, 1, limbSwing, limbSwingAmount);
+        this.left_knee.xRot = AnimationAPI.legAnimation(0.2182F, 0.25f, 1, limbSwing, limbSwingAmount, true);
+        this.left_foot.xRot = AnimationAPI.legAnimation(-0.6981F, 0.25f, 1, limbSwing, limbSwingAmount, true);
         this.left_toe.xRot = -0.829F;
 		/*
 		this.right_leg.pitch = -(float)Math.cos(ageInTicks/5);

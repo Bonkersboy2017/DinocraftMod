@@ -1,10 +1,10 @@
-package net.frozenblock.api.minecraft.worldgen.trees.foliageplacers;
+package net.frozenblock.worldgen.trees.foliageplacers;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.frozenblock.api.math.Conics;
-import net.frozenblock.api.math.Point3D;
+import net.frozenblock.lib.math.api.Conics;
+import net.frozenblock.lib.math.api.Point3D;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
