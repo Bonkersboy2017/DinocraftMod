@@ -8,6 +8,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.util.Mth;
+import org.jetbrains.annotations.NotNull;
 
 // Made with Model Converter by Globox_Z
 // Generate all required imports
@@ -92,15 +93,15 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> {
     @Override
     public void setupAnim(Tyrannosaurus dino, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
-        this.animateHeadLookTarget(netHeadYaw, headPitch);
         this.animateWalk(limbSwing, limbSwingAmount, ageInTicks);
+        this.animateHeadLookTarget(netHeadYaw, headPitch);
         this.animate(dino.attackAnimationState, TyrannosaurusAnimation.ATTACK, ageInTicks);
         this.animate(dino.roarAnimationState, TyrannosaurusAnimation.ROAR, ageInTicks);
         this.animate(dino.sniffAnimationState, TyrannosaurusAnimation.SNIFF, ageInTicks);
     }
 
     private void animateHeadLookTarget(float pitch, float yaw) {
-        this.head.xRot = yaw * ((float) (Math.PI / 180.0));
+        this.head.xRot = yaw * ((float) (Math.PI / 180.0)) + 45F;
         this.head.yRot = pitch * (float) (Math.PI / 180.0);
     }
 
@@ -128,11 +129,12 @@ public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> {
         this.right_knee.xRot = sin0to1 + 1.6f;
         this.left_leg.xRot = -(sin0to1 + 0.83f);
         this.left_knee.xRot = cos0to1 + 1.6f;
-        this.right_arm.xRot = trueCosAnim;
-        this.left_arm.xRot = trueSinAnim;
+        this.right_arm.xRot = trueCosAnim * 0.5F;
+        this.left_arm.xRot = trueSinAnim * 0.5F;
     }
 
     @Override
+    @NotNull
     public ModelPart root() {
         return this.root;
     }
