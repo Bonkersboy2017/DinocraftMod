@@ -26,8 +26,8 @@ public class DinocraftDataGenerator implements DataGeneratorEntrypoint {
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
         Dinocraft.logDino("Registering worldgen for", Dinocraft.UNSTABLE_LOGGING);
 
-        registryBuilder.add(Registries.CONFIGURED_FEATURE, RegisterFeatures::bootstrap);
-        registryBuilder.add(Registries.PLACED_FEATURE, RegisterFeatures::bootstrapPlaced);
+        registryBuilder.add(Registries.CONFIGURED_FEATURE, DinoFeatureBootstrap::bootstrapConfiguredFeatures);
+        registryBuilder.add(Registries.PLACED_FEATURE, DinoFeatureBootstrap::bootstrapPlacedFeatures);
         registryBuilder.add(Registries.BIOME, RegisterWorldgen::bootstrap);
     }
 

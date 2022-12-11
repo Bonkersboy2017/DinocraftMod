@@ -3,14 +3,11 @@ package com.dinocrew.dinocraft.registry;
 import com.dinocrew.dinocraft.Dinocraft;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.frozenblock.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
-import net.frozenblock.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+import net.frozenblock.dinocraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
+import net.frozenblock.dinocraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
-import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
@@ -21,7 +18,6 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -29,9 +25,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 public final class RegisterFeatures {
 
@@ -159,11 +152,11 @@ public final class RegisterFeatures {
         );
     }
 
-    private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String key) {
+    public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String key) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, Dinocraft.id(key));
     }
 
-    private static ResourceKey<PlacedFeature> createPlacedKey(String key) {
+    public static ResourceKey<PlacedFeature> createPlacedKey(String key) {
         return ResourceKey.create(Registries.PLACED_FEATURE, Dinocraft.id(key));
     }
 }

@@ -4,7 +4,6 @@ import com.dinocrew.dinocraft.recipe.ModRecipeSerializer;
 import com.dinocrew.dinocraft.registry.*;
 import com.dinocrew.dinocraft.block.ModBlockEntityTypes;
 import com.dinocrew.dinocraft.registry.RegisterEnchantments;
-import com.dinocrew.dinocraft.registry.RegisterWorldgen;
 import com.dinocrew.dinocraft.screen.ModScreenHandlerTypes;
 import com.mojang.datafixers.schemas.Schema;
 import com.mojang.datafixers.util.Pair;
@@ -14,8 +13,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import net.frozenblock.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
-import net.frozenblock.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
+import net.frozenblock.dinocraft.Main;
+import net.frozenblock.dinocraft.worldgen.trees.foliageplacers.DragonWoodFoliagePlacer;
+import net.frozenblock.dinocraft.worldgen.trees.trunkplacers.DragonWoodTrunkPlacer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -56,7 +56,7 @@ public final class Dinocraft implements ModInitializer {
     @Override
     public void onInitialize() {
         var dataFixer = applyDataFixes(FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow());
-        net.frozenblock.Main.runner(MOD_ID); // Run FrozenBlock stuff
+        Main.runner(MOD_ID); // Run FrozenBlock stuff
 
 
         RegisterItems.registerAll();

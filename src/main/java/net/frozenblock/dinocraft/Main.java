@@ -1,7 +1,7 @@
-package net.frozenblock;
+package net.frozenblock.dinocraft;
 
-import net.frozenblock.registry.RegisterBlocks;
-import net.frozenblock.registry.RegisterConfiguredFeatures;
+import net.frozenblock.dinocraft.registry.RegisterBlocks;
+import net.frozenblock.dinocraft.registry.RegisterConfiguredFeatures;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package net.frozenblock;
+package net.frozenblock.dinocraft;
 
 import com.dinocrew.dinocraft.Dinocraft;
 

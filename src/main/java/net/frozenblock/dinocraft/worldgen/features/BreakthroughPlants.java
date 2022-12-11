@@ -1,4 +1,4 @@
-package net.frozenblock.worldgen.features;
+package net.frozenblock.dinocraft.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.dinocrew.dinocraft.registry.RegisterFeatures;
@@ -39,7 +39,7 @@ public class BreakthroughPlants {
             "bt_liverworts",
             Feature.MULTIFACE_GROWTH,
             new MultifaceGrowthConfiguration(
-                    net.frozenblock.registry.RegisterBlocks.LIVERWORTS,
+                    net.frozenblock.dinocraft.registry.RegisterBlocks.LIVERWORTS,
                     30,
                     true,
                     false,
@@ -119,7 +119,7 @@ public class BreakthroughPlants {
 
         @Override
         public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
-            BreakthroughPlants.generate(context, net.frozenblock.registry.RegisterBlocks.CYCADOPHYTA.defaultBlockState());
+            BreakthroughPlants.generate(context, net.frozenblock.dinocraft.registry.RegisterBlocks.CYCADOPHYTA.defaultBlockState());
             return true;
         }
 

@@ -60,8 +60,8 @@ public final class DinocraftClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(MODEL_TREX_LAYER, TyrannosaurusModel::createBodyLayer);
 
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.DRAGONWOOD_LEAVES, RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(net.frozenblock.registry.RegisterBlocks.LIVERWORTS, RenderType.cutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(net.frozenblock.registry.RegisterBlocks.CYCADOPHYTA, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(net.frozenblock.dinocraft.registry.RegisterBlocks.LIVERWORTS, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(net.frozenblock.dinocraft.registry.RegisterBlocks.CYCADOPHYTA, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.DRAGONGRASS, RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.DINOSAUR_TEMPERED_GLASS, RenderType.translucent());
         BlockRenderLayerMap.INSTANCE.putBlock(RegisterBlocks.INCUBATED_DINO_EGG, RenderType.cutout());
@@ -83,7 +83,7 @@ public final class DinocraftClient implements ClientModInitializer {
             } else {
                 return GrassColor.get(1, 1);
             }
-        }), net.frozenblock.registry.RegisterBlocks.CYCADOPHYTA);
+        }), net.frozenblock.dinocraft.registry.RegisterBlocks.CYCADOPHYTA);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> {
             if (world != null) {
@@ -97,7 +97,7 @@ public final class DinocraftClient implements ClientModInitializer {
 
         ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> FoliageColor.getDefaultColor()), RegisterBlocks.DRAGONWOOD_LEAVES);
 
-        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColor.get(1, 1)), net.frozenblock.registry.RegisterBlocks.CYCADOPHYTA);
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColor.get(1, 1)), net.frozenblock.dinocraft.registry.RegisterBlocks.CYCADOPHYTA);
     }
 
 

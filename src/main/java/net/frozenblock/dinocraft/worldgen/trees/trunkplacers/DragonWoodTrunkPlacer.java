@@ -1,4 +1,4 @@
-package net.frozenblock.worldgen.trees.trunkplacers;
+package net.frozenblock.dinocraft.worldgen.trees.trunkplacers;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.google.common.collect.ImmutableList;
