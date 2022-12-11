@@ -13,7 +13,7 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 
 public class TyrannosaurusTryToSniff extends Behavior<Tyrannosaurus> {
-    private static final IntProvider SNIFF_COOLDOWN = UniformInt.of(200, 400);
+    private static final IntProvider SNIFF_COOLDOWN = UniformInt.of(300, 600);
 
     public TyrannosaurusTryToSniff() {
         super(
@@ -28,7 +28,8 @@ public class TyrannosaurusTryToSniff extends Behavior<Tyrannosaurus> {
         );
     }
 
-    protected void start(ServerLevel level, Tyrannosaurus tyrannosaurus, long gameTime) {
+    @Override
+    public void start(ServerLevel level, Tyrannosaurus tyrannosaurus, long gameTime) {
         Brain<? extends Tyrannosaurus> brain = tyrannosaurus.getBrain();
         brain.setMemory(MemoryModuleType.IS_SNIFFING, Unit.INSTANCE);
         brain.setMemoryWithExpiry(MemoryModuleType.SNIFF_COOLDOWN, Unit.INSTANCE, SNIFF_COOLDOWN.sample(level.getRandom()));
