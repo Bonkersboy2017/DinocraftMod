@@ -38,6 +38,6 @@ public class Deinonychus extends BaseDino {
     }
 
     public static AttributeSupplier.Builder createDinoAttributes() {
-        return BaseDino.createDinoAttributes();
+        return BaseDino.createDinoAttributes().add(Attributes.ATTACK_DAMAGE, 2.0);
     }
 }

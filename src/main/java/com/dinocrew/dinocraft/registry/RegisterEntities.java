@@ -2,6 +2,7 @@ package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.dinocrew.dinocraft.entity.*;
+import com.dinocrew.dinocraft.entity.ai.sensor.AquaticDinoEntitySensor;
 import com.dinocrew.dinocraft.entity.ai.sensor.BaseDinoEntitySensor;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.core.Registry;
@@ -30,6 +31,7 @@ public final class RegisterEntities {
     public static final EntityType<Tyrannosaurus> TYRANNOSAURUS = Registry.register(Registry.ENTITY_TYPE, Dinocraft.id("tyrannosaurus"), FabricEntityTypeBuilder.createMob().entityFactory(Tyrannosaurus::new).spawnGroup(MobCategory.CREATURE).defaultAttributes(Tyrannosaurus::createDinoAttributes).dimensions(EntityDimensions.fixed(2.5F, 2.6F)).build());
 
     public static final SensorType<BaseDinoEntitySensor> BASE_DINO_ENTITY_SENSOR = registerSensor("base_dino_entity_sensor", BaseDinoEntitySensor::new);
+    public static final SensorType<AquaticDinoEntitySensor> AQUATIC_DINO_ENTITY_SENSOR = registerSensor("aquatic_dino_entity_sensor", AquaticDinoEntitySensor::new);
 
     private RegisterEntities() {
     }

@@ -1,10 +1,10 @@
-package net.frozenblock.api.minecraft.worldgen.trees.foliageplacers;
+package net.frozenblock.worldgen.trees.foliageplacers;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.frozenblock.api.math.Conics;
-import net.frozenblock.api.math.Point3D;
+import net.frozenblock.lib.math.api.Conics;
+import net.frozenblock.lib.math.api.Point3D;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -30,19 +30,19 @@ public class DragonWoodFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, net.minecraft.util.RandomSource random, TreeConfiguration config, int trunkHeight, FoliageAttachment treeNode, int foliageHeight, int radius, int offset) {
+    protected void createFoliage(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, RandomSource random, TreeConfiguration config, int trunkHeight, FoliageAttachment treeNode, int foliageHeight, int radius, int offset) {
         BlockPos.MutableBlockPos center = treeNode.pos().mutable();
         generateEllipsoid(9, 4, 9, 100, world, replacer, random, config, center);
         generateEllipsoid(10, 5, 10, 50, world, replacer, random, config, center);
     }
 
     @Override
-    public int foliageHeight(net.minecraft.util.RandomSource random, int trunkHeight, TreeConfiguration config) {
+    public int foliageHeight(RandomSource random, int trunkHeight, TreeConfiguration config) {
         return 0;
     }
 
     @Override
-    protected boolean shouldSkipLocation(net.minecraft.util.RandomSource random, int dx, int y, int dz, int radius, boolean giantTrunk) {
+    protected boolean shouldSkipLocation(RandomSource random, int dx, int y, int dz, int radius, boolean giantTrunk) {
         return false;
     }
 

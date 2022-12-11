@@ -1,14 +1,16 @@
 package com.dinocrew.dinocraft.entity;
 
-import com.dinocrew.dinocraft.entity.ai.BaseDinoAi;
+import com.dinocrew.dinocraft.entity.ai.AquaticDinoAi;
 import com.dinocrew.dinocraft.registry.RegisterItems;
 import com.dinocrew.dinocraft.registry.RegisterSounds;
 import com.mojang.serialization.Dynamic;
+import net.frozenblock.lib.entity.api.NoFlopAbstractFish;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.util.Unit;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -19,8 +21,10 @@ import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.behavior.StartAttacking;
+import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
+import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -29,11 +33,13 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 
-public class BaseDino extends TamableAnimal {
-    public BaseDino(EntityType<? extends BaseDino> entityType, Level level) {
+public class AquaticDino extends NoFlopAbstractFish {
+    public AquaticDino(EntityType<? extends AquaticDino> entityType, Level level) {
         super(entityType, level);
+        this.moveControl = new SmootherSwimmingMoveControl(this, 0.05F, 50.0F, 1F, 0.05F, false);
+        this.lookControl = new SmoothSwimmingLookControl(this, 10);
         this.xpReward = 5;
-        this.getNavigation().setCanFloat(true);
+        this.getNavigation().setCanFloat(false);
         this.setPathfindingMalus(BlockPathTypes.UNPASSABLE_RAIL, 0.0F);
         this.setPathfindingMalus(BlockPathTypes.DAMAGE_OTHER, 8.0F);
         this.setPathfindingMalus(BlockPathTypes.POWDER_SNOW, 8.0F);
@@ -51,12 +57,7 @@ public class BaseDino extends TamableAnimal {
     }*/
 
     public static AttributeSupplier.Builder createDinoAttributes() {
-        return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 16.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.2F)
-                .add(Attributes.KNOCKBACK_RESISTANCE, 0.7)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.5)
-                .add(Attributes.ATTACK_DAMAGE, 5.0);
+        return BaseDino.createDinoAttributes().add(Attributes.MOVEMENT_SPEED, 3.0).add(Attributes.ATTACK_KNOCKBACK, 1.2);
     }
 
     @Override
@@ -101,27 +102,23 @@ public class BaseDino extends TamableAnimal {
 
     @Override
     public void customServerAiStep() {
-        if (!(this instanceof Tyrannosaurus)) {
-            ServerLevel serverLevel = (ServerLevel) this.level;
-            serverLevel.getProfiler().push("baseDinoBrain");
-            ((Brain<BaseDino>) this.getBrain()).tick(serverLevel, this);
-            this.level.getProfiler().pop();
-        }
+        ServerLevel serverLevel = (ServerLevel) this.level;
+        serverLevel.getProfiler().push("aquaticDinoBrain");
+        ((Brain<AquaticDino>) this.getBrain()).tick(serverLevel, this);
+        this.level.getProfiler().pop();
         super.customServerAiStep();
 
-        if (!(this instanceof Tyrannosaurus)) {
-            BaseDinoAi.updateActivity(this);
-        }
+        AquaticDinoAi.updateActivity(this);
     }
 
     @Override
     protected Brain<?> makeBrain(Dynamic<?> dynamic) {
-        return BaseDinoAi.makeBrain(this, dynamic);
+        return AquaticDinoAi.makeBrain(this, dynamic);
     }
 
     @Override
-    public Brain<? extends BaseDino> getBrain() {
-        return (Brain<BaseDino>) super.getBrain();
+    public Brain<? extends AquaticDino> getBrain() {
+        return (Brain<AquaticDino>) super.getBrain();
     }
 
     @Override
@@ -136,8 +133,8 @@ public class BaseDino extends TamableAnimal {
         if (!this.level.isClientSide && !this.isNoAi()) {
             Entity entity = source.getEntity();
             if (this.brain.getMemory(MemoryModuleType.ATTACK_TARGET).isEmpty()
-                && entity instanceof LivingEntity livingEntity
-                && (!(source instanceof IndirectEntityDamageSource) || this.closerThan(livingEntity, 5.0))) {
+                    && entity instanceof LivingEntity livingEntity
+                    && (!(source instanceof IndirectEntityDamageSource) || this.closerThan(livingEntity, 5.0))) {
                 this.setAttackTarget(livingEntity);
             }
         }
@@ -164,10 +161,8 @@ public class BaseDino extends TamableAnimal {
             if (!player.getAbilities().instabuild) {
                 itemStack.shrink(1);
             }
-            this.tame(player);
             this.navigation.stop();
             this.setTarget(null);
-            this.setOrderedToSit(true);
             this.level.broadcastEntityEvent(this, (byte) 7);
 
             return InteractionResult.SUCCESS;
@@ -175,10 +170,9 @@ public class BaseDino extends TamableAnimal {
         return super.mobInteract(player, hand);
     }
 
-    @Nullable
     @Override
-    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
-        return null;
+    protected SoundEvent getFlopSound() {
+        return this.getSwimSound();
     }
 
     @Nullable
@@ -208,4 +202,72 @@ public class BaseDino extends TamableAnimal {
     protected SoundEvent getDeathSound() {
         return RegisterSounds.DINO_DEATH;
     }
+
+    @Override
+    public ItemStack getBucketItemStack() {
+        return null;
+    }
+
+    private static class SmootherSwimmingMoveControl extends MoveControl {
+        private final float maxTurnX;
+        private final float maxTurnY;
+        private final float inWaterSpeedModifier;
+        private final float outsideWaterSpeedModifier;
+        private final boolean applyGravity;
+
+        public SmootherSwimmingMoveControl(Mob mob, float maxTurnX, float maxTurnY, float inWaterSpeedModifier, float outsideWaterSpeedModifier, boolean applyGravity) {
+            super(mob);
+            this.maxTurnX = maxTurnX;
+            this.maxTurnY = maxTurnY;
+            this.inWaterSpeedModifier = inWaterSpeedModifier;
+            this.outsideWaterSpeedModifier = outsideWaterSpeedModifier;
+            this.applyGravity = applyGravity;
+        }
+
+        @Override
+        public void tick() {
+            if (this.applyGravity && this.mob.isInWater()) {
+                this.mob.setDeltaMovement(this.mob.getDeltaMovement().add(0.0, 0.005, 0.0));
+            }
+
+            if (this.operation == MoveControl.Operation.MOVE_TO && !this.mob.getNavigation().isDone()) {
+                double d = this.wantedX - this.mob.getX();
+                double e = this.wantedY - this.mob.getY();
+                double f = this.wantedZ - this.mob.getZ();
+                double g = d * d + e * e + f * f;
+                if (g < 2.5000003E-7F) {
+                    this.mob.setZza(0.0F);
+                } else {
+                    float h = (float)(Mth.atan2(f, d) * 180.0F / (float)Math.PI) - 90.0F;
+                    this.mob.setYRot(this.rotlerp(this.mob.getYRot(), h, (float)this.maxTurnY));
+                    this.mob.yBodyRot = this.mob.getYRot();
+                    this.mob.yHeadRot = this.mob.getYRot();
+                    float i = (float)(this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED));
+                    if (this.mob.isInWater()) {
+                        this.mob.setSpeed(i * this.inWaterSpeedModifier);
+                        double j = Math.sqrt(d * d + f * f);
+                        if (Math.abs(e) > 1.0E-5F || Math.abs(j) > 1.0E-5F) {
+                            float k = -((float)(Mth.atan2(e, j) * 180.0F / (float)Math.PI));
+                            k = Mth.clamp(Mth.wrapDegrees(k), (float)(-this.maxTurnX), (float)this.maxTurnX);
+                            this.mob.setXRot(this.rotlerp(this.mob.getXRot(), k, 5.0F));
+                        }
+
+                        float k = Mth.cos(this.mob.getXRot() * (float) (Math.PI / 180.0));
+                        float l = Mth.sin(this.mob.getXRot() * (float) (Math.PI / 180.0));
+                        this.mob.zza = k * i;
+                        this.mob.yya = -l * i;
+                    } else {
+                        this.mob.setSpeed(i * this.outsideWaterSpeedModifier);
+                    }
+
+                }
+            } else {
+                this.mob.setSpeed(0.0F);
+                this.mob.setXxa(0.0F);
+                this.mob.setYya(0.0F);
+                this.mob.setZza(0.0F);
+            }
+        }
+    }
+
 }

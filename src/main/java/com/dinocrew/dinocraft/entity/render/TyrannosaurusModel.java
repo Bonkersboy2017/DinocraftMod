@@ -2,9 +2,6 @@ package com.dinocrew.dinocraft.entity.render;
 
 import com.dinocrew.dinocraft.entity.Tyrannosaurus;
 import com.dinocrew.dinocraft.entity.render.animation.TyrannosaurusAnimation;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.frozenblock.api.math.AnimationAPI;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -18,7 +15,7 @@ import net.minecraft.util.Mth;
 // Exported for Minecraft version 1.15 - 1.16
 // Paste this class into your mod and generate all required imports
 
-public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> implements AnimationAPI {
+public class TyrannosaurusModel extends HierarchicalModel<Tyrannosaurus> {
     private final ModelPart root;
     private final ModelPart right_leg;
     private final ModelPart right_knee;

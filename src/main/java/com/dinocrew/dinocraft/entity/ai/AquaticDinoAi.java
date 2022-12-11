@@ -1,11 +1,13 @@
 package com.dinocrew.dinocraft.entity.ai;
 
+import com.dinocrew.dinocraft.entity.AquaticDino;
 import com.dinocrew.dinocraft.entity.BaseDino;
 import com.dinocrew.dinocraft.registry.RegisterEntities;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Dynamic;
+import net.frozenblock.lib.entity.api.behavior.BreatheAir;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -17,9 +19,9 @@ import net.minecraft.world.entity.schedule.Activity;
 
 import java.util.List;
 
-public class BaseDinoAi {
+public class AquaticDinoAi {
 
-    private static final List<SensorType<? extends Sensor<? super BaseDino>>> SENSOR_TYPES = List.of(SensorType.NEAREST_PLAYERS, RegisterEntities.BASE_DINO_ENTITY_SENSOR);
+    private static final List<SensorType<? extends Sensor<? super AquaticDino>>> SENSOR_TYPES = List.of(SensorType.NEAREST_PLAYERS, RegisterEntities.AQUATIC_DINO_ENTITY_SENSOR);
 
     private static final List<MemoryModuleType<?>> MEMORY_TYPES = List.of(
             MemoryModuleType.NEAREST_LIVING_ENTITIES,
@@ -37,18 +39,18 @@ public class BaseDinoAi {
             MemoryModuleType.TOUCH_COOLDOWN
     );
 
-    private BaseDinoAi() {
+    private AquaticDinoAi() {
     }
 
-    public static void updateActivity(BaseDino dino) {
+    public static void updateActivity(AquaticDino dino) {
         dino.getBrain().setActiveActivityToFirstValid(ImmutableList.of(Activity.FIGHT, Activity.IDLE));
     }
 
-    public static Brain<BaseDino> makeBrain(BaseDino dino, Dynamic<?> dynamic) {
-        Brain.Provider<BaseDino> provider = Brain.provider(MEMORY_TYPES, SENSOR_TYPES);
-        Brain<BaseDino> brain = provider.makeBrain(dynamic);
+    public static Brain<AquaticDino> makeBrain(AquaticDino dino, Dynamic<?> dynamic) {
+        Brain.Provider<AquaticDino> provider = Brain.provider(MEMORY_TYPES, SENSOR_TYPES);
+        Brain<AquaticDino> brain = provider.makeBrain(dynamic);
         initCoreActivity(brain);
-        initIdleActivity(dino, brain);
+        initIdleActivity(brain);
         initFightActivity(dino, brain);
         brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         brain.setDefaultActivity(Activity.IDLE);
@@ -56,11 +58,10 @@ public class BaseDinoAi {
         return brain;
     }
 
-    private static void initCoreActivity(Brain<BaseDino> brain) {
+    private static void initCoreActivity(Brain<AquaticDino> brain) {
         brain.addActivity(Activity.CORE,
                 0,
                 ImmutableList.of(
-                        new Swim(0.8F),
                         new SetEntityLookTarget(8.0F),
                         new LookAtTargetSink(45, 90),
                         new MoveToTargetSink()
@@ -68,32 +69,47 @@ public class BaseDinoAi {
         );
     }
 
-    private static void initIdleActivity(BaseDino dino, Brain<BaseDino> brain) {
+    private static void initIdleActivity(Brain<AquaticDino> brain) {
         brain.addActivity(
                 Activity.IDLE,
                 10,
                 ImmutableList.of(
                         new StartAttacking<>(sus -> sus.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER)),
-                        new RunOne<>(ImmutableList.of(Pair.of(new DoNothing(30, 60), 1)))
+                        new TryFindWater(10, 1.0F),
+                        new RunOne<>(
+                                ImmutableList.of(
+                                        Pair.of(new BreatheAir<>(), 3),
+                                        Pair.of(new RandomSwim(1.0F), 2),
+                                        Pair.of(new DoNothing(30, 60), 1)
+                                )
+                        )
                 )
         );
     }
 
-    private static void initFightActivity(BaseDino dino, Brain<BaseDino> brain) {
+    private static void initFightActivity(AquaticDino dino, Brain<AquaticDino> brain) {
         brain.addActivityAndRemoveMemoryWhenStopped(
                 Activity.FIGHT,
                 10,
                 ImmutableList.of(
+                        new StopAttackingIfTargetInvalid<>(
+                                livingEntity -> !dino.canTargetEntity(livingEntity), AquaticDinoAi::onTargetInvalid, false
+                        ),
                         new SetEntityLookTarget(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
                         new SetWalkTargetFromAttackTargetIfTargetOutOfReach(1.2F),
-                        new MeleeAttack(18),
-                        new StopAttackingIfTargetInvalid<>()
+                        new MeleeAttack(18)
                 ),
                 MemoryModuleType.ATTACK_TARGET
         );
     }
 
-    private static boolean isTarget(BaseDino dino, LivingEntity entity) {
+    private static boolean isTarget(AquaticDino dino, LivingEntity entity) {
         return dino.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).filter(targetedEntity -> targetedEntity == entity).isPresent();
+    }
+
+    private static void onTargetInvalid(AquaticDino dino, LivingEntity target) {
+        if (dino.getTarget() == target) {
+            dino.getBrain().eraseMemory(MemoryModuleType.ATTACK_TARGET);
+        }
     }
 }

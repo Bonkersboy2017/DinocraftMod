@@ -7,9 +7,9 @@
   },
   "entity.chinlea.hurt": {
     "sounds": [
-      "dinocraft:mob/chinlea/hit_1",
-      "dinocraft:mob/chinlea/hit_2",
-      "dinocraft:mob/chinlea/hit_3"
+      "dinocraft:mob/chinlea/hurt_1",
+      "dinocraft:mob/chinlea/hurt_2",
+      "dinocraft:mob/chinlea/hurt_3"
     ],
     "subtitle": "subtitles.entity.chinlea.hurt"
   },
@@ -46,13 +46,13 @@
   },
   "entity.microraptor.hurt": {
     "sounds": [
-      "dinocraft:mob/micro/hurt"
+      "dinocraft:mob/microraptor/hurt"
     ],
     "subtitle": "subtitles.entity.microraptor.hurt"
   },
   "entity.microraptor.ambient": {
     "sounds": [
-      "dinocraft:mob/micro/ambient"
+      "dinocraft:mob/microraptor/ambient"
     ],
     "subtitle": "subtitles.entity.microraptor.ambient"
   },

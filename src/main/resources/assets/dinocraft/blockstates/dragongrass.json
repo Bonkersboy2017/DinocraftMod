@@ -1,8 +1,21 @@
 {
 	"variants": {
-		"": { "model": "dinocraft:block/dragongrass" },
-		"": { "model": "dinocraft:block/dragongrass","y": 90 },
-		"": { "model": "dinocraft:block/dragongrass","y": 180 },
-		"": { "model": "dinocraft:block/dragongrass","y": 270 }
+		"": [
+			{
+				"model": "dinocraft:block/dragongrass"
+			},
+			{
+				"model": "dinocraft:block/dragongrass",
+				"y": 90
+			},
+			{
+				"model": "dinocraft:block/dragongrass",
+				"y": 180
+			},
+			{
+				"model": "dinocraft:block/dragongrass",
+				"y": 270
+			}
+		]
 	}
 }

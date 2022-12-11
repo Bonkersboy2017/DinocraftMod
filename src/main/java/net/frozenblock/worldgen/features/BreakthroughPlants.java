@@ -1,4 +1,4 @@
-package net.frozenblock.api.minecraft.worldgen.features;
+package net.frozenblock.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.dinocrew.dinocraft.registry.RegisterFeatures;

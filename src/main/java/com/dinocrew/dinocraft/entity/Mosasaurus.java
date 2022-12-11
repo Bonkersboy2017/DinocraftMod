@@ -6,8 +6,10 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.BreathAirGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.TryFindWaterGoal;
@@ -17,16 +19,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
-public class Mosasaurus extends AbstractFish {
+public class Mosasaurus extends AquaticDino {
 
     public Mosasaurus(EntityType<? extends Mosasaurus> entityType, Level world) {
         super(entityType, world);
-    }
-
-    protected void registerGoals() {
-        this.goalSelector.addGoal(0, new BreathAirGoal(this));
-        this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1.0D, 10));
     }
 
     public static boolean canSpawn(EntityType<Mosasaurus> type, LevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
@@ -34,7 +30,12 @@ public class Mosasaurus extends AbstractFish {
     }
 
     public static AttributeSupplier.Builder createDinoAttributes() {
-        return BaseDino.createDinoAttributes();
+        return AquaticDino.createDinoAttributes().add(Attributes.MAX_HEALTH, 25.0);
+    }
+
+    @Override
+    public double getMeleeAttackRangeSqr(LivingEntity entity) {
+        return this.getBbWidth() * 1.15 * this.getBbWidth() * 1.15 + entity.getBbWidth();
     }
 
     @Override

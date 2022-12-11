@@ -1,8 +1,10 @@
-package net.frozenblock.api.minecraft.worldgen.features;
+package net.frozenblock.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.mojang.serialization.Codec;
-import net.frozenblock.lib.math.AdvancedMath;
+import net.frozenblock.lib.math.api.AdvancedMath;
+import net.frozenblock.lib.math.api.Conics;
+import net.frozenblock.lib.math.api.Point3D;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -11,8 +13,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
-import net.frozenblock.api.math.Conics;
-import net.frozenblock.api.math.Point3D;
+
 import java.util.ArrayList;
 
 public class BreakthroughStones extends Feature<ProbabilityFeatureConfiguration> {
