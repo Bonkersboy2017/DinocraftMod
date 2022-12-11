@@ -41,9 +41,11 @@ public class DinocraftDataGenerator implements DataGeneratorEntrypoint {
         protected void configure(HolderLookup.Provider registries, Entries entries) {
             final var configuredFeatures = asLookup(entries.getLookup(Registries.CONFIGURED_FEATURE));
             final var placedFeatures = asLookup(entries.placedFeatures());
+            final var biomes = asLookup(entries.getLookup(Registries.BIOME));
 
             entries.addAll(configuredFeatures);
             entries.addAll(placedFeatures);
+            entries.addAll(biomes);
         }
 
         @Override
