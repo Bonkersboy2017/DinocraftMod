@@ -32,7 +32,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "dinocraft:dinocraft_sign"
+          "name": "dinocraft:dragonwood_sign"
         }
       ],
       "functions": [
