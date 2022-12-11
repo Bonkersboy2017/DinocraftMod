@@ -13,7 +13,7 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 
 public class TyrannosaurusTryToSniff extends Behavior<Tyrannosaurus> {
-    private static final IntProvider SNIFF_COOLDOWN = UniformInt.of(100, 200);
+    private static final IntProvider SNIFF_COOLDOWN = UniformInt.of(200, 400);
 
     public TyrannosaurusTryToSniff() {
         super(
