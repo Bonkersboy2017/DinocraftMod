@@ -18,7 +18,6 @@ import net.minecraft.world.level.ItemLike;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public final class RegisterItems {
 
@@ -73,6 +72,24 @@ public final class RegisterItems {
     public static final Item DRAGONWOOD_SCRAP = new Item(new FabricItemSettings());
     public static final SwordBase SPEAR = new SwordBase(new ToolMaterialEnlightened());
 
+    public static final Tier DRAGONWOOD = new ToolMaterialDragonwood();
+    public static final Tier ENLIGHTENED = new ToolMaterialEnlightened();
+    public static final Tier SKELETON = new ToolMaterialSkeleton();
+
+    public static final Item ENLIGHTENED_SKELETONSWORD = new SwordBase(ENLIGHTENED);
+    public static final Item ENLIGHTENED_SKELETON_DAGGER = new DaggerBase(ENLIGHTENED);
+    public static final Item ENLIGHTENED_SHOVEL = new ShovelBase(ENLIGHTENED);
+    public static final Item ENLIGHTENED_PICKAXE = new PickaxeBase(ENLIGHTENED);
+    public static final Item ENLIGHTENED_AXE = new AxeBase(ENLIGHTENED);
+    public static final Item ENLIGHTENED_HOE = new HoeBase(ENLIGHTENED);
+
+    public static final Item SKELETON_SWORD = new SwordBase(SKELETON);
+    public static final Item SKELETON_DAGGER = new DaggerBase(SKELETON);
+    public static final Item SKELETON_SHOVEL = new ShovelBase(SKELETON);
+    public static final Item SKELETON_PICKAXE = new PickaxeBase(SKELETON);
+    public static final Item SKELETON_AXE = new AxeBase(SKELETON);
+    public static final Item SKELETON_HOE = new HoeBase(SKELETON);
+
     private RegisterItems() {
     }
 
@@ -95,18 +112,18 @@ public final class RegisterItems {
         registerItem("dino_flesh", DINO_FLESH);
         registerItem("pill", PILL);
         registerItem("fossil", FOSSIL);
-        registerItem("skeleton_pickaxe", new PickaxeBase(new ToolMaterialSkeleton()));
-        registerItem("skeleton_axe", new AxeBase(new ToolMaterialSkeleton()));
-        registerItem("skeleton_shovel", new ShovelBase(new ToolMaterialSkeleton()));
-        registerItem("skeleton_hoe", new HoeBase(new ToolMaterialSkeleton()));
-        registerItem("skeleton_sword", new SwordBase(new ToolMaterialSkeleton()));
-        registerItem("skeleton_dagger", new DaggerBase(new ToolMaterialSkeleton()));
-        registerItem("enlightened_pickaxe", new PickaxeBase(new ToolMaterialEnlightened()));
-        registerItem("enlightened_axe", new AxeBase(new ToolMaterialEnlightened()));
-        registerItem("enlightened_shovel", new ShovelBase(new ToolMaterialEnlightened()));
-        registerItem("enlightened_hoe", new HoeBase(new ToolMaterialEnlightened()));
-        registerItem("enlightened_skeletonsword", new SwordBase(new ToolMaterialEnlightened()));
-        registerItem("enlightened_skeleton_dagger", new DaggerBase(new ToolMaterialSkeleton()));
+        registerItemAfter(Items.GOLDEN_HOE, SKELETON_SHOVEL, "skeleton_shovel", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(SKELETON_SHOVEL, SKELETON_PICKAXE, "skeleton_pickaxe", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(SKELETON_PICKAXE, SKELETON_AXE, "skeleton_axe", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(SKELETON_AXE, SKELETON_HOE, "skeleton_hoe", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(Items.GOLDEN_SWORD, SKELETON_SWORD, "skeleton_sword", CreativeModeTabs.COMBAT);
+        registerItemAfter(Items.TRIDENT, SKELETON_DAGGER, "skeleton_dagger", CreativeModeTabs.COMBAT);
+        registerItemAfter(Items.NETHERITE_HOE, ENLIGHTENED_SHOVEL, "enlightened_shovel", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(ENLIGHTENED_SHOVEL, ENLIGHTENED_PICKAXE, "enlightened_pickaxe", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(ENLIGHTENED_PICKAXE, ENLIGHTENED_AXE, "enlightened_axe", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(ENLIGHTENED_AXE, ENLIGHTENED_HOE, "enlightened_hoe", CreativeModeTabs.TOOLS_AND_UTILITIES);
+        registerItemAfter(Items.NETHERITE_SWORD, ENLIGHTENED_SKELETONSWORD, "enlightened_skeleton_sword", CreativeModeTabs.COMBAT);
+        registerItemAfter(SKELETON_DAGGER, ENLIGHTENED_SKELETON_DAGGER, "enlightened_skeleton_dagger", CreativeModeTabs.COMBAT);
         registerItem("skeleton_helmet", new BaseArmour(SKELETON_ARMOUR, EquipmentSlot.HEAD));
         registerItem("skeleton_chestplate", new BaseArmour(SKELETON_ARMOUR, EquipmentSlot.CHEST));
         registerItem("skeleton_leggings", new BaseArmour(SKELETON_ARMOUR, EquipmentSlot.LEGS));

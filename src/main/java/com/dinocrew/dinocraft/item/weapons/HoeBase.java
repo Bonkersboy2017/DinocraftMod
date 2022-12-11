@@ -8,7 +8,7 @@ import net.minecraft.world.item.Tier;
 
 public class HoeBase extends HoeItem {
     public HoeBase(Tier toolMaterial) {
-        super(toolMaterial, 1, -2.2f, new FabricItemSettings());
+        super(toolMaterial, -toolMaterial.getLevel(), -3.0F + toolMaterial.getLevel(), new FabricItemSettings());
         FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
     }
 }

@@ -8,7 +8,7 @@ import net.minecraft.world.item.Tier;
 
 public class SwordBase extends SwordItem {
     public SwordBase(Tier toolMaterial) {
-        super(toolMaterial, 4, 3.0f, new FabricItemSettings());
+        super(toolMaterial, 3, -2.4F, new FabricItemSettings());
         FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
     }
 }

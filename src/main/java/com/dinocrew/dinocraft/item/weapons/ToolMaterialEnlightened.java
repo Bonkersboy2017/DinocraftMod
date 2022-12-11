@@ -12,12 +12,12 @@ public class ToolMaterialEnlightened implements Tier {
 
     @Override
     public float getSpeed() {
-        return 10.0f;
+        return 10.0F;
     }
 
     @Override
     public float getAttackDamageBonus() {
-        return 3.5f;
+        return 5.0F;
     }
 
     @Override

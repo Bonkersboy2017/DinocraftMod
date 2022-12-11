@@ -101,7 +101,7 @@ public class BaseDino extends TamableAnimal {
 
     @Override
     public void customServerAiStep() {
-        if (!(this instanceof Tyrannosaurus)) {
+        if (!(this instanceof AlternateDino)) {
             ServerLevel serverLevel = (ServerLevel) this.level;
             serverLevel.getProfiler().push("baseDinoBrain");
             ((Brain<BaseDino>) this.getBrain()).tick(serverLevel, this);
@@ -109,7 +109,7 @@ public class BaseDino extends TamableAnimal {
         }
         super.customServerAiStep();
 
-        if (!(this instanceof Tyrannosaurus)) {
+        if (!(this instanceof AlternateDino)) {
             BaseDinoAi.updateActivity(this);
         }
     }

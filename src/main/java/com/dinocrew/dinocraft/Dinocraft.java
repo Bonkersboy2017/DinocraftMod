@@ -73,7 +73,7 @@ public final class Dinocraft implements ModInitializer {
 
     }
 
-    public static final int DATA_VERSION = 2;
+    public static final int DATA_VERSION = 3;
 
     private static QuiltDataFixerBuilder applyDataFixes(ModContainer mod) {
         log("Applying DataFixes for Dinocraft", true);
@@ -88,6 +88,8 @@ public final class Dinocraft implements ModInitializer {
         });
         Schema schemaV2 = builder.addSchema(2, NamespacedSchema::new);
         SimpleFixes.addItemRenameFix(builder, "Rename trex_spawn_egg to tyrannosaurus_spawn_egg", id("trex_spawn_egg"), id("tyrannosaurus_spawn_egg"), schemaV2);
+        Schema schemaV3 = builder.addSchema(3, NamespacedSchema::new);
+        SimpleFixes.addItemRenameFix(builder, "Rename enlightened_skeletonsword to enlightened_skeleton_sword", id("enlightened_skeletonsword"), id("enlightened_skeleton_sword"), schemaV3);
 
         QuiltDataFixes.buildAndRegisterFixer(mod, builder);
         log("DataFixes for Dinocraft have been applied", true);

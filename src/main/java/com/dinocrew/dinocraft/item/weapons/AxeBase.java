@@ -8,7 +8,7 @@ import net.minecraft.world.item.Tier;
 
 public class AxeBase extends AxeItem {
     public AxeBase(Tier toolMaterial) {
-        super(toolMaterial, 1, -2.2f, new FabricItemSettings());
+        super(toolMaterial, 5.0F, -3.0F, new FabricItemSettings());
         FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
     }
 }

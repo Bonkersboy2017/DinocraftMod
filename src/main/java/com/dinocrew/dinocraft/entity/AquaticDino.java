@@ -33,7 +33,7 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 
-public class AquaticDino extends NoFlopAbstractFish {
+public class AquaticDino extends NoFlopAbstractFish implements AlternateDino {
     public AquaticDino(EntityType<? extends AquaticDino> entityType, Level level) {
         super(entityType, level);
         this.moveControl = new SmootherSwimmingMoveControl(this, 0.05F, 50.0F, 1F, 0.05F, false);
