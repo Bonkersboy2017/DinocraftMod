@@ -4,3 +4,5 @@ accessible    method    net/minecraft/world/level/levelgen/feature/foliageplacer
 accessible    method    net/minecraft/world/entity/monster/warden/AngerManagement    createUuidAngerPairs    ()Ljava/util/List;
 accessible    method    net/minecraft/world/entity/Mob    customServerAiStep    ()V
 accessible    method    net/minecraft/world/entity/animal/Animal    customServerAiStep    ()V
+accessible    field    net/minecraft/world/level/gameevent/vibrations/VibrationListener    selectionStrategy    Lnet/minecraft/world/level/gameevent/vibrations/VibrationSelector;
+accessible    method    net/minecraft/world/level/gameevent/vibrations/VibrationListener    <init>    (Lnet/minecraft/world/level/gameevent/PositionSource;ILnet/minecraft/world/level/gameevent/vibrations/VibrationListener$VibrationListenerConfig;Lnet/minecraft/world/level/gameevent/vibrations/VibrationInfo;Lnet/minecraft/world/level/gameevent/vibrations/VibrationSelector;I)V

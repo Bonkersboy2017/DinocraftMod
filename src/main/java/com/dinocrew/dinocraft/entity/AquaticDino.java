@@ -142,9 +142,8 @@ public class AquaticDino extends NoFlopAbstractFish {
         return bl;
     }
 
-    public void setAttackTarget(LivingEntity attackTarget) {
-        this.getBrain().eraseMemory(MemoryModuleType.ROAR_TARGET);
-        StartAttacking.setAttackTarget(this, attackTarget);
+    public void setAttackTarget(LivingEntity target) {
+        this.getBrain().setMemory(MemoryModuleType.ATTACK_TARGET, target);
     }
 
     @Override
@@ -157,7 +156,7 @@ public class AquaticDino extends NoFlopAbstractFish {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
-        if (itemStack.sameItemStackIgnoreDurability(RegisterItems.CYAD_SEEDS.getDefaultInstance())) {
+        if (itemStack.sameItem(RegisterItems.CYAD_SEEDS.getDefaultInstance())) {
             if (!player.getAbilities().instabuild) {
                 itemStack.shrink(1);
             }

@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.frozenblock.lib.block.api.FrozenSignBlock;
 import net.frozenblock.lib.block.api.FrozenWallSignBlock;
 import net.frozenblock.lib.block.api.FrozenWoodTypes;
+import net.frozenblock.lib.item.api.FrozenCreativeTabs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
@@ -82,7 +83,7 @@ public final class RegisterBlocks {
     public static final EggBlock DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
     public static final EggBlock INCUBATED_DINO_EGG = new EggBlock(FabricBlockSettings.copyOf(Blocks.TURTLE_EGG));
     public static final Block DINOTANER = new DinotanerBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK));
-    public static final DragonwoodSaplingBlock DRAGONWOOD_SAPLING = new DragonwoodSaplingBlock(new DragonwoodSaplingGenerator(RegisterFeatures.DRAGONWOOD), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
+    public static final DragonwoodSaplingBlock DRAGONWOOD_SAPLING = new DragonwoodSaplingBlock(FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
 
 
     public static void registerAll() {
@@ -188,7 +189,8 @@ public final class RegisterBlocks {
 
     private static void registerBlock(Block block, CreativeModeTab group, ResourceLocation ID, Item.Properties settings) {
         Registry.register(BuiltInRegistries.BLOCK, ID, block);
-        Registry.register(BuiltInRegistries.ITEM, ID, new BlockItem(block, settings.tab(group)));
+        var item = Registry.register(BuiltInRegistries.ITEM, ID, new BlockItem(block, settings));
+        FrozenCreativeTabs.add(item, group);
     }
 
     private static void registerBlockWithoutBlockItem(Block block, ResourceLocation ID) {

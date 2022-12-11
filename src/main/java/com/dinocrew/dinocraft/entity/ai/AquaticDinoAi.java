@@ -62,7 +62,7 @@ public class AquaticDinoAi {
         brain.addActivity(Activity.CORE,
                 0,
                 ImmutableList.of(
-                        new SetEntityLookTarget(8.0F),
+                        SetEntityLookTarget.create(8.0F),
                         new LookAtTargetSink(45, 90),
                         new MoveToTargetSink()
                 )
@@ -74,12 +74,12 @@ public class AquaticDinoAi {
                 Activity.IDLE,
                 10,
                 ImmutableList.of(
-                        new StartAttacking<>(sus -> sus.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER)),
-                        new TryFindWater(10, 1.0F),
+                        StartAttacking.create(sus -> sus.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER)),
+                        TryFindWater.create(10, 1.0F),
                         new RunOne<>(
                                 ImmutableList.of(
                                         Pair.of(new BreatheAir<>(), 3),
-                                        Pair.of(new RandomSwim(1.0F), 2),
+                                        Pair.of(RandomStroll.swim(1.0F), 2),
                                         Pair.of(new DoNothing(30, 60), 1)
                                 )
                         )
@@ -92,12 +92,12 @@ public class AquaticDinoAi {
                 Activity.FIGHT,
                 10,
                 ImmutableList.of(
-                        new StopAttackingIfTargetInvalid<>(
+                        StopAttackingIfTargetInvalid.create(
                                 livingEntity -> !dino.canTargetEntity(livingEntity), AquaticDinoAi::onTargetInvalid, false
                         ),
-                        new SetEntityLookTarget(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
-                        new SetWalkTargetFromAttackTargetIfTargetOutOfReach(1.2F),
-                        new MeleeAttack(18)
+                        SetEntityLookTarget.create(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
+                        SetWalkTargetFromAttackTargetIfTargetOutOfReach.create(1.2F),
+                        MeleeAttack.create(18)
                 ),
                 MemoryModuleType.ATTACK_TARGET
         );

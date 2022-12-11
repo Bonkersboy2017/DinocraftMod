@@ -1,15 +1,15 @@
 pluginManagement {
     repositories {
         maven {
-            name = 'Quilt'
-            url = 'https://maven.quiltmc.org/repository/release'
+            setName("Quilt")
+            setUrl("https://maven.quiltmc.org/repository/release")
         }
         maven {
-            name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
+            setName("Fabric")
+            setUrl("https://maven.fabricmc.net/")
         }
         gradlePluginPortal()
     }
 }
 
-rootProject.name = "Dinocraft"
+rootProject.setName("Dinocraft")

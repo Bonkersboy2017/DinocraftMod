@@ -5,6 +5,7 @@ import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.dinocrew.dinocraft.entity.DinotanerBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
@@ -17,7 +18,7 @@ public class ModBlockEntityTypes {
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> create(String id, BlockEntityType<T> blockEntityType) {
-        return Registry.register(Registry.BLOCK_ENTITY_TYPE, Dinocraft.id(id), blockEntityType);
+        return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, Dinocraft.id(id), blockEntityType);
 
 
     }
