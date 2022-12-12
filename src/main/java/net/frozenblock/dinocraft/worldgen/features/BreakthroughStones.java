@@ -1,4 +1,4 @@
-package net.frozenblock.worldgen.features;
+package net.frozenblock.dinocraft.worldgen.features;
 
 import com.dinocrew.dinocraft.registry.RegisterBlocks;
 import com.mojang.serialization.Codec;

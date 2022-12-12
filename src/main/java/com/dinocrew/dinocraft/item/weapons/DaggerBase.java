@@ -2,11 +2,13 @@ package com.dinocrew.dinocraft.item.weapons;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.frozenblock.lib.item.api.FrozenCreativeTabs;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 
 public class DaggerBase extends SwordItem {
     public DaggerBase(Tier toolMaterial) {
-        super(toolMaterial, 3, 3.5f, new FabricItemSettings().tab(Dinocraft.ITEM_GROUP));
+        super(toolMaterial, -2, 0.5F, new FabricItemSettings());
+        FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
     }
 }

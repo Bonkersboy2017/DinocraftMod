@@ -1,7 +1,9 @@
 package com.dinocrew.dinocraft.registry;
 
 import com.dinocrew.dinocraft.Dinocraft;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 
 public final class RegisterSounds {
@@ -34,14 +36,18 @@ public final class RegisterSounds {
 
     //BIOME
 
-    public static final SoundEvent MUSIC_BREAKTHROUGH = register("music.breakthrough");
+    public static final Holder<SoundEvent> MUSIC_BREAKTHROUGH = registerForHolder("music.breakthrough");
 
     private RegisterSounds() {
     }
 
 
     private static SoundEvent register(String path) {
-        return Registry.register(Registry.SOUND_EVENT, Dinocraft.id(path), new SoundEvent(Dinocraft.id(path)));
+        return Registry.register(BuiltInRegistries.SOUND_EVENT, Dinocraft.id(path), SoundEvent.createVariableRangeEvent(Dinocraft.id(path)));
+    }
+
+    private static Holder<SoundEvent> registerForHolder(String path) {
+        return Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT, Dinocraft.id(path), SoundEvent.createVariableRangeEvent(Dinocraft.id(path)));
     }
 
     public static void init() {

@@ -16,9 +16,9 @@ public class BoatDropsMixin {
 
     @Inject(method = "getDropItem", at = @At("HEAD"), cancellable = true)
     public void getDropItem(CallbackInfoReturnable<Item> ci) {
-        if (((Boat) (Object) this).getBoatType() == DinoBoats.DRAGONWOOD) {
+        var boat = Boat.class.cast(this);
+        if (boat.getVariant() == DinoBoats.DRAGONWOOD) {
             ci.setReturnValue(RegisterItems.DRAGONWOOD_BOAT);
-            ci.cancel();
         }
     }
 

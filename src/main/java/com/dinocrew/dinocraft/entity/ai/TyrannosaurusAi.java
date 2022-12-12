@@ -100,7 +100,7 @@ public class TyrannosaurusAi {
                         new TyrannosaurusTryToSniff(),
                         new RunOne<>(
                                 ImmutableMap.of(MemoryModuleType.IS_SNIFFING, MemoryStatus.VALUE_ABSENT),
-                                ImmutableList.of(Pair.of(new RandomStroll(SPEED_MULTIPLIER_WHEN_IDLING), 2), Pair.of(new DoNothing(30, 60), 1))
+                                ImmutableList.of(Pair.of(RandomStroll.stroll(SPEED_MULTIPLIER_WHEN_IDLING), 2), Pair.of(new DoNothing(30, 60), 1))
                         )
                 )
         );
@@ -110,7 +110,7 @@ public class TyrannosaurusAi {
         brain.addActivityAndRemoveMemoryWhenStopped(
                 Activity.INVESTIGATE,
                 5,
-                ImmutableList.of(new SetTyrannosaurusRoarTarget<>(Tyrannosaurus::getEntityAngryAt), new GoToTargetLocation<>(MemoryModuleType.DISTURBANCE_LOCATION, 2, SPEED_MULTIPLIER_WHEN_INVESTIGATING)),
+                ImmutableList.of(new SetTyrannosaurusRoarTarget<>(Tyrannosaurus::getEntityAngryAt), GoToTargetLocation.create(MemoryModuleType.DISTURBANCE_LOCATION, 2, SPEED_MULTIPLIER_WHEN_INVESTIGATING)),
                 MemoryModuleType.DISTURBANCE_LOCATION
         );
     }
@@ -143,10 +143,10 @@ public class TyrannosaurusAi {
                 Activity.FIGHT,
                 10,
                 ImmutableList.of(
-                        new StopAttackingIfTargetInvalid<>(entity -> !dino.getAngerLevel().isAngry() || !dino.canTargetEntity(entity), TyrannosaurusAi::onTargetInvalid, false),
-                        new SetEntityLookTarget(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
-                        new SetWalkTargetFromAttackTargetIfTargetOutOfReach(SPEED_MULTIPLIER_WHEN_FIGHTING),
-                        new MeleeAttack(MELEE_ATTACK_COOLDOWN)
+                        StopAttackingIfTargetInvalid.create(entity -> !dino.getAngerLevel().isAngry() || !dino.canTargetEntity(entity), TyrannosaurusAi::onTargetInvalid, false),
+                        SetEntityLookTarget.create(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
+                        SetWalkTargetFromAttackTargetIfTargetOutOfReach.create(SPEED_MULTIPLIER_WHEN_FIGHTING),
+                        MeleeAttack.create(MELEE_ATTACK_COOLDOWN)
                 ),
                 MemoryModuleType.ATTACK_TARGET
         );
@@ -164,8 +164,8 @@ public class TyrannosaurusAi {
 
     public static void setDisturbanceLocation(Tyrannosaurus dino, BlockPos disturbanceLocation) {
         if (dino.level.getWorldBorder().isWithinBounds(disturbanceLocation)
-                && !dino.getEntityAngryAt().isPresent()
-                && !dino.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).isPresent()) {
+                && dino.getEntityAngryAt().isEmpty()
+                && dino.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).isEmpty()) {
             dino.getBrain().setMemoryWithExpiry(MemoryModuleType.SNIFF_COOLDOWN, Unit.INSTANCE, DISTURBANCE_LOCATION_EXPIRY_TIME);
             dino.getBrain().setMemoryWithExpiry(MemoryModuleType.LOOK_TARGET, new BlockPosTracker(disturbanceLocation), DISTURBANCE_LOCATION_EXPIRY_TIME);
             dino.getBrain().setMemoryWithExpiry(MemoryModuleType.DISTURBANCE_LOCATION, disturbanceLocation, DISTURBANCE_LOCATION_EXPIRY_TIME);

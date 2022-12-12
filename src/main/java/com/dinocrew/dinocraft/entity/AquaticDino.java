@@ -33,7 +33,7 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 
-public class AquaticDino extends NoFlopAbstractFish {
+public class AquaticDino extends NoFlopAbstractFish implements AlternateDino {
     public AquaticDino(EntityType<? extends AquaticDino> entityType, Level level) {
         super(entityType, level);
         this.moveControl = new SmootherSwimmingMoveControl(this, 0.05F, 50.0F, 1F, 0.05F, false);
@@ -142,9 +142,8 @@ public class AquaticDino extends NoFlopAbstractFish {
         return bl;
     }
 
-    public void setAttackTarget(LivingEntity attackTarget) {
-        this.getBrain().eraseMemory(MemoryModuleType.ROAR_TARGET);
-        StartAttacking.setAttackTarget(this, attackTarget);
+    public void setAttackTarget(LivingEntity target) {
+        this.getBrain().setMemory(MemoryModuleType.ATTACK_TARGET, target);
     }
 
     @Override
@@ -157,7 +156,7 @@ public class AquaticDino extends NoFlopAbstractFish {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
-        if (itemStack.sameItemStackIgnoreDurability(RegisterItems.CYAD_SEEDS.getDefaultInstance())) {
+        if (itemStack.sameItem(RegisterItems.CYAD_SEEDS.getDefaultInstance())) {
             if (!player.getAbilities().instabuild) {
                 itemStack.shrink(1);
             }

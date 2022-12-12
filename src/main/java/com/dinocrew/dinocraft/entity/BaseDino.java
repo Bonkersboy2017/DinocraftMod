@@ -101,7 +101,7 @@ public class BaseDino extends TamableAnimal {
 
     @Override
     public void customServerAiStep() {
-        if (!(this instanceof Tyrannosaurus)) {
+        if (!(this instanceof AlternateDino)) {
             ServerLevel serverLevel = (ServerLevel) this.level;
             serverLevel.getProfiler().push("baseDinoBrain");
             ((Brain<BaseDino>) this.getBrain()).tick(serverLevel, this);
@@ -109,7 +109,7 @@ public class BaseDino extends TamableAnimal {
         }
         super.customServerAiStep();
 
-        if (!(this instanceof Tyrannosaurus)) {
+        if (!(this instanceof AlternateDino)) {
             BaseDinoAi.updateActivity(this);
         }
     }
@@ -145,9 +145,8 @@ public class BaseDino extends TamableAnimal {
         return bl;
     }
 
-    public void setAttackTarget(LivingEntity attackTarget) {
-        this.getBrain().eraseMemory(MemoryModuleType.ROAR_TARGET);
-        StartAttacking.setAttackTarget(this, attackTarget);
+    public void setAttackTarget(LivingEntity target) {
+        this.getBrain().setMemory(MemoryModuleType.ATTACK_TARGET, target);
     }
 
     @Override
@@ -160,7 +159,7 @@ public class BaseDino extends TamableAnimal {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
-        if (itemStack.sameItemStackIgnoreDurability(RegisterItems.CYAD_SEEDS.getDefaultInstance())) {
+        if (itemStack.sameItem(RegisterItems.CYAD_SEEDS.getDefaultInstance())) {
             if (!player.getAbilities().instabuild) {
                 itemStack.shrink(1);
             }

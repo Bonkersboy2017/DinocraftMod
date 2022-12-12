@@ -18,7 +18,7 @@ public class ToolMaterialDragonwood implements Tier {
 
     @Override
     public float getAttackDamageBonus() {
-        return 2.0f;
+        return 3.5F;
     }
 
     @Override

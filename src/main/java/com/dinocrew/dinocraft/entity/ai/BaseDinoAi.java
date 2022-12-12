@@ -61,7 +61,7 @@ public class BaseDinoAi {
                 0,
                 ImmutableList.of(
                         new Swim(0.8F),
-                        new SetEntityLookTarget(8.0F),
+                        SetEntityLookTarget.create(8.0F),
                         new LookAtTargetSink(45, 90),
                         new MoveToTargetSink()
                 )
@@ -73,7 +73,7 @@ public class BaseDinoAi {
                 Activity.IDLE,
                 10,
                 ImmutableList.of(
-                        new StartAttacking<>(sus -> sus.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER)),
+                        StartAttacking.create(sus -> sus.getBrain().getMemory(MemoryModuleType.NEAREST_VISIBLE_ATTACKABLE_PLAYER)),
                         new RunOne<>(ImmutableList.of(Pair.of(new DoNothing(30, 60), 1)))
                 )
         );
@@ -84,10 +84,10 @@ public class BaseDinoAi {
                 Activity.FIGHT,
                 10,
                 ImmutableList.of(
-                        new SetEntityLookTarget(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
-                        new SetWalkTargetFromAttackTargetIfTargetOutOfReach(1.2F),
-                        new MeleeAttack(18),
-                        new StopAttackingIfTargetInvalid<>()
+                        SetEntityLookTarget.create(mob -> isTarget(dino, mob), (float) dino.getAttributeValue(Attributes.FOLLOW_RANGE)),
+                        SetWalkTargetFromAttackTargetIfTargetOutOfReach.create(1.2F),
+                        MeleeAttack.create(18),
+                        StopAttackingIfTargetInvalid.create()
                 ),
                 MemoryModuleType.ATTACK_TARGET
         );

@@ -16,9 +16,9 @@ public class ChestBoatDropsMixin {
 
     @Inject(method = "getDropItem", at = @At("HEAD"), cancellable = true)
     public void getDropItem(CallbackInfoReturnable<Item> ci) {
-        if (((ChestBoat) (Object) this).getBoatType() == DinoBoats.DRAGONWOOD) {
+        var chestBoat = ChestBoat.class.cast(this);
+        if (chestBoat.getVariant() == DinoBoats.DRAGONWOOD) {
             ci.setReturnValue(RegisterItems.DRAGONWOOD_CHEST_BOAT);
-            ci.cancel();
         }
     }
 

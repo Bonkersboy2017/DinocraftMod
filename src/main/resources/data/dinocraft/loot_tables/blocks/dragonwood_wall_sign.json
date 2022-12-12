@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dinocraft:dragonwood_wall_sign",
+          "name": "dinocraft:dragonwood_sign",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -32,7 +32,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "dinocraft:dinocraft_wall_sign"
+          "name": "dinocraft:dragonwood_sign"
         }
       ],
       "functions": [

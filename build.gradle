@@ -1,25 +1,50 @@
 plugins {
-	id 'fabric-loom' version '1.0-SNAPSHOT'
-	id 'io.github.juuxel.loom-quiltflower' version '1.7.+'
-	id 'maven-publish'
-	id 'eclipse'
-	id 'idea'
-	id 'java-library'
+	id("fabric-loom") version("1.0-SNAPSHOT")
+	id("io.github.juuxel.loom-quiltflower") version("1.7.+")
+	id("maven-publish")
+	id("eclipse")
+	id("idea")
+	id("java-library")
 }
 
-archivesBaseName = project.archives_base_name
-version = getVersion()
-group = project.maven_group
+setArchivesBaseName(project.archives_base_name)
+setVersion(getVersion())
+setGroup(project.maven_group)
 
 loom {
 	mixin {
-		defaultRefmapName = "mixins.dinocraft.refmap.json"
+		setDefaultRefmapName("mixins.dinocraft.refmap.json")
 	}
 
-	accessWidenerPath = file("src/main/resources/dinocraft.accesswidener")
+	setAccessWidenerPath(file("src/main/resources/dinocraft.accesswidener"))
 	interfaceInjection {
 		// When enabled injected interfaces from dependecies will be applied.
-		enableDependencyInterfaceInjection = false
+		setEnableDependencyInterfaceInjection(false)
+	}
+}
+
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+					"src/main/generated"
+			]
+		}
+	}
+}
+
+loom {
+	runs {
+		datagen {
+			inherit(server)
+			name("Data Generation")
+			vmArg("-Dfabric-api.datagen")
+			vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
+			//vmArg("-Dfabric-api.datagen.strict-validation")
+
+			setIdeConfigGenerated(true)
+			setRunDir("build/datagen")
+		}
 	}
 }
 
@@ -27,11 +52,11 @@ configurations {
 	includeModImplementation
 	includeImplementation
 
-	include.extendsFrom includeImplementation
-	include.extendsFrom includeModImplementation
+	include.extendsFrom(includeImplementation)
+	include.extendsFrom(includeModImplementation)
 
-	implementation.extendsFrom includeImplementation
-	modImplementation.extendsFrom includeModImplementation
+	implementation.extendsFrom(includeImplementation)
+	modImplementation.extendsFrom(includeModImplementation)
 }
 
 repositories {
@@ -39,7 +64,7 @@ repositories {
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	maven {
-		url = 'https://jitpack.io'
+		url = "https://jitpack.io"
 	}
 	maven {
 		name = "Modrinth"
@@ -50,24 +75,24 @@ repositories {
 		}
 	}
 	maven {
-		url = 'https://maven.terraformersmc.com'
+		url = "https://maven.terraformersmc.com"
 
 		content {
 			includeGroup "com.terraformersmc"
 		}
 	}
 	maven {
-		url = 'https://maven.shedaniel.me/'
+		url = "https://maven.shedaniel.me/"
 	}
 	maven {
-		url 'https://cursemaven.com'
+		url "https://cursemaven.com"
 
 		content {
 			includeGroup "curse.maven"
 		}
 	}
 	/*maven {
-		name "Siphalor's Maven"
+		name "Siphalor"s Maven"
 		url "https://maven.siphalor.de"
 	}*/
 	maven {
@@ -77,10 +102,10 @@ repositories {
 		url "https://maven.flashyreese.me/snapshots"
 	}
 	maven {
-		url = 'https://maven.minecraftforge.net/'
+		url = "https://maven.minecraftforge.net/"
 	}
 	maven {
-		url = 'https://maven.parchmentmc.org'
+		url = "https://maven.parchmentmc.org"
 	}
 	maven {
 		name = "Quilt"
@@ -88,13 +113,13 @@ repositories {
 	}
 
 	flatDir {
-		dirs 'libs'
+		dirs("libs")
 	}
 }
 
 dependencies {
 	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${minecraft_version}"
+	minecraft("com.mojang:minecraft:${minecraft_version}")
 	mappings(loom.layered {
 		// please annoy treetrain if this doesnt work
 		it.mappings("org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2")
@@ -103,14 +128,14 @@ dependencies {
 			setNameSyntheticMembers(false)
 		}
 	})
-	modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+	modImplementation("net.fabricmc:fabric-loader:${loader_version}")
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
 	// FrozenLib
 	//include(modImplementation("maven.modrinth:frozenlib:${frozenlib_version}"))
-	include(modImplementation("com.github.FrozenBlock:FrozenLib:master-SNAPSHOT"))
+	include(modImplementation("com.github.FrozenBlock:FrozenLib:1.19.3-SNAPSHOT"))
 
 	// Mod Menu
 	modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
@@ -136,12 +161,12 @@ javadoc {
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-	classifier = 'javadoc'
+	classifier = "javadoc"
 	from javadoc.destinationDir
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = 'sources'
+	classifier = "sources"
 	from sourceSets.main.allSource
 }
 

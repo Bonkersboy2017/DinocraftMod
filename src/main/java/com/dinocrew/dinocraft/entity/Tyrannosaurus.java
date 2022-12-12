@@ -45,7 +45,7 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
-public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationListener.VibrationListenerConfig {
+public class Tyrannosaurus extends BaseDino implements AlternateDino, TyrannosaurusVibrationListener.VibrationListenerConfig {
 
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final int CALM_ANGER = 0;
@@ -61,7 +61,7 @@ public class Tyrannosaurus extends BaseDino implements TyrannosaurusVibrationLis
     public Tyrannosaurus(EntityType<? extends Tyrannosaurus> entityType, Level world) {
         super(entityType, world);
         this.dynamicGameEventListener = new DynamicGameEventListener<>(
-                new TyrannosaurusVibrationListener(new EntityPositionSource(this, this.getEyeHeight()), 16, this, null, 0.0F, 0)
+                new TyrannosaurusVibrationListener(new EntityPositionSource(this, this.getEyeHeight()), 16, this)
         );
     }
 

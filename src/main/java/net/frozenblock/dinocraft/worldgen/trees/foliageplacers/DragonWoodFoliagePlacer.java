@@ -1,4 +1,4 @@
-package net.frozenblock.worldgen.trees.foliageplacers;
+package net.frozenblock.dinocraft.worldgen.trees.foliageplacers;
 
 import com.dinocrew.dinocraft.Dinocraft;
 import com.mojang.serialization.Codec;
