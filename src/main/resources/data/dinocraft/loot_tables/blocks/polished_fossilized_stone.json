@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "dinocraft:fs_bricks",
+          "name": "dinocraft:polished_fossilized_stone",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -32,7 +32,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "dinocraft:fs_bricks"
+          "name": "dinocraft:polished_fossilized_stone"
         }
       ],
       "functions": [

@@ -30,6 +30,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+import org.jetbrains.annotations.NotNull;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixerBuilder;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.QuiltDataFixes;
 import org.quiltmc.qsl.frozenblock.misc.datafixerupper.api.SimpleFixes;
@@ -73,7 +74,7 @@ public final class Dinocraft implements ModInitializer {
 
     }
 
-    public static final int DATA_VERSION = 3;
+    public static final int DATA_VERSION = 4;
 
     private static QuiltDataFixerBuilder applyDataFixes(ModContainer mod) {
         log("Applying DataFixes for Dinocraft", true);
@@ -82,6 +83,7 @@ public final class Dinocraft implements ModInitializer {
         Schema schemaV1 = builder.addSchema(1, NamespacedSchema::new);
         builder.addFixer(new SimpleEntityRenameFix("EntityTyrannosaurusFix", schemaV1, true) {
             @Override
+            @NotNull
             protected Pair<String, Dynamic<?>> getNewNameAndTag(String name, Dynamic<?> tag) {
                 return Pair.of(Objects.equals(name, identify("trex")) ? identify("tyrannosaurus") : name, tag);
             }
@@ -90,6 +92,17 @@ public final class Dinocraft implements ModInitializer {
         SimpleFixes.addItemRenameFix(builder, "Rename trex_spawn_egg to tyrannosaurus_spawn_egg", id("trex_spawn_egg"), id("tyrannosaurus_spawn_egg"), schemaV2);
         Schema schemaV3 = builder.addSchema(3, NamespacedSchema::new);
         SimpleFixes.addItemRenameFix(builder, "Rename enlightened_skeletonsword to enlightened_skeleton_sword", id("enlightened_skeletonsword"), id("enlightened_skeleton_sword"), schemaV3);
+        Schema schemaV4 = builder.addSchema(4, NamespacedSchema::new);
+        SimpleFixes.addBlockRenameFix(builder, "Rename wbc to waxed_fossilized_stone", id("wbc"), id("waxed_fossilized_stone"), schemaV4);
+        SimpleFixes.addItemRenameFix(builder, "Rename item wbc to waxed_fossilized_stone", id("wbc"), id("waxed_fossilized_stone"), schemaV4);
+        SimpleFixes.addBlockRenameFix(builder, "Rename fs_bricks to fossilized_stone_tiles", id("fs_bricks"), id("fossilized_stone_tiles"), schemaV4);
+        SimpleFixes.addItemRenameFix(builder, "Rename item fs_bricks to fossilized_stone_tiles", id("fs_bricks"), id("fossilized_stone_tiles"), schemaV4);
+        SimpleFixes.addBlockRenameFix(builder, "Rename wbc_bricks to waxed_fossilized_stone_tiles", id("wbc_bricks"), id("waxed_fossilized_stone_tiles"), schemaV4);
+        SimpleFixes.addItemRenameFix(builder, "Rename item wbc_bricks to waxed_fossilized_stone_tiles", id("wbc_bricks"), id("waxed_fossilized_stone_tiles"), schemaV4);
+        SimpleFixes.addBlockRenameFix(builder, "Rename polished_fs to polished_fossilized_stone", id("polished_fs"), id("polished_fossilized_stone"), schemaV4);
+        SimpleFixes.addItemRenameFix(builder, "Rename item polished_fs to polished_fossilized_stone", id("polished_fs"), id("polished_fossilized_stone"), schemaV4);
+        SimpleFixes.addBlockRenameFix(builder, "Rename polished_wbc to polished_waxed_fossilized_stone", id("polished_wbc"), id("polished_waxed_fossilized_stone"), schemaV4);
+        SimpleFixes.addItemRenameFix(builder, "Rename item polished_wbc to polished_waxed_fossilized_stone", id("polished_wbc"), id("polished_waxed_fossilized_stone"), schemaV4);
 
         QuiltDataFixes.buildAndRegisterFixer(mod, builder);
         log("DataFixes for Dinocraft have been applied", true);

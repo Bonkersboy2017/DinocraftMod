@@ -30,7 +30,7 @@ public class BreakthoughRock extends BreakthroughStones {
 
         ArrayList<Block> blocks = new ArrayList<>();
         blocks.add(RegisterBlocks.FOSSILIZED_STONE);
-        blocks.add(RegisterBlocks.FS_BRICKS);
+        blocks.add(RegisterBlocks.FOSSILIZED_STONE_TILES);
         blocks.add(Blocks.SMOOTH_BASALT);
 
         if (world.getBlockState(topPos) == Blocks.WATER.defaultBlockState()) {

@@ -20,7 +20,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -53,11 +52,11 @@ public final class RegisterBlocks {
     public static final GrassBlock DRAGONGRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).requiresCorrectToolForDrops());
     public static final Block DINOSAUR_TEMPERED_GLASS = new GlassBlock(FabricBlockSettings.copyOf(Blocks.GLASS).requiresCorrectToolForDrops());
     public static final Block FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).sound(SoundType.STONE));
-    public static final Block WBC = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).requiresCorrectToolForDrops());
-    public static final Block POLISHED_FS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
-    public static final Block POLISHED_WBC = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
-    public static final Block FS_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
-    public static final Block WBC_BRICKS = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
+    public static final Block WAXED_FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.TUFF).requiresCorrectToolForDrops());
+    public static final Block POLISHED_FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
+    public static final Block POLISHED_WAXED_FOSSILIZED_STONE = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
+    public static final Block FOSSILIZED_STONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
+    public static final Block WAXED_FOSSILIZED_STONE_TILES = new Block(FabricBlockSettings.copyOf(Blocks.POLISHED_BASALT).requiresCorrectToolForDrops());
 
     // DRAGONWOOD
 
@@ -99,11 +98,11 @@ public final class RegisterBlocks {
         registerBlock(DRAGONGRASS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragongrass"));
         registerBlock(DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP, Dinocraft.id("dinosaur_tempered_glass"));
         registerBlock(FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("fossilized_stone"));
-        registerBlock(WBC, Dinocraft.ITEM_GROUP, Dinocraft.id("wbc"));
-        registerBlock(POLISHED_FS, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_fs"));
-        registerBlock(POLISHED_WBC, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_wbc"));
-        registerBlock(FS_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("fs_bricks"));
-        registerBlock(WBC_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("wbc_bricks"));
+        registerBlock(WAXED_FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("waxed_fossilized_stone"));
+        registerBlock(POLISHED_FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_fossilized_stone"));
+        registerBlock(POLISHED_WAXED_FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_waxed_fossilized_stone"));
+        registerBlock(FOSSILIZED_STONE_TILES, Dinocraft.ITEM_GROUP, Dinocraft.id("fossilized_stone_tiles"));
+        registerBlock(WAXED_FOSSILIZED_STONE_TILES, Dinocraft.ITEM_GROUP, Dinocraft.id("waxed_fossilized_stone_tiles"));
         registerBlock(DRAGONWOOD_PLANKS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_planks"));
         registerBlock(DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_log"));
         registerBlock(STRIPPED_DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, Dinocraft.id("stripped_dragonwood_wood"));

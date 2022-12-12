@@ -6,11 +6,11 @@
     ],
     "key": {
         "#": {
-            "item": "dinocraft:wbc"
+            "item": "dinocraft:waxed_fossilized_stone"
         }
     },
     "result": {
-        "item": "dinocraft:wbc_bricks",
+        "item": "dinocraft:waxed_fossilized_stone_tiles",
         "count": 3
     }
 }

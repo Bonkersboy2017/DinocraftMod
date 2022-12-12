@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "dinocraft:block/fs_bricks"
+    "all": "dinocraft:block/fossilized_stone_tiles"
   }
 }
