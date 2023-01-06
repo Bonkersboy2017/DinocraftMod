@@ -11,7 +11,6 @@ import net.minecraft.world.item.Tier;
 
 public class PickaxeBase extends PickaxeItem {
     public PickaxeBase(Tier toolMaterial) {
-        super(toolMaterial, 1, -2.8F, new FabricItemSettings());
-        FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
+        super(toolMaterial, 1, -2.8F, new FabricItemSettings().maxCount(1));
     }
 }

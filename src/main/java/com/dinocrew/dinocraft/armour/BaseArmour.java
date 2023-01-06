@@ -9,7 +9,7 @@ import net.minecraft.world.item.ArmorMaterial;
 
 public class BaseArmour extends ArmorItem {
     public BaseArmour(ArmorMaterial material, EquipmentSlot slot) {
-        super(material, slot, new FabricItemSettings());
+        super(material, slot, new FabricItemSettings().maxCount(1));
         FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
     }
 }

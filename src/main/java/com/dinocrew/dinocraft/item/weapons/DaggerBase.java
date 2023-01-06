@@ -8,7 +8,6 @@ import net.minecraft.world.item.Tier;
 
 public class DaggerBase extends SwordItem {
     public DaggerBase(Tier toolMaterial) {
-        super(toolMaterial, -2, 0.5F, new FabricItemSettings());
-        FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
+        super(toolMaterial, -2, 0.5F, new FabricItemSettings().maxCount(1));
     }
 }

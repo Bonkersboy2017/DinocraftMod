@@ -8,7 +8,6 @@ import net.minecraft.world.item.Tier;
 
 public class ShovelBase extends ShovelItem {
     public ShovelBase(Tier toolMaterial) {
-        super(toolMaterial, 1.F, -3.0F, new FabricItemSettings());
-        FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
+        super(toolMaterial, 1.F, -3.0F, new FabricItemSettings().maxCount(1));
     }
 }

@@ -8,7 +8,6 @@ import net.minecraft.world.item.Tier;
 
 public class SpearBase extends SwordItem {
     public SpearBase(Tier toolMaterial, int attackDamage, float attackSpeed, Properties settings) {
-        super(toolMaterial, 4, 3.0f, new FabricItemSettings());
-        FrozenCreativeTabs.add(this, Dinocraft.ITEM_GROUP);
+        super(toolMaterial, 4, 3.0f, new FabricItemSettings().maxCount(1));
     }
 }

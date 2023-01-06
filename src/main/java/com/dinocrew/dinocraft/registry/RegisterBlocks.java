@@ -21,17 +21,18 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.flag.FeatureFlag;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public final class RegisterBlocks {
@@ -86,43 +87,42 @@ public final class RegisterBlocks {
 
 
     public static void registerAll() {
-        registerBlock(SKELETON_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("skeleton_ore"));
-        registerBlock(BRONZIUM_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_ore"));
-        registerBlock(AMBER_ORE, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_ore"));
-        // Using other registerBlock method here
-        registerBlock(DINOBENCH, Dinocraft.ITEM_GROUP, Dinocraft.id("dinobench"), new FabricItemSettings().rarity(Rarity.RARE));
-        registerBlock(BRONZIUM_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_block"));
-        registerBlock(BRONZIUM_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("bronzium_bricks"));
-        registerBlock(AMBER_BLOCK, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_block"));
-        registerBlock(AMBER_BRICKS, Dinocraft.ITEM_GROUP, Dinocraft.id("amber_bricks"));
-        registerBlock(DRAGONGRASS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragongrass"));
-        registerBlock(DINOSAUR_TEMPERED_GLASS, Dinocraft.ITEM_GROUP, Dinocraft.id("dinosaur_tempered_glass"));
-        registerBlock(FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("fossilized_stone"));
-        registerBlock(WAXED_FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("waxed_fossilized_stone"));
-        registerBlock(POLISHED_FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_fossilized_stone"));
-        registerBlock(POLISHED_WAXED_FOSSILIZED_STONE, Dinocraft.ITEM_GROUP, Dinocraft.id("polished_waxed_fossilized_stone"));
-        registerBlock(FOSSILIZED_STONE_TILES, Dinocraft.ITEM_GROUP, Dinocraft.id("fossilized_stone_tiles"));
-        registerBlock(WAXED_FOSSILIZED_STONE_TILES, Dinocraft.ITEM_GROUP, Dinocraft.id("waxed_fossilized_stone_tiles"));
-        registerBlock(DRAGONWOOD_PLANKS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_planks"));
-        registerBlock(DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_log"));
-        registerBlock(STRIPPED_DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, Dinocraft.id("stripped_dragonwood_wood"));
-        registerBlock(STRIPPED_DRAGONWOOD_LOG, Dinocraft.ITEM_GROUP, Dinocraft.id("stripped_dragonwood_log"));
-        registerBlock(DRAGONWOOD_WOOD, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_wood"));
-        registerBlock(DRAGONWOOD_LEAVES, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_leaves"));
-        registerBlock(DRAGONWOOD_SLAB, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_slab"));
-        registerBlock(DRAGONWOOD_FENCE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence"));
-        registerBlock(DRAGONWOOD_STAIRS, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_stairs"));
-        registerBlock(DRAGONWOOD_BUTTON, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_button"));
-        registerBlock(DRAGONWOOD_PRESSURE_PLATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_pressure_plate"));
-        registerBlock(DRAGONWOOD_DOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_door"));
-        registerBlock(DRAGONWOOD_TRAPDOOR, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_trapdoor"));
-        registerBlock(DRAGONWOOD_FENCE_GATE, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_fence_gate"));
-        registerBlockWithoutBlockItem(DRAGONWOOD_SIGN, Dinocraft.id("dragonwood_sign"));
-        registerBlockWithoutBlockItem(DRAGONWOOD_WALL_SIGN, Dinocraft.id("dragonwood_wall_sign"));
-        registerBlock(DRAGONWOOD_SAPLING, Dinocraft.ITEM_GROUP, Dinocraft.id("dragonwood_sapling"));
-        registerBlock(DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
-        registerBlock(INCUBATED_DINO_EGG, Dinocraft.ITEM_GROUP, Dinocraft.id("incubated_dino_egg"), new FabricItemSettings().rarity(Rarity.EPIC));
-        registerBlock(DINOTANER, Dinocraft.ITEM_GROUP, Dinocraft.id("dinotaner"), new FabricItemSettings().rarity(Rarity.RARE));
+        registerBlock(true, "skeleton_ore", SKELETON_ORE, CreativeModeTabs.NATURAL_BLOCKS);
+        registerBlock(true, "bronzium_ore", BRONZIUM_ORE, CreativeModeTabs.NATURAL_BLOCKS);
+        registerBlock(true, "amber_ore", AMBER_ORE, CreativeModeTabs.NATURAL_BLOCKS);
+        registerBlock(false, "dinobench", DINOBENCH);
+        registerBlock(true, "bronzium_block", BRONZIUM_BLOCK, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "bronzium_bricks", BRONZIUM_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "amber_block", AMBER_BLOCK, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "amber_bricks", AMBER_BRICKS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragongrass", DRAGONGRASS, CreativeModeTabs.NATURAL_BLOCKS);
+        registerBlock(true, "dinosaur_tempered_glass", DINOSAUR_TEMPERED_GLASS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "fossilized_stone", FOSSILIZED_STONE, CreativeModeTabs.BUILDING_BLOCKS, CreativeModeTabs.NATURAL_BLOCKS);
+        registerBlock(true, "waxed_fossilized_stone", WAXED_FOSSILIZED_STONE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "polished_fossilized_stone", POLISHED_FOSSILIZED_STONE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "polished_waxed_fossilized_stone", POLISHED_WAXED_FOSSILIZED_STONE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "fossilized_stone_tiles", FOSSILIZED_STONE_TILES, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "waxed_fossilized_stone_tiles", WAXED_FOSSILIZED_STONE_TILES, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_planks", DRAGONWOOD_PLANKS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_log", DRAGONWOOD_LOG, CreativeModeTabs.BUILDING_BLOCKS, CreativeModeTabs.NATURAL_BLOCKS);
+        registerBlock(true, "stripped_dragonwood_log", STRIPPED_DRAGONWOOD_LOG, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_wood", DRAGONWOOD_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "stripped_dragonwood_wood", STRIPPED_DRAGONWOOD_WOOD, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_leaves", DRAGONWOOD_LEAVES, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_slab", DRAGONWOOD_SLAB, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_fence", DRAGONWOOD_FENCE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_stairs", DRAGONWOOD_STAIRS, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_button", DRAGONWOOD_BUTTON, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_pressure_plate", DRAGONWOOD_PRESSURE_PLATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_door", DRAGONWOOD_DOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_trapdoor", DRAGONWOOD_TRAPDOOR, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(true, "dragonwood_fence_gate", DRAGONWOOD_FENCE_GATE, CreativeModeTabs.BUILDING_BLOCKS);
+        registerBlock(false, "dragonwood_sign", DRAGONWOOD_SIGN, CreativeModeTabs.FUNCTIONAL_BLOCKS);
+        registerBlock(false, "dragonwood_wall_sign", DRAGONWOOD_WALL_SIGN, CreativeModeTabs.FUNCTIONAL_BLOCKS);
+        registerBlock(true, "dragonwood_sapling", DRAGONWOOD_SAPLING, CreativeModeTabs.NATURAL_BLOCKS);
+        registerBlock(false, "dino_egg",  DINO_EGG);
+        registerBlock(false, "incubated_dino_egg",  INCUBATED_DINO_EGG);
+        registerBlock(false, "dinotaner", DINOTANER);
 
 
         FlammableBlockRegistry.getDefaultInstance().add(DRAGONWOOD_PLANKS, 5, 20);
@@ -182,17 +182,65 @@ public final class RegisterBlocks {
         return true;
     }
 
-    private static void registerBlock(Block block, CreativeModeTab group, ResourceLocation ID) {
-        registerBlock(block, group, ID, new FabricItemSettings());
+    private static void registerBlock(boolean registerBlockItem, String path, Block block, CreativeModeTab... tabs) {
+        if (registerBlockItem) {
+            registerBlockItem(path, block, tabs);
+        }
+        actualRegisterBlock(path, block);
     }
 
-    private static void registerBlock(Block block, CreativeModeTab group, ResourceLocation ID, Item.Properties settings) {
-        Registry.register(BuiltInRegistries.BLOCK, ID, block);
-        var item = Registry.register(BuiltInRegistries.ITEM, ID, new BlockItem(block, settings));
-        FrozenCreativeTabs.add(item, group);
+    private static void registerBlockBefore(boolean registerBlockItem, ItemLike comparedItem, String path, Block block, CreativeModeTab... tabs) {
+        if (registerBlockItem) {
+            registerBlockItemBefore(comparedItem, path, block, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+        }
+        actualRegisterBlock(path, block);
     }
 
-    private static void registerBlockWithoutBlockItem(Block block, ResourceLocation ID) {
-        Registry.register(BuiltInRegistries.BLOCK, ID, block);
+    private static void registerBlockAfter(boolean registerBlockItem, ItemLike comparedItem, String path, Block block, CreativeModeTab... tabs) {
+        if (registerBlockItem) {
+            registerBlockItemAfter(comparedItem, path, block, tabs);
+        }
+        actualRegisterBlock(path, block);
+    }
+
+    private static void registerBlockItem(String path, Block block, CreativeModeTab... tabs) {
+        actualRegisterBlockItem(path, block);
+        var added = new ArrayList<>(Arrays.stream(tabs).toList());
+        added.add(Dinocraft.ITEM_GROUP);
+        FrozenCreativeTabs.add(block, added.toArray(new CreativeModeTab[]{}));
+    }
+
+    private static void registerBlockItemBefore(ItemLike comparedItem, String name, Block block, CreativeModeTab... tabs) {
+        registerBlockItemBefore(comparedItem, name, block, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+    }
+
+    private static void registerBlockItemBefore(ItemLike comparedItem, String path, Block block, CreativeModeTab.TabVisibility tabVisibility, CreativeModeTab... tabs) {
+        actualRegisterBlockItem(path, block);
+        var added = new ArrayList<>(Arrays.stream(tabs).toList());
+        added.add(Dinocraft.ITEM_GROUP);
+        FrozenCreativeTabs.addBefore(comparedItem, block, tabVisibility, added.toArray(new CreativeModeTab[]{}));
+    }
+
+    private static void registerBlockItemAfter(ItemLike comparedItem, String name, Block block, CreativeModeTab... tabs) {
+        registerBlockItemAfter(comparedItem, name, block, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS, tabs);
+    }
+
+    private static void registerBlockItemAfter(ItemLike comparedItem, String path, Block block, CreativeModeTab.TabVisibility visibility, CreativeModeTab... tabs) {
+        actualRegisterBlockItem(path, block);
+        var added = new ArrayList<>(Arrays.stream(tabs).toList());
+        added.add(Dinocraft.ITEM_GROUP);
+        FrozenCreativeTabs.addAfter(comparedItem, block, visibility, added.toArray(new CreativeModeTab[]{}));
+    }
+
+    private static void actualRegisterBlock(String path, Block block) {
+        if (BuiltInRegistries.BLOCK.getOptional(Dinocraft.id(path)).isEmpty()) {
+            Registry.register(BuiltInRegistries.BLOCK, Dinocraft.id(path), block);
+        }
+    }
+
+    private static void actualRegisterBlockItem(String path, Block block) {
+        if (BuiltInRegistries.ITEM.getOptional(Dinocraft.id(path)).isEmpty()) {
+            Registry.register(BuiltInRegistries.ITEM, Dinocraft.id(path), new BlockItem(block, new FabricItemSettings()));
+        }
     }
 }

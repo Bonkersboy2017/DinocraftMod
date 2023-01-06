@@ -69,20 +69,24 @@ public final class RegisterFeatures {
                 new OreConfiguration(
                         stoneOreReplaceables,
                         RegisterBlocks.SKELETON_ORE.defaultBlockState(),
-                        9) // vein size
+                        9 // vein size
+                )
         );
 
         FeatureUtils.register(context,
                 ORE_BRONZIUM_CONFIGURED,
-                Feature.ORE, new OreConfiguration(
+                Feature.ORE,
+                new OreConfiguration(
                         stoneOreReplaceables,
                         RegisterBlocks.BRONZIUM_ORE.defaultBlockState(),
-                        9) // vein size
+                        9 // vein size
+                )
         );
 
         FeatureUtils.register(context,
                 ORE_FOSSILIZED_STONE_CONFIGURED,
-                Feature.ORE, new OreConfiguration(
+                Feature.ORE,
+                new OreConfiguration(
                         stoneOreReplaceables,
                         RegisterBlocks.FOSSILIZED_STONE.defaultBlockState(),
                         9) // vein size
@@ -93,7 +97,8 @@ public final class RegisterFeatures {
                 Feature.ORE, new OreConfiguration(
                         stoneOreReplaceables,
                         RegisterBlocks.AMBER_ORE.defaultBlockState(),
-                        9) // vein size
+                        9 // vein size
+                )
         );
 
         FeatureUtils.register(context,
@@ -148,7 +153,8 @@ public final class RegisterFeatures {
                 configuredFeatures.getOrThrow(DRAGONWOOD),
                 VegetationPlacements.treePlacement(
                         PlacementUtils.countExtra(1, 0.1f, 1),
-                        Blocks.OAK_SAPLING)
+                        Blocks.OAK_SAPLING
+                )
         );
     }
 
